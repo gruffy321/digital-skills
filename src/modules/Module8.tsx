@@ -230,19 +230,19 @@ export default function Module8() {
                 >
                   {activeSlide.layout === "title" ? (
                     <div className={styles.layoutTitle}>
-                      <div className={styles.titleBox} contentEditable suppressContentEditableWarning onInput={handleHeaderInput} placeholder="Click to add title"></div>
-                      <div className={styles.subtitleBox} contentEditable suppressContentEditableWarning onInput={handleTextInput} placeholder="Click to add subtitle"></div>
+                      <div className={styles.titleBox} contentEditable suppressContentEditableWarning onInput={handleHeaderInput} data-placeholder="Click to add title"></div>
+                      <div className={styles.subtitleBox} contentEditable suppressContentEditableWarning onInput={handleTextInput} data-placeholder="Click to add subtitle"></div>
                     </div>
                   ) : (
                     <div className={styles.layoutContent}>
-                      <div className={styles.headerBox} contentEditable suppressContentEditableWarning onInput={handleHeaderInput} placeholder="Click to add title"></div>
+                      <div className={styles.headerBox} contentEditable suppressContentEditableWarning onInput={handleHeaderInput} data-placeholder="Click to add title"></div>
                       <div className={styles.contentBody}>
                         <div 
                           className={styles.textBox} 
                           contentEditable 
                           suppressContentEditableWarning 
                           onInput={handleTextInput}
-                          placeholder="Click to add text..."
+                          data-placeholder="Click to add text..."
                         ></div>
                         {activeSlide.hasImage ? (
                           <div className={styles.imageBox}>

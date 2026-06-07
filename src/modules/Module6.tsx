@@ -187,7 +187,7 @@ export default function Module6() {
               contentEditable
               suppressContentEditableWarning
               onInput={handleDocumentInput}
-              placeholder="Type your document here..."
+              data-placeholder="Type your document here..."
             >
             </div>
           </div>

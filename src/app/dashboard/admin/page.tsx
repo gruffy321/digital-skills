@@ -56,7 +56,10 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
         {/* Access Codes Section */}
         <section className={`glass-panel ${styles.panel}`}>
           <h3>Access Code Management</h3>
-          <form action={createAccessCode} className={styles.createCodeForm}>
+          <form action={async (formData) => {
+            "use server";
+            await createAccessCode(formData);
+          }} className={styles.createCodeForm}>
             <input type="text" name="code" placeholder="e.g. CLASS-2026" required className={styles.input} />
             <button type="submit" className={styles.submitBtn}>Generate Code</button>
           </form>
