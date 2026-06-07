@@ -1,0 +1,261 @@
+.iconGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: max-content;
+}
+
+.desktopIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+
+.desktopIcon:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.iconImage {
+  font-size: 3rem;
+  text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+.desktopIcon span {
+  font-size: 0.85rem;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+}
+
+.osWindow {
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  width: 700px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  background: rgba(243, 243, 243, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0,0,0,0.1);
+  color: #1a1a1a;
+}
+
+.windowHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1rem;
+  background: transparent;
+  height: 36px;
+}
+
+.windowHeader span {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #1a1a1a;
+}
+
+.windowControls {
+  display: flex;
+  height: 100%;
+}
+
+.windowControls button {
+  width: 46px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #1a1a1a;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  transition: background 0.1s;
+}
+
+.windowControls button:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+.closeBtn:hover {
+  background: #E81123 !important;
+  color: white !important;
+}
+
+.explorerToolbar {
+  display: flex;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  gap: 1rem;
+}
+
+.toolbarBtn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #1a1a1a;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.1s;
+}
+
+.toolbarBtn:hover:not(:disabled) {
+  background: rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.toolbarBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.windowBody {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  background: #ffffff;
+}
+
+.sidebar {
+  width: 180px;
+  border-right: 1px solid rgba(0,0,0,0.1);
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  background: rgba(243, 243, 243, 0.5);
+}
+
+.sidebarItem {
+  padding: 0.5rem 1.5rem;
+  color: #4b5563;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin: 0 0.5rem;
+  border-radius: 4px;
+}
+
+.sidebarItem:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+.sidebarItem.active {
+  background: rgba(0,0,0,0.08);
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+.fileList {
+  flex: 1;
+  padding: 1.5rem;
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.fileItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  width: 80px;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid transparent;
+}
+
+.fileItem:hover {
+  background: rgba(0,0,0,0.03);
+}
+
+.fileItem.selected {
+  background: rgba(0, 120, 212, 0.1);
+  border: 1px solid rgba(0, 120, 212, 0.3);
+}
+
+.fileIcon {
+  font-size: 3rem;
+}
+
+.fileName {
+  font-size: 0.75rem;
+  color: #1a1a1a;
+  word-break: break-word;
+}
+
+.newFolderInput {
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid #818CF8;
+  color: white;
+  font-size: 0.75rem;
+  text-align: center;
+  padding: 0.25rem;
+  border-radius: 2px;
+}
+
+/* Context Menu */
+.contextMenu {
+  position: absolute;
+  background: rgba(30, 30, 30, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  border-radius: 6px;
+  padding: 0.25rem 0;
+  min-width: 150px;
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  animation: fadeIn 0.1s ease;
+}
+
+.contextMenuItem {
+  padding: 0.5rem 1rem;
+  color: #f3f4f6;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.contextMenuItem:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.contextMenuItem.danger {
+  color: #ef4444;
+}
+
+.contextMenuItem.danger:hover {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.contextMenuDivider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0.25rem 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}

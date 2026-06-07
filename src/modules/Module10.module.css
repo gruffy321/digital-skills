@@ -1,0 +1,301 @@
+.iconGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: max-content;
+}
+
+.desktopIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+
+.desktopIcon:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.iconImage {
+  font-size: 3rem;
+  text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+.desktopIcon span {
+  font-size: 0.85rem;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+  color: white;
+}
+
+/* App Window */
+.osWindow {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 900px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.2);
+  color: #242424;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.windowHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1rem;
+  background: #ffffff;
+  height: 32px;
+  border-bottom: 1px solid #e1dfdd;
+}
+
+.windowHeaderTitle {
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #000;
+}
+
+.windowControls {
+  display: flex;
+  height: 100%;
+}
+
+.windowControls button {
+  width: 46px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #000;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  transition: background 0.1s;
+  cursor: pointer;
+}
+
+.windowControls button:hover {
+  background: #e5e5e5;
+}
+
+.closeBtn:hover {
+  background: #E81123 !important;
+  color: white !important;
+}
+
+/* Explorer Ribbon */
+.explorerRibbon {
+  background: #f5f6f7;
+  border-bottom: 1px solid #e1dfdd;
+  display: flex;
+  flex-direction: column;
+}
+
+.ribbonTabs {
+  display: flex;
+  padding: 0.2rem 0.5rem 0;
+}
+
+.ribbonTab {
+  padding: 0.25rem 1rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-bottom: none;
+}
+
+.ribbonTab.active {
+  background: #ffffff;
+  border-color: #e1dfdd;
+  position: relative;
+  top: 1px;
+}
+
+.ribbonToolbar {
+  display: flex;
+  padding: 0.5rem;
+  background: #ffffff;
+  gap: 1rem;
+  border-bottom: 1px solid #e1dfdd;
+}
+
+.ribbonGroup {
+  display: flex;
+  gap: 0.5rem;
+  border-right: 1px solid #e1dfdd;
+  padding-right: 1rem;
+  align-items: center;
+}
+
+.ribbonBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  font-size: 0.75rem;
+  color: #242424;
+}
+
+.ribbonBtn:hover {
+  background: #e5f3ff;
+  border-color: #d8edf9;
+}
+
+/* Main Area */
+.appBody {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 200px;
+  background: #ffffff;
+  border-right: 1px solid #e1dfdd;
+  padding: 1rem 0;
+  overflow-y: auto;
+}
+
+.sidebarItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.sidebarItem:hover {
+  background: #e5f3ff;
+}
+
+.sidebarItem.active {
+  background: #cce8ff;
+}
+
+.sidebarIcon {
+  font-size: 1.2rem;
+  position: relative;
+}
+
+.syncIconOverlay {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  font-size: 0.6rem;
+  background: white;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Main View */
+.mainView {
+  flex: 1;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.addressBarRow {
+  display: flex;
+  padding: 0.5rem;
+  border-bottom: 1px solid #e1dfdd;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.addressInput {
+  flex: 1;
+  border: 1px solid #e1dfdd;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.9rem;
+}
+
+.fileGrid {
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.fileItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  width: 100px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  text-align: center;
+}
+
+.fileItem:hover {
+  background: #e5f3ff;
+  border-color: #d8edf9;
+}
+
+.fileItem.selected {
+  background: #cce8ff;
+  border-color: #99d1ff;
+}
+
+.fileIcon {
+  font-size: 3rem;
+  position: relative;
+}
+
+.fileName {
+  font-size: 0.85rem;
+  word-break: break-word;
+}
+
+/* Status Bar */
+.statusBar {
+  border-top: 1px solid #e1dfdd;
+  background: #f5f6f7;
+  padding: 0.2rem 1rem;
+  font-size: 0.75rem;
+  color: #605e5c;
+  display: flex;
+  justify-content: space-between;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spinning {
+  animation: spin 2s linear infinite;
+}

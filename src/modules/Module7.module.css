@@ -1,0 +1,311 @@
+.iconGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: max-content;
+}
+
+.desktopIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+
+.desktopIcon:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.iconImage {
+  font-size: 3rem;
+  text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+.desktopIcon span {
+  font-size: 0.85rem;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+  color: white;
+}
+
+/* Word Window */
+.osWindow {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 900px;
+  height: 650px;
+  display: flex;
+  flex-direction: column;
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  background: #f3f2f1;
+  border: 1px solid rgba(0,0,0,0.1);
+  color: #242424;
+}
+
+.windowHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1rem;
+  background: #185abd; /* Word Blue */
+  height: 48px;
+  color: white;
+}
+
+.windowHeaderTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.windowControls {
+  display: flex;
+  height: 100%;
+}
+
+.windowControls button {
+  width: 46px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: white;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  transition: background 0.1s;
+  cursor: pointer;
+}
+
+.windowControls button:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.closeBtn:hover {
+  background: #E81123 !important;
+}
+
+/* App Menu & Toolbar */
+.appRibbon {
+  background: #f3f2f1;
+  border-bottom: 1px solid #c8c6c4;
+  display: flex;
+  flex-direction: column;
+}
+
+.menuBar {
+  display: flex;
+  padding: 0 0.5rem;
+}
+
+.menuItem {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  position: relative;
+}
+
+.menuItem:hover, .menuItem.active {
+  background: #ffffff;
+  color: #185abd;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border: 1px solid #c8c6c4;
+  z-index: 10;
+  min-width: 180px;
+}
+
+.dropdownItem {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  color: #242424;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dropdownItem:hover {
+  background: #f3f2f1;
+}
+
+.toolbar {
+  display: flex;
+  padding: 0.5rem;
+  background: #ffffff;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Document Area with Comments Panel */
+.appBody {
+  flex: 1;
+  background: #e1dfdd;
+  display: flex;
+  overflow: hidden;
+}
+
+.scrollArea {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.documentContainer {
+  display: flex;
+  gap: 1rem;
+}
+
+.documentPage {
+  background: white;
+  width: 500px;
+  min-height: 700px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 3rem 4rem;
+  outline: none;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 12pt;
+  line-height: 1.5;
+  color: #000;
+  position: relative;
+}
+
+.docHeader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2.5rem;
+  border-bottom: 1px dashed #c8c6c4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4rem;
+  font-size: 10pt;
+  color: #605e5c;
+  background: #fdfdfd;
+}
+
+.docTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.docTable th, .docTable td {
+  border: 1px solid #000;
+  padding: 0.5rem;
+  min-height: 1.5rem;
+}
+
+.highlightedText {
+  background: #fff4ce;
+  cursor: pointer;
+}
+
+/* Comments Panel */
+.commentsPanel {
+  width: 250px;
+}
+
+.commentCard {
+  background: white;
+  border: 1px solid #c8c6c4;
+  border-radius: 4px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.commentCard::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 15px;
+  border-width: 5px 10px 5px 0;
+  border-style: solid;
+  border-color: transparent #c8c6c4 transparent transparent;
+}
+
+.commentCard::after {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 15px;
+  border-width: 5px 10px 5px 0;
+  border-style: solid;
+  border-color: transparent white transparent transparent;
+}
+
+.commentHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.commentAvatar {
+  width: 24px;
+  height: 24px;
+  background: #0f6cbd;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.commentAuthor {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.commentText {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.commentActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.resolveBtn {
+  background: #0f6cbd;
+  color: white;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.resolveBtn:hover {
+  background: #005a9e;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}

@@ -1,0 +1,116 @@
+.iconGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: max-content;
+}
+
+.desktopIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+
+.desktopIcon:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.iconImage {
+  font-size: 3rem;
+  text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+.desktopIcon span {
+  font-size: 0.85rem;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+}
+
+.osWindow {
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  width: 500px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  background: rgba(30, 30, 30, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.windowHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1rem;
+  background: rgba(0,0,0,0.2);
+  height: 32px;
+}
+
+.windowHeader span {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #f3f4f6;
+}
+
+.windowControls {
+  display: flex;
+  height: 100%;
+}
+
+.windowControls button {
+  width: 46px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #f3f4f6;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  transition: background 0.1s;
+}
+
+.windowControls button:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.closeBtn:hover {
+  background: #E81123 !important;
+  color: white !important;
+}
+
+.windowBody {
+  padding: 1.5rem;
+  flex: 1;
+}
+
+.codeWindow {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  padding: 2rem;
+  text-align: center;
+  animation: popIn 0.3s ease;
+}
+
+.successText {
+  color: var(--success);
+  font-weight: bold;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}

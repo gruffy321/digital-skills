@@ -1,0 +1,42 @@
+import { NextResponse } from 'next/server';
+import { PrismaClient } from '@prisma/client';
+import { getSession } from '@/lib/auth';
+
+const prisma = new PrismaClient();
+
+export async function POST(request: Request) {
+  try {
+    const session = await getSession();
+    if (!session || !session.userId) {
+      return NextResponse.json({ success: false, error: "Unauthorized" }, { status: 401 });
+    }
+
+    const body = await request.json();
+    const { moduleId, actionType, metadataJson } = body;
+
+    // MVP Hack: Ensure the module exists in the database so the foreign key doesn't fail
+    await prisma.module.upsert({
+      where: { id: moduleId },
+      update: {},
+      create: {
+        id: moduleId,
+        title: `Module ${moduleId}`,
+        sequenceNumber: parseInt(moduleId) || 1,
+      }
+    });
+
+    const event = await prisma.eventLog.create({
+      data: {
+        userId: session.userId,
+        moduleId,
+        actionType,
+        metadataJson,
+      },
+    });
+
+    return NextResponse.json({ success: true, event });
+  } catch (error) {
+    console.error("Error logging event:", error);
+    return NextResponse.json({ success: false, error: "Failed to log event" }, { status: 500 });
+  }
+}

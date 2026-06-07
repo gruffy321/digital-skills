@@ -1,0 +1,73 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String     @id @default(uuid())
+  name         String?
+  email        String     @unique
+  passwordHash String
+  role         Role       @default(STUDENT)
+  classCode    String?
+  createdAt    DateTime   @default(now())
+  progress     Progress[]
+  events       EventLog[]
+}
+
+enum Role {
+  STUDENT
+  ADMIN
+}
+
+model Module {
+  id             String     @id @default(uuid())
+  title          String
+  description    String?    @db.Text
+  sequenceNumber Int
+  progress       Progress[]
+  events         EventLog[]
+}
+
+model Progress {
+  id       String         @id @default(uuid())
+  userId   String
+  moduleId String
+  status   ProgressStatus @default(LOCKED)
+  score    Int            @default(0)
+  user     User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  module   Module         @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, moduleId])
+}
+
+enum ProgressStatus {
+  LOCKED
+  IN_PROGRESS
+  COMPLETED
+}
+
+model EventLog {
+  id           String   @id @default(uuid())
+  userId       String
+  moduleId     String
+  actionType   String
+  metadataJson Json?
+  timestamp    DateTime @default(now())
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  module       Module   @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+}
+
+model AccessCode {
+  id        String   @id @default(uuid())
+  code      String   @unique
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+}

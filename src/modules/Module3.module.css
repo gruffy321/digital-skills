@@ -1,0 +1,295 @@
+.iconGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: max-content;
+}
+
+.desktopIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+
+.desktopIcon:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.iconImage {
+  font-size: 3rem;
+  text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+.desktopIcon span {
+  font-size: 0.85rem;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+  color: white;
+}
+
+.osWindow {
+  position: absolute;
+  top: 10%;
+  left: 15%;
+  width: 800px;
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.1);
+  color: #1a1a1a;
+}
+
+/* Browser UI */
+.browserTitleBar {
+  display: flex;
+  background: #dee1e6;
+  height: 40px;
+  align-items: center;
+  padding: 0.5rem 1rem 0 0.5rem;
+}
+
+.browserTabs {
+  display: flex;
+  flex: 1;
+  height: 100%;
+}
+
+.tab {
+  background: #ffffff;
+  border-radius: 8px 8px 0 0;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: #3c4043;
+  width: 200px;
+  box-shadow: 0 -1px 2px rgba(0,0,0,0.05);
+}
+
+.windowControls {
+  display: flex;
+  height: 100%;
+}
+
+.windowControls button {
+  width: 46px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #1a1a1a;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  transition: background 0.1s;
+}
+
+.windowControls button:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+.closeBtn:hover {
+  background: #E81123 !important;
+  color: white !important;
+}
+
+.browserToolbar {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  background: #ffffff;
+  border-bottom: 1px solid #dadce0;
+  gap: 0.5rem;
+}
+
+.navBtns {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.navBtn {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: #5f6368;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navBtn:hover {
+  background: #f1f3f4;
+}
+
+.omniboxForm {
+  flex: 1;
+  display: flex;
+}
+
+.omnibox {
+  flex: 1;
+  background: #f1f3f4;
+  border: 1px solid transparent;
+  border-radius: 24px;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.9rem;
+  color: #202124;
+  outline: none;
+  transition: background 0.2s, border 0.2s;
+}
+
+.omnibox:hover {
+  background: #e8eaed;
+}
+
+.omnibox:focus {
+  background: #ffffff;
+  border: 1px solid #0078D4;
+  box-shadow: 0 1px 6px rgba(32,33,36,0.28);
+}
+
+.browserViewport {
+  flex: 1;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* Simulated Pages */
+.homePage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.searchLogo {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #4285f4;
+  letter-spacing: -2px;
+}
+
+.searchLogo span:nth-child(2) { color: #ea4335; }
+.searchLogo span:nth-child(3) { color: #fbbc05; }
+.searchLogo span:nth-child(4) { color: #4285f4; }
+.searchLogo span:nth-child(5) { color: #34a853; }
+.searchLogo span:nth-child(6) { color: #ea4335; }
+
+.searchContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.fakeSearchBox {
+  width: 80%;
+  max-width: 500px;
+  padding: 1rem 1.5rem;
+  border-radius: 24px;
+  border: 1px solid #dfe1e5;
+  color: #9aa0a6;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.searchHint {
+  margin-top: 2rem;
+  color: #5f6368;
+  font-size: 0.9rem;
+  background: #f8f9fa;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+}
+
+/* Learn Digital Site */
+.learnSite {
+  flex: 1;
+  padding: 3rem;
+  text-align: center;
+}
+
+.learnSite h1 {
+  color: #0078D4;
+  margin-bottom: 1rem;
+}
+
+/* Search Results */
+.searchResults {
+  padding: 2rem 3rem;
+}
+
+.searchStats {
+  color: #70757a;
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+.resultItem {
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.resultUrl {
+  color: #202124;
+  font-size: 0.85rem;
+  margin-bottom: 0.2rem;
+}
+
+.resultTitle {
+  color: #1a0dab;
+  font-size: 1.25rem;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 0;
+}
+
+.resultTitle:hover {
+  text-decoration: underline;
+}
+
+.resultDesc {
+  color: #4d5156;
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+}
+
+.adResult .resultTitle {
+  color: #1a0dab;
+}
+
+.adBadge {
+  font-weight: bold;
+  color: #202124;
+  margin-right: 0.5rem;
+}
+
+.suspiciousUrl {
+  color: #d93025;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
