@@ -65,17 +65,22 @@ export async function loginUser(formData: FormData) {
     return { error: "Email and password are required." };
   }
 
-  const user = await prisma.user.findUnique({ where: { email } });
-  if (!user) {
-    return { error: "Invalid credentials." };
+  try {
+    const user = await prisma.user.findUnique({ where: { email } });
+    if (!user) {
+      return { error: "Invalid credentials." };
+    }
+
+    const isValidPassword = await bcrypt.compare(password, user.passwordHash);
+    if (!isValidPassword) {
+      return { error: "Invalid credentials." };
+    }
+
+    await setSession(user.id, user.role);
+  } catch (error: any) {
+    return { error: `Server Error: ${error.message || "Unknown Prisma error"}` };
   }
 
-  const isValidPassword = await bcrypt.compare(password, user.passwordHash);
-  if (!isValidPassword) {
-    return { error: "Invalid credentials." };
-  }
-
-  await setSession(user.id, user.role);
   redirect("/dashboard");
 }
 
