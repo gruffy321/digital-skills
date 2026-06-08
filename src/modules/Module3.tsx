@@ -8,13 +8,14 @@ export default function Module3() {
   const { taskIndex, nextTask, logEvent } = useModule();
   const [isBrowserOpen, setIsBrowserOpen] = useState(false);
   const [omniboxValue, setOmniboxValue] = useState("");
-  const [currentRoute, setCurrentRoute] = useState<"home" | "learn-site" | "search-results">("home");
+  const [currentRoute, setCurrentRoute] = useState<"home" | "science-facts" | "search-results">("home");
+  const [isBookmarked, setIsBookmarked] = useState(false);
 
   const openBrowser = () => {
     if (taskIndex === 0) {
       logEvent("browser_opened");
       setIsBrowserOpen(true);
-      nextTask();
+      setTimeout(nextTask, 500);
     } else {
       setIsBrowserOpen(true);
     }
@@ -31,33 +32,34 @@ export default function Module3() {
     const val = omniboxValue.trim().toLowerCase();
     
     if (taskIndex === 1) {
-      if (val === "www.learn-digital.org" || val === "http://www.learn-digital.org" || val === "https://www.learn-digital.org") {
+      if (val === "www.science-facts.edu" || val === "http://www.science-facts.edu" || val === "https://www.science-facts.edu") {
         logEvent("url_navigation_success");
-        setCurrentRoute("learn-site");
-        nextTask();
+        setCurrentRoute("science-facts");
+        setTimeout(nextTask, 500);
       } else {
         logEvent("url_navigation_failed");
-        alert("Make sure you type exactly: www.learn-digital.org");
+        setOmniboxValue("Try 'www.science-facts.edu'");
+        setTimeout(() => setOmniboxValue("www.science-facts.edu"), 1500);
       }
     } 
     else if (taskIndex === 2) {
-      if (val === "digital security") {
+      if (val === "climate change facts") {
         logEvent("search_query_success");
         setCurrentRoute("search-results");
-        nextTask();
+        setTimeout(nextTask, 500);
       } else if (!val.includes(".")) {
         logEvent("search_query_partial");
         setCurrentRoute("search-results");
-        // We let them pass if they search anything without a dot for realism,
-        // but the strict task says "digital security". Let's enforce strict for the lesson.
-        alert("Try typing exactly: digital security");
+        setOmniboxValue("Try 'Climate Change Facts'");
+        setTimeout(() => setOmniboxValue("Climate Change Facts"), 1500);
       } else {
-        alert("Please search for 'digital security'. A search term usually doesn't have a .com or .org in it.");
+        setOmniboxValue("Search terms don't have .com");
+        setTimeout(() => setOmniboxValue("Climate Change Facts"), 1500);
       }
     }
     else {
       // Free play after tasks
-      if (val.includes(".")) setCurrentRoute("learn-site");
+      if (val.includes(".")) setCurrentRoute("science-facts");
       else setCurrentRoute("search-results");
     }
   };
@@ -65,15 +67,35 @@ export default function Module3() {
   const clickSafeLink = () => {
     if (taskIndex === 3) {
       logEvent("safe_link_clicked");
-      setCurrentRoute("learn-site");
-      nextTask();
+      setCurrentRoute("science-facts");
+      setOmniboxValue("www.science-facts.edu");
+      setTimeout(nextTask, 500);
     }
   };
 
   const clickPhishingLink = () => {
     if (taskIndex === 3) {
       logEvent("phishing_link_clicked");
-      alert("WARNING! You clicked a suspicious link. Did you notice the URL was 'free-iphones-scam.biz'? Always check the URL before clicking!");
+      alert("WARNING! You clicked a suspicious link. Did you notice the URL was '.biz'? Always check the URL before clicking!");
+    }
+  };
+
+  const answerQuiz = (isCorrect: boolean) => {
+    if (taskIndex === 4 && isCorrect) {
+      logEvent('QUIZ_PASSED');
+      nextTask();
+    } else if (taskIndex === 4) {
+      alert("Incorrect! Look at the domain (.edu) and author (National Science Institute).");
+    }
+  };
+
+  const toggleBookmark = () => {
+    if (taskIndex === 5 && currentRoute === "science-facts") {
+      logEvent("page_bookmarked");
+      setIsBookmarked(true);
+      setTimeout(nextTask, 500);
+    } else {
+      setIsBookmarked(!isBookmarked);
     }
   };
 
@@ -82,7 +104,7 @@ export default function Module3() {
       <div className={styles.iconGrid}>
         <div className={styles.desktopIcon} onDoubleClick={openBrowser}>
           <span className={styles.iconImage}>🌐</span>
-          <span>Web Browser</span>
+          <span>Microsoft Edge</span>
         </div>
       </div>
 
@@ -91,7 +113,7 @@ export default function Module3() {
           <div className={styles.browserTitleBar}>
             <div className={styles.browserTabs}>
               <div className={styles.tab}>
-                <span>🌐</span> {currentRoute === "home" ? "New Tab" : currentRoute === "learn-site" ? "Learn Digital" : "Search Results"}
+                <span>🌐</span> {currentRoute === "home" ? "New Tab" : currentRoute === "science-facts" ? "Science Facts" : "Search Results"}
               </div>
             </div>
             <div className={styles.windowControls}>
@@ -117,6 +139,13 @@ export default function Module3() {
                 autoFocus
               />
             </form>
+            <button 
+              className={`${styles.bookmarkBtn} ${isBookmarked ? styles.bookmarked : ''}`}
+              onClick={toggleBookmark}
+              title="Bookmark this page"
+            >
+              {isBookmarked ? "★" : "☆"}
+            </button>
           </div>
 
           <div className={styles.browserViewport}>
@@ -130,48 +159,66 @@ export default function Module3() {
                     <span>🔍</span> Search the web or type a URL
                   </div>
                 </div>
-                {taskIndex === 1 && <div className={styles.searchHint}>Task: Type <strong>www.learn-digital.org</strong> in the address bar above.</div>}
-                {taskIndex === 2 && <div className={styles.searchHint}>Task: Type <strong>digital security</strong> in the address bar above.</div>}
+                {taskIndex === 1 && <div className={styles.searchHint}>Task: Type <strong>www.science-facts.edu</strong> in the address bar above.</div>}
+                {taskIndex === 2 && <div className={styles.searchHint}>Task: Type <strong>Climate Change Facts</strong> in the address bar above.</div>}
               </div>
             )}
 
-            {currentRoute === "learn-site" && (
+            {currentRoute === "science-facts" && (
               <div className={styles.learnSite}>
-                <h1>Welcome to Learn Digital</h1>
-                <p>This is a safe, educational website.</p>
-                {taskIndex >= 4 && <p><strong>Congratulations! You passed the Internet Safety test.</strong></p>}
+                <h1>National Science Institute</h1>
+                <p>Welcome to our educational database. All facts are peer-reviewed by leading scientists.</p>
+                {taskIndex === 5 && <div className={styles.searchHint}>Great choice! Now, Bookmark this page using the Star icon in the toolbar.</div>}
+                {taskIndex >= 6 && <p><strong>Congratulations! You passed the Research test.</strong></p>}
               </div>
             )}
 
             {currentRoute === "search-results" && (
               <div className={styles.searchResults}>
-                <div className={styles.searchStats}>About 14,000,000 results (0.42 seconds)</div>
+                <div className={styles.searchStats}>About 2,140,000 results (0.33 seconds)</div>
                 
                 <div className={`${styles.resultItem} ${styles.adResult}`}>
                   <div className={styles.resultUrl}>
                     <span className={styles.adBadge}>Sponsored</span>
-                    <span className={styles.suspiciousUrl}>http://www.free-iphones-scam.biz/claim</span>
+                    <span className={styles.suspiciousUrl}>http://www.climate-change-hoax-exposed.biz</span>
                   </div>
                   <h3 className={styles.resultTitle} onClick={clickPhishingLink}>
-                    FREE IPHONE 15 - CLAIM NOW! No Credit Card Required!
+                    The TRUTH about Climate Change - It's a HOAX!
                   </h3>
                   <div className={styles.resultDesc}>
-                    Click here to claim your free device! 100% legit, totally not a scam. Just enter your Social Security Number and banking details to cover shipping.
+                    Click here to read the real truth that scientists don't want you to know! Written by anonymous user "TruthSeeker99". Buy our survival kits now!
                   </div>
                 </div>
 
                 <div className={styles.resultItem}>
-                  <div className={styles.resultUrl}>https://www.learn-digital.org › security</div>
+                  <div className={styles.resultUrl}>https://www.science-facts.edu › climate</div>
                   <h3 className={styles.resultTitle} onClick={clickSafeLink}>
-                    Digital Security Basics: How to Stay Safe Online
+                    Climate Change: Facts and Evidence - National Science Institute
                   </h3>
                   <div className={styles.resultDesc}>
-                    Learn the fundamentals of digital security. Protect yourself against phishing, scams, and identify theft by verifying URLs and avoiding suspicious links.
+                    Peer-reviewed research and empirical evidence regarding global climate shifts. Published by Dr. Sarah Jenkins, PhD in Climatology.
                   </div>
                 </div>
 
               </div>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* Quiz Window */}
+      {taskIndex === 4 && (
+        <div className={`glass-panel ${styles.quizWindow}`}>
+          <div style={{background: 'rgba(0,0,0,0.8)', inset: 0, position: 'fixed', zIndex: -1}} />
+          <div style={{position: 'relative', zIndex: 1}}>
+            <h3>Fact or Fake?</h3>
+            <p>Why was the second link a reliable source?</p>
+            <div className={styles.quizButtons}>
+              <button onClick={() => answerQuiz(false)}>A) Because it was listed second.</button>
+              <button onClick={() => answerQuiz(true)}>B) It had an .edu domain and listed a real scientist as the author.</button>
+              <button onClick={() => answerQuiz(false)}>C) It had "Truth" in the title.</button>
+              <button onClick={() => answerQuiz(false)}>D) Because it was sponsored.</button>
+            </div>
           </div>
         </div>
       )}

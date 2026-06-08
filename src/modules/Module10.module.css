@@ -299,3 +299,106 @@
 .spinning {
   animation: spin 2s linear infinite;
 }
+
+/* Quiz Modal */
+.modalOverlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.quizModal {
+  width: 500px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: popIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.quizHeader {
+  padding: 1rem 1.5rem;
+  background: #0078d4; /* OneDrive blue */
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.quizBody {
+  padding: 1.5rem;
+}
+
+.quizQuestion {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #242424;
+}
+
+.quizOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quizOption {
+  padding: 0.75rem 1rem;
+  border: 1px solid #c8c6c4;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  text-align: left;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  color: #242424;
+}
+
+.quizOption:hover {
+  background: #f3f2f1;
+  border-color: #8a8886;
+}
+
+.quizOption.correct {
+  background: #e8f5e9;
+  border-color: #4caf50;
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.quizOption.incorrect {
+  background: #fde7e9;
+  border-color: #d13438;
+  color: #a4262c;
+}
+
+/* Context Menu */
+.contextMenu {
+  position: fixed;
+  background: white;
+  border: 1px solid #c8c6c4;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 0.25rem 0;
+  z-index: 200;
+  min-width: 150px;
+}
+
+.contextMenuItem {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  color: #242424;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contextMenuItem:hover {
+  background: #f3f2f1;
+}

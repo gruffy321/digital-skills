@@ -266,6 +266,7 @@
   width: 95%;
   height: 95%;
   background: white;
+  color: #242424;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -279,17 +280,17 @@
   position: absolute;
   bottom: 20px;
   right: 20px;
-  background: rgba(255,255,255,0.2);
+  background: rgba(0, 0, 0, 0.7);
   color: white;
-  border: 1px solid white;
+  border: none;
   padding: 0.5rem 1rem;
   cursor: pointer;
   border-radius: 4px;
+  z-index: 10;
 }
 
 .exitPresentationBtn:hover {
-  background: white;
-  color: black;
+  background: rgba(0, 0, 0, 0.9);
 }
 
 /* Title Slide Layout */
@@ -407,3 +408,237 @@
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+/* Modal Overlay */
+.modalOverlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+/* File Picker Modal */
+.saveModal {
+  width: 550px;
+  height: 450px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: popIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: #f3f2f1;
+  border-bottom: 1px solid #edebe9;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #242424;
+}
+
+.modalBody {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.filePickerSidebar {
+  width: 140px;
+  background: #f9f9f9;
+  border-right: 1px solid #edebe9;
+  padding: 1rem 0;
+}
+
+.filePickerSidebarItem {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  color: #242424;
+  cursor: pointer;
+}
+
+.filePickerSidebarItem:hover {
+  background: #edebe9;
+}
+
+.filePickerSidebarItem.active {
+  background: #e1dfdd;
+  font-weight: 600;
+}
+
+.filePickerContent {
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow-y: auto;
+}
+
+.contentRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid #edebe9;
+  cursor: pointer;
+}
+
+.contentRow:hover {
+  background: #f3f2f1;
+}
+
+.contentRow.active {
+  background: #e1dfdd;
+}
+
+.fileListHeader {
+  font-size: 0.8rem;
+  color: #605e5c;
+  font-weight: 600;
+  border-bottom: 1px solid #c8c6c4;
+  padding-bottom: 0.25rem;
+}
+
+.modalFooter {
+  padding: 1rem;
+  border-top: 1px solid #edebe9;
+  background: #f3f2f1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.modalBtn {
+  padding: 0.4rem 1rem;
+  background: white;
+  border: 1px solid #c8c6c4;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #242424;
+}
+
+.modalBtn.primary {
+  background: #c43e1c;
+  color: white;
+  border-color: #c43e1c;
+  font-weight: 600;
+}
+
+.modalBtn.primary:hover {
+  background: #9c3116;
+}
+
+/* Custom Alert Modal */
+.alertModal {
+  width: 400px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: popIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.alertHeader {
+  padding: 1rem;
+  background: #fde7e9;
+  border-bottom: 1px solid #edebe9;
+  font-weight: 600;
+  color: #d13438;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.alertBody {
+  padding: 1.5rem;
+  font-size: 0.95rem;
+  color: #242424;
+  line-height: 1.5;
+}
+
+.alertFooter {
+  padding: 1rem;
+  background: #f3f2f1;
+  border-top: 1px solid #edebe9;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Quiz Modal */
+.quizModal {
+  width: 500px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: popIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.quizHeader {
+  padding: 1rem 1.5rem;
+  background: #c43e1c;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.quizBody {
+  padding: 1.5rem;
+}
+
+.quizQuestion {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #242424;
+}
+
+.quizOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quizOption {
+  padding: 0.75rem 1rem;
+  border: 1px solid #c8c6c4;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  text-align: left;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  color: #242424;
+}
+
+.quizOption:hover {
+  background: #f3f2f1;
+  border-color: #8a8886;
+}
+
+.quizOption.correct {
+  background: #e8f5e9;
+  border-color: #4caf50;
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.quizOption.incorrect {
+  background: #fde7e9;
+  border-color: #d13438;
+  color: #a4262c;
+}
+

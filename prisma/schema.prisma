@@ -40,10 +40,11 @@ model Progress {
   id       String         @id @default(uuid())
   userId   String
   moduleId String
-  status   ProgressStatus @default(LOCKED)
-  score    Int            @default(0)
-  user     User           @relation(fields: [userId], references: [id], onDelete: Cascade)
-  module   Module         @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  status    ProgressStatus @default(LOCKED)
+  score     Int            @default(0)
+  stateJson Json?
+  user      User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  module    Module         @relation(fields: [moduleId], references: [id], onDelete: Cascade)
 
   @@unique([userId, moduleId])
 }

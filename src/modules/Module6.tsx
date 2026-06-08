@@ -1,235 +1,184 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import styles from "./Module6.module.css";
 import { useModule } from "@/components/ModuleWrapper";
+import Quiz, { QuizQuestion } from "@/components/Quiz";
+
+const QUIZ_QUESTIONS: QuizQuestion[] = [
+  {
+    question: "What does the 'B' button on the formatting toolbar do?",
+    options: ["Makes the text Blue", "Brings the text to the bottom", "Makes the text Bold", "Backspaces the text"],
+    correctAnswerIndex: 2
+  },
+  {
+    question: "What must you do BEFORE you can make a word bold?",
+    options: ["Save the document", "Highlight (Select) the word", "Close the application", "Type it in all caps"],
+    correctAnswerIndex: 1
+  },
+  {
+    question: "Why should you avoid using symbols like * and / in file names?",
+    options: ["They look messy", "They are illegal", "The computer uses them for system paths and it causes errors", "They take up too much memory"],
+    correctAnswerIndex: 2
+  }
+];
 
 export default function Module6() {
   const { taskIndex, nextTask, logEvent } = useModule();
-  const [isAppOpen, setIsAppOpen] = useState(false);
   
-  // Document state
-  const [documentText, setDocumentText] = useState("");
+  const [isWordOpen, setIsWordOpen] = useState(false);
+  const [docText, setDocText] = useState("");
   const [isBold, setIsBold] = useState(false);
-  
-  // Menu and Modals
-  const [isFileMenuOpen, setIsFileMenuOpen] = useState(false);
-  const [isSaveModalOpen, setIsSaveModalOpen] = useState(false);
-  const [filenameInput, setFilenameInput] = useState("");
+  const [isCenter, setIsCenter] = useState(false);
+  const [isSaved, setIsSaved] = useState(false);
+  const [showSaveDialog, setShowSaveDialog] = useState(false);
+  const [fileName, setFileName] = useState("");
+  const [showQuiz, setShowQuiz] = useState(false);
 
-  const pageRef = useRef<HTMLDivElement>(null);
-
-  const openApp = () => {
-    setIsAppOpen(true);
-    if (taskIndex === 0 && !isAppOpen) {
-      logEvent("word_processor_opened");
+  const handleOpenWord = () => {
+    if (taskIndex === 0) {
+      setIsWordOpen(true);
+      logEvent("opened_word");
     }
   };
 
-  const handleBoldClick = (e: React.MouseEvent) => {
-    e.preventDefault(); // Prevent losing text selection
-    document.execCommand('bold', false, undefined);
-    
-    // Check if they correctly bolded the word "important"
-    if (pageRef.current) {
-      const html = pageRef.current.innerHTML.toLowerCase();
-      // Browsers might use <b> or <strong> when execCommand bold is called
-      if (html.includes("<b>important</b>") || html.includes("<strong>important</strong>")) {
-        logEvent("text_formatted_bold_correctly");
-        if (taskIndex === 0) nextTask();
-      } else if (taskIndex === 0) {
-        // Did they select anything?
-        const selection = window.getSelection();
-        if (!selection || selection.toString().length === 0) {
-          alert("You must highlight (select) the word you want to make bold first!");
-        } else {
-          alert("Make sure you type the sentence 'Digital skills are important' and highlight just the word 'important' to make it bold.");
-        }
-      }
-    }
-  };
-
-  const handleDocumentInput = (e: React.FormEvent<HTMLDivElement>) => {
-    const text = e.currentTarget.textContent || "";
-    setDocumentText(text);
-  };
-
-  const handleMenuClick = (menu: string) => {
-    if (menu === "File") {
-      setIsFileMenuOpen(!isFileMenuOpen);
-    } else {
-      setIsFileMenuOpen(false);
-    }
-  };
-
-  const handleSaveAsClick = () => {
-    setIsFileMenuOpen(false);
-    setIsSaveModalOpen(true);
-    if (taskIndex === 1) {
-      logEvent("save_as_clicked");
+  const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setDocText(e.target.value);
+    if (taskIndex === 0 && e.target.value.toLowerCase().includes("school sports day")) {
       nextTask();
     }
   };
 
-  const handleSaveSubmit = () => {
-    const name = filenameInput.trim();
-    
-    if (name.length === 0) {
-      alert("Filename cannot be empty.");
-      return;
-    }
+  const toggleBold = () => {
+    setIsBold(!isBold);
+    checkFormatting(!isBold, isCenter);
+  };
 
-    // 1. Check for unacceptable symbols
-    const badSymbols = /[\\/:*?"<>|]/;
-    if (badSymbols.test(name)) {
-      logEvent("filename_invalid_symbols");
-      alert("Unacceptable Symbols Detected!\n\nYou cannot use \\ / : * ? \" < > | in a filename. These special characters confuse the computer's filing system.");
-      return;
-    }
+  const toggleCenter = () => {
+    setIsCenter(!isCenter);
+    checkFormatting(isBold, !isCenter);
+  };
 
-    // 2. Check for profanity (simple check for demo purposes)
-    const lowercaseName = name.toLowerCase();
-    const badWords = ["crap", "shit", "fuck", "bitch", "ass", "stupid", "idiot", "hate"];
-    if (badWords.some(word => lowercaseName.includes(word))) {
-      logEvent("filename_profanity");
-      alert("Inappropriate Language!\n\nSchool computer usage policies prohibit the use of inappropriate language, even in file names. Please choose a professional name.");
-      return;
+  const checkFormatting = (bold: boolean, center: boolean) => {
+    if (taskIndex === 1 && bold && center) {
+      logEvent("formatted_text_bold_center");
+      nextTask();
     }
+  };
 
-    // 3. Check for lazy/non-descriptive names
-    const lazyNames = ["document", "doc", "asdf", "test", "homework", "file", "untitled"];
-    if (lazyNames.includes(lowercaseName) || name.length < 4) {
-      logEvent("filename_lazy");
-      alert("Poor Naming Convention!\n\n'"+name+"' is not descriptive enough. If you have 100 files named 'document', you will never find what you are looking for. Try adding a subject or a date (e.g., 'Digital_Skills_Homework_May25').");
-      return;
-    }
-
-    // Pass!
+  const handleSaveClick = () => {
     if (taskIndex === 2) {
-      logEvent("file_saved_successfully");
-      setIsSaveModalOpen(false);
-      nextTask();
-    } else {
-      setIsSaveModalOpen(false);
-      alert(`File saved successfully as: ${name}.docx`);
+      setShowSaveDialog(true);
     }
+  };
+
+  const handleSaveConfirm = () => {
+    if (fileName === "Sports_Flyer") {
+      setIsSaved(true);
+      setShowSaveDialog(false);
+      logEvent("saved_document_correctly");
+      nextTask();
+      setTimeout(() => setShowQuiz(true), 1500);
+    } else {
+      alert("Please name the file exactly 'Sports_Flyer' (without quotes).");
+    }
+  };
+
+  const handleQuizComplete = () => {
+    setShowQuiz(false);
+    logEvent("passed_module4_quiz");
+    nextTask();
   };
 
   return (
-    <div style={{ width: "100%", height: "100%", position: "relative" }}>
-      <div className={styles.iconGrid}>
-        <div className={styles.desktopIcon} onDoubleClick={openApp}>
-          <span className={styles.iconImage}>📝</span>
-          <span>Word</span>
+    <div className={styles.desktop}>
+      {!isWordOpen && (
+        <div className={styles.iconGrid}>
+          <div className={styles.desktopIcon} onDoubleClick={handleOpenWord}>
+            <span className={styles.iconImage}>📝</span>
+            <span>Word Processor</span>
+          </div>
         </div>
-      </div>
+      )}
 
-      {isAppOpen && (
-        <div className={styles.osWindow}>
+      {isWordOpen && (
+        <div className={styles.wordWindow}>
           <div className={styles.windowHeader}>
-            <div className={styles.windowHeaderTitle}>
-              <span>📝</span> Document1 - Word Processor
-            </div>
+            <span>{isSaved ? fileName + ".docx" : "Untitled Document"} - Word Processor</span>
             <div className={styles.windowControls}>
-              <button>—</button>
-              <button>□</button>
-              <button className={styles.closeBtn} onClick={() => setIsAppOpen(false)}>✕</button>
+              <span>—</span><span>□</span><span>✕</span>
             </div>
           </div>
-
-          <div className={styles.appRibbon}>
+          
+          <div className={styles.toolbar}>
             <div className={styles.menuBar}>
-              <div className={`${styles.menuItem} ${isFileMenuOpen ? styles.active : ""}`} onClick={() => handleMenuClick("File")}>
-                File
-                {isFileMenuOpen && (
-                  <div className={styles.fileDropdown}>
-                    <div className={styles.dropdownItem} onClick={() => setIsFileMenuOpen(false)}>New</div>
-                    <div className={styles.dropdownItem} onClick={() => setIsFileMenuOpen(false)}>Open...</div>
-                    <div className={styles.dropdownItem} onClick={() => setIsFileMenuOpen(false)}>Save</div>
-                    <div className={styles.dropdownItem} onClick={handleSaveAsClick}>Save As...</div>
-                  </div>
-                )}
-              </div>
-              <div className={styles.menuItem} onClick={() => handleMenuClick("Home")}>Home</div>
-              <div className={styles.menuItem} onClick={() => handleMenuClick("Insert")}>Insert</div>
-              <div className={styles.menuItem} onClick={() => handleMenuClick("View")}>View</div>
+              <span onClick={handleSaveClick} className={taskIndex === 2 ? styles.highlightMenu : ""}>File</span>
+              <span>Edit</span>
+              <span>View</span>
+              <span>Insert</span>
             </div>
-
-            <div className={styles.toolbar}>
+            <div className={styles.formatBar}>
               <button 
-                className={`${styles.toolbarBtn}`} 
-                onMouseDown={handleBoldClick}
-                title="Bold"
+                className={`${styles.formatBtn} ${isBold ? styles.activeBtn : ""}`} 
+                onClick={toggleBold}
               >
                 <b>B</b>
               </button>
-              <button className={styles.toolbarBtn} title="Italic"><i>I</i></button>
-              <button className={styles.toolbarBtn} title="Underline"><u>U</u></button>
-              <div style={{ width: "1px", height: "20px", background: "#c8c6c4", margin: "0 0.5rem" }}></div>
-              <select style={{ padding: "0.25rem", border: "1px solid #c8c6c4", borderRadius: "4px" }}>
-                <option>Arial</option>
-                <option>Times New Roman</option>
-                <option>Calibri</option>
-              </select>
-              <select style={{ padding: "0.25rem", border: "1px solid #c8c6c4", borderRadius: "4px" }}>
-                <option>12</option>
-                <option>14</option>
-                <option>16</option>
-                <option>24</option>
-              </select>
+              <button className={styles.formatBtn}><i>I</i></button>
+              <button className={styles.formatBtn}><u>U</u></button>
+              <div className={styles.divider}></div>
+              <button className={styles.formatBtn}>⫷</button>
+              <button 
+                className={`${styles.formatBtn} ${isCenter ? styles.activeBtn : ""}`}
+                onClick={toggleCenter}
+              >
+                ≡
+              </button>
+              <button className={styles.formatBtn}>⫸</button>
             </div>
           </div>
 
-          <div className={styles.appBody}>
-            <div 
-              ref={pageRef}
-              className={styles.documentPage}
-              contentEditable
-              suppressContentEditableWarning
-              onInput={handleDocumentInput}
-              data-placeholder="Type your document here..."
-            >
+          <div className={styles.pageArea}>
+            <div className={styles.page}>
+              <textarea
+                className={`${styles.docInput} ${isBold ? styles.boldText : ""} ${isCenter ? styles.centerText : ""}`}
+                value={docText}
+                onChange={handleTextChange}
+                placeholder="Start typing here..."
+              />
             </div>
           </div>
         </div>
       )}
 
-      {isSaveModalOpen && (
+      {showSaveDialog && (
         <div className={styles.modalOverlay}>
-          <div className={styles.saveModal}>
-            <div className={styles.modalHeader}>
-              💾 Save As
+          <div className={styles.saveDialog}>
+            <div className={styles.saveHeader}>Save As...</div>
+            <div className={styles.saveBody}>
+              <label>File name:</label>
+              <input 
+                type="text" 
+                value={fileName} 
+                onChange={e => setFileName(e.target.value)} 
+                placeholder="e.g. Sports_Flyer"
+              />
             </div>
-            <div className={styles.modalBody}>
-              <div className={styles.inputGroup}>
-                <label>Where to save:</label>
-                <select className={styles.fileNameInput} disabled>
-                  <option>📁 Documents / Homework</option>
-                </select>
-              </div>
-              <div className={styles.inputGroup}>
-                <label>File name:</label>
-                <input 
-                  type="text" 
-                  className={styles.fileNameInput} 
-                  value={filenameInput}
-                  onChange={(e) => setFilenameInput(e.target.value)}
-                  placeholder="Enter a descriptive filename..."
-                  autoFocus
-                />
-              </div>
-              <p style={{ fontSize: "0.85rem", color: "#605e5c", margin: 0 }}>
-                Save as type: Word Document (*.docx)
-              </p>
-            </div>
-            <div className={styles.modalFooter}>
-              <button className={styles.modalBtn} onClick={() => setIsSaveModalOpen(false)}>Cancel</button>
-              <button className={`${styles.modalBtn} ${styles.primary}`} onClick={handleSaveSubmit}>Save</button>
+            <div className={styles.saveFooter}>
+              <button onClick={handleSaveConfirm} className={styles.primaryBtn}>Save</button>
+              <button onClick={() => setShowSaveDialog(false)}>Cancel</button>
             </div>
           </div>
         </div>
       )}
 
+      {showQuiz && (
+        <Quiz 
+          title="Module 4 Knowledge Check" 
+          questions={QUIZ_QUESTIONS} 
+          onComplete={handleQuizComplete} 
+        />
+      )}
     </div>
   );
 }

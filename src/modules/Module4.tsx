@@ -3,17 +3,26 @@
 import { useState } from "react";
 import styles from "./Module4.module.css";
 import { useModule } from "@/components/ModuleWrapper";
+import Quiz from "@/components/Quiz";
 
 export default function Module4() {
   const { taskIndex, nextTask, logEvent } = useModule();
   const [isAppOpen, setIsAppOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState<"requests" | "feed" | "settings">("requests");
+  const [activeTab, setActiveTab] = useState<"login" | "feed" | "requests" | "settings">("login");
   
-  // State for interactive elements
+  // Login State
+  const [passwordInput, setPasswordInput] = useState("");
+  const [loginError, setLoginError] = useState("");
+
+  // Action States
   const [requestDenied, setRequestDenied] = useState(false);
-  const [postReported, setPostReported] = useState(false);
-  const [showReportMenu, setShowReportMenu] = useState(false);
+  const [phishingReported, setPhishingReported] = useState(false);
+  const [bullyingReported, setBullyingReported] = useState(false);
   const [isPrivate, setIsPrivate] = useState(false);
+  
+  // Menus
+  const [showPhishingMenu, setShowPhishingMenu] = useState(false);
+  const [showBullyingMenu, setShowBullyingMenu] = useState(false);
 
   const openApp = () => {
     setIsAppOpen(true);
@@ -22,192 +31,219 @@ export default function Module4() {
     }
   };
 
-  const handleDenyStranger = () => {
+  const handleLoginSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
     if (taskIndex === 0) {
-      logEvent("stranger_denied_success");
-      setRequestDenied(true);
-      nextTask();
-      setActiveTab("feed"); // auto-move to feed for task 2
+      const hasNumber = /\\d/.test(passwordInput);
+      const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/.test(passwordInput);
+      
+      if (passwordInput.length < 8) {
+        setLoginError("Password must be at least 8 characters.");
+      } else if (!hasNumber) {
+        setLoginError("Password must contain a number.");
+      } else if (!hasSymbol) {
+        setLoginError("Password must contain a symbol.");
+      } else {
+        logEvent("strong_password_created");
+        setLoginError("");
+        setActiveTab("requests");
+        setTimeout(nextTask, 500);
+      }
     }
   };
 
-  const handleAcceptStranger = () => {
-    if (taskIndex === 0) {
-      logEvent("stranger_accepted_failed");
-      alert("WARNING: Never accept friend requests from adults or people you do not know in real life. Please 'Deny' the request.");
+  const handleDenyRequest = () => {
+    setRequestDenied(true);
+    if (taskIndex === 1) {
+      logEvent("stranger_danger_denied");
+      setTimeout(() => {
+        setActiveTab("feed");
+        nextTask();
+      }, 500);
+    }
+  };
+
+  const handleReportPhishing = () => {
+    setPhishingReported(true);
+    setShowPhishingMenu(false);
+    if (taskIndex === 2) {
+      logEvent("phishing_reported");
+      setTimeout(nextTask, 500);
     }
   };
 
   const handleReportBullying = () => {
-    if (taskIndex === 1) {
+    setBullyingReported(true);
+    setShowBullyingMenu(false);
+    if (taskIndex === 3) {
       logEvent("cyberbullying_reported");
-      setPostReported(true);
-      setShowReportMenu(false);
-      nextTask();
-      setActiveTab("settings"); // auto-move to settings for task 3
+      setTimeout(() => {
+        setActiveTab("settings");
+        nextTask();
+      }, 500);
     }
   };
 
-  const handleTogglePrivacy = () => {
-    if (taskIndex === 2) {
-      if (!isPrivate) {
-        logEvent("account_set_private");
-        setIsPrivate(true);
-        nextTask();
-      }
-    } else {
-      setIsPrivate(!isPrivate);
+  const togglePrivacy = () => {
+    setIsPrivate(!isPrivate);
+    if (taskIndex === 4 && !isPrivate) {
+      logEvent("privacy_enabled");
+      setTimeout(nextTask, 500);
     }
   };
+
+  const handleQuizComplete = () => {
+    logEvent("module4_quiz_completed");
+    nextTask();
+  };
+
+  // If we are on the Quiz task (Task 5)
+  if (taskIndex === 5) {
+    return (
+      <div className={styles.quizContainer}>
+        <Quiz 
+          title="Module 4 Quiz"
+          questions={[
+            { question: "What is the best way to handle a friend request from someone you don't know?", options: ["Accept it", "Message them", "Deny it", "Share it"], correctAnswerIndex: 2 },
+            { question: "Which password is the strongest?", options: ["password123", "P@ssw0rd2024!", "dog", "12345678"], correctAnswerIndex: 1 },
+            { question: "What should you do if you see cyberbullying?", options: ["Like it", "Report it", "Join in", "Ignore it"], correctAnswerIndex: 1 },
+            { question: "Why should your account be private?", options: ["To hide from friends", "To get famous", "To protect personal data from strangers", "To save battery"], correctAnswerIndex: 2 },
+            { question: "If a link offers 'Free V-Bucks', it is likely:", options: ["A great deal", "A phishing scam", "A mistake", "A school project"], correctAnswerIndex: 1 }
+          ]} 
+          onComplete={handleQuizComplete} 
+        />
+      </div>
+    );
+  }
 
   return (
-    <div style={{ width: "100%", height: "100%", position: "relative" }}>
-      <div className={styles.iconGrid}>
-        <div className={styles.desktopIcon} onDoubleClick={openApp}>
-          <span className={styles.iconImage}>📱</span>
+    <div className={styles.container}>
+      {!isAppOpen ? (
+        <button onClick={openApp} className={styles.desktopIcon}>
+          <div className={styles.iconSquare} style={{ background: '#3b5998' }}>S</div>
           <span>SocialNet</span>
-        </div>
-      </div>
-
-      {isAppOpen && (
-        <div className={styles.osWindow}>
-          <div className={styles.windowHeader}>
-            <span>SocialNet App</span>
+        </button>
+      ) : (
+        <div className={styles.appWindow}>
+          <div className={styles.appHeader}>
             <div className={styles.windowControls}>
-              <button>—</button>
-              <button>□</button>
-              <button className={styles.closeBtn} onClick={() => setIsAppOpen(false)}>✕</button>
+              <span className={styles.closeBtn} onClick={() => setIsAppOpen(false)}></span>
+              <span className={styles.minBtn}></span>
+              <span className={styles.maxBtn}></span>
             </div>
-          </div>
-          
-          <div className={styles.appHeader}>SocialNet</div>
-          
-          <div className={styles.navBar}>
-            <button 
-              className={`${styles.navTab} ${activeTab === "requests" ? styles.active : ""}`}
-              onClick={() => setActiveTab("requests")}
-            >👥 Requests {taskIndex === 0 && "🔴"}</button>
-            <button 
-              className={`${styles.navTab} ${activeTab === "feed" ? styles.active : ""}`}
-              onClick={() => setActiveTab("feed")}
-            >📰 Feed {taskIndex === 1 && "🔴"}</button>
-            <button 
-              className={`${styles.navTab} ${activeTab === "settings" ? styles.active : ""}`}
-              onClick={() => setActiveTab("settings")}
-            >⚙️ Settings {taskIndex === 2 && "🔴"}</button>
+            SocialNet
           </div>
 
-          <div className={styles.appBody}>
-            
-            {activeTab === "requests" && (
-              <>
-                {!requestDenied && (
-                  <div className={styles.requestCard}>
-                    <div className={styles.avatar}>👤</div>
-                    <div className={styles.requestInfo}>
-                      <div className={styles.requestName}>JohnDoe45 (Age: 45)</div>
-                      <div className={styles.requestMutual}>0 mutual friends · Lives in Florida</div>
-                    </div>
-                    <div className={styles.requestActions}>
-                      <button className={styles.acceptBtn} onClick={handleAcceptStranger}>Accept</button>
-                      <button className={styles.denyBtn} onClick={handleDenyStranger}>Deny</button>
-                    </div>
+          {activeTab === "login" ? (
+            <div className={styles.loginScreen}>
+              <h2>Welcome to SocialNet</h2>
+              <form onSubmit={handleLoginSubmit} className={styles.loginForm}>
+                <input type="text" placeholder="Username" defaultValue="student123" disabled />
+                <input 
+                  type="password" 
+                  placeholder="Create a strong password" 
+                  value={passwordInput} 
+                  onChange={(e) => setPasswordInput(e.target.value)} 
+                />
+                {loginError && <p className={styles.error}>{loginError}</p>}
+                <button type="submit" className={styles.loginBtn}>Secure Account & Login</button>
+              </form>
+            </div>
+          ) : (
+            <div className={styles.appBody}>
+              <div className={styles.sidebar}>
+                <button className={activeTab === "requests" ? styles.activeTab : ""} onClick={() => setActiveTab("requests")}>Requests</button>
+                <button className={activeTab === "feed" ? styles.activeTab : ""} onClick={() => setActiveTab("feed")}>Feed</button>
+                <button className={activeTab === "settings" ? styles.activeTab : ""} onClick={() => setActiveTab("settings")}>Settings</button>
+              </div>
+
+              <div className={styles.contentArea}>
+                {activeTab === "requests" && (
+                  <div className={styles.requestsTab}>
+                    <h3>Friend Requests</h3>
+                    {!requestDenied ? (
+                      <div className={styles.requestCard}>
+                        <div className={styles.avatar}>?</div>
+                        <div className={styles.requestInfo}>
+                          <h4>JohnDoe45</h4>
+                          <p>0 mutual friends</p>
+                        </div>
+                        <div className={styles.requestActions}>
+                          <button className={styles.acceptBtn} onClick={() => alert("Are you sure? You don't know this person!")}>Accept</button>
+                          <button className={styles.denyBtn} onClick={handleDenyRequest}>Deny</button>
+                        </div>
+                      </div>
+                    ) : (
+                      <p>No new requests.</p>
+                    )}
                   </div>
                 )}
-                
-                <div className={styles.requestCard}>
-                  <div className={styles.avatar}>👧</div>
-                  <div className={styles.requestInfo}>
-                    <div className={styles.requestName}>Sarah Smith</div>
-                    <div className={styles.requestMutual}>12 mutual friends · Goes to your school</div>
-                  </div>
-                  <div className={styles.requestActions}>
-                    <button className={styles.acceptBtn}>Accept</button>
-                    <button className={styles.denyBtn}>Deny</button>
-                  </div>
-                </div>
-              </>
-            )}
 
-            {activeTab === "feed" && (
-              <>
-                <div className={styles.postCard}>
-                  <div className={styles.postHeader}>
-                    <div className={styles.postAuthor}>
-                      <div className={styles.smallAvatar}>🐶</div>
-                      <span>CoolDude99</span>
-                    </div>
-                    <button className={styles.postOptionsBtn}>...</button>
-                  </div>
-                  <div className={styles.postContent}>
-                    Just finished my homework! Time to play some video games. 🎮
-                  </div>
-                  <div className={styles.postActions}>
-                    <span>👍 Like</span>
-                    <span>💬 Comment</span>
-                  </div>
-                </div>
-
-                {!postReported ? (
-                  <div className={styles.postCard}>
-                    <div className={styles.postHeader}>
-                      <div className={styles.postAuthor}>
-                        <div className={styles.smallAvatar}>👿</div>
-                        <span>AnonymousHater</span>
-                      </div>
-                      <div style={{ position: "relative" }}>
-                        <button 
-                          className={styles.postOptionsBtn} 
-                          onClick={() => setShowReportMenu(!showReportMenu)}
-                        >...</button>
-                        {showReportMenu && (
-                          <div className={styles.reportMenu}>
-                            <div className={styles.reportItem} onClick={handleReportBullying}>
-                              🚩 Report: Cyberbullying
-                            </div>
+                {activeTab === "feed" && (
+                  <div className={styles.feedTab}>
+                    <h3>Your Feed</h3>
+                    
+                    {/* Phishing Post */}
+                    {!phishingReported && (
+                      <div className={styles.post}>
+                        <div className={styles.postHeader}>
+                          <strong>GamingGifts</strong>
+                          <div className={styles.postOptions}>
+                            <button onClick={() => setShowPhishingMenu(!showPhishingMenu)}>...</button>
+                            {showPhishingMenu && (
+                              <div className={styles.dropdownMenu}>
+                                <button onClick={handleReportPhishing} className={styles.reportBtn}>Report Phishing</button>
+                              </div>
+                            )}
                           </div>
-                        )}
+                        </div>
+                        <p>Click here for FREE V-Bucks! Just enter your password! 💰💰💰</p>
+                        <div className={styles.scamLink}>www.free-vbucks-secure-login.xyz</div>
                       </div>
-                    </div>
-                    <div className={styles.postContent}>
-                      Mr. Johnson is the WORST teacher ever. He smells terrible and everyone hates him. Also, did you hear what happened to Jessica? She is such a loser! 😂🤡
-                    </div>
-                    <div className={styles.postActions}>
-                      <span>👍 Like</span>
-                      <span>💬 Comment</span>
-                    </div>
-                  </div>
-                ) : (
-                  <div className={styles.postCard} style={{ background: "#e8f5e9", color: "#2e7d32", textAlign: "center", padding: "2rem" }}>
-                    ✅ Post Reported and removed from your feed. Thank you for keeping SocialNet safe!
+                    )}
+
+                    {/* Cyberbullying Post */}
+                    {!bullyingReported && (
+                      <div className={styles.post}>
+                        <div className={styles.postHeader}>
+                          <strong>MeanStudent99</strong>
+                          <div className={styles.postOptions}>
+                            <button onClick={() => setShowBullyingMenu(!showBullyingMenu)}>...</button>
+                            {showBullyingMenu && (
+                              <div className={styles.dropdownMenu}>
+                                <button onClick={handleReportBullying} className={styles.reportBtn}>Report Bullying</button>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                        <p>Mr. Johnson is the worst teacher ever. He looks so stupid today! 😂</p>
+                      </div>
+                    )}
+
+                    {(phishingReported && bullyingReported) && <p>You are all caught up!</p>}
                   </div>
                 )}
-              </>
-            )}
 
-            {activeTab === "settings" && (
-              <>
-                <div className={styles.settingsSection}>
-                  <h3>Account Privacy</h3>
-                  <div className={styles.settingRow}>
-                    <div>
-                      <strong>Private Account</strong>
-                      <div style={{ fontSize: "0.85rem", color: "#65676B", marginTop: "0.25rem" }}>
-                        When your account is public, anyone can see your photos and school information. Switch to Private so only approved friends can see your posts.
+                {activeTab === "settings" && (
+                  <div className={styles.settingsTab}>
+                    <h3>Privacy & Safety</h3>
+                    <div className={styles.settingItem}>
+                      <div>
+                        <h4>Private Account</h4>
+                        <p>Only approved followers can see your posts.</p>
                       </div>
-                    </div>
-                    <div 
-                      className={`${styles.toggleSwitch} ${isPrivate ? styles.on : ""}`}
-                      onClick={handleTogglePrivacy}
-                    >
-                      <div className={styles.toggleKnob}></div>
+                      <button 
+                        className={`${styles.toggleBtn} ${isPrivate ? styles.toggleOn : ""}`}
+                        onClick={togglePrivacy}
+                      >
+                        {isPrivate ? "ON" : "OFF"}
+                      </button>
                     </div>
                   </div>
-                </div>
-              </>
-            )}
-
-          </div>
+                )}
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>

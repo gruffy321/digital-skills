@@ -12,8 +12,21 @@ export default function Module9() {
   const [activeCell, setActiveCell] = useState("A1");
   const [formulaInput, setFormulaInput] = useState("");
 
+  const [isQuizOpen, setIsQuizOpen] = useState(false);
+  const [quizAnswered, setQuizAnswered] = useState<string | null>(null);
+
+  const [isSelecting, setIsSelecting] = useState(false);
+  const [selectionStart, setSelectionStart] = useState<string | null>(null);
+  const [selectionEnd, setSelectionEnd] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handleGlobalMouseUp = () => setIsSelecting(false);
+    window.addEventListener("mouseup", handleGlobalMouseUp);
+    return () => window.removeEventListener("mouseup", handleGlobalMouseUp);
+  }, []);
+
   const columns = ["A", "B", "C", "D"];
-  const rows = [1, 2, 3, 4, 5, 6, 7];
+  const rows = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   const openApp = () => {
     setIsAppOpen(true);
@@ -32,16 +45,24 @@ export default function Module9() {
     try {
       const cleanFormula = formula.toUpperCase().replace(/\s/g, "");
       
-      if (cleanFormula.startsWith("=SUM(")) {
-        const rangeStr = cleanFormula.substring(5, cleanFormula.indexOf(")"));
+      const extractRange = (prefix: string) => {
+        const rangeStr = cleanFormula.substring(prefix.length, cleanFormula.indexOf(")"));
         const [startCell, endCell] = rangeStr.split(":");
         if (startCell && endCell && startCell[0] === endCell[0]) {
           const col = startCell[0];
           const startRow = parseInt(startCell.substring(1));
           const endRow = parseInt(endCell.substring(1));
+          return { col, startRow, endRow };
+        }
+        return null;
+      };
+
+      if (cleanFormula.startsWith("=SUM(")) {
+        const range = extractRange("=SUM(");
+        if (range) {
           let sum = 0;
-          for (let i = startRow; i <= endRow; i++) {
-            sum += parseFloat(getCellValue(`${col}${i}`)) || 0;
+          for (let i = range.startRow; i <= range.endRow; i++) {
+            sum += parseFloat(getCellValue(`${range.col}${i}`)) || 0;
           }
           return sum.toString();
         }
@@ -49,17 +70,56 @@ export default function Module9() {
       }
 
       if (cleanFormula.startsWith("=COUNTA(")) {
-        const rangeStr = cleanFormula.substring(8, cleanFormula.indexOf(")"));
-        const [startCell, endCell] = rangeStr.split(":");
-        if (startCell && endCell && startCell[0] === endCell[0]) {
-          const col = startCell[0];
-          const startRow = parseInt(startCell.substring(1));
-          const endRow = parseInt(endCell.substring(1));
+        const range = extractRange("=COUNTA(");
+        if (range) {
           let count = 0;
-          for (let i = startRow; i <= endRow; i++) {
-            if (getCellValue(`${col}${i}`).trim() !== "") count++;
+          for (let i = range.startRow; i <= range.endRow; i++) {
+            if (getCellValue(`${range.col}${i}`).trim() !== "") count++;
           }
           return count.toString();
+        }
+        return "#REF!";
+      }
+
+      if (cleanFormula.startsWith("=AVERAGE(")) {
+        const range = extractRange("=AVERAGE(");
+        if (range) {
+          let sum = 0;
+          let count = 0;
+          for (let i = range.startRow; i <= range.endRow; i++) {
+            const val = parseFloat(getCellValue(`${range.col}${i}`));
+            if (!isNaN(val)) {
+              sum += val;
+              count++;
+            }
+          }
+          return count > 0 ? (sum / count).toFixed(2).replace(/\.00$/, "") : "#DIV/0!";
+        }
+        return "#REF!";
+      }
+
+      if (cleanFormula.startsWith("=MAX(")) {
+        const range = extractRange("=MAX(");
+        if (range) {
+          let max = -Infinity;
+          for (let i = range.startRow; i <= range.endRow; i++) {
+            const val = parseFloat(getCellValue(`${range.col}${i}`));
+            if (!isNaN(val) && val > max) max = val;
+          }
+          return max === -Infinity ? "0" : max.toString();
+        }
+        return "#REF!";
+      }
+
+      if (cleanFormula.startsWith("=MIN(")) {
+        const range = extractRange("=MIN(");
+        if (range) {
+          let min = Infinity;
+          for (let i = range.startRow; i <= range.endRow; i++) {
+            const val = parseFloat(getCellValue(`${range.col}${i}`));
+            if (!isNaN(val) && val < min) min = val;
+          }
+          return min === Infinity ? "0" : min.toString();
         }
         return "#REF!";
       }
@@ -70,22 +130,108 @@ export default function Module9() {
     }
   };
 
+  const updateFormulaWithSelection = (start: string, end: string) => {
+    const startCol = start[0];
+    const startRow = parseInt(start.substring(1));
+    const endCol = end[0];
+    const endRow = parseInt(end.substring(1));
+    
+    const minCol = startCol < endCol ? startCol : endCol;
+    const maxCol = startCol > endCol ? startCol : endCol;
+    const minRow = Math.min(startRow, endRow);
+    const maxRow = Math.max(startRow, endRow);
+    
+    const rangeStr = start === end ? start : `${minCol}${minRow}:${maxCol}${maxRow}`;
+
+    const bracketIndex = formulaInput.lastIndexOf("(");
+    if (bracketIndex !== -1) {
+      const newFormula = formulaInput.substring(0, bracketIndex + 1) + rangeStr;
+      setFormulaInput(newFormula);
+      setGridData(prev => ({ ...prev, [activeCell]: newFormula }));
+    }
+  };
+
+  const handleMouseDown = (cellId: string) => {
+    const cleanFormula = formulaInput.toUpperCase().replace(/\s/g, "");
+    if (/=(SUM|COUNTA|AVERAGE|MAX|MIN)\([A-Z0-9:]*$/.test(cleanFormula)) {
+      setIsSelecting(true);
+      setSelectionStart(cellId);
+      setSelectionEnd(cellId);
+      updateFormulaWithSelection(cellId, cellId);
+    }
+  };
+
+  const handleMouseEnter = (cellId: string) => {
+    if (isSelecting && selectionStart) {
+      setSelectionEnd(cellId);
+      updateFormulaWithSelection(selectionStart, cellId);
+    }
+  };
+
+  const isCellSelected = (cellId: string) => {
+    if (!selectionStart || !selectionEnd) return false;
+
+    const cCol = cellId[0];
+    const cRow = parseInt(cellId.substring(1));
+    const sCol = selectionStart[0];
+    const sRow = parseInt(selectionStart.substring(1));
+    const eCol = selectionEnd[0];
+    const eRow = parseInt(selectionEnd.substring(1));
+
+    const minCol = sCol < eCol ? sCol : eCol;
+    const maxCol = sCol > eCol ? sCol : eCol;
+    const minRow = Math.min(sRow, eRow);
+    const maxRow = Math.max(sRow, eRow);
+
+    return cCol >= minCol && cCol <= maxCol && cRow >= minRow && cRow <= maxRow;
+  };
+
   const handleCellCommit = (value: string) => {
+    setSelectionStart(null);
+    setSelectionEnd(null);
+    const cleanValue = value.toUpperCase().replace(/\s/g, "");
     if (taskIndex === 0) {
       if (Object.values(gridData).filter(v => v.trim() !== "").length >= 6) {
         logEvent("data_entry_completed");
         nextTask();
       }
     } else if (taskIndex === 1) {
-      if (value.toUpperCase().replace(/\s/g, "").startsWith("=SUM(")) {
+      if (cleanValue.startsWith("=SUM(")) {
         logEvent("sum_formula_entered");
         nextTask();
       }
     } else if (taskIndex === 2) {
-      if (value.toUpperCase().replace(/\s/g, "").startsWith("=COUNTA(")) {
+      if (cleanValue.startsWith("=COUNTA(")) {
         logEvent("counta_formula_entered");
         nextTask();
       }
+    } else if (taskIndex === 3) {
+      if (cleanValue.startsWith("=AVERAGE(")) {
+        logEvent("average_formula_entered");
+        nextTask();
+      }
+    } else if (taskIndex === 4) {
+      if (cleanValue.startsWith("=MAX(")) {
+        logEvent("max_formula_entered");
+        nextTask();
+      }
+    } else if (taskIndex === 5) {
+      if (cleanValue.startsWith("=MIN(")) {
+        logEvent("min_formula_entered");
+        nextTask();
+        setTimeout(() => setIsQuizOpen(true), 1500);
+      }
+    }
+  };
+
+  const handleQuizAnswer = (answer: string, isCorrect: boolean) => {
+    setQuizAnswered(answer);
+    if (isCorrect && taskIndex === 6) {
+      logEvent("module9_quiz_passed");
+      setTimeout(() => {
+        setIsQuizOpen(false);
+        nextTask();
+      }, 1500);
     }
   };
 
@@ -174,10 +320,13 @@ export default function Module9() {
                     return (
                       <div 
                         key={cellId} 
-                        className={`${styles.dataCell} ${isFocus ? styles.active : ""}`}
+                        className={`${styles.dataCell} ${isFocus ? styles.active : ""} ${isCellSelected(cellId) ? styles.selectedCell : ""}`}
                         onClick={() => handleCellClick(cellId)}
+                        onMouseDown={() => handleMouseDown(cellId)}
+                        onMouseEnter={() => handleMouseEnter(cellId)}
                       >
                         <input
+                          id={`input-${cellId}`}
                           className={styles.cellInput}
                           value={isFocus ? formulaInput : displayValue}
                           onChange={(e) => {
@@ -188,7 +337,23 @@ export default function Module9() {
                           onBlur={(e) => handleCellCommit(e.target.value)}
                           onKeyDown={(e) => {
                             if (e.key === "Enter") {
+                              e.preventDefault();
                               e.currentTarget.blur();
+                              
+                              // Calculate next cell down
+                              const currentRowIndex = rows.indexOf(row);
+                              if (currentRowIndex < rows.length - 1) {
+                                const nextRow = rows[currentRowIndex + 1];
+                                const nextCellId = `${col}${nextRow}`;
+                                
+                                // Focus the next cell
+                                setTimeout(() => {
+                                  const nextInput = document.getElementById(`input-${nextCellId}`);
+                                  if (nextInput) {
+                                    nextInput.focus();
+                                  }
+                                }, 10);
+                              }
                             }
                           }}
                         />
@@ -201,6 +366,49 @@ export default function Module9() {
           </div>
         </div>
       )}
+
+      {/* Quiz Modal */}
+      {isQuizOpen && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.quizModal}>
+            <div className={styles.quizHeader}>
+              Module 9 Knowledge Check
+            </div>
+            <div className={styles.quizBody}>
+              <div className={styles.quizQuestion}>
+                What symbol must you type at the beginning of a cell to let the spreadsheet know you are writing a formula?
+              </div>
+              <div className={styles.quizOptions}>
+                <button 
+                  className={`${styles.quizOption} ${quizAnswered === "A" ? styles.incorrect : ""}`}
+                  onClick={() => handleQuizAnswer("A", false)}
+                >
+                  A) +
+                </button>
+                <button 
+                  className={`${styles.quizOption} ${quizAnswered === "B" ? styles.incorrect : ""}`}
+                  onClick={() => handleQuizAnswer("B", false)}
+                >
+                  B) @
+                </button>
+                <button 
+                  className={`${styles.quizOption} ${quizAnswered === "C" ? styles.correct : ""}`}
+                  onClick={() => handleQuizAnswer("C", true)}
+                >
+                  C) =
+                </button>
+                <button 
+                  className={`${styles.quizOption} ${quizAnswered === "D" ? styles.incorrect : ""}`}
+                  onClick={() => handleQuizAnswer("D", false)}
+                >
+                  D) #
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }

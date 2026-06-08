@@ -7,7 +7,7 @@ import { useModule } from "@/components/ModuleWrapper";
 type Slide = {
   id: number;
   layout: "title" | "title-content";
-  hasImage: boolean;
+  imageUrl: string | null;
   textContent: string;
   headerContent: string;
   transition: string;
@@ -19,11 +19,20 @@ export default function Module8() {
   
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [slides, setSlides] = useState<Slide[]>([
-    { id: 1, layout: "title", hasImage: false, textContent: "", headerContent: "", transition: "none" }
+    { id: 1, layout: "title", imageUrl: null, textContent: "", headerContent: "", transition: "none" }
   ]);
   const [activeSlideId, setActiveSlideId] = useState(1);
   const [isPresenting, setIsPresenting] = useState(false);
   const [presentationSlideIndex, setPresentationSlideIndex] = useState(0);
+
+  // Modals
+  const [alertMessage, setAlertMessage] = useState<{ title: string; body: string } | null>(null);
+  const [isImagePickerOpen, setIsImagePickerOpen] = useState(false);
+  const [selectedFile, setSelectedFile] = useState<string | null>(null);
+
+  // Quiz
+  const [isQuizOpen, setIsQuizOpen] = useState(false);
+  const [quizAnswered, setQuizAnswered] = useState<string | null>(null);
 
   const activeSlide = slides.find(s => s.id === activeSlideId);
   const presentationSlide = slides[presentationSlideIndex];
@@ -44,7 +53,7 @@ export default function Module8() {
     const newSlide: Slide = {
       id: slides.length + 1,
       layout,
-      hasImage: false,
+      imageUrl: null,
       textContent: "",
       headerContent: "",
       transition: "none"
@@ -60,14 +69,36 @@ export default function Module8() {
 
   const handleInsertImage = () => {
     setActiveMenu(null);
-    if (activeSlide && activeSlide.layout === "title-content" && !activeSlide.hasImage) {
-      setSlides(slides.map(s => s.id === activeSlideId ? { ...s, hasImage: true } : s));
+    if (activeSlide && activeSlide.layout === "title-content" && !activeSlide.imageUrl) {
+      setIsImagePickerOpen(true);
+      setSelectedFile(null);
+    } else {
+      setAlertMessage({ title: "Wrong Slide Layout", body: "Please select a 'Title and Content' slide to insert an image." });
+    }
+  };
+
+  const handleImagePickerSubmit = () => {
+    if (!selectedFile) {
+      setAlertMessage({ title: "No Selection", body: "Please select an image to insert." });
+      return;
+    }
+
+    if (selectedFile === "cat_meme.png") {
+      logEvent("selected_unprofessional_image");
+      setAlertMessage({ 
+        title: "Unprofessional Choice!", 
+        body: "While that cat is hilarious, it's not appropriate for a professional Science Project presentation. Please select a relevant image." 
+      });
+      return;
+    }
+
+    if (selectedFile === "science_graph.png") {
+      setIsImagePickerOpen(false);
+      setSlides(slides.map(s => s.id === activeSlideId ? { ...s, imageUrl: "/science_graph.png" } : s));
       if (taskIndex === 1) {
         logEvent("inserted_image");
         nextTask();
       }
-    } else {
-      alert("Please select a 'Title and Content' slide to insert an image.");
     }
   };
 
@@ -87,7 +118,10 @@ export default function Module8() {
     // Wall of Text Adjudicator
     if (activeSlide && activeSlide.textContent.length > 200) {
       logEvent("wall_of_text_blocked");
-      alert("Too much text!\n\nYour audience will spend their time reading the slide instead of listening to you. Try breaking this into shorter bullet points (under 200 characters total) before applying a transition.");
+      setAlertMessage({
+        title: "Too much text!",
+        body: "Your audience will spend their time reading the slide instead of listening to you. Try breaking this into shorter bullet points (under 200 characters total) before applying a transition."
+      });
       return;
     }
 
@@ -106,6 +140,19 @@ export default function Module8() {
     if (taskIndex === 3) {
       logEvent("started_presentation");
       nextTask();
+      // Wait a moment then open the quiz
+      setTimeout(() => setIsQuizOpen(true), 2000);
+    }
+  };
+
+  const handleQuizAnswer = (answer: string, isCorrect: boolean) => {
+    setQuizAnswered(answer);
+    if (isCorrect && taskIndex === 4) {
+      logEvent("module8_quiz_passed");
+      setTimeout(() => {
+        setIsQuizOpen(false);
+        nextTask();
+      }, 1500);
     }
   };
 
@@ -212,7 +259,7 @@ export default function Module8() {
                       ) : (
                         <div>
                           <h3>{slide.headerContent || "Content Slide"}</h3>
-                          {slide.hasImage && <div style={{width: '50px', height: '50px', background: '#ccc'}}></div>}
+                          {slide.imageUrl && <div style={{width: '50px', height: '50px', background: '#ccc'}}></div>}
                         </div>
                       )}
                     </div>
@@ -244,9 +291,9 @@ export default function Module8() {
                           onInput={handleTextInput}
                           data-placeholder="Click to add text..."
                         ></div>
-                        {activeSlide.hasImage ? (
-                          <div className={styles.imageBox}>
-                            🏞️
+                        {activeSlide.imageUrl ? (
+                          <div className={styles.imageBox} style={{ border: 'none', background: 'transparent' }}>
+                            <img src={activeSlide.imageUrl} alt="Inserted" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
                           </div>
                         ) : (
                           <div className={styles.imageBox} style={{ borderStyle: "dashed", opacity: 0.5 }}>
@@ -284,9 +331,9 @@ export default function Module8() {
                 <div className={styles.headerBox} style={{ border: 'none' }}>{presentationSlide.headerContent || ""}</div>
                 <div className={styles.contentBody}>
                   <div className={styles.textBox} style={{ border: 'none' }}>{presentationSlide.textContent || ""}</div>
-                  {presentationSlide.hasImage && (
+                  {presentationSlide.imageUrl && (
                     <div className={styles.imageBox} style={{ border: 'none', background: 'transparent' }}>
-                      🏞️
+                      <img src={presentationSlide.imageUrl} alt="Inserted" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
                     </div>
                   )}
                 </div>
@@ -296,6 +343,113 @@ export default function Module8() {
           <button className={styles.exitPresentationBtn} onClick={(e) => { e.stopPropagation(); setIsPresenting(false); }}>
             Exit Slide Show (Esc)
           </button>
+        </div>
+      )}
+
+      {/* Image Picker Modal */}
+      {isImagePickerOpen && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.saveModal}>
+            <div className={styles.modalHeader}>
+              <span>Insert Image</span>
+              <button className={styles.closeBtn} onClick={() => setIsImagePickerOpen(false)} style={{background: 'transparent', border: 'none', cursor: 'pointer'}}>✕</button>
+            </div>
+            
+            <div className={styles.modalBody}>
+              <div className={styles.filePickerSidebar}>
+                <div className={styles.filePickerSidebarItem}>Desktop</div>
+                <div className={styles.filePickerSidebarItem}>Documents</div>
+                <div className={styles.filePickerSidebarItem}>Downloads</div>
+                <div className={`${styles.filePickerSidebarItem} ${styles.active}`}>Pictures</div>
+              </div>
+              <div className={styles.filePickerContent}>
+                <div className={styles.fileListHeader}>Name</div>
+                
+                <div 
+                  className={`${styles.contentRow} ${selectedFile === "cat_meme.png" ? styles.active : ""}`}
+                  onClick={() => setSelectedFile("cat_meme.png")}
+                  onDoubleClick={() => { setSelectedFile("cat_meme.png"); handleImagePickerSubmit(); }}
+                >
+                  <img src="/cat_meme.png" alt="Cat Meme" style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '4px' }} />
+                  <span style={{ fontSize: '0.9rem' }}>cat_meme.png</span>
+                </div>
+
+                <div 
+                  className={`${styles.contentRow} ${selectedFile === "science_graph.png" ? styles.active : ""}`}
+                  onClick={() => setSelectedFile("science_graph.png")}
+                  onDoubleClick={() => { setSelectedFile("science_graph.png"); handleImagePickerSubmit(); }}
+                >
+                  <img src="/science_graph.png" alt="Science Graph" style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '4px' }} />
+                  <span style={{ fontSize: '0.9rem' }}>science_graph.png</span>
+                </div>
+                
+              </div>
+            </div>
+
+            <div className={styles.modalFooter}>
+              <button className={styles.modalBtn} onClick={() => setIsImagePickerOpen(false)}>Cancel</button>
+              <button className={`${styles.modalBtn} ${styles.primary}`} onClick={handleImagePickerSubmit}>Insert</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Custom Alert Modal */}
+      {alertMessage && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.alertModal}>
+            <div className={styles.alertHeader}>
+              <span>⚠️</span> {alertMessage.title}
+            </div>
+            <div className={styles.alertBody}>
+              {alertMessage.body}
+            </div>
+            <div className={styles.alertFooter}>
+              <button className={`${styles.modalBtn} ${styles.primary}`} onClick={() => setAlertMessage(null)}>OK</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Quiz Modal */}
+      {isQuizOpen && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.quizModal}>
+            <div className={styles.quizHeader}>
+              Module 8 Knowledge Check
+            </div>
+            <div className={styles.quizBody}>
+              <div className={styles.quizQuestion}>
+                According to the "Wall of Text" rule, what is the problem with putting 5 paragraphs of text on a presentation slide?
+              </div>
+              <div className={styles.quizOptions}>
+                <button 
+                  className={`${styles.quizOption} ${quizAnswered === "A" ? styles.incorrect : ""}`}
+                  onClick={() => handleQuizAnswer("A", false)}
+                >
+                  A) The computer will run out of memory.
+                </button>
+                <button 
+                  className={`${styles.quizOption} ${quizAnswered === "B" ? styles.incorrect : ""}`}
+                  onClick={() => handleQuizAnswer("B", false)}
+                >
+                  B) The text will automatically shrink until it is invisible.
+                </button>
+                <button 
+                  className={`${styles.quizOption} ${quizAnswered === "C" ? styles.correct : ""}`}
+                  onClick={() => handleQuizAnswer("C", true)}
+                >
+                  C) Your audience will read the screen instead of listening to you speak.
+                </button>
+                <button 
+                  className={`${styles.quizOption} ${quizAnswered === "D" ? styles.incorrect : ""}`}
+                  onClick={() => handleQuizAnswer("D", false)}
+                >
+                  D) It prevents you from adding animations.
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       )}
 

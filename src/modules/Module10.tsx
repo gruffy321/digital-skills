@@ -16,6 +16,12 @@ export default function Module10() {
   
   const [syncStatus, setSyncStatus] = useState<"none" | "syncing" | "synced">("none");
 
+  const [activeTab, setActiveTab] = useState<"Home" | "Share" | "View">("Home");
+  const [isQuizOpen, setIsQuizOpen] = useState(false);
+  const [quizAnswered, setQuizAnswered] = useState<string | null>(null);
+
+  const [contextMenu, setContextMenu] = useState<{ x: number; y: number; file: string } | null>(null);
+
   const openApp = () => {
     setIsAppOpen(true);
     if (!isAppOpen) {
@@ -26,6 +32,7 @@ export default function Module10() {
   const handleNavigate = (folder: "local" | "cloud") => {
     setActiveFolder(folder);
     setSelectedFile(null);
+    setContextMenu(null);
     
     if (taskIndex === 0 && folder === "local") {
       logEvent("navigated_to_local");
@@ -39,6 +46,7 @@ export default function Module10() {
       setCloudFiles([...cloudFiles, selectedFile]);
       setSyncStatus("syncing");
       setSelectedFile(null);
+      setContextMenu(null);
       
       if (taskIndex === 1) {
         logEvent("moved_file_to_cloud");
@@ -54,6 +62,40 @@ export default function Module10() {
         logEvent("sync_completed_green_check");
         nextTask();
       }
+    }
+  };
+
+  const handleShareLink = () => {
+    if (activeFolder === "cloud" && (selectedFile || contextMenu?.file)) {
+      setContextMenu(null);
+      if (taskIndex === 3) {
+        logEvent("shared_file_link");
+        nextTask();
+        setTimeout(() => setIsQuizOpen(true), 1500);
+      }
+    }
+  };
+
+  const handleContextMenu = (e: React.MouseEvent, file: string) => {
+    e.preventDefault();
+    setSelectedFile(file);
+    setContextMenu({ x: e.clientX, y: e.clientY, file });
+  };
+
+  useEffect(() => {
+    const handleClickOutside = () => setContextMenu(null);
+    window.addEventListener("click", handleClickOutside);
+    return () => window.removeEventListener("click", handleClickOutside);
+  }, []);
+
+  const handleQuizAnswer = (answer: string, isCorrect: boolean) => {
+    setQuizAnswered(answer);
+    if (isCorrect && taskIndex === 4) {
+      logEvent("module10_quiz_passed");
+      setTimeout(() => {
+        setIsQuizOpen(false);
+        nextTask();
+      }, 1500);
     }
   };
 
@@ -94,23 +136,44 @@ export default function Module10() {
 
           <div className={styles.explorerRibbon}>
             <div className={styles.ribbonTabs}>
-              <div className={`${styles.ribbonTab} ${styles.active}`}>Home</div>
-              <div className={styles.ribbonTab}>Share</div>
-              <div className={styles.ribbonTab}>View</div>
+              <div 
+                className={`${styles.ribbonTab} ${activeTab === "Home" ? styles.active : ""}`}
+                onClick={() => setActiveTab("Home")}
+              >Home</div>
+              <div 
+                className={`${styles.ribbonTab} ${activeTab === "Share" ? styles.active : ""}`}
+                onClick={() => setActiveTab("Share")}
+              >Share</div>
+              <div 
+                className={`${styles.ribbonTab} ${activeTab === "View" ? styles.active : ""}`}
+                onClick={() => setActiveTab("View")}
+              >View</div>
             </div>
             <div className={styles.ribbonToolbar}>
-              <div className={styles.ribbonGroup}>
-                <button className={styles.ribbonBtn} onClick={handleMoveToOneDrive} disabled={activeFolder !== "local" || !selectedFile}>
-                  <span style={{ fontSize: "1.5rem" }}>➡️☁️</span>
-                  <span>Move to OneDrive</span>
-                </button>
-              </div>
-              <div className={styles.ribbonGroup}>
-                <button className={styles.ribbonBtn} onClick={handleRefreshSync} disabled={syncStatus !== "syncing"}>
-                  <span style={{ fontSize: "1.5rem" }}>🔄</span>
-                  <span>Refresh Sync</span>
-                </button>
-              </div>
+              {activeTab === "Home" && (
+                <>
+                  <div className={styles.ribbonGroup}>
+                    <button className={styles.ribbonBtn} onClick={handleMoveToOneDrive} disabled={activeFolder !== "local" || !selectedFile}>
+                      <span style={{ fontSize: "1.5rem" }}>➡️☁️</span>
+                      <span>Move to OneDrive</span>
+                    </button>
+                  </div>
+                  <div className={styles.ribbonGroup}>
+                    <button className={styles.ribbonBtn} onClick={handleRefreshSync} disabled={syncStatus !== "syncing"}>
+                      <span style={{ fontSize: "1.5rem" }}>🔄</span>
+                      <span>Refresh Sync</span>
+                    </button>
+                  </div>
+                </>
+              )}
+              {activeTab === "Share" && (
+                <div className={styles.ribbonGroup}>
+                  <button className={styles.ribbonBtn} onClick={handleShareLink} disabled={activeFolder !== "cloud" || !selectedFile}>
+                    <span style={{ fontSize: "1.5rem" }}>🔗</span>
+                    <span>Copy Share Link</span>
+                  </button>
+                </div>
+              )}
             </div>
           </div>
 
@@ -159,6 +222,7 @@ export default function Module10() {
                     key={file} 
                     className={`${styles.fileItem} ${selectedFile === file ? styles.selected : ""}`}
                     onClick={() => setSelectedFile(file)}
+                    onContextMenu={(e) => handleContextMenu(e, file)}
                   >
                     <div className={styles.fileIcon}>
                       📝
@@ -189,6 +253,68 @@ export default function Module10() {
           </div>
         </div>
       )}
+
+      {/* Quiz Modal */}
+      {isQuizOpen && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.quizModal}>
+            <div className={styles.quizHeader}>
+              Module 10 Knowledge Check
+            </div>
+            <div className={styles.quizBody}>
+              <div className={styles.quizQuestion}>
+                What does a solid Green Checkmark next to your file in OneDrive mean?
+              </div>
+              <div className={styles.quizOptions}>
+                <button 
+                  className={`${styles.quizOption} ${quizAnswered === "A" ? styles.incorrect : ""}`}
+                  onClick={() => handleQuizAnswer("A", false)}
+                >
+                  A) The file has a virus.
+                </button>
+                <button 
+                  className={`${styles.quizOption} ${quizAnswered === "B" ? styles.incorrect : ""}`}
+                  onClick={() => handleQuizAnswer("B", false)}
+                >
+                  B) The file is currently uploading. Do not turn off the PC.
+                </button>
+                <button 
+                  className={`${styles.quizOption} ${quizAnswered === "C" ? styles.correct : ""}`}
+                  onClick={() => handleQuizAnswer("C", true)}
+                >
+                  C) The file is safely synced to the cloud server.
+                </button>
+                <button 
+                  className={`${styles.quizOption} ${quizAnswered === "D" ? styles.incorrect : ""}`}
+                  onClick={() => handleQuizAnswer("D", false)}
+                >
+                  D) The file was deleted.
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Context Menu */}
+      {contextMenu && (
+        <div 
+          className={styles.contextMenu}
+          style={{ top: contextMenu.y, left: contextMenu.x }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          {activeFolder === "cloud" ? (
+            <div className={styles.contextMenuItem} onClick={handleShareLink}>
+              🔗 Copy Share Link
+            </div>
+          ) : (
+            <div className={styles.contextMenuItem} onClick={handleMoveToOneDrive}>
+              ➡️☁️ Move to OneDrive
+            </div>
+          )}
+        </div>
+      )}
+
     </div>
   );
 }

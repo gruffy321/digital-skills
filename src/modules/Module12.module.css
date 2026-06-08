@@ -7,111 +7,362 @@
 }
 
 .header {
-  text-align: center;
   margin-bottom: 2rem;
 }
 
-.header h2 {
-  font-size: 2rem;
-  color: #1a73e8;
+.headerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 0.5rem;
 }
 
-.header p {
+.headerTop h2 {
+  font-size: 2rem;
+  color: #1a73e8;
+  margin: 0;
+}
+
+.roleToggle {
+  padding: 0.5rem 1rem;
+  background: #e8eaed;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s;
+  color: #202124;
+}
+
+.roleToggle.teacherActive {
+  background: #d1e1f9;
+  border-color: #8ab4f8;
+  color: #1a73e8;
+}
+
+.teacherNotice {
+  color: #d93025;
+  background: #fce8e6;
+  padding: 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.taskList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.taskCard {
+  background: white;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: all 0.2s;
+}
+
+.taskCard.locked {
+  opacity: 0.5;
+  background: #f1f3f4;
+  pointer-events: none;
+}
+
+.taskCard.in_progress {
+  border-color: #1a73e8;
+  box-shadow: 0 4px 12px rgba(26,115,232,0.15);
+}
+
+.taskCard.ready_for_review {
+  border-color: #fbbc04;
+  background: #fef7e0;
+}
+
+.taskCard.approved {
+  border-color: #34a853;
+  background: #e6f4ea;
+}
+
+.taskCardMain {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.taskNumber {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #1a73e8;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.locked .taskNumber { background: #9aa0a6; }
+.ready_for_review .taskNumber { background: #f9ab00; }
+.approved .taskNumber { background: #34a853; }
+
+.taskContent {
+  flex: 1;
+}
+
+.taskSection {
+  font-size: 0.85rem;
   color: #5f6368;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.2rem;
+}
+
+.taskText {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #202124;
+}
+
+.taskStatusLabel {
+  font-weight: bold;
+  font-size: 0.9rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  background: #e8eaed;
+}
+
+.taskAction {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btnSubmit {
+  padding: 0.5rem 1rem;
+  background: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btnSubmit:hover {
+  background: #1557b0;
+}
+
+.teacherActions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btnApprove {
+  padding: 0.5rem 1rem;
+  background: #34a853;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btnApprove:hover {
+  background: #1e8e3e;
+}
+
+.btnDeny {
+  padding: 0.5rem 1rem;
+  background: #ea4335;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btnDeny:hover {
+  background: #c5221f;
+}
+
+.taskCard.needs_revision {
+  border-color: #ea4335;
+  background: #fce8e6;
+}
+
+.needs_revision .taskNumber { background: #ea4335; }
+
+/* Pin Modal */
+.modalOverlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.pinModal {
+  width: 400px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  overflow: hidden;
+  animation: popIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.pinHeader {
+  background: #1a73e8;
+  color: white;
+  padding: 1rem;
+  font-weight: bold;
   font-size: 1.1rem;
 }
 
-.section {
-  background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+.pinBody {
   padding: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.sectionTitle {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #202124;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid #e8eaed;
-  padding-bottom: 0.5rem;
-}
-
-.checklistItem {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
   gap: 1rem;
-  margin-bottom: 0.75rem;
-  padding: 0.5rem;
+}
+
+.pinBody p {
+  margin: 0;
+  color: #5f6368;
+}
+
+.pinInput {
+  padding: 0.75rem;
+  font-size: 1.2rem;
+  border: 1px solid #dadce0;
   border-radius: 4px;
-  transition: background 0.2s;
-}
-
-.checklistItem:hover {
-  background: #f1f3f4;
-}
-
-.checkbox {
-  appearance: none;
-  width: 24px;
-  height: 24px;
-  border: 2px solid #5f6368;
-  border-radius: 4px;
-  cursor: pointer;
-  position: relative;
-  flex-shrink: 0;
-  transition: all 0.2s;
-  margin-top: 0.1rem;
-}
-
-.checkbox:checked {
-  background-color: #34a853;
-  border-color: #34a853;
-}
-
-.checkbox:checked::after {
-  content: "✔";
-  position: absolute;
-  color: white;
-  font-size: 16px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.label {
-  font-size: 1.05rem;
-  cursor: pointer;
-  user-select: none;
-}
-
-.checked .label {
-  color: #80868b;
-  text-decoration: line-through;
-}
-
-.celebration {
   text-align: center;
-  padding: 3rem 1rem;
+  letter-spacing: 2px;
+}
+
+.pinError {
+  color: #d93025;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.pinActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.btnCancel {
+  padding: 0.5rem 1rem;
+  background: white;
+  color: #5f6368;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btnCancel:hover {
+  background: #f8f9fa;
+}
+
+.btnAuth {
+  padding: 0.5rem 1rem;
+  background: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btnAuth:hover {
+  background: #1557b0;
+}
+
+/* Celebration & Certificate */
+.celebration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
   animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.trophy {
-  font-size: 6rem;
-  margin-bottom: 1rem;
+.certificate {
+  background: white;
+  border: 10px solid #1a73e8;
+  border-radius: 8px;
+  width: 800px;
+  padding: 2rem;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  text-align: center;
 }
 
-.celebration h2 {
-  color: #34a853;
+.certHeader {
   font-size: 2.5rem;
-  margin-bottom: 1rem;
+  color: #1a73e8;
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #e8eaed;
+  padding-bottom: 1rem;
 }
 
-.celebration p {
+.certBody p {
   font-size: 1.2rem;
   color: #5f6368;
+}
+
+.certBody h2 {
+  font-size: 3rem;
+  color: #202124;
+  margin: 1rem 0;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.badgeContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background: #fef7e0;
+  border: 2px solid #fbbc04;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #f9ab00;
+  box-shadow: 0 4px 8px rgba(249,171,0,0.2);
+}
+
+.badge br {
+  display: none;
+}
+
+.certFooter {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 2px solid #e8eaed;
+  color: #5f6368;
+  font-style: italic;
 }
 
 @keyframes popIn {
