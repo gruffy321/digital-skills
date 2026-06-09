@@ -296,49 +296,57 @@ const moduleConfig: Record<string, { title: string, tasks: Task[], component: Re
     title: "Professional Email & Outlook",
     tasks: [
       {
-        title: "Task 1: Check Your Email",
-        instruction: "Double click the Outlook icon to open it. Find the unread email from Mr. Johnson and click it to read the message.",
+        title: "Task 1: Open Outlook",
+        instruction: "Double-click the Outlook app icon on the desktop to launch your email client.",
         content: (
           <>
             <p><strong>Professional Communication</strong></p>
-            <p>While you might use text messages or Snapchat to talk to your friends, schools and businesses use <strong>Email</strong> (like Microsoft Outlook or Gmail) for official communication.</p>
-            <p>An email inbox is divided into three main parts:</p>
+            <p>While you might use text messages or social media to talk to friends, schools and businesses use <strong>Email</strong> (like Microsoft Outlook or Gmail) for official communication.</p>
+          </>
+        )
+      },
+      {
+        title: "Task 2: Check Your Email",
+        instruction: "Find the unread email from Mr. Johnson in your Inbox and click it to read the message.",
+        content: (
+          <>
+            <p>An email interface is divided into main parts:</p>
             <ul>
-              <li><strong>Folders (Left):</strong> Where you organize your mail (Inbox, Sent, Junk).</li>
-              <li><strong>Message List (Middle):</strong> A list of emails you have received. Unread ones are usually bold!</li>
+              <li><strong>Navigation (Bottom):</strong> Switch between Mail, Calendar, and Apps.</li>
+              <li><strong>Message List (Middle):</strong> A list of emails you have received. Unread ones are bolded with a blue dot!</li>
               <li><strong>Reading Pane (Right):</strong> Where you can actually read the contents of the selected email.</li>
             </ul>
           </>
         )
       },
       {
-        title: "Task 2: Email Etiquette",
-        instruction: "Read Mr. Johnson's email. Use the text box at the bottom to type a polite, professional reply, then click 'Send'.",
+        title: "Task 3: Reply & Attach",
+        instruction: "Click 'Reply'. Type a professional reply to Mr. Johnson. Then click the Paperclip to attach 'Homework.docx' from your Documents folder, and finally click Send.",
         content: (
           <>
-            <p><strong>Replying to Staff & Teachers</strong></p>
-            <p>When you write an email to a teacher or an employer, you must use <strong>Professional Etiquette</strong>.</p>
-            <ul>
-              <li><strong>Do not use text-speak:</strong> Words like "idk", "thx", or "lol" are unprofessional. Write in full, clear sentences.</li>
-              <li><strong>Be polite:</strong> Start with a greeting ("Hello Mr. Johnson,") and end with a sign-off ("Best regards, [Your Name]").</li>
-            </ul>
-            <p>Try typing a professional reply to his question about the lab report.</p>
+            <p><strong>Email Etiquette & Attachments</strong></p>
+            <p>When you write an email to a teacher or employer, you must use professional etiquette. Always include a proper greeting ("Dear Mr. Johnson,") and sign-off ("Best regards,").</p>
+            <p>If you need to send work, you use the <strong>Attachment</strong> feature (the paperclip). Always double-check that you attached the correct file before hitting Send!</p>
           </>
         )
       },
       {
-        title: "Task 3: Email Phishing Scams",
-        instruction: "A new, urgent email just arrived from the 'IT Helpdesk'. Select it, and click the 'Delete' (Trash) button at the top to safely dispose of it.",
+        title: "Task 4: Calendar Basics",
+        instruction: "Click the 'Calendar' icon at the bottom of the screen. Find the 'Online Assembly' invitation and click RSVP to accept it.",
         content: (
           <>
-            <p><strong>Identifying Email Phishing</strong></p>
-            <p>Scammers use email to steal passwords in an attack called <strong>Phishing</strong>. They pretend to be your school, a bank, or a company you trust, and provide a fake link for you to log into.</p>
-            <p><strong>Red Flags of a Phishing Email:</strong></p>
-            <ul>
-              <li><strong>Urgency/Panic:</strong> They claim your account will be deleted "IMMEDIATELY" if you don't click the link. They want you to panic so you don't think clearly.</li>
-              <li><strong>Suspicious Sender Address:</strong> Always check the actual email address of the sender. Scammers often use strange domains (like "admin@suspicious-domain.com").</li>
-              <li><strong>Never click the link:</strong> IT departments will never email you a random link and ask for your password. If you get an email like this, delete it immediately or report it to your school's real IT staff.</li>
-            </ul>
+            <p><strong>Managing Your Time</strong></p>
+            <p>Professional email clients also include a <strong>Calendar</strong>. When someone invites you to a meeting or event, you will receive an invitation.</p>
+            <p>You should always RSVP (respond) to let the organiser know if you will be attending.</p>
+          </>
+        )
+      },
+      {
+        title: "Task 5: Knowledge Check",
+        instruction: "Complete the quiz to finish this module.",
+        content: (
+          <>
+            <p>Let's review what you've learned about Professional Communication!</p>
           </>
         )
       }

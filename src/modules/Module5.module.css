@@ -1,71 +1,148 @@
-.iconGrid {
+.desktopArea {
+  position: absolute;
+  inset: 0;
+  background-color: #000;
+  background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=2564');
+  background-size: cover;
+  background-position: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* --- Taskbar (Win 11 Style) --- */
+.taskbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: rgba(243, 243, 243, 0.85);
+  backdrop-filter: blur(20px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 500;
+  box-shadow: 0 -1px 5px rgba(0,0,0,0.1);
+}
+
+.taskbarIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.taskbarIcon:hover {
+  background: rgba(255,255,255,0.5);
+}
+
+.taskbarIcon.active::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 3px;
+  background: #0078D4;
+  border-radius: 2px;
+}
+
+.startButton {
+  font-size: 1.2rem;
+  color: #0078D4;
+}
+
+.desktopIcons {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  width: max-content;
+  gap: 1rem;
 }
 
 .desktopIcon {
+  width: 74px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
   padding: 0.5rem;
   border-radius: 4px;
   cursor: pointer;
-  user-select: none;
-  transition: background 0.2s;
+  border: 1px solid transparent;
 }
 
 .desktopIcon:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
 }
 
-.iconImage {
-  font-size: 3rem;
-  text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+.iconSquare {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
 .desktopIcon span {
-  font-size: 0.85rem;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
   color: white;
+  font-size: 0.75rem;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+  word-break: break-word;
 }
 
-/* Outlook Window */
-.osWindow {
+/* --- Application Window --- */
+.appWindow {
   position: absolute;
   top: 5%;
   left: 10%;
-  width: 900px;
-  height: 650px;
+  width: 80%;
+  height: 80%;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.2);
   display: flex;
   flex-direction: column;
-  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-  background: #f3f2f1;
-  border: 1px solid rgba(0,0,0,0.1);
-  color: #242424;
+  z-index: 100;
+  animation: windowPopIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.windowHeader {
+@keyframes windowPopIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.appHeader {
+  height: 32px;
+  background: #f3f3f3;
+  color: #111;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
   padding-left: 1rem;
-  background: #0f6cbd; /* Outlook blue */
-  height: 48px;
-  color: white;
-}
-
-.windowHeaderTitle {
-  font-size: 1rem;
   font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  user-select: none;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .windowControls {
@@ -76,164 +153,166 @@
 .windowControls button {
   width: 46px;
   height: 100%;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  color: #111;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
-  color: white;
-  background: transparent;
-  border: none;
-  border-radius: 0;
   transition: background 0.1s;
-  cursor: pointer;
 }
 
 .windowControls button:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(0,0,0,0.1);
 }
 
-.closeBtn:hover {
-  background: #E81123 !important;
-}
-
-/* 3-Pane Layout */
-.appBody {
-  display: flex;
-  flex: 1;
-  overflow: hidden;
-}
-
-/* Left: Folders */
-.folderPane {
-  width: 220px;
-  background: #f3f2f1;
-  border-right: 1px solid #edebe9;
-  display: flex;
-  flex-direction: column;
-  padding: 1rem 0;
-}
-
-.newMailBtn {
-  margin: 0 1rem 1rem 1rem;
-  background: #0f6cbd;
+.windowControls .closeBtn:hover {
+  background: #E81123;
   color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  font-weight: 600;
-  cursor: pointer;
 }
 
-.folderItem {
-  padding: 0.5rem 1rem 0.5rem 2.5rem;
-  cursor: pointer;
-  font-size: 0.9rem;
-  color: #242424;
+/* --- Outlook Specific --- */
+.outlookBlueHeader {
+  background-color: #0078D4;
+  color: white;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  justify-content: space-between;
+}
+
+.outlookTitle {
+  font-size: 1.25rem;
+  font-weight: bold;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.folderItem:hover {
-  background: #edebe9;
+.outlookHeaderIcons {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.2rem;
 }
 
-.folderItem.active {
-  background: #e1dfdd;
-  font-weight: 600;
+.outlookBody {
+  display: flex;
+  flex: 1;
+  background: white;
+  position: relative;
 }
 
-/* Middle: Inbox List */
-.inboxPane {
-  width: 300px;
-  background: #ffffff;
-  border-right: 1px solid #edebe9;
+.messageListPane {
+  width: 350px;
+  border-right: 1px solid #e1dfdd;
   display: flex;
   flex-direction: column;
 }
 
-.inboxHeader {
-  padding: 1rem;
-  font-size: 1.25rem;
-  font-weight: 600;
-  border-bottom: 1px solid #edebe9;
+.messageListTabs {
+  display: flex;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #e1dfdd;
+  gap: 1rem;
 }
 
-.emailList {
+.tabBtn {
+  background: none;
+  border: none;
+  font-weight: 600;
+  color: #605e5c;
+  cursor: pointer;
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid transparent;
+}
+
+.tabBtn.active {
+  color: #0078D4;
+  border-bottom: 2px solid #0078D4;
+}
+
+.messageList {
   flex: 1;
   overflow-y: auto;
 }
 
-.emailItem {
+.messageItem {
   padding: 1rem;
-  border-bottom: 1px solid #edebe9;
+  border-bottom: 1px solid #f3f2f1;
   cursor: pointer;
-  position: relative;
+  display: flex;
+  gap: 1rem;
 }
 
-.emailItem:hover {
+.messageItem:hover {
   background: #f3f2f1;
 }
 
-.emailItem.selected {
-  background: #e3f2fd;
-  border-left: 3px solid #0f6cbd;
+.messageItem.selected {
+  background: #e1dfdd;
 }
 
-.emailItem.unread {
+.messageAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #0078D4;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.messageContentPreview {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.messageHeaderRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.messageSender {
+  font-weight: bold;
+  color: #323130;
+}
+
+.messageTime {
+  color: #0078D4;
+  font-size: 0.85rem;
+}
+
+.messageSubject {
   font-weight: 600;
+  color: #323130;
 }
 
-.emailItem.unread::after {
-  content: '';
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
+.messagePreviewText {
+  color: #605e5c;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 200px;
+}
+
+.unreadDot {
   width: 8px;
   height: 8px;
-  background: #0f6cbd;
   border-radius: 50%;
+  background-color: #0078D4;
+  margin-top: 5px;
 }
 
-.emailSender {
-  font-size: 0.95rem;
-  margin-bottom: 0.25rem;
-  padding-left: 0.5rem;
-}
-
-.emailSubject {
-  font-size: 0.85rem;
-  color: #605e5c;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding-left: 0.5rem;
-}
-
-.emailPreview {
-  font-size: 0.8rem;
-  color: #a19f9d;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding-left: 0.5rem;
-  font-weight: 400;
-}
-
-/* Danger Item */
-.emailItem.danger {
-  background: #fff4ce;
-}
-.emailItem.danger.selected {
-  background: #fde7e9;
-  border-left: 3px solid #d13438;
-}
-
-/* Right: Reading Pane */
 .readingPane {
   flex: 1;
-  background: #ffffff;
   display: flex;
   flex-direction: column;
 }
@@ -241,150 +320,282 @@
 .emptyReadingPane {
   flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   color: #605e5c;
-  font-size: 1rem;
 }
 
-.readingHeader {
-  padding: 1.5rem 2rem;
-  border-bottom: 1px solid #edebe9;
-}
-
-.readingSubject {
-  font-size: 1.5rem;
-  font-weight: 600;
+.emptyIcon {
+  font-size: 5rem;
+  color: #0078D4;
+  opacity: 0.5;
   margin-bottom: 1rem;
 }
 
-.readingMeta {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.senderAvatar {
-  width: 40px;
-  height: 40px;
-  background: #0f6cbd;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
-  font-size: 1.2rem;
-}
-
-.dangerAvatar {
-  background: #d13438;
-}
-
-.senderDetails {
-  flex: 1;
-}
-
-.senderName {
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-.senderEmail {
-  color: #605e5c;
-  font-size: 0.85rem;
-}
-
-.readingToolbar {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.toolbarBtn {
-  background: transparent;
-  border: 1px solid #edebe9;
-  padding: 0.4rem 0.8rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 500;
-  color: #242424;
-}
-
-.toolbarBtn:hover {
-  background: #f3f2f1;
-}
-
-.deleteBtn {
-  color: #d13438;
-}
-.deleteBtn:hover {
-  background: #fde7e9;
-}
-
-.readingBody {
-  flex: 1;
+.emailDetailHeader {
   padding: 2rem;
-  overflow-y: auto;
-  font-size: 0.95rem;
-  line-height: 1.6;
+  border-bottom: 1px solid #e1dfdd;
 }
 
-.phishingWarning {
-  background: #fde7e9;
-  border-left: 4px solid #d13438;
-  padding: 1rem;
+.emailDetailSubject {
+  font-size: 1.5rem;
   margin-bottom: 1rem;
-  color: #d13438;
-  font-weight: 600;
 }
 
-.phishingLink {
-  color: #0f6cbd;
-  text-decoration: underline;
-  cursor: pointer;
+.emailDetailInfo {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.emailDetailSender {
+  font-weight: bold;
+}
+
+.emailDetailBody {
+  padding: 2rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #323130;
+  flex: 1;
 }
 
 .replyBox {
-  border-top: 1px solid #edebe9;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  padding: 1rem;
+  border-top: 1px solid #e1dfdd;
   background: #f3f2f1;
 }
 
-.replyTextarea {
+.replyInput {
   width: 100%;
-  height: 100px;
-  padding: 0.75rem;
-  border: 1px solid #c8c6c4;
+  min-height: 100px;
+  padding: 1rem;
+  border: 1px solid #8a8886;
   border-radius: 4px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   resize: none;
-  font-family: inherit;
-  font-size: 0.9rem;
 }
 
-.replyTextarea:focus {
-  outline: none;
-  border-color: #0f6cbd;
+.replyActions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.attachBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #605e5c;
+  font-size: 1.5rem;
+}
+
+.attachBtn:hover {
+  color: #0078D4;
 }
 
 .sendBtn {
-  background: #0f6cbd;
+  background: #0078D4;
   color: white;
   border: none;
   padding: 0.5rem 1.5rem;
   border-radius: 4px;
-  font-weight: 600;
+  font-weight: bold;
   cursor: pointer;
-  align-self: flex-start;
 }
 
 .sendBtn:hover {
   background: #005a9e;
 }
 
-@keyframes popIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+.bottomNav {
+  height: 60px;
+  background: white;
+  border-top: 1px solid #e1dfdd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.navBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  color: #605e5c;
+  cursor: pointer;
+  gap: 0.25rem;
+}
+
+.navBtn.active {
+  color: #0078D4;
+}
+
+.navIcon {
+  font-size: 1.5rem;
+}
+
+/* --- Calendar --- */
+.calendarTab {
+  padding: 2rem;
+  flex: 1;
+}
+
+.calendarEvent {
+  background: white;
+  border: 1px solid #e1dfdd;
+  padding: 1rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  margin-top: 1rem;
+  max-width: 500px;
+}
+
+.eventDetails h3 {
+  margin: 0 0 0.5rem 0;
+}
+
+.rsvpBtn {
+  background: #0078D4;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* --- File Picker Modal --- */
+.filePickerOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.filePickerWindow {
+  width: 600px;
+  height: 400px;
+  background: white;
+  color: #111;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+}
+
+.filePickerHeader {
+  background: #f3f3f3;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #e1dfdd;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+
+.filePickerBody {
+  display: flex;
+  flex: 1;
+}
+
+.filePickerSidebar {
+  width: 150px;
+  background: #f3f3f3;
+  border-right: 1px solid #e1dfdd;
+  padding: 1rem;
+}
+
+.filePickerSidebarItem {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.filePickerSidebarItem:hover {
+  background: #e1dfdd;
+}
+
+.filePickerSidebarItem.active {
+  background: #0078D4;
+  color: white;
+}
+
+.filePickerContent {
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.pickerItem {
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.pickerItem:hover {
+  background: #f3f3f3;
+}
+
+.pickerItem.selected {
+  background: #cce8ff;
+  border: 1px solid #99d1ff;
+}
+
+.pickerItemIcon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.pickerItemText {
+  text-align: center;
+  font-size: 0.85rem;
+  word-break: break-word;
+}
+
+.filePickerFooter {
+  background: #f3f3f3;
+  padding: 1rem;
+  border-top: 1px solid #e1dfdd;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.pickerBtn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #8a8886;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pickerBtnPrimary {
+  background: #0078D4;
+  color: white;
+  border: none;
+}
+
+.attachedFileBadge {
+  display: inline-block;
+  background: #e1dfdd;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
 }
