@@ -20,43 +20,63 @@ const moduleConfig: Record<string, { title: string, tasks: Task[], component: Re
     title: "Introduction to Digital Skills",
     tasks: [
       { 
-        title: "Task 1: Open the Settings App", 
-        instruction: "Double click the settings icon on the desktop to open it.",
+        title: "Task 1: Log In Securely", 
+        instruction: "Click anywhere on the lock screen, then type 'password123' and click the arrow to log into your Windows Workspace.",
         content: (
           <>
-            <p>Welcome to your new digital workspace! This main screen is called the <strong>Desktop</strong>. It is your home base.</p>
+            <p>Welcome to your new digital workspace! Before you can access a computer, you must prove you are the authorized user.</p>
+            <p>In school and in the workplace, you will always be required to log in securely. The lock screen protects your files and privacy from unauthorized access.</p>
+          </>
+        )
+      },
+      { 
+        title: "Task 2: Desktop Scavenger Hunt", 
+        instruction: "Double-click the 'Web Browser' icon and the 'Word Processor' icon to open both applications.",
+        content: (
+          <>
+            <p>This main screen is called the <strong>Desktop</strong>. It is your home base.</p>
             <p>Icons on the desktop represent <strong>Applications</strong> (programs that do things) or <strong>Folders</strong> (places to store things).</p>
-            <p>To open an application, you use your mouse to move the cursor over the icon, and quickly click the left mouse button twice. This is called a <strong>Double Click</strong>.</p>
+            <p>To open an application, use your mouse to move the cursor over the icon, and quickly click the left mouse button twice. This is called a <strong>Double Click</strong>.</p>
           </>
         )
       },
       { 
-        title: "Task 2: Minimize the Window", 
-        instruction: "Click the minimize button (the dash) on the settings window.",
+        title: "Task 3: System Settings & Volume", 
+        instruction: "Open the 'Settings' app. On the Sound page, click and drag the Volume slider to change the audio level.",
         content: (
           <>
-            <p>When you open an application, it opens in a rectangular box called a <strong>Window</strong>. You can have many windows open at once!</p>
-            <p>In the top right corner of almost every window, you will find three controls:</p>
-            <ul>
-              <li><strong>Minimize (—)</strong>: Hides the window without closing it.</li>
-              <li><strong>Maximize (□)</strong>: Makes the window take up the whole screen.</li>
-              <li><strong>Close (X)</strong>: Shuts down the application completely.</li>
-            </ul>
+            <p>Your computer allows you to customize how it works. You can change everything from the background picture to how loud the speakers are.</p>
+            <p>These options are found in the <strong>Settings</strong> app. If your sound isn't working, or your screen is too bright, Settings is the first place you should look!</p>
           </>
         )
       },
       { 
-        title: "Task 3: Keyboard Shortcuts", 
-        instruction: "Highlight the secret code below and press 'Ctrl + C' to copy it.",
+        title: "Task 4: Create a Shortcut", 
+        instruction: "Right-click anywhere on the empty desktop background, and click 'New Shortcut' from the context menu.",
+        content: (
+          <>
+            <p><strong>The Context Menu:</strong> Clicking the right mouse button (Right-Click) on any item will open a secret menu of options specific to that item.</p>
+            <p>If you have a folder or application buried deep in your files, you can create a <strong>Shortcut</strong> on your desktop. A shortcut is just a quick link to the real file, saving you time!</p>
+          </>
+        )
+      },
+      { 
+        title: "Task 5: Screenshots & Keyboard Shortcuts", 
+        instruction: "Open the Snipping Tool. Click 'PrtScn'. Then, highlight 'SECRET-CODE-99', press Ctrl+C to copy, and paste it below using Ctrl+V.",
         content: (
           <>
             <p>While the mouse is great, using your keyboard can be much faster! <strong>Keyboard Shortcuts</strong> are combinations of keys that perform specific commands.</p>
-            <p>The most common shortcut in the world is <strong>Copy and Paste</strong>.</p>
-            <ul>
-              <li><strong>Ctrl + C</strong>: Copies the selected text to your invisible clipboard.</li>
-              <li><strong>Ctrl + V</strong>: Pastes the text wherever your cursor is.</li>
-            </ul>
-            <p><em>Safety Tip:</em> Never paste commands into your computer if you don't understand what they do, as this is a common trick used by hackers!</p>
+            <p>The most common shortcut in the world is <strong>Copy and Paste</strong> (Ctrl+C and Ctrl+V).</p>
+            <p>Another powerful tool is the <strong>Print Screen</strong> button (PrtScn). It takes a digital photograph of whatever is currently on your monitor, which is incredibly useful for capturing error messages to show IT support.</p>
+          </>
+        )
+      },
+      { 
+        title: "Task 6: Module 1 Knowledge Check", 
+        instruction: "Answer the 4 quiz questions correctly to complete this module.",
+        content: (
+          <>
+            <p>Let's review what we've learned about the Desktop, Hardware, Software, and basic navigation.</p>
           </>
         )
       },

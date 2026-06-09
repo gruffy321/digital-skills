@@ -1,69 +1,258 @@
-.iconGrid {
+.desktopArea {
+  position: absolute;
+  inset: 0;
+  background-color: #000;
+  background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=2564');
+  background-size: cover;
+  background-position: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* --- Lock Screen --- */
+.lockScreen {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=2564');
+  background-size: cover;
+  background-position: center;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  width: max-content;
-  z-index: 10;
-  position: relative;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: backdrop-filter 0.3s;
+}
+
+.lockScreen.active {
+  backdrop-filter: blur(20px);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.timeContainer {
+  text-align: center;
+  color: white;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  cursor: pointer;
+}
+
+.timeContainer h1 {
+  font-size: 6rem;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1;
+}
+
+.timeContainer p {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.loginBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: slideUp 0.4s ease;
+}
+
+.userAvatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  overflow: hidden;
+}
+
+.userName {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.pinInputContainer {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 4px;
+  padding: 2px;
+  border: 2px solid transparent;
+  transition: border-color 0.2s;
+  width: 250px;
+}
+
+.pinInputContainer:focus-within {
+  border-color: #0078D4;
+  background: white;
+}
+
+.pinInput {
+  background: transparent;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: black;
+  outline: none;
+  flex: 1;
+  width: 100%;
+}
+
+.submitBtn {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  padding: 0 0.5rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.submitBtn:hover {
+  color: #0078D4;
+}
+
+.errorText {
+  color: #ffb3b3;
+  margin-top: 1rem;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Desktop Icons --- */
+.desktopIcons {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .desktopIcon {
+  width: 74px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
   padding: 0.5rem;
   border-radius: 4px;
   cursor: pointer;
-  user-select: none;
-  transition: background 0.2s;
+  border: 1px solid transparent;
 }
 
 .desktopIcon:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
 }
 
 .iconImage {
-  font-size: 3rem;
-  text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  font-size: 2.5rem;
+  margin-bottom: 0.25rem;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.5));
 }
 
 .desktopIcon span {
-  font-size: 0.85rem;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+  color: white;
+  font-size: 0.75rem;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+  word-break: break-word;
 }
 
+/* --- Taskbar (Win 11 Style) --- */
+.taskbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: rgba(243, 243, 243, 0.85);
+  backdrop-filter: blur(20px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 500;
+  box-shadow: 0 -1px 5px rgba(0,0,0,0.1);
+}
+
+.taskbarIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.taskbarIcon:hover {
+  background: rgba(255,255,255,0.5);
+}
+
+.taskbarIcon.active::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 3px;
+  background: #0078D4;
+  border-radius: 2px;
+}
+
+.startButton {
+  font-size: 1.2rem;
+  color: #0078D4;
+}
+
+/* --- Windows --- */
 .osWindow {
   position: absolute;
-  top: 20%;
-  left: 30%;
-  width: 500px;
-  height: 350px;
+  background: rgba(250, 250, 250, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.2);
   display: flex;
   flex-direction: column;
-  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  background: rgba(30, 30, 30, 0.95);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.1);
-  z-index: 20;
+  z-index: 100;
+  animation: windowPopIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes windowPopIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 .windowHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 1rem;
-  background: rgba(0,0,0,0.2);
   height: 32px;
-}
-
-.windowHeader span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 1rem;
   font-size: 0.85rem;
-  font-weight: 500;
-  color: #f3f4f6;
+  font-weight: 600;
+  color: #333;
+  user-select: none;
 }
 
 .windowControls {
@@ -74,199 +263,200 @@
 .windowControls button {
   width: 46px;
   height: 100%;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  color: #333;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
-  color: #f3f4f6;
-  background: transparent;
-  border: none;
-  border-radius: 0;
   transition: background 0.1s;
 }
 
 .windowControls button:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(0,0,0,0.1);
 }
 
-.closeBtn:hover {
-  background: #E81123 !important;
-  color: white !important;
+.windowControls .closeBtn:hover {
+  background: #E81123;
+  color: white;
 }
 
 .windowBody {
-  padding: 1.5rem;
   flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  color: #333;
 }
 
-.codeWindow {
-  position: absolute;
-  top: 30%;
-  left: 30%;
-  padding: 2rem;
-  text-align: center;
-  animation: popIn 0.3s ease;
-  width: 450px;
-  z-index: 30;
+/* --- Settings App Specific --- */
+.settingsLayout {
+  display: flex;
+  height: 100%;
 }
 
-.successText {
-  color: var(--success);
+.settingsSidebar {
+  width: 200px;
+  border-right: 1px solid #ddd;
+  padding-right: 1rem;
+}
+
+.settingsSidebarItem {
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 0.25rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.settingsSidebarItem.active {
+  background: #e6f2ff;
+  color: #0078D4;
   font-weight: bold;
 }
 
-/* New Styles */
-.lockScreen {
-  position: absolute;
-  inset: 0;
-  background: rgba(10, 10, 15, 0.9);
-  backdrop-filter: blur(20px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
+.settingsContent {
+  flex: 1;
+  padding-left: 1.5rem;
 }
 
-.loginBox {
-  background: rgba(30, 30, 30, 0.9);
-  padding: 2rem 3rem;
-  border-radius: 12px;
-  text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+.sliderContainer {
+  margin: 2rem 0;
 }
 
-.userAvatar {
-  font-size: 4rem;
-  margin-bottom: 1rem;
-}
-
-.loginBox form {
-  display: flex;
-  margin-top: 1.5rem;
-}
-
-.loginBox input {
-  padding: 0.75rem 1rem;
-  border: none;
-  border-radius: 4px 0 0 4px;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  outline: none;
-}
-
-.loginBox button {
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 0 4px 4px 0;
-  background: var(--primary);
-  color: white;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.loginBox button:hover {
-  background: #4f46e5;
-}
-
-.errorInput {
-  border: 1px solid var(--danger) !important;
-}
-
-.errorText {
-  color: var(--danger);
-  font-size: 0.85rem;
+.sliderContainer input[type="range"] {
+  width: 100%;
   margin-top: 0.5rem;
+  accent-color: #0078D4;
 }
 
-.desktopArea {
-  position: absolute;
-  inset: 0;
-  padding: 1rem;
-  transition: background-color 0.5s ease;
-}
-
+/* --- Context Menu --- */
 .contextMenu {
   position: fixed;
-  background: rgba(40, 40, 40, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  padding: 0.5rem 0;
-  min-width: 180px;
-  z-index: 50;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-  animation: popIn 0.1s ease-out;
+  background: rgba(250, 250, 250, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 0.5rem;
+  min-width: 220px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  z-index: 1000;
+  animation: menuPop 0.15s ease-out;
+}
+
+@keyframes menuPop {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 .menuItem {
   padding: 0.5rem 1rem;
+  border-radius: 4px;
   cursor: pointer;
   font-size: 0.9rem;
-  transition: background 0.1s;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .menuItem:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0,0,0,0.05);
 }
 
-.selectableText {
-  background: rgba(0,0,0,0.3);
+.menuDivider {
+  height: 1px;
+  background: #ddd;
+  margin: 0.25rem 0;
+}
+
+/* --- Keyboard / Screenshot App --- */
+.screenshotApp {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.screenshotApp h3 {
+  margin-top: 0;
+}
+
+.codeBox {
+  background: #f3f3f3;
+  border: 1px solid #ccc;
   padding: 1rem;
+  border-radius: 4px;
   font-family: monospace;
   font-size: 1.2rem;
-  margin: 1rem 0;
-  user-select: text; 
-  border-radius: 4px;
-  border: 1px dashed rgba(255,255,255,0.3);
+  text-align: center;
+  user-select: text;
 }
 
 .pasteInput {
-  width: 100%;
   padding: 0.75rem;
-  background: rgba(0,0,0,0.3);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: white;
+  border: 2px solid #ccc;
   border-radius: 4px;
-  margin-top: 0.5rem;
+  font-size: 1rem;
   outline: none;
 }
+
 .pasteInput:focus {
-  border-color: var(--primary);
+  border-color: #0078D4;
 }
 
-.quizWindow {
+.prtScnBtn {
+  background: #0078D4;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.prtScnBtn:hover {
+  background: #005a9e;
+}
+
+/* --- Start Menu --- */
+.startMenu {
   position: absolute;
-  top: 25%;
-  left: 35%;
-  padding: 2rem;
-  text-align: center;
-  animation: popIn 0.3s ease;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 400px;
-  z-index: 40;
-}
-
-.quizButtons {
+  height: 500px;
+  background: rgba(250, 250, 250, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+  z-index: 400;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  margin-top: 1.5rem;
+  animation: slideUpStart 0.2s ease-out;
 }
 
-.quizButtons button {
-  padding: 0.75rem;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.2s;
-  text-align: left;
+@keyframes slideUpStart {
+  from { opacity: 0; transform: translate(-50%, 20px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
 }
 
-.quizButtons button:hover {
-  background: rgba(255,255,255,0.2);
+.startMenu h3 {
+  margin-top: 0;
+  font-size: 1rem;
+  color: #333;
 }
 
-@keyframes popIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+/* --- Quiz Container --- */
+.quizContainer {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
 }
