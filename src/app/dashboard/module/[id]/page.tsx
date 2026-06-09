@@ -357,50 +357,66 @@ const moduleConfig: Record<string, { title: string, tasks: Task[], component: Re
     title: "Word Processing Basics",
     tasks: [
       {
-        title: "Task 1: Document Formatting",
-        instruction: "Type the sentence 'Digital skills are important'. Then, use your mouse to highlight (select) just the word 'important', and click the 'B' (Bold) button to make it bold.",
+        title: "Task 1: Open Word",
+        instruction: "Double-click the 'Word' icon on your desktop to open the word processor.",
         content: (
           <>
-            <p><strong>Selecting and Formatting Text</strong></p>
-            <p>Applications like Microsoft Word allow you to format documents. However, computers need to know exactly <em>which</em> part of the text you want to change.</p>
-            <p>To change a word, you must first <strong>Highlight (Select)</strong> it:</p>
-            <ol>
-              <li>Click and hold the left mouse button at the beginning of the word.</li>
-              <li>Drag the cursor to the end of the word.</li>
-              <li>Let go of the mouse button. The text should now have a blue background.</li>
-              <li>Now you can click a button on the Toolbar (like <strong>B</strong> for Bold) to change only the highlighted text!</li>
-            </ol>
+            <p><strong>Creating Documents</strong></p>
+            <p>Whether you need to write an essay, build a resume, or design a flyer, you will use a Word Processor like Microsoft Word or Google Docs.</p>
           </>
         )
       },
       {
-        title: "Task 2: The Save As Function",
-        instruction: "Click 'File' in the top menu bar, and then click 'Save As...'",
+        title: "Task 2: Format the Heading",
+        instruction: "Click the 'Insert' tab and select 'Header'. Type 'School Disco' in the header area. Use the 'Home' tab toolbar to make it Bold, Center Aligned, and size 24 or larger.",
+        content: (
+          <>
+            <p><strong>Headers and Formatting</strong></p>
+            <p>A <strong>Header</strong> is a special section at the very top of the page that repeats on every page. It is perfect for titles or your name.</p>
+            <p>The toolbar at the top of the screen (often called the Ribbon) contains all your formatting tools.</p>
+            <ul>
+              <li><strong>Alignment:</strong> You can align text to the Left, Center, or Right of the page. Titles are usually centered.</li>
+              <li><strong>Emphasis:</strong> Use Bold, Italic, or Underline to make important words stand out.</li>
+            </ul>
+          </>
+        )
+      },
+      {
+        title: "Task 3: Add Bullet Points",
+        instruction: "Click the 'Bullet Points' button (•—) on the toolbar, then type details like 'Friday 7 PM', press Enter, and type 'School Gym'.",
+        content: (
+          <>
+            <p><strong>Organising Information</strong></p>
+            <p>When creating a flyer or presenting facts, big blocks of text are hard to read. Using <strong>Bullet Points</strong> makes your information clear and easy to digest.</p>
+          </>
+        )
+      },
+      {
+        title: "Task 4: Insert an Image",
+        instruction: "Click the 'Insert' tab at the top. Then click 'Pictures' to add a graphic to your flyer.",
+        content: (
+          <>
+            <p><strong>Visual Appeal</strong></p>
+            <p>Documents with only text can be boring. You can use the 'Insert' menu to add images, shapes, and charts to make your work visually interesting.</p>
+          </>
+        )
+      },
+      {
+        title: "Task 5: Save As",
+        instruction: "Click the 'File' menu, select 'Save As', name your document 'Disco_Flyer.docx', and click Save.",
         content: (
           <>
             <p><strong>Saving Your Work</strong></p>
-            <p>If you turn off your computer without saving, everything you typed will be lost forever!</p>
-            <ul>
-              <li><strong>Save:</strong> Updates an existing file that you have already named.</li>
-              <li><strong>Save As:</strong> Creates a brand new file, allows you to choose what folder to put it in, and lets you give it a specific name.</li>
-            </ul>
-            <p>Whenever you start a new homework assignment, you should immediately use "Save As" so you don't lose your work.</p>
+            <p>Always save your work early and often! If you lose power or your computer crashes, unsaved work is gone forever.</p>
           </>
         )
       },
       {
-        title: "Task 3: Naming Conventions",
-        instruction: "Enter a descriptive name for your document and click Save. Do not use bad words, strange symbols, or lazy names like 'document'.",
+        title: "Task 6: Knowledge Check",
+        instruction: "Complete the quiz to finish this module.",
         content: (
           <>
-            <p><strong>File Naming Conventions</strong></p>
-            <p>How you name a file is extremely important. If you name all your homework "document", you will never be able to find the right one!</p>
-            <p><strong>Rules for naming files:</strong></p>
-            <ol>
-              <li><strong>Be Descriptive:</strong> Use subjects and dates (e.g., "Science_Lab_Report_May25").</li>
-              <li><strong>No Special Symbols:</strong> Never use `\ / : * ? " &lt; &gt; |` in a filename. The computer uses these symbols for system paths, so putting them in a filename will cause errors.</li>
-              <li><strong>Keep it Clean:</strong> Your school's acceptable use policy applies to filenames. Never use profanity or inappropriate language.</li>
-            </ol>
+            <p>Let's review what you've learned about Word Processing!</p>
           </>
         )
       }
