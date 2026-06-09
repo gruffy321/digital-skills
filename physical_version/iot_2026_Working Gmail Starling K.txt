@@ -1,0 +1,89 @@
+import os
+import subprocess
+import smtplib
+from gpiozero import MotionSensor
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.mime.image import MIMEImage
+
+# --- Configuration Variables ---
+SMTP_SERVER = "smtp.gmail.com" #:587
+SMTP_PORT = 587
+EMAIL_USER = 'kijroon123@gmail.com'      # Remember to rotate these!
+EMAIL_PASSWORD = 'tgkkhqrvuhnexuav'       
+EMAIL_SEND_TO = 'kijroon123@gmail.com'
+IMAGE_PATH = "/home/pi/capture.jpg"
+
+# Initialize the sensor on BCM GPIO 4 (Physical Pin 7)
+pir = MotionSensor(4)
+count = 0
+#Delegates image capture to the OS, keeping hardware control separate from alert logic.
+def capture_image():
+    print("Capturing image from CSI Camera Module...")
+    try:
+        # libcamera-jpeg is the standard for Pi Camera 2 on modern Pi OS.
+        # -o: output file
+        # -t: time before capture (1000ms gives the sensor time to adjust exposure)
+        # --nopreview: hides the UI preview window add this in for a production deplyoyment in the array below and after the '1000' part, "--nopreview"
+        subprocess.run(
+            ["libcamera-jpeg", "-o", IMAGE_PATH, "-t", "1000"], 
+            check=True
+        )
+        print("Image captured successfully.")
+        return True
+    except subprocess.CalledProcessError as e:
+        print(f"Failed to capture image. OS Error: {e}")
+        return False
+    except FileNotFoundError:
+        print("Command 'libcamera-jpeg' not found. Ensure you are on a modern Raspberry Pi OS and camera is enabled.")
+        return False
+
+def sendmail():
+    global count
+    count += 1
+    subject = f"Security Alert: Break-in detected (Event #{count})"
+    body = "Motion has been detected in the room. See the attached image."
+
+    # Construct the email
+    msg = MIMEMultipart()
+    msg["From"] = EMAIL_USER
+    msg["To"] = EMAIL_SEND_TO
+    msg["Subject"] = subject
+    msg.attach(MIMEText(body, "plain"))
+
+    # Attach the image file safely
+    try:
+        with open(IMAGE_PATH, 'rb') as img_file:
+            img_data = img_file.read()
+            image_attachment = MIMEImage(img_data, name=os.path.basename(IMAGE_PATH))
+            msg.attach(image_attachment)
+    except FileNotFoundError:
+        print(f"Warning: Image not found at {IMAGE_PATH}. Sending text-only email.")
+
+    # Send the email
+    try:
+        server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
+        server.starttls()
+        server.login(EMAIL_USER, EMAIL_PASSWORD)
+        server.sendmail(EMAIL_USER, EMAIL_SEND_TO, msg.as_string())
+        server.quit()
+        print("Alert email sent successfully.")
+    except Exception as e:
+        print(f"Failed to send email. Error: {e}")
+
+# --- Main Program Loop ---
+print("System armed. Polling for motion on BCM Pin 4...")
+
+while True:
+    pir.wait_for_motion()
+    print(f"\nMotion detected! Triggering alert {count + 1}...")
+    
+    # 1. Capture the image
+    capture_image()
+    
+    # 2. Package and send the email
+    sendmail()
+    
+    # 3. Wait for the room to clear to prevent spamming
+    pir.wait_for_no_motion()
+    print("Motion cleared. Resuming polling...")

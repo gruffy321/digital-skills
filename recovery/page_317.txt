@@ -1,0 +1,1 @@
+"\"use client\";\n\nimport styles from \"../page.module.css\";"

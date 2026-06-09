@@ -1,0 +1,1 @@
+"    tasks: [\n      { title: \"Task 1: Open File Explorer\", instruction: \"Double click the folder icon to open the File Explorer.\" },\n      { title: \"Task 2: Create a New Folder\", instruction: \"Click 'New Folder', name it, and press Enter.\" },\n      { title: \"Task 3: Delete a File\", instruction: \"Right-click the dummy file and select 'Delete'.\" },\n    ],"

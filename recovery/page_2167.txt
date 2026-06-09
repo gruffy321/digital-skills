@@ -1,0 +1,1 @@
+"              <li>Never use symbols like `\\ / : * ? \" &lt; &gt; |` in a filename.</li>"

@@ -1,0 +1,1 @@
+"              <h3 className={styles.moduleTitle}>{mod.title}</h3>\n              {mod.status !== \"LOCKED\" && (\n                <Link href={`/dashboard/module/${mod.id}`} className={styles.startBtn}>\n                  {mod.status === \"COMPLETED\" ? \"Review Module →\" : \"Continue Module →\"}\n                </Link>\n              )}\n            </div>"
