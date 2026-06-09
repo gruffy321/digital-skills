@@ -88,36 +88,72 @@ const moduleConfig: Record<string, { title: string, tasks: Task[], component: Re
     tasks: [
       { 
         title: "Task 1: Open File Explorer", 
-        instruction: "Double click the folder icon to open the File Explorer.",
+        instruction: "Double click the folder icon on the desktop (or click it on the taskbar) to open the File Explorer.",
         content: (
           <>
             <p>Your computer stores millions of files, from documents to family photos. To find them, we use a tool called the <strong>File Explorer</strong>.</p>
-            <p>The File Explorer organizes everything into a hierarchy of folders, much like a real filing cabinet. On the left side (the sidebar), you'll see major categories like Documents, Downloads, and Pictures.</p>
+            <p>The File Explorer organizes everything into a hierarchy of folders, much like a real filing cabinet. On the left side (the sidebar), you'll see major categories like Documents, Downloads, and your connected USB Drives.</p>
           </>
         )
       },
       { 
-        title: "Task 2: Create a New Folder", 
-        instruction: "Click 'New Folder', name it, and press Enter.",
+        title: "Task 2: Create a Folder Structure", 
+        instruction: "Click 'New Folder' in the top menu to create a folder. Name it exactly 'Science Work' and press Enter.",
         content: (
           <>
-            <p>Keeping your files organized is crucial. If you save everything to your Desktop, it will quickly become a messy, unsearchable pile.</p>
-            <p>You can create <strong>Folders</strong> to group related files together. For example, you might create a folder called "Tax Returns 2025" to keep all your financial documents in one safe place.</p>
+            <p>Keeping your files organized is crucial. If you save everything to your 'Downloads' folder, it will quickly become a messy, unsearchable pile.</p>
+            <p>You can create <strong>Folders</strong> to group related files together. For example, you should create separate folders for different school subjects to keep your coursework organized.</p>
             <p><em>Tip:</em> Give your folders clear, descriptive names so you always know what's inside them.</p>
           </>
         )
       },
       { 
-        title: "Task 3: Delete a File", 
-        instruction: "Right-click the dummy file and select 'Delete'.",
+        title: "Task 3: Rename Files Correctly", 
+        instruction: "Right-click 'untitled_doc_1.docx', select 'Rename', and change it to exactly 'Science_Lab_Report.docx'.",
         content: (
           <>
-            <p>When you no longer need a file, you should delete it to free up storage space on your hard drive.</p>
-            <p><strong>The Context Menu:</strong> Clicking the right mouse button (Right-Click) on any item will open a secret menu of options specific to that item. This is where you'll usually find the 'Delete' option.</p>
-            <p><em>Safety Warning:</em> When you delete a file, it goes to the <strong>Recycle Bin</strong> on your desktop. If you accidentally delete something, you can open the Recycle Bin and restore it! But once you empty the Recycle Bin, the file is gone forever.</p>
+            <p><strong>File Naming Conventions</strong></p>
+            <p>A file named "untitled" is useless. You must always rename files so you know what they contain without having to open them!</p>
+            <p><strong>Rules for naming files:</strong></p>
+            <ul>
+              <li><strong>Be Descriptive:</strong> Use subjects and dates.</li>
+              <li><strong>No Special Symbols:</strong> Never use `\ / : * ? " &lt; &gt; |` in a filename.</li>
+            </ul>
+            <p><em>Note:</em> The `.docx` at the end is a <strong>File Extension</strong>. It tells the computer this is a Word Document. Never delete the extension when renaming!</p>
           </>
         )
       },
+      { 
+        title: "Task 4: Organise the Chaos", 
+        instruction: "Drag and drop the 'Science_Lab_Report.docx' into your new 'Science Work' folder. Then, right-click the funny cat meme and select 'Delete'.",
+        content: (
+          <>
+            <p>Now that your folder is created and your file is properly named, it's time to organize the chaos!</p>
+            <p>You can move files by clicking and holding the left mouse button, dragging the file over a folder, and letting go. This is called <strong>Drag and Drop</strong>.</p>
+            <p>If you find files that don't belong in your school workspace (like a funny cat meme), you should <strong>Delete</strong> them to free up storage space. Deleted files go to the Recycle Bin.</p>
+          </>
+        )
+      },
+      { 
+        title: "Task 5: USB Drives", 
+        instruction: "Click on the 'Science Work' folder to open it. Right-click the Lab Report, select 'Copy to USB', and safely back it up.",
+        content: (
+          <>
+            <p><strong>Removable Storage</strong></p>
+            <p>A USB Drive (sometimes called a thumb drive or flash drive) is a portable storage device you plug into your computer.</p>
+            <p>It's always a good idea to back up important coursework to a USB drive or Cloud Storage so you don't lose it if your computer breaks.</p>
+          </>
+        )
+      },
+      { 
+        title: "Task 6: Knowledge Check", 
+        instruction: "Answer the quiz question correctly to complete this module.",
+        content: (
+          <>
+            <p>Let's review what we've learned about folders, file extensions, and organization.</p>
+          </>
+        )
+      }
     ],
     component: <Module2 />
   },
