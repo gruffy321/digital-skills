@@ -162,46 +162,63 @@ const moduleConfig: Record<string, { title: string, tasks: Task[], component: Re
     tasks: [
       { 
         title: "Task 1: Open the Web Browser", 
-        instruction: "Double click the 'Web Browser' icon on the desktop.",
+        instruction: "Double click the 'Microsoft Edge' icon on the desktop or taskbar to open the browser.",
         content: (
           <>
-            <p>A <strong>Web Browser</strong> (like Google Chrome, Safari, or Microsoft Edge) is your vehicle for traveling the Internet. Without it, you can't view websites!</p>
+            <p>A <strong>Web Browser</strong> (like Microsoft Edge, Google Chrome, or Safari) is your vehicle for traveling the Internet. Without it, you can't view websites!</p>
           </>
         )
       },
       { 
         title: "Task 2: Use the Address Bar", 
-        instruction: "Type exactly 'www.learn-digital.org' into the address bar at the top and press Enter.",
+        instruction: "Type EXACTLY 'www.science-facts.edu' into the address bar at the top and press Enter.",
         content: (
           <>
             <p>Every website has a unique address, called a <strong>URL</strong> (e.g., www.google.com). Just like a house address, if you know the exact URL, you can type it directly into the <strong>Address Bar</strong> at the top of the browser to go straight there.</p>
-            <p><em>Tip:</em> Modern browsers combine the Address Bar and the Search Box into one thing called an "Omnibox". If you type something with dots in it (like a .com or .org), it assumes you are typing a URL and tries to take you to that exact website.</p>
+            <p><em>Tip:</em> Modern browsers combine the Address Bar and the Search Box into one thing called an "Omnibox". If you type something with dots in it (like a .com or .org), it assumes you are typing a URL.</p>
           </>
         )
       },
       { 
         title: "Task 3: Perform a Web Search", 
-        instruction: "Now let's do a search! Type exactly 'digital security' into the address bar and press Enter.",
+        instruction: "Now let's do a search! Type exactly 'climate change facts' into the address bar and press Enter.",
         content: (
           <>
             <p>What if you don't know the exact URL of the website you want? That is what <strong>Search Engines</strong> are for!</p>
             <p>If you type a phrase without dots (like "best pizza near me") into the same Address Bar, the browser assumes it is a <strong>Search Term</strong>. It will ask a Search Engine (like Google or Bing) to find websites related to that term.</p>
-            <p>It is crucial to know the difference! Scammers often create fake websites with names that are very similar to real ones. If you try to search for "bank of america" but accidentally click a fake link, you could be in danger. It is always safer to type the exact URL (www.bankofamerica.com) if you know it.</p>
           </>
         )
       },
       { 
         title: "Task 4: Identify a Safe Link", 
-        instruction: "Look closely at the search results. Find and click the safe, legitimate educational link.",
+        instruction: "Look closely at the search results. Click on the safe, legitimate educational link, avoiding the sponsored scam.",
         content: (
           <>
             <p><strong>Phishing & Malicious Links</strong></p>
             <p>Search engines aren't perfect. Sometimes scammers pay money to have their fake, dangerous websites show up at the very top of your search results as "Sponsored" links.</p>
             <p>Before you click a link, always read the small green or black text underneath the blue title. This shows you the actual URL you are about to visit. If the URL looks strange, suspicious, or has weird spelling, <strong>DO NOT CLICK IT</strong>.</p>
-            <p><em>Golden Rule:</em> If a link promises you a free iPhone, a huge lottery winning, or uses high-pressure language ("CLAIM NOW!"), it is almost certainly a scam to steal your information.</p>
           </>
         )
       },
+      { 
+        title: "Task 5: Bookmarking", 
+        instruction: "Click the Star icon (☆) next to the address bar to bookmark this page for later.",
+        content: (
+          <>
+            <p><strong>Saving Your Research</strong></p>
+            <p>If you find a great website and want to use it for an essay later, you should <strong>Bookmark</strong> it. This saves the URL to a special list in your browser so you never lose it!</p>
+          </>
+        )
+      },
+      { 
+        title: "Task 6: Fact or Fake Quiz", 
+        instruction: "Answer the quiz question correctly to complete the module.",
+        content: (
+          <>
+            <p>When researching online, it's critical to evaluate your sources.</p>
+          </>
+        )
+      }
     ],
     component: <Module3 />
   },
