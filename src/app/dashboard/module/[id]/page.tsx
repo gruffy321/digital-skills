@@ -226,8 +226,18 @@ const moduleConfig: Record<string, { title: string, tasks: Task[], component: Re
     title: "Digital Citizenship & Social Media",
     tasks: [
       {
-        title: "Task 1: Stranger Danger",
-        instruction: "Double click SocialNet to open it. Find the Friend Request from 'JohnDoe45' and click Deny.",
+        title: "Task 1: Secure Login",
+        instruction: "Double click SocialNet to open it. Create a strong password (at least 8 characters, 1 number, 1 symbol) and login.",
+        content: (
+          <>
+            <p><strong>Password Security</strong></p>
+            <p>Your password is the only thing protecting your personal information from hackers. Always use a strong, unique password for every account.</p>
+          </>
+        )
+      },
+      {
+        title: "Task 2: Stranger Danger",
+        instruction: "Find the Friend Request from 'JohnDoe45' and click Deny.",
         content: (
           <>
             <p><strong>Social Media Safety</strong></p>
@@ -238,25 +248,44 @@ const moduleConfig: Record<string, { title: string, tasks: Task[], component: Re
         )
       },
       {
-        title: "Task 2: Cyberbullying",
-        instruction: "Go to your Feed. Find the mean post about the teacher, click the three dots (...), and Report it for Cyberbullying.",
+        title: "Task 3: Phishing Scams",
+        instruction: "Go to your Feed. Find the post offering free V-Bucks, click the three dots (...), and Report it for Phishing.",
         content: (
           <>
-            <p><strong>Digital Citizenship & Your Digital Footprint</strong></p>
-            <p>Everything you post online is permanent. Even if you delete it, someone might have taken a screenshot. This is your <strong>Digital Footprint</strong>.</p>
-            <p>Posting rumors, insults, or private information about your peers or school staff is called <strong>Cyberbullying</strong>. It is illegal, causes severe emotional harm, and schools take it extremely seriously. It can lead to suspension or expulsion.</p>
-            <p>If you see cyberbullying on your feed, do not "Like" it or comment on it. Use the platform's reporting tools to flag it so moderators can remove it.</p>
+            <p><strong>Identifying Scams</strong></p>
+            <p>Scammers often promise free gifts, game currency, or money. If you click these links, they will steal your passwords or install viruses.</p>
           </>
         )
       },
       {
-        title: "Task 3: Privacy Settings",
+        title: "Task 4: Cyberbullying",
+        instruction: "Find the mean post about Mr. Johnson, click the three dots (...), and Report it for Bullying.",
+        content: (
+          <>
+            <p><strong>Your Digital Footprint</strong></p>
+            <p>Everything you post online is permanent. Even if you delete it, someone might have taken a screenshot.</p>
+            <p>Posting rumors, insults, or private information about your peers or school staff is called <strong>Cyberbullying</strong>. It is illegal, causes severe emotional harm, and schools take it extremely seriously.</p>
+            <p>If you see cyberbullying on your feed, do not "Like" it or comment on it. Use the platform's reporting tools to flag it.</p>
+          </>
+        )
+      },
+      {
+        title: "Task 5: Privacy Settings",
         instruction: "Go to your Settings tab. Click the switch to turn on your 'Private Account'.",
         content: (
           <>
             <p><strong>Locking Down Your Information</strong></p>
             <p>When you create a new social media account, it is usually "Public" by default. This means that anyone in the entire world can see your photos, your school name, and your location.</p>
             <p>At a school age, your account should <strong>always</strong> be set to Private. A private account ensures that only people you have approved as friends can see what you post, keeping you safe from data scrapers and predators.</p>
+          </>
+        )
+      },
+      {
+        title: "Task 6: Knowledge Check",
+        instruction: "Complete the quiz to finish this module.",
+        content: (
+          <>
+            <p>Let's review what you've learned about Digital Citizenship!</p>
           </>
         )
       }

@@ -31,10 +31,14 @@ export default function Module4() {
     }
   };
 
+  const closeApp = () => {
+    setIsAppOpen(false);
+  };
+
   const handleLoginSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (taskIndex === 0) {
-      const hasNumber = /\\d/.test(passwordInput);
+      const hasNumber = /\d/.test(passwordInput);
       const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/.test(passwordInput);
       
       if (passwordInput.length < 8) {
@@ -97,41 +101,37 @@ export default function Module4() {
     nextTask();
   };
 
-  // If we are on the Quiz task (Task 5)
-  if (taskIndex === 5) {
-    return (
-      <div className={styles.quizContainer}>
-        <Quiz 
-          title="Module 4 Quiz"
-          questions={[
-            { question: "What is the best way to handle a friend request from someone you don't know?", options: ["Accept it", "Message them", "Deny it", "Share it"], correctAnswerIndex: 2 },
-            { question: "Which password is the strongest?", options: ["password123", "P@ssw0rd2024!", "dog", "12345678"], correctAnswerIndex: 1 },
-            { question: "What should you do if you see cyberbullying?", options: ["Like it", "Report it", "Join in", "Ignore it"], correctAnswerIndex: 1 },
-            { question: "Why should your account be private?", options: ["To hide from friends", "To get famous", "To protect personal data from strangers", "To save battery"], correctAnswerIndex: 2 },
-            { question: "If a link offers 'Free V-Bucks', it is likely:", options: ["A great deal", "A phishing scam", "A mistake", "A school project"], correctAnswerIndex: 1 }
-          ]} 
-          onComplete={handleQuizComplete} 
-        />
-      </div>
-    );
-  }
-
   return (
-    <div className={styles.container}>
-      {!isAppOpen ? (
-        <button onClick={openApp} className={styles.desktopIcon}>
+    <div className={styles.desktopArea} onClick={() => { setShowPhishingMenu(false); setShowBullyingMenu(false); }}>
+      
+      {/* Desktop Icons */}
+      <div className={styles.desktopIcons}>
+        <div className={styles.desktopIcon} onDoubleClick={openApp}>
           <div className={styles.iconSquare} style={{ background: '#3b5998' }}>S</div>
           <span>SocialNet</span>
-        </button>
-      ) : (
-        <div className={styles.appWindow}>
+        </div>
+      </div>
+
+      {/* Taskbar */}
+      <div className={styles.taskbar}>
+        <div className={styles.taskbarIcon}>
+          <span className={styles.startButton}>⊞</span>
+        </div>
+        <div className={`${styles.taskbarIcon} ${isAppOpen ? styles.active : ''}`} onClick={openApp}>
+          <span style={{color: '#3b5998', fontWeight: 'bold'}}>S</span>
+        </div>
+      </div>
+
+      {/* SocialNet Application Window */}
+      {isAppOpen && (
+        <div className={styles.appWindow} onClick={(e) => e.stopPropagation()}>
           <div className={styles.appHeader}>
+            <span>SocialNet</span>
             <div className={styles.windowControls}>
-              <span className={styles.closeBtn} onClick={() => setIsAppOpen(false)}></span>
-              <span className={styles.minBtn}></span>
-              <span className={styles.maxBtn}></span>
+              <button>—</button>
+              <button>□</button>
+              <button className={styles.closeBtn} onClick={closeApp}>✕</button>
             </div>
-            SocialNet
           </div>
 
           {activeTab === "login" ? (
@@ -144,6 +144,7 @@ export default function Module4() {
                   placeholder="Create a strong password" 
                   value={passwordInput} 
                   onChange={(e) => setPasswordInput(e.target.value)} 
+                  autoFocus
                 />
                 {loginError && <p className={styles.error}>{loginError}</p>}
                 <button type="submit" className={styles.loginBtn}>Secure Account & Login</button>
@@ -152,9 +153,9 @@ export default function Module4() {
           ) : (
             <div className={styles.appBody}>
               <div className={styles.sidebar}>
-                <button className={activeTab === "requests" ? styles.activeTab : ""} onClick={() => setActiveTab("requests")}>Requests</button>
-                <button className={activeTab === "feed" ? styles.activeTab : ""} onClick={() => setActiveTab("feed")}>Feed</button>
-                <button className={activeTab === "settings" ? styles.activeTab : ""} onClick={() => setActiveTab("settings")}>Settings</button>
+                <button className={activeTab === "requests" ? styles.activeTab : ""} onClick={() => setActiveTab("requests")}>👤 Friend Requests</button>
+                <button className={activeTab === "feed" ? styles.activeTab : ""} onClick={() => setActiveTab("feed")}>📰 Feed</button>
+                <button className={activeTab === "settings" ? styles.activeTab : ""} onClick={() => setActiveTab("settings")}>⚙️ Settings</button>
               </div>
 
               <div className={styles.contentArea}>
@@ -189,7 +190,7 @@ export default function Module4() {
                         <div className={styles.postHeader}>
                           <strong>GamingGifts</strong>
                           <div className={styles.postOptions}>
-                            <button onClick={() => setShowPhishingMenu(!showPhishingMenu)}>...</button>
+                            <button onClick={(e) => { e.stopPropagation(); setShowPhishingMenu(!showPhishingMenu); setShowBullyingMenu(false); }}>...</button>
                             {showPhishingMenu && (
                               <div className={styles.dropdownMenu}>
                                 <button onClick={handleReportPhishing} className={styles.reportBtn}>Report Phishing</button>
@@ -208,7 +209,7 @@ export default function Module4() {
                         <div className={styles.postHeader}>
                           <strong>MeanStudent99</strong>
                           <div className={styles.postOptions}>
-                            <button onClick={() => setShowBullyingMenu(!showBullyingMenu)}>...</button>
+                            <button onClick={(e) => { e.stopPropagation(); setShowBullyingMenu(!showBullyingMenu); setShowPhishingMenu(false); }}>...</button>
                             {showBullyingMenu && (
                               <div className={styles.dropdownMenu}>
                                 <button onClick={handleReportBullying} className={styles.reportBtn}>Report Bullying</button>
@@ -246,6 +247,24 @@ export default function Module4() {
           )}
         </div>
       )}
+
+      {/* Module 4 Quiz */}
+      {taskIndex === 5 && (
+        <div className={styles.quizContainer}>
+          <Quiz 
+            title="Fact or Fake?"
+            questions={[
+              { question: "What is the best way to handle a friend request from someone you don't know?", options: ["Accept it", "Message them", "Deny it", "Share it"], correctAnswerIndex: 2 },
+              { question: "Which password is the strongest?", options: ["password123", "P@ssw0rd2024!", "dog", "12345678"], correctAnswerIndex: 1 },
+              { question: "What should you do if you see cyberbullying?", options: ["Like it", "Report it", "Join in", "Ignore it"], correctAnswerIndex: 1 },
+              { question: "Why should your account be private?", options: ["To hide from friends", "To get famous", "To protect personal data from strangers", "To save battery"], correctAnswerIndex: 2 },
+              { question: "If a link offers 'Free V-Bucks', it is likely:", options: ["A great deal", "A phishing scam", "A mistake", "A school project"], correctAnswerIndex: 1 }
+            ]}
+            onComplete={handleQuizComplete}
+          />
+        </div>
+      )}
+
     </div>
   );
 }
