@@ -134,14 +134,14 @@ export default function Module8() {
   // Common slide contents for rendering in different views
   const renderSlide1 = () => (
     <div className={`${styles.slideCanvas} ${styles.titleSlideCanvas}`}>
-      <div className={styles.titleBox}>Company Review 2026</div>
-      <div className={styles.subtitleBox}>Q1 Sales Performance</div>
+      <div className={styles.titleBox}>Science Project 2026</div>
+      <div className={styles.subtitleBox}>End of Year Review</div>
     </div>
   );
 
   const renderSlide2 = () => (
     <div className={`${styles.slideCanvas} ${styles.contentSlideCanvas}`}>
-      <div className={styles.contentTitle}>Q1 Highlights</div>
+      <div className={styles.contentTitle}>Project Highlights</div>
       <div className={styles.contentBody}>
         <div className={styles.textColumn}>
           <ul 
@@ -254,8 +254,8 @@ export default function Module8() {
               <div className={`${styles.thumbnailItem} ${activeSlide === 1 ? styles.active : ''}`} onClick={() => setActiveSlide(1)}>
                 <span className={styles.thumbnailNumber}>1</span>
                 <div className={styles.thumbnailSlide}>
-                  <div style={{fontSize: '0.8rem', fontWeight: 'bold'}}>Company Review 2026</div>
-                  <div style={{fontSize: '0.5rem'}}>Q1 Sales Performance</div>
+                  <div style={{fontSize: '0.8rem', fontWeight: 'bold'}}>Science Project</div>
+                  <div style={{fontSize: '0.5rem'}}>End of Year Review</div>
                 </div>
               </div>
 
@@ -263,7 +263,7 @@ export default function Module8() {
                 <div className={`${styles.thumbnailItem} ${activeSlide === 2 ? styles.active : ''}`} onClick={() => setActiveSlide(2)}>
                   <span className={styles.thumbnailNumber}>2</span>
                   <div className={styles.thumbnailSlide} style={{padding: '0.2rem', alignItems: 'flex-start', justifyContent: 'flex-start'}}>
-                    <div style={{fontSize: '0.6rem', fontWeight: 'bold', borderBottom: '1px solid #ccc', width: '100%', marginBottom: '0.2rem'}}>Q1 Highlights</div>
+                    <div style={{fontSize: '0.6rem', fontWeight: 'bold', borderBottom: '1px solid #ccc', width: '100%', marginBottom: '0.2rem'}}>Project Highlights</div>
                     <div style={{display: 'flex', width: '100%', height: '100%'}}>
                       <div style={{flex: 1, fontSize: '0.3rem', paddingTop: '0.2rem'}}>• {bulletsText.substring(0, 10)}...</div>
                       <div style={{flex: 1, border: hasImage ? 'none' : '1px dashed #ccc', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
@@ -302,7 +302,7 @@ export default function Module8() {
                   <img src="/science_graph.png" alt="Graph" />
                   <span>science_graph.png</span>
                 </div>
-                <div className={styles.fileItem}>
+                <div className={styles.fileItem} onClick={() => alert("While cat memes are funny, they aren't appropriate for a formal school presentation. Let's pick an image that supports our Science Project!")}>
                   <img src="/cat_meme.png" alt="Cat" />
                   <span>cat_meme.png</span>
                 </div>
@@ -318,12 +318,12 @@ export default function Module8() {
           <div key={`slide-${presentationSlideIndex}`} className={`${styles.presentedSlide} ${presentationSlideIndex === 2 && transitionType === "Fade" ? styles.transitionFade : ''}`}>
             {presentationSlideIndex === 1 ? (
               <div className={`${styles.slideCanvas} ${styles.titleSlideCanvas}`} style={{width: '100%', height: '100%'}}>
-                <div className={styles.titleBox}>Company Review 2026</div>
-                <div className={styles.subtitleBox}>Q1 Sales Performance</div>
+                <div className={styles.titleBox}>Science Project 2026</div>
+                <div className={styles.subtitleBox}>End of Year Review</div>
               </div>
             ) : (
               <div className={`${styles.slideCanvas} ${styles.contentSlideCanvas}`} style={{width: '100%', height: '100%'}}>
-                <div className={styles.contentTitle}>Q1 Highlights</div>
+                <div className={styles.contentTitle}>Project Highlights</div>
                 <div className={styles.contentBody}>
                   <div className={styles.textColumn}>
                     <ul className={styles.bulletList}>
