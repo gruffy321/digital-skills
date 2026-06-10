@@ -14,9 +14,10 @@ interface QuizProps {
   title: string;
   questions: QuizQuestion[];
   onComplete: () => void;
+  logEvent?: (action: string) => void;
 }
 
-export default function Quiz({ title, questions, onComplete }: QuizProps) {
+export default function Quiz({ title, questions, onComplete, logEvent }: QuizProps) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
@@ -46,12 +47,15 @@ export default function Quiz({ title, questions, onComplete }: QuizProps) {
             colors: ['#26ccff', '#a25afd', '#ff5e7e', '#88ff5a', '#fcff42', '#ffa62d', '#ff36ff']
           });
           
+          if (logEvent) logEvent("quiz_completed");
+
           setTimeout(() => {
             onComplete();
           }, 1500);
         }
       }, 1000);
     } else {
+      if (logEvent) logEvent("failed_quiz_attempt");
       // Incorrect, reset after short delay to let them try again
       setTimeout(() => {
         setSelectedOption(null);

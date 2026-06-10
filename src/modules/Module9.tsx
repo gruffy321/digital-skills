@@ -159,7 +159,7 @@ export default function Module9() {
 
   if (taskIndex === 6) {
     return (
-      <Quiz 
+      <Quiz logEvent={logEvent} 
         title="Spreadsheet Basics Knowledge Check"
         questions={[
           {

@@ -76,7 +76,7 @@ export default function Module7() {
 
   if (taskIndex === 4) {
     return (
-      <Quiz 
+      <Quiz logEvent={logEvent} 
         title="Intermediate Word Processing Check"
         questions={[
           {

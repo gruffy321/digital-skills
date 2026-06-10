@@ -139,7 +139,7 @@ export default function Module11() {
 
   if (taskIndex === 5 && !isLocked) {
     return (
-      <Quiz 
+      <Quiz logEvent={logEvent} 
         title="Troubleshooting Knowledge Check"
         questions={[
           {

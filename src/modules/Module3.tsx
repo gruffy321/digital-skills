@@ -238,7 +238,7 @@ export default function Module3() {
       {/* Module 3 Quiz */}
       {taskIndex === 5 && (
         <div className={styles.quizContainer}>
-          <Quiz 
+          <Quiz logEvent={logEvent} 
             title="Fact or Fake?"
             questions={[
               { 

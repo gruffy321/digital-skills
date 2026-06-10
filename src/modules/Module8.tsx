@@ -109,7 +109,7 @@ export default function Module8() {
 
   if (taskIndex === 4) {
     return (
-      <Quiz 
+      <Quiz logEvent={logEvent} 
         title="Presentation Skills Knowledge Check"
         questions={[
           {

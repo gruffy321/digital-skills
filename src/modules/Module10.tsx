@@ -124,7 +124,7 @@ export default function Module10() {
 
   if (taskIndex === 4) {
     return (
-      <Quiz 
+      <Quiz logEvent={logEvent} 
         title="Cloud Storage Knowledge Check"
         questions={[
           {

@@ -353,7 +353,7 @@ export default function Module2() {
       {/* Module 2 Quiz */}
       {taskIndex === 5 && (
         <div className={styles.quizContainer}>
-          <Quiz 
+          <Quiz logEvent={logEvent} 
             title="Module 2 Quiz"
             questions={[
               { question: "What should you do to organize a messy Downloads folder?", options: ["Delete everything", "Create folders and move files into them", "Rename all files to 'document'", "Leave it alone"], correctAnswerIndex: 1 },

@@ -87,7 +87,7 @@ export default function Module5() {
 
   if (taskIndex === 4) {
     return (
-      <Quiz 
+      <Quiz logEvent={logEvent} 
         title="Professional Email & Outlook Knowledge Check"
         questions={[
           {

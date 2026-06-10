@@ -183,6 +183,13 @@ export default function AdminDashboardClient({
           )}
           
           <div style={{ flex: 1 }}></div>
+          <button 
+            onClick={() => window.print()}
+            className={`${styles.tabBtn} ${styles.printBtn}`}
+            style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', border: '1px solid rgba(255,255,255,0.2)' }}
+          >
+            🖨️ Print Report
+          </button>
           {selectedUser && (
             <div className={styles.filterBadge}>
               Filtering by: {selectedUser.name || selectedUser.email}

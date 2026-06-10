@@ -251,7 +251,7 @@ export default function Module4() {
       {/* Module 4 Quiz */}
       {taskIndex === 5 && (
         <div className={styles.quizContainer}>
-          <Quiz 
+          <Quiz logEvent={logEvent} 
             title="Fact or Fake?"
             questions={[
               { question: "What is the best way to handle a friend request from someone you don't know?", options: ["Accept it", "Message them", "Deny it", "Share it"], correctAnswerIndex: 2 },

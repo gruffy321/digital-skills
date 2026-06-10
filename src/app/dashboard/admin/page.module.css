@@ -301,3 +301,75 @@
   color: var(--accent-color);
   font-size: 2.5rem;
 }
+
+/* Print Styles */
+@media print {
+  @page {
+    size: landscape;
+    margin: 10mm;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .adminDashboard {
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* Hide unneeded interactive elements */
+  .header,
+  .createCodeForm,
+  .codeList,
+  .tabHeader,
+  .revokeBtn,
+  .backBtn {
+    display: none !important;
+  }
+
+  /* Make panels clean for printing */
+  .panel {
+    background: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .panel h3 {
+    color: black !important;
+  }
+
+  /* Force charts and text to print cleanly */
+  .chartBox {
+    background: none !important;
+    border: 1px solid #ccc !important;
+    page-break-inside: avoid;
+  }
+
+  .chartBox h4 {
+    color: black !important;
+  }
+
+  .matrixTable th, .matrixTable td {
+    border-bottom: 1px solid #ddd !important;
+    color: black !important;
+  }
+
+  .statCard {
+    background: none !important;
+    border: 1px solid #ccc !important;
+    page-break-inside: avoid;
+  }
+
+  .statCard h2 {
+    color: black !important;
+  }
+
+  .profileView {
+    background: none !important;
+    border: 1px solid #ccc !important;
+  }
+}

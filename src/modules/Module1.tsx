@@ -319,7 +319,7 @@ export default function Module1() {
       {/* Module 1 Quiz */}
       {taskIndex === 5 && (
         <div className={styles.quizContainer}>
-          <Quiz 
+          <Quiz logEvent={logEvent} 
             title="Module 1 Quiz"
             questions={[
               { question: "What is an example of 'Hardware'?", options: ["The Windows Operating System", "A Web Browser App", "The computer mouse and keyboard", "A Word Document"], correctAnswerIndex: 2 },
