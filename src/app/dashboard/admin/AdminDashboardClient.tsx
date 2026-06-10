@@ -75,7 +75,7 @@ export default function AdminDashboardClient({
   };
 
   return (
-    <div className={styles.grid}>
+    <div className={`${styles.grid} ${selectedStudentId && activeTab === 'profile' ? styles.isProfileView : ''}`}>
       {/* Access Codes Section */}
       <section className={`glass-panel ${styles.panel}`}>
         <h3>Access Code Management</h3>

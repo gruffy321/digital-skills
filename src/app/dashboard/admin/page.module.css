@@ -368,8 +368,8 @@
     color: black !important;
   }
 
-  .profileView {
-    background: none !important;
-    border: 1px solid #ccc !important;
+  /* Hide matrix panel if we are currently viewing a profile so ONLY the profile prints */
+  .isProfileView .matrixPanel {
+    display: none !important;
   }
 }
