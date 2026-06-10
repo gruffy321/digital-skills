@@ -89,6 +89,7 @@
   flex-direction: column;
   gap: 1rem;
   animation: popUp 0.15s ease-out;
+  color: #000;
 }
 
 @keyframes popUp {
@@ -457,6 +458,7 @@
   display: flex;
   flex-direction: column;
   animation: popUp 0.15s ease-out;
+  color: #000;
 }
 
 .startMenuContent {
@@ -502,6 +504,7 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   padding: 0.25rem 0;
   min-width: 120px;
+  color: #000;
 }
 
 .profileMenu {
@@ -514,6 +517,7 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   padding: 0.25rem 0;
   min-width: 120px;
+  color: #000;
 }
 
 /* Lock Screen overlay */
