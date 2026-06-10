@@ -34,6 +34,40 @@ export async function POST(request: Request) {
       },
     });
 
+    // Update User lastActive
+    await prisma.user.update({
+      where: { id: session.userId },
+      data: { lastActive: new Date() }
+    });
+
+    // Handle Deep Analytics for Progress
+    if (actionType === 'failed_quiz_attempt' || actionType === 'quiz_completed' || actionType.includes('error') || actionType.includes('incorrect')) {
+      const existingProgress = await prisma.progress.findUnique({
+        where: { userId_moduleId: { userId: session.userId, moduleId } }
+      });
+
+      if (existingProgress) {
+        if (actionType === 'failed_quiz_attempt') {
+          await prisma.progress.update({
+            where: { id: existingProgress.id },
+            data: { quizAttempts: existingProgress.quizAttempts + 1 }
+          });
+        } else if (actionType === 'quiz_completed') {
+          if (existingProgress.quizAttempts === 0) {
+            await prisma.progress.update({
+              where: { id: existingProgress.id },
+              data: { passedFirstTime: true }
+            });
+          }
+        } else if (actionType.includes('error') || actionType.includes('incorrect')) {
+          await prisma.progress.update({
+            where: { id: existingProgress.id },
+            data: { incorrectClicks: existingProgress.incorrectClicks + 1 }
+          });
+        }
+      }
+    }
+
     return NextResponse.json({ success: true, event });
   } catch (error) {
     console.error("Error logging event:", error);

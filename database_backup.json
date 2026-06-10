@@ -1,0 +1,6024 @@
+{
+  "timestamp": "2026-06-10T12:54:35.174Z",
+  "users": [
+    {
+      "id": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "name": "Gruff Wright",
+      "email": "gruffy.wright@gmail.com",
+      "passwordHash": "$2b$10$4nqvBrSlSkjUGb8w6dxIHO7m81jQ5Dmcs5p00dZwtlPGziWOwrGAC",
+      "role": "ADMIN",
+      "classCode": null,
+      "createdAt": "2026-06-08T11:05:04.287Z"
+    },
+    {
+      "id": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "name": "marshall perriam",
+      "email": "19perriM@southdevonutc.org.uk",
+      "passwordHash": "$2b$10$X3eLdvqvCALaXbT40jEHJOC9mmmAHgQVvGz0Gp9D8tTLuoSBl2a6y",
+      "role": "STUDENT",
+      "classCode": "SDUTC-26",
+      "createdAt": "2026-06-08T11:09:21.716Z"
+    },
+    {
+      "id": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "name": "Joshua Hatfield",
+      "email": "joshuahatfield2008@gmail.com",
+      "passwordHash": "$2b$10$m5VbNR8yETXYVz.nroNFhOH7bD.DLi8LmZmlrHMytpqOHXZVXYGdS",
+      "role": "STUDENT",
+      "classCode": "SDUTC-26",
+      "createdAt": "2026-06-08T11:07:21.340Z"
+    },
+    {
+      "id": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "name": "Mali Burnett",
+      "email": "21burnem@southdevonutc.org.uk",
+      "passwordHash": "$2b$10$MRt/SEGDhcUyzJftb4pUSuHoRMaPvE56bjbhMnvwlTbvKxCkoaRYi",
+      "role": "STUDENT",
+      "classCode": "SDUTC-26",
+      "createdAt": "2026-06-08T13:29:31.858Z"
+    },
+    {
+      "id": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "name": "Beth Ousey",
+      "email": "bethany.ousey@coombesheadacademy.org.uk",
+      "passwordHash": "$2b$10$IhY2nIQTlhjCyOkBfsbgYOzhHTDoKgiKS/FLV4zYTeiexex.IIcju",
+      "role": "ADMIN",
+      "classCode": null,
+      "createdAt": "2026-06-08T12:07:05.784Z"
+    }
+  ],
+  "modules": [
+    {
+      "id": "1",
+      "title": "Module 1",
+      "description": null,
+      "sequenceNumber": 1
+    },
+    {
+      "id": "10",
+      "title": "Module 10",
+      "description": null,
+      "sequenceNumber": 10
+    },
+    {
+      "id": "11",
+      "title": "Module 11",
+      "description": null,
+      "sequenceNumber": 11
+    },
+    {
+      "id": "12",
+      "title": "Module 12",
+      "description": null,
+      "sequenceNumber": 12
+    },
+    {
+      "id": "2",
+      "title": "Module 2",
+      "description": null,
+      "sequenceNumber": 2
+    },
+    {
+      "id": "3",
+      "title": "Module 3",
+      "description": null,
+      "sequenceNumber": 3
+    },
+    {
+      "id": "4",
+      "title": "Module 4",
+      "description": null,
+      "sequenceNumber": 4
+    },
+    {
+      "id": "5",
+      "title": "Module 5",
+      "description": null,
+      "sequenceNumber": 5
+    },
+    {
+      "id": "6",
+      "title": "Module 6",
+      "description": null,
+      "sequenceNumber": 6
+    },
+    {
+      "id": "7",
+      "title": "Module 7",
+      "description": null,
+      "sequenceNumber": 7
+    },
+    {
+      "id": "8",
+      "title": "Module 8",
+      "description": null,
+      "sequenceNumber": 8
+    },
+    {
+      "id": "9",
+      "title": "Module 9",
+      "description": null,
+      "sequenceNumber": 9
+    }
+  ],
+  "progress": [
+    {
+      "id": "00ad3bab-e40a-46fe-9724-d9bbd78113e3",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "11",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "00e28fdb-e012-4f44-9084-03f8cdf29dad",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "2",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "013c4cc7-dfbf-4822-b01f-747b8a7c0437",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "9",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "0704bf0c-1182-41b9-9a23-0732240cb9c6",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "084ebb85-1fe1-4c59-88e9-285935d49249",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "9",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "0bf9d629-bfb3-496d-a1ad-304c415d6143",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "5",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "0c7e8346-8265-4296-a57e-0da0ecce558e",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "3",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "0e0c041a-4803-47ac-9164-da593583afda",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "2",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "165b9fae-4753-4b8a-9ca4-053bb88376e1",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "11",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "19219107-f692-48ff-9c6c-25b900b19fdd",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "6",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "23046f20-d3d8-4803-9198-d5fb9943b4df",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "2c91564e-b8d3-41ba-8642-7264c40dec14",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "10",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "3326235d-7c06-45b2-83e6-a74828df9668",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "3",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "3883d4ff-e6f8-4500-83fb-c4dc191c6eee",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "5",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "398daf33-2274-4c08-a299-3483cf390a1a",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "8",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "39a9d92a-0e31-4e8b-896c-4c56a857b8b2",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "2",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "3b13fa67-4dba-4cdc-a50b-23280cea5572",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "7",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "3c879502-0a42-47d3-b025-23e581aabbe3",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "1",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "44ca40aa-a3fb-48a8-a6e2-9eabfe12583a",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "7",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "4851b2d4-55d5-44a5-b2cc-1ce628f126ad",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "7",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "4999e0b7-c117-4d33-aea8-84ee14c087ed",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "10",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "4ff0bd27-a88c-4f32-ba75-18bbd3eb6d87",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "534d006e-131c-472a-88ef-10e53c8eb8b6",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "4",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "59ac355d-b8f5-4981-ab89-6af20d4396b9",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "4",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "687831bd-3113-4f8c-b2cf-9e1621eabd86",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "7",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "6e67f653-66f9-4cb4-a8ea-8152c9712c94",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "6f1e1fce-a492-40b7-ae4c-c4c9e553309f",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "8",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "6f311db4-100b-4b52-ae5f-7b497d37b985",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "4",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "78ffb34d-4c00-413f-8b6d-ec52345b7cc8",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "10",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "79f15040-0095-4786-ba30-df7b5ff99e64",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "6",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "7ba369ad-4462-4eb3-98a1-6b421c44217c",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "11",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "7c38ca9c-5fb2-47cc-ad1b-9116171c9d9f",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "3",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "85a19faf-e54d-4c92-93a2-2e7488aa8225",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "11",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "86cbee24-115f-4a27-bbf6-536d62c005fd",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "5",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "893a1894-a142-4c1f-8730-39c75a773637",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "12",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "8f4bfca7-3529-4397-86f8-ad9d2c54c2ca",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "9",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "91c7ff07-eec8-4ed4-a271-f6ea78e72d08",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "1",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "995d3184-f5e2-4f51-9384-4fb25b822e15",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "6",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "9f587675-9b6c-43c3-8386-f85eac5bd01f",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "10",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "a0aed9d4-f1a6-4335-b57d-5eacf0992da7",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "3",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "a4cff4ae-bcca-4035-b1f0-1ad635400e2a",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "6",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "a5ef4f34-6911-42b8-8124-015a93b17f7a",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "9",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "a722d275-ebb3-4da0-abed-20b69955f02f",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "1",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "a8b3362c-bd94-458e-be23-c4cc0e7df3b0",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "12",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "b30f5775-765d-4ee9-bb13-15b45cad0c65",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "9",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "b6ade63d-6bfa-4cca-9602-d420adfa6258",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "10",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "bf8e52ad-099e-43b4-ad1a-65b51ab430b3",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "8",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "c1ac805d-6122-4830-8ac7-20803054b69e",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "12",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "c5310eeb-1958-4395-b9ff-0a4e53f5f7b8",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "2",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "c65ce2df-e028-4e6b-b15a-ca1d463616fe",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "1",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "c6c55a1b-ecae-4cfd-bab6-1023302abcfd",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "1",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "c6e87007-76ef-4ba7-8cea-cc354f79ac27",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "5",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "d123123e-c5c1-43ce-8038-365bb20259a0",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "3",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "d18796fe-9c72-48b6-a618-48072082ea2d",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "4",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "da545431-7e14-476b-bfe1-c9537957a638",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "8",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "e90b40c7-4ae1-47f4-8669-f5afbd7499ad",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "e9156074-05c0-4c12-8e41-eb316d47c7a4",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "6",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    },
+    {
+      "id": "ec434d75-3091-4039-b872-6adf714b3369",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "7",
+      "status": "COMPLETED",
+      "score": 0,
+      "stateJson": null
+    }
+  ],
+  "events": [
+    {
+      "id": "004ee704-a387-49e0-8478-adf1784026ac",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "calendar_tab_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:16:35.720Z"
+    },
+    {
+      "id": "0180ee3f-c6a0-47db-acef-f8b118f23d80",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "4",
+      "actionType": "stranger_denied_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:14:36.056Z"
+    },
+    {
+      "id": "0200e419-3a5b-42e3-9cad-91e1084d1f02",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "1",
+      "actionType": "OPENED_SETTINGS",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:28:27.004Z"
+    },
+    {
+      "id": "02b0aeed-ba09-4344-a532-8b4468878ea8",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "teacher_login_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T12:06:43.781Z"
+    },
+    {
+      "id": "031d91d9-7527-47e9-9dee-75f930d0df57",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "8",
+      "actionType": "presentation_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:24:09.122Z"
+    },
+    {
+      "id": "0335ef12-9a65-4836-9e61-097d9c990753",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "11",
+      "actionType": "opened_wifi_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:27:57.783Z"
+    },
+    {
+      "id": "03a69759-9ade-4930-b72e-2de8ab411e7b",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "3",
+      "actionType": "browser_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:09:57.126Z"
+    },
+    {
+      "id": "03aca63c-aa7f-4faf-8c26-78108479bc5f",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "m12_state_save",
+      "metadataJson": {
+        "m12_1": "approved",
+        "m12_2": "in_progress",
+        "m12_3": "locked",
+        "m12_4": "locked",
+        "m12_5": "locked",
+        "m12_6": "locked"
+      },
+      "timestamp": "2026-06-09T08:35:01.366Z"
+    },
+    {
+      "id": "03c4c729-f548-4d32-9329-c0046794f499",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "soft_restart",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T12:22:37.330Z"
+    },
+    {
+      "id": "04840522-ef29-4d48-85e3-3d5407916c8b",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "11",
+      "actionType": "audio_wifi_fixed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:27:58.801Z"
+    },
+    {
+      "id": "04bd77d5-0062-46a5-92e5-a1dec3405267",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "8",
+      "actionType": "transition_applied_successfully",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:36:58.507Z"
+    },
+    {
+      "id": "051e7d4a-130e-4e70-89cf-7eca8c5995db",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "teacher_approved_m12_3",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T12:06:49.592Z"
+    },
+    {
+      "id": "05fd8e92-2be5-475f-a099-f2ea2f6928b9",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "student_submitted_m12_1",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:03:28.415Z"
+    },
+    {
+      "id": "0656277e-d5b9-40b1-a0f7-3deb5c2d92dc",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "module2_quiz_completed",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:19:27.259Z"
+    },
+    {
+      "id": "06997d9e-2008-4a71-a897-d5263626c780",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_f1_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:20:42.720Z"
+    },
+    {
+      "id": "073e893e-c87c-48e1-bf00-9fc8a59cb2c9",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "professional_email_with_attachment_sent",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T19:36:21.557Z"
+    },
+    {
+      "id": "07415a6b-ae1c-4324-826d-65a4a8e0c77d",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "7",
+      "actionType": "advanced_word_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:21:54.321Z"
+    },
+    {
+      "id": "076ec0ca-d4ca-43c3-8510-2a63bda8909a",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "selected_unprofessional_image",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:49:03.008Z"
+    },
+    {
+      "id": "07ad54ee-a351-4186-875a-930a22e37d69",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "3",
+      "actionType": "phishing_link_clicked",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:34:14.644Z"
+    },
+    {
+      "id": "07d42b1d-6eab-4e16-b10d-ebe038a70978",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "restored_file",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T12:08:21.616Z"
+    },
+    {
+      "id": "083aec7c-aa66-4bee-8cac-e6c8eca79879",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "12",
+      "actionType": "final_project_completed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:20:59.241Z"
+    },
+    {
+      "id": "084613f5-3ca9-4668-a1b2-68d59eec1748",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_w6_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:20:52.220Z"
+    },
+    {
+      "id": "087bf554-824f-4aaa-983f-7d7afa55705f",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "ppt_new_slide_added",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T11:08:42.664Z"
+    },
+    {
+      "id": "08fc9b3b-5085-49aa-85bb-b2c5c543f579",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "social_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:03:00.666Z"
+    },
+    {
+      "id": "09d2fdf9-f45e-4dc0-aee6-444a3a130e9b",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "1",
+      "actionType": "PASTED_CODE",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:28:44.693Z"
+    },
+    {
+      "id": "09d8c438-7e83-4a2d-a868-f165c87eae7e",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "5",
+      "actionType": "phishing_email_deleted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:20:48.127Z"
+    },
+    {
+      "id": "0a7503b5-ab90-4b9d-a8c0-434324ee0a6c",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "transition_applied_successfully",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T08:36:22.396Z"
+    },
+    {
+      "id": "0b34b61f-4b21-4ffb-8839-5444ba2e11ef",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "3",
+      "actionType": "url_navigation_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:25:07.087Z"
+    },
+    {
+      "id": "0b805bd6-ea57-4dee-8483-e5f0832c6848",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "fixed_audio_network",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T12:08:36.167Z"
+    },
+    {
+      "id": "0caec73c-df1f-4cda-bd4c-992e970b6366",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "account_set_private",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:05:03.444Z"
+    },
+    {
+      "id": "0cb7ee24-e761-499d-b624-864abf2a904e",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "opened_start_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:31:41.578Z"
+    },
+    {
+      "id": "0cb8d5dd-f51c-4a80-98b6-fc0e4e88b5f8",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "11",
+      "actionType": "opened_volume_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:27:53.220Z"
+    },
+    {
+      "id": "0ccb8d90-ce7f-4781-a578-dc32bd4ba7da",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "teacher_approved_m12_1",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:03:41.225Z"
+    },
+    {
+      "id": "0d294517-7f1e-4b25-8b42-8c5ca91ed70f",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "1",
+      "actionType": "CHANGED_BACKGROUND",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:28:33.822Z"
+    },
+    {
+      "id": "0d8ecd7c-7dee-4abd-bcf2-cf990f58b3a6",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "CREATED_FOLDER",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:18:25.837Z"
+    },
+    {
+      "id": "0e26eefa-d02a-4b4d-b9f3-020b2519aa7f",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "3",
+      "actionType": "browser_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:31:27.586Z"
+    },
+    {
+      "id": "0e8cc96b-0cc5-45c7-8970-24e61c83906c",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "OPENED_EXPLORER",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T20:35:17.423Z"
+    },
+    {
+      "id": "0ec845aa-33cb-4623-9b1d-4f6c2fade2fc",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "3",
+      "actionType": "search_query_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:10:41.830Z"
+    },
+    {
+      "id": "0f18c729-aa9b-4b8a-9b9f-dcb61b850d5b",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "OPENED_EXPLORER",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:36:11.176Z"
+    },
+    {
+      "id": "0f1e4247-260d-4efb-82f4-4318fa59d4d1",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "7",
+      "actionType": "word_table_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T10:45:38.352Z"
+    },
+    {
+      "id": "0f690f63-2488-44f1-b33b-b4645b7a2ae2",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "3",
+      "actionType": "page_bookmarked",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:52:56.066Z"
+    },
+    {
+      "id": "0f8ae7e0-5c36-403b-8420-1abf2035e015",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "7",
+      "actionType": "word_spelling_fixed",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T10:45:48.041Z"
+    },
+    {
+      "id": "0fc4051a-1ed1-40e4-b10f-787663d3d632",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "module8_quiz_passed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:52:23.235Z"
+    },
+    {
+      "id": "0fcd5ec8-e2d1-4933-9dfd-767face96990",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "2",
+      "actionType": "DELETED_FILE",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:09:58.598Z"
+    },
+    {
+      "id": "108904a5-8800-4b58-9566-9c0bd39efba1",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "7",
+      "actionType": "table_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:13:59.954Z"
+    },
+    {
+      "id": "10aaae5e-57d9-414b-aee0-bc29235321fe",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "1",
+      "actionType": "OPENED_SETTINGS",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:08:13.366Z"
+    },
+    {
+      "id": "1161443d-9544-4276-b004-dbc3521883f4",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_s3_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:32:45.368Z"
+    },
+    {
+      "id": "12418d26-8d12-444d-953b-72a230ea8449",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "6",
+      "actionType": "text_formatted_bold_correctly",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:38:12.919Z"
+    },
+    {
+      "id": "127311ea-731b-4941-9d2e-19fc924618fb",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "m12_state_save",
+      "metadataJson": {
+        "m12_1": "approved",
+        "m12_2": "in_progress",
+        "m12_3": "locked",
+        "m12_4": "locked",
+        "m12_5": "locked",
+        "m12_6": "locked"
+      },
+      "timestamp": "2026-06-08T20:24:53.840Z"
+    },
+    {
+      "id": "12ca698a-9a50-484a-8b8c-cbe068f9dede",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "6",
+      "actionType": "save_as_clicked",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:30:43.346Z"
+    },
+    {
+      "id": "13182636-9b0b-42f5-91bc-68826d099f8f",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "7",
+      "actionType": "comment_resolved",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:20:37.775Z"
+    },
+    {
+      "id": "13332028-1cb9-40b7-a99f-a209c428b28f",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "7",
+      "actionType": "table_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:36:13.637Z"
+    },
+    {
+      "id": "13377f9c-5a3f-48db-acf2-5b6b3ffa49c3",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "1",
+      "actionType": "module1_quiz_passed",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T17:58:54.009Z"
+    },
+    {
+      "id": "135c3279-4d3a-4658-a59e-70cb8e8a5486",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "file_attached_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:15:03.308Z"
+    },
+    {
+      "id": "13f63d65-c619-4fdc-9bf9-fb3af913eacd",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "4",
+      "actionType": "stranger_denied_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:17:56.777Z"
+    },
+    {
+      "id": "1453242f-4b0c-4375-b3ba-c56adbf61084",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "7",
+      "actionType": "table_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:35:47.187Z"
+    },
+    {
+      "id": "15486a73-aba2-4165-9dbd-16a535fa7b18",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "8",
+      "actionType": "inserted_image",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:24:24.739Z"
+    },
+    {
+      "id": "15736e03-1bd4-4fa9-ae9d-2778d9d7eabd",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "7",
+      "actionType": "advanced_word_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:20:23.827Z"
+    },
+    {
+      "id": "16bb86b3-3e27-42d4-b09c-8a1eeed56d93",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "phishing_reported",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:56:31.341Z"
+    },
+    {
+      "id": "16e13ab2-4fb1-454d-9001-5e6664603013",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "m12_state_save",
+      "metadataJson": {
+        "m12_1": "approved",
+        "m12_2": "in_progress",
+        "m12_3": "locked",
+        "m12_4": "locked",
+        "m12_5": "locked",
+        "m12_6": "locked"
+      },
+      "timestamp": "2026-06-08T20:24:53.520Z"
+    },
+    {
+      "id": "16f03e81-a461-4475-af9b-32a9e9392655",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "audio_wifi_fixed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:34:37.639Z"
+    },
+    {
+      "id": "16f466b9-eb59-4416-a70e-4cfeca1adb59",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "1",
+      "actionType": "OPENED_SETTINGS",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:09:54.637Z"
+    },
+    {
+      "id": "17411ffc-f940-4a1a-92ce-2d4e5d5b7d83",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "6",
+      "actionType": "word_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T20:12:17.764Z"
+    },
+    {
+      "id": "179285cd-5022-4612-b059-644529350895",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "4",
+      "actionType": "stranger_denied_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:15:47.155Z"
+    },
+    {
+      "id": "1813b6d2-ddb9-4931-9552-56dc28ea2617",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "11",
+      "actionType": "opened_start_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:31:11.835Z"
+    },
+    {
+      "id": "182b4059-488a-458c-acdf-bfe29b2c208f",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "teacher_login_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:03:37.612Z"
+    },
+    {
+      "id": "18823705-ebe5-43c8-ad6c-dbd96c43c5eb",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "strong_password_created",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:56:19.916Z"
+    },
+    {
+      "id": "18a65fc7-43eb-444e-86ff-a3e33c70dc97",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "9",
+      "actionType": "spreadsheet_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:15:41.807Z"
+    },
+    {
+      "id": "18b41b32-ac09-4d04-b5b8-32631d2afd5a",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "ORGANIZED_CHAOS",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:18:59.335Z"
+    },
+    {
+      "id": "18c98024-4c20-46b5-b9be-2fc6a5cc3295",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "cyberbullying_reported",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:34:45.922Z"
+    },
+    {
+      "id": "199b7e3d-7b6e-4db4-bd8e-9230f2806ec1",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "3",
+      "actionType": "module3_quiz_completed",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:26:01.368Z"
+    },
+    {
+      "id": "1ae60c2b-e213-44ee-a051-b50ad94f2592",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "11",
+      "actionType": "opened_wifi_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:28:51.791Z"
+    },
+    {
+      "id": "1b732289-19dd-4547-ace6-ccbcfd2a96ee",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "4",
+      "actionType": "account_set_private",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:15:01.906Z"
+    },
+    {
+      "id": "1bdf8d91-6b8e-4581-b176-eb896fea8a5d",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "1",
+      "actionType": "LOGGED_IN",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T17:57:23.069Z"
+    },
+    {
+      "id": "1c125ea0-bdfd-4af9-a612-084c16f8d5d9",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "7",
+      "actionType": "table_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:38:41.743Z"
+    },
+    {
+      "id": "1c5980e6-aa57-44db-9e1c-1c639f9c6856",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_f2_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:32:50.806Z"
+    },
+    {
+      "id": "1d79ffa3-e986-4f3f-893f-99ca2b629ce5",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_w5_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:32:42.296Z"
+    },
+    {
+      "id": "1e71d984-f655-4017-b707-1b02362f4fbf",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "8",
+      "actionType": "started_presentation",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:25:13.010Z"
+    },
+    {
+      "id": "1ec6af02-badd-409d-b020-73b83a2f4f14",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "OPENED_EXPLORER",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:38:42.305Z"
+    },
+    {
+      "id": "1ee56379-3791-42b0-9127-49c928ee0739",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "4",
+      "actionType": "account_set_private",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:18:01.457Z"
+    },
+    {
+      "id": "1fd52e32-7836-4a26-a9b0-1101535d6031",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_w3_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:20:55.441Z"
+    },
+    {
+      "id": "1ff588bc-a61a-4cd8-9ad2-aa56bb454dd4",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "student_submitted_m12_1",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:55:30.600Z"
+    },
+    {
+      "id": "20249439-d57d-426d-a1fe-ce2f19aa263c",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "social_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:59:56.904Z"
+    },
+    {
+      "id": "20d235f8-83e5-4dbe-9375-4e7284ad4949",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "7",
+      "actionType": "word_header_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T10:43:19.909Z"
+    },
+    {
+      "id": "22c8f0f1-f852-4804-b03e-2fd95f079f1b",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "11",
+      "actionType": "opened_start_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:28:56.975Z"
+    },
+    {
+      "id": "22eaf1bd-a26a-44b4-bc04-34da015ccbb6",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "6",
+      "actionType": "word_processor_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:12:58.386Z"
+    },
+    {
+      "id": "239bb9c0-2877-40ec-a599-5527f34f2a6e",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "ppt_image_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T11:03:49.960Z"
+    },
+    {
+      "id": "2441ce85-4579-4198-9f9f-4050f309edd4",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "11",
+      "actionType": "opened_start_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:32:02.379Z"
+    },
+    {
+      "id": "246ab392-12bd-4e3d-9b8a-01f625195629",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "DELETED_FILE",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:40:55.229Z"
+    },
+    {
+      "id": "24d14447-b752-40c4-97ad-fbaa1d034e96",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "11",
+      "actionType": "audio_wifi_fixed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:27:27.655Z"
+    },
+    {
+      "id": "254b4e74-d8d0-4b5d-8590-2d7445771bc5",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "1",
+      "actionType": "MINIMIZED_WINDOW",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:30:39.220Z"
+    },
+    {
+      "id": "256732d1-5cee-45e5-88e1-596c4c89bbc6",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "4",
+      "actionType": "cyberbullying_reported",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:32:51.411Z"
+    },
+    {
+      "id": "25f0c8b5-acda-4c94-9b2b-1de152425a48",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "7",
+      "actionType": "table_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:22:12.345Z"
+    },
+    {
+      "id": "264df469-5967-44cf-9d90-0f171143b42d",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "7",
+      "actionType": "advanced_word_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:23:54.636Z"
+    },
+    {
+      "id": "27aeb637-0d0d-4547-8705-293558aeaff5",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "ppt_image_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T10:57:10.315Z"
+    },
+    {
+      "id": "285442de-0e4f-4c9b-8c5a-a741569402f5",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "7",
+      "actionType": "advanced_word_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:35:37.523Z"
+    },
+    {
+      "id": "28aff6b8-bd2c-4a8b-839b-09fceda3eca7",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "module2_quiz_completed",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:13:52.274Z"
+    },
+    {
+      "id": "28c67ede-0e78-40c4-8c20-29e2bad194d6",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_c1_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:32:37.871Z"
+    },
+    {
+      "id": "28e8c3fe-5d26-4ccf-94a9-d371d6786333",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "quiz_completed",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T10:58:12.600Z"
+    },
+    {
+      "id": "28f20e5a-758f-4b60-9bce-ddb98004c005",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "outlook_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T08:33:19.564Z"
+    },
+    {
+      "id": "28fc6e7a-5273-46bd-9636-c209083b8c64",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "QUIZ_PASSED",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:37:03.149Z"
+    },
+    {
+      "id": "29eb8710-3330-4b77-8bde-e69a37643f27",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "3",
+      "actionType": "safe_link_clicked",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:32:01.678Z"
+    },
+    {
+      "id": "2a106779-1930-409c-89f0-eafc50814c49",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "RENAMED_FILE",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:38:26.966Z"
+    },
+    {
+      "id": "2a919fd6-c845-49a4-b2c7-0c428fe52aed",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "CREATED_FOLDER",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:38:11.763Z"
+    },
+    {
+      "id": "2ae93b31-056f-4ea6-b21f-57747aae9fc0",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_w5_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:20:52.947Z"
+    },
+    {
+      "id": "2b17030a-703b-437f-8085-0596b1417ad9",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "ppt_slide_show_ran",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T11:09:16.122Z"
+    },
+    {
+      "id": "2b3fd2b7-22a7-4968-80c6-7e5a9fa30a83",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_s1_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:32:44.624Z"
+    },
+    {
+      "id": "2b59982b-e27b-4d57-8b0b-7fc8905ab5b8",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "6",
+      "actionType": "word_bullets_added",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T20:06:08.986Z"
+    },
+    {
+      "id": "2b5ae580-482b-4808-a0bb-d8c2162734ba",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "7",
+      "actionType": "header_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:20:29.259Z"
+    },
+    {
+      "id": "2b6b2ff4-afcd-4032-bbfd-7b33f1305a89",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "opened_start_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:17:33.267Z"
+    },
+    {
+      "id": "2ba64eef-6319-4233-b873-cbc25d26c333",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "6",
+      "actionType": "save_as_clicked",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:21:35.285Z"
+    },
+    {
+      "id": "2be7320e-0985-47af-9d70-8134786f67da",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "11",
+      "actionType": "audio_wifi_fixed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:28:52.544Z"
+    },
+    {
+      "id": "2c702c44-c68a-464b-9b02-cbb416645303",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "4",
+      "actionType": "stranger_denied_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:32:22.990Z"
+    },
+    {
+      "id": "2cdad0c9-3ee2-4afb-b522-583f64a340d5",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "CREATED_FOLDER",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:40:22.672Z"
+    },
+    {
+      "id": "2d858bdb-59f2-4781-95b1-aa14d179101b",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "6",
+      "actionType": "word_formatting_applied",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T19:57:55.290Z"
+    },
+    {
+      "id": "2da9dd1b-4afa-43cc-a865-ebbf9ed7a560",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "outlook_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T19:25:39.205Z"
+    },
+    {
+      "id": "2daf06a8-36d0-498b-8029-a1d508b3b2fb",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_w4_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:20:53.776Z"
+    },
+    {
+      "id": "2dd00980-d0d2-40d1-ac58-0690e6ffd1a3",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "social_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T20:32:39.221Z"
+    },
+    {
+      "id": "2de9c65d-78e5-4c4d-b031-4a0517e4053c",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "CREATED_FOLDER",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:36:17.701Z"
+    },
+    {
+      "id": "2e94093a-9e06-4d97-82ee-0e11fbe83244",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "3",
+      "actionType": "browser_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:11:48.733Z"
+    },
+    {
+      "id": "2f17b833-0bc8-4c11-9ff3-6302305b1982",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_f1_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:32:49.952Z"
+    },
+    {
+      "id": "2f29c536-b50b-4a3f-83b2-c70f654f4c53",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "5",
+      "actionType": "phishing_email_deleted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:15:13.014Z"
+    },
+    {
+      "id": "2f2e4758-bfbb-4453-91f3-69696fe914ea",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "3",
+      "actionType": "phishing_link_clicked",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:31:54.593Z"
+    },
+    {
+      "id": "2f557e0d-d319-4305-8748-d826f7373ee1",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "student_submitted_m12_3",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T12:06:31.069Z"
+    },
+    {
+      "id": "2f8a74ec-9ee7-4205-acec-28f5d8abfeb9",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "strong_password_created",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:48:05.672Z"
+    },
+    {
+      "id": "2faba982-bbe1-4f4d-adf0-ce1fcdb85d1a",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "10",
+      "actionType": "moved_file_to_cloud",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:27:35.953Z"
+    },
+    {
+      "id": "30be6bf4-726a-42aa-a0e2-816cca1de6a0",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "11",
+      "actionType": "locked_device",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:32:04.826Z"
+    },
+    {
+      "id": "30ef5466-4fb2-4257-8e66-b01e506b30ec",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "QUIZ_PASSED",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:40:58.679Z"
+    },
+    {
+      "id": "31efd359-29de-412b-bd2a-24e2bf4849a3",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "module5_quiz_completed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T20:26:00.215Z"
+    },
+    {
+      "id": "330ae313-a588-410f-9891-c7a75032d0ed",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "11",
+      "actionType": "locked_device",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:27:50.009Z"
+    },
+    {
+      "id": "331277bd-c04d-440b-b217-bf9aef933fa3",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "7",
+      "actionType": "header_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:18:32.922Z"
+    },
+    {
+      "id": "33b361f5-d4a6-4b99-b960-cfd947c83fa0",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "6",
+      "actionType": "word_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T20:07:17.338Z"
+    },
+    {
+      "id": "33f1b0b9-27a9-4e79-a23b-834b0f52cd7b",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "6",
+      "actionType": "word_processor_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:30:27.200Z"
+    },
+    {
+      "id": "341613be-dff0-4e96-8733-07bdf684ecdc",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "stranger_denied_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:59:58.560Z"
+    },
+    {
+      "id": "344a4778-e7d2-4d5d-9755-c6f3ac2492d0",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_s3_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:20:47.282Z"
+    },
+    {
+      "id": "345d224e-cd3b-4178-9f1e-53824f9691fc",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "10",
+      "actionType": "navigated_to_local",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:38:39.566Z"
+    },
+    {
+      "id": "34e7a9c2-84c5-47db-ac34-26b55c44c94f",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_w8_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:20:50.489Z"
+    },
+    {
+      "id": "356c8a7e-6cd3-4b60-a54a-2d5369513fd1",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "7",
+      "actionType": "header_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:35:59.367Z"
+    },
+    {
+      "id": "359061e6-9444-45a0-adbb-3ee2b37d0162",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "email_replied_professionally",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T20:25:12.877Z"
+    },
+    {
+      "id": "35ebcb96-7728-403e-9e77-c75252b843fa",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "student_submitted_m12_2",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T08:35:14.505Z"
+    },
+    {
+      "id": "3678d305-1a11-421b-8a86-7776b64ba5c1",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "stranger_denied_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:03:15.620Z"
+    },
+    {
+      "id": "37ab97b7-b23a-4aec-95a6-b285660c4345",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "2",
+      "actionType": "CREATED_FOLDER",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:31:06.376Z"
+    },
+    {
+      "id": "38046fbc-f8f9-48b9-8a8b-bc42087fb97c",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "added_content_slide",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:49:00.036Z"
+    },
+    {
+      "id": "383dfbd1-4eda-4f2b-b6bb-4aa813b6c658",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_c2_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:28:25.020Z"
+    },
+    {
+      "id": "3933c1bb-f2ba-49c5-90aa-e735bf01fcd2",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "social_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T20:34:05.398Z"
+    },
+    {
+      "id": "39b51541-965c-4551-b02a-b9836fc1bbdd",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "6",
+      "actionType": "file_saved_successfully",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:30:57.205Z"
+    },
+    {
+      "id": "39c1521a-3e28-4b70-a0df-23792ba259fd",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "7",
+      "actionType": "header_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:17:11.100Z"
+    },
+    {
+      "id": "39e7cf80-a1d4-483e-8c29-642d1e82127e",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "11",
+      "actionType": "audio_wifi_fixed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:39:11.155Z"
+    },
+    {
+      "id": "3a006aae-1b6c-42f3-8d81-d3a24f472a08",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "9",
+      "actionType": "min_formula_entered",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:02:32.018Z"
+    },
+    {
+      "id": "3a297250-d901-4ce2-9dd3-56c9837918bd",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "4",
+      "actionType": "stranger_accepted_failed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:32:14.775Z"
+    },
+    {
+      "id": "3a5b19a0-e02d-456e-a4c1-1575430bce0a",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "8",
+      "actionType": "added_content_slide",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:14:38.596Z"
+    },
+    {
+      "id": "3b231482-45ad-4438-bc5a-6155cbc5c46d",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "started_presentation",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:52:08.597Z"
+    },
+    {
+      "id": "3b28824f-9c18-41a6-83f6-18585205f6d5",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_p3_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:28:47.661Z"
+    },
+    {
+      "id": "3b4a5a68-402e-4f6b-adb1-bd1069881afe",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "7",
+      "actionType": "table_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:18:27.317Z"
+    },
+    {
+      "id": "3b62487d-ce9b-4ac5-a8e0-add33fb7e171",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "ppt_slide_show_ran",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T10:57:55.691Z"
+    },
+    {
+      "id": "3c324ce9-44f1-483a-a30f-ca7b930fc010",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "account_set_private",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:34:47.353Z"
+    },
+    {
+      "id": "3c42bcf8-d05d-4825-98e5-85d167e31eb3",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "6",
+      "actionType": "file_saved_successfully",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:16:40.294Z"
+    },
+    {
+      "id": "3c5097b9-8fba-45fc-b80f-07da70365156",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_w7_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:29:05.074Z"
+    },
+    {
+      "id": "3cffd35d-7f29-478d-929e-968a43777723",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "1",
+      "actionType": "COPIED_SHORTCUT",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:10:05.090Z"
+    },
+    {
+      "id": "3d13115d-bab4-4b8b-9807-af1dc767baed",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "4",
+      "actionType": "account_set_private",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:15:56.751Z"
+    },
+    {
+      "id": "3d441e4a-a8d1-4dbd-9afc-4133eb9fd732",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "account_set_private",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:26:36.390Z"
+    },
+    {
+      "id": "3e744918-596e-4745-a922-aaf44e858e96",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "ppt_transition_and_bullets_added",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T10:57:49.453Z"
+    },
+    {
+      "id": "3eea4bc3-996c-4d93-8f62-b28a7d1fc867",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "restored_file",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T11:59:26.381Z"
+    },
+    {
+      "id": "3f6036e5-8514-480d-8348-8c673243181b",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "2",
+      "actionType": "OPENED_EXPLORER",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:09:07.382Z"
+    },
+    {
+      "id": "40dd8328-4bbe-40f7-852d-933aae4a2578",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "module11_quiz_passed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:36:54.994Z"
+    },
+    {
+      "id": "412a8ece-58cb-4edc-a25b-10d1478f774a",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "stranger_denied_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:26:17.221Z"
+    },
+    {
+      "id": "4219bfaf-fb98-4588-87ce-1a08e4fef9c7",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "ppt_image_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T11:08:49.877Z"
+    },
+    {
+      "id": "42e667f5-a9e5-4abe-8c65-caf0123286ce",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "outlook_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T19:35:56.761Z"
+    },
+    {
+      "id": "435fc16d-8f94-42cf-ac85-7faecec51cff",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "3",
+      "actionType": "browser_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:52:12.951Z"
+    },
+    {
+      "id": "4493acb7-ed62-4ae3-9ef4-c12558808a8d",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "OPENED_EXPLORER",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:33:07.714Z"
+    },
+    {
+      "id": "44b1d01f-122b-42ed-baf4-7191ba28f410",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "teacher_approved_m12_1",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:13:02.200Z"
+    },
+    {
+      "id": "450d5e35-cdeb-41db-a450-3afed11bafdd",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "9",
+      "actionType": "data_entry_completed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:12:51.604Z"
+    },
+    {
+      "id": "456332fb-8b7d-48b7-8b2a-3d00cb43b5ec",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "9",
+      "actionType": "spreadsheet_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:37:11.898Z"
+    },
+    {
+      "id": "45fc8d8b-d6a1-4595-8361-fff97a2289e1",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "student_submitted_m12_1",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:12:52.750Z"
+    },
+    {
+      "id": "461ccfc7-7eb2-45eb-b40f-4339ab5f78b1",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "calendar_invite_accepted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:20:11.942Z"
+    },
+    {
+      "id": "46fd9f87-7fc7-488a-941e-9f2df7aff9ad",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "3",
+      "actionType": "search_query_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:34:12.873Z"
+    },
+    {
+      "id": "47a3f513-bbbe-4108-9aed-8d9acab7ce8e",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "ppt_transition_and_bullets_added",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T11:04:11.806Z"
+    },
+    {
+      "id": "48dca3db-10a3-4b4b-af7b-0d6ed8257f3e",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "7",
+      "actionType": "header_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:14:07.140Z"
+    },
+    {
+      "id": "48fa4aef-f79f-4e44-bdca-f27f909ced29",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "11",
+      "actionType": "audio_wifi_fixed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:30:33.898Z"
+    },
+    {
+      "id": "4917d1a8-8153-4dbb-8fec-6bd224651b48",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "3",
+      "actionType": "browser_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:33:24.503Z"
+    },
+    {
+      "id": "49c1cbe2-38fa-440c-8352-c330bb2faef4",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "soft_restart",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T12:09:17.768Z"
+    },
+    {
+      "id": "4a5a19de-c3b3-47b7-89f8-deb783bf3fde",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "teacher_approved_m12_1",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:13:02.208Z"
+    },
+    {
+      "id": "4c7a9bb6-3d3e-48b0-8b81-d1a468bc6c21",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "MOVED_FILE",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:36:52.136Z"
+    },
+    {
+      "id": "4c9cb073-bb1d-44ea-a1b3-5f2ffa40a423",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "6",
+      "actionType": "file_saved_successfully",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:35:20.206Z"
+    },
+    {
+      "id": "4cdc83bd-1365-4167-b875-5b7f0017bdd4",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "teacher_approved_m12_2",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T08:35:27.383Z"
+    },
+    {
+      "id": "4d1aca18-fc05-47ce-bbd3-f1fb72cac677",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "6",
+      "actionType": "file_saved_successfully",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:21:46.791Z"
+    },
+    {
+      "id": "4d241212-9368-48b0-9198-66eceb3fd22e",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "8",
+      "actionType": "added_content_slide",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:24:20.191Z"
+    },
+    {
+      "id": "4debfdd5-36c5-4071-bb8e-c232473f499f",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "soft_restart",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T12:03:11.972Z"
+    },
+    {
+      "id": "4e8cedeb-307e-4c02-80a3-e4264a7ac15a",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "11",
+      "actionType": "opened_start_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:27:49.051Z"
+    },
+    {
+      "id": "4edfdbfe-1143-4c1c-a775-aef74bddf5a7",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "1",
+      "actionType": "QUIZ_PASSED",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:28:50.273Z"
+    },
+    {
+      "id": "4fcdcd13-7261-4d83-ae25-76a3228e9ad6",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "7",
+      "actionType": "table_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:36:31.616Z"
+    },
+    {
+      "id": "5017a9c9-24e7-4d8d-98c5-b6589a793131",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "2",
+      "actionType": "CREATED_FOLDER",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:09:37.870Z"
+    },
+    {
+      "id": "501cf0fc-397e-4fed-b018-33b65208b68c",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "4",
+      "actionType": "cyberbullying_reported",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:14:38.654Z"
+    },
+    {
+      "id": "5021b28e-d958-4669-90c6-8620466ba696",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "6",
+      "actionType": "word_formatting_applied",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T20:12:40.374Z"
+    },
+    {
+      "id": "50231220-896e-4141-9d8e-144e8ff1fddc",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "9",
+      "actionType": "sum_formula_entered",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:01:06.342Z"
+    },
+    {
+      "id": "5044b7bc-ed92-47e8-8a16-adc802539f6c",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_w7_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:32:42.574Z"
+    },
+    {
+      "id": "513b3691-d7e0-4cee-a615-05864966f747",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_c1_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:28:22.373Z"
+    },
+    {
+      "id": "514c0f21-7a66-408f-b107-ae05b1425c62",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "initiated_restart",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:17:24.435Z"
+    },
+    {
+      "id": "51873ce4-2b4b-4ec2-aff2-599eca2fd80c",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "MOVED_FILE",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:38:31.576Z"
+    },
+    {
+      "id": "51989129-e2a8-4041-a8a3-b9082b53f9c7",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "5",
+      "actionType": "professional_reply_sent",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:34:04.061Z"
+    },
+    {
+      "id": "51c2289c-13f9-4d94-88c6-2211739520e4",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "RENAMED_FILE",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:40:39.216Z"
+    },
+    {
+      "id": "520f36be-d584-4c8c-9654-97814f095794",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "6",
+      "actionType": "text_formatted_bold_correctly",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:35:11.750Z"
+    },
+    {
+      "id": "522b3bfc-839d-4211-8106-79edf37f9e87",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "10",
+      "actionType": "explorer_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:18:13.093Z"
+    },
+    {
+      "id": "53313e97-0bb4-4e96-baea-eb261695b1a6",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "11",
+      "actionType": "opened_start_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:28:21.967Z"
+    },
+    {
+      "id": "53c9998f-642c-4a8d-b8bb-757c047276bf",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "student_submitted_m12_1",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:20:16.328Z"
+    },
+    {
+      "id": "53e9777c-8041-419e-b76f-798fb3bd64fd",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "9",
+      "actionType": "spreadsheet_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:25:27.076Z"
+    },
+    {
+      "id": "53f77145-d50d-408a-b640-4ee1039b0ac5",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "11",
+      "actionType": "opened_wifi_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:31:09.078Z"
+    },
+    {
+      "id": "54d01412-222b-4d38-90f1-3240a39e23db",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "9",
+      "actionType": "counta_formula_entered",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:17:45.995Z"
+    },
+    {
+      "id": "54d0f9f2-355d-4c3e-a2e8-f614a33243e1",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "m12_state_save",
+      "metadataJson": {
+        "m12_1": "in_progress",
+        "m12_2": "locked",
+        "m12_3": "locked",
+        "m12_4": "locked",
+        "m12_5": "locked",
+        "m12_6": "locked"
+      },
+      "timestamp": "2026-06-08T19:20:14.646Z"
+    },
+    {
+      "id": "54d22655-cdfe-42a8-a268-2d367d150283",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "7",
+      "actionType": "table_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:23:56.353Z"
+    },
+    {
+      "id": "54d2829f-7686-4f8c-a3f2-02f324e76332",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_f1_false",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:28:33.323Z"
+    },
+    {
+      "id": "54e4bc98-45da-4234-ae59-90ced4f7f701",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "3",
+      "actionType": "url_navigation_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:31:41.517Z"
+    },
+    {
+      "id": "551c73f6-949e-47fe-a92c-3b27cef6bf73",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "11",
+      "actionType": "audio_wifi_fixed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:31:10.291Z"
+    },
+    {
+      "id": "5527769a-d914-429b-bdfa-76b529ea7460",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "8",
+      "actionType": "transition_applied_successfully",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:25:06.266Z"
+    },
+    {
+      "id": "5528de5e-a998-499e-9494-90561c908640",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "11",
+      "actionType": "opened_volume_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:28:50.656Z"
+    },
+    {
+      "id": "55a612c6-5a54-4cab-9642-fef60f927ae7",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "6",
+      "actionType": "module6_quiz_passed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:31:08.703Z"
+    },
+    {
+      "id": "55e982f8-a90f-4654-915f-194392d1f3a4",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "2",
+      "actionType": "OPENED_EXPLORER",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:10:30.990Z"
+    },
+    {
+      "id": "5630a11b-663b-4a10-ae85-7336a38b75eb",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "11",
+      "actionType": "opened_start_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:39:44.759Z"
+    },
+    {
+      "id": "5664ef9f-d191-46a6-b47a-ccc8fb89a6bd",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "7",
+      "actionType": "table_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:35:25.760Z"
+    },
+    {
+      "id": "56adde10-435c-4248-93d1-c56e8f405cac",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "10",
+      "actionType": "explorer_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:26:56.573Z"
+    },
+    {
+      "id": "56b9eddc-ef91-48bf-a9df-fc319e32d364",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "digital_footprint_cleaned",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:26:33.458Z"
+    },
+    {
+      "id": "5731c385-d3f4-45cb-a619-6c6dcaed0b2e",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "teacher_email_read",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T20:35:28.928Z"
+    },
+    {
+      "id": "575cf56b-11ae-4fe7-827e-3948b2ed543d",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "11",
+      "actionType": "audio_wifi_fixed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:19:09.552Z"
+    },
+    {
+      "id": "57c19278-f347-479b-86de-540a298bc114",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "outlook_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:35:02.656Z"
+    },
+    {
+      "id": "58d4a897-af74-4b81-a33d-562703b1f919",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "3",
+      "actionType": "safe_link_clicked",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:34:24.507Z"
+    },
+    {
+      "id": "59439a05-dab0-4e8c-8d02-07a1ac40abd1",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "outlook_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:19:37.568Z"
+    },
+    {
+      "id": "59455dd7-34ee-4f06-8d43-bdc3c58a4f78",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "outlook_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T19:11:01.366Z"
+    },
+    {
+      "id": "595131f9-9509-4371-88e3-04325519a19a",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "7",
+      "actionType": "table_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:17:03.057Z"
+    },
+    {
+      "id": "59bac150-a964-4119-bf68-d142ce56e5f5",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "OPENED_EXPLORER",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T20:26:10.284Z"
+    },
+    {
+      "id": "59bf7917-bc19-48c4-9e9f-c82d55eb2330",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "4",
+      "actionType": "cyberbullying_reported",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:15:49.109Z"
+    },
+    {
+      "id": "59da9cbf-a553-4f24-808e-dd16558a3b27",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_p1_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:28:53.990Z"
+    },
+    {
+      "id": "59de237c-471b-4906-95e3-0b1b57a42335",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "teacher_approved_m12_1",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:03:41.218Z"
+    },
+    {
+      "id": "5a2f8bdd-c854-4a40-bca4-6105f7892c34",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "4",
+      "actionType": "social_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:32:12.188Z"
+    },
+    {
+      "id": "5a6f03a0-088b-4856-a71a-596d87e2e04d",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "teacher_email_read",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:35:10.376Z"
+    },
+    {
+      "id": "5a9a1ba3-0080-474d-8b16-b4002c5d7930",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_p4_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:20:43.112Z"
+    },
+    {
+      "id": "5aab8c3c-94b4-4000-9d44-71e558855420",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "m12_state_save",
+      "metadataJson": {
+        "m12_1": "approved",
+        "m12_2": "approved",
+        "m12_3": "in_progress",
+        "m12_4": "locked",
+        "m12_5": "locked",
+        "m12_6": "locked"
+      },
+      "timestamp": "2026-06-10T12:06:26.592Z"
+    },
+    {
+      "id": "5ac965dd-8690-4f74-bcdc-fa5ed8d0839b",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "9",
+      "actionType": "average_formula_entered",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:01:57.067Z"
+    },
+    {
+      "id": "5ad0ea67-a10a-4709-afab-91a21314b9d6",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "locked_device",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:55:34.445Z"
+    },
+    {
+      "id": "5b1b4fde-f171-4b9a-9c63-930307706816",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "quiz_completed",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T12:04:21.917Z"
+    },
+    {
+      "id": "5b7e38db-c976-4f5f-995c-d9e56713dd5e",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "3",
+      "actionType": "url_navigation_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:12:00.533Z"
+    },
+    {
+      "id": "5ba83919-f1cf-4b58-a832-38f4c746ffda",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_s1_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:20:48.875Z"
+    },
+    {
+      "id": "5bb9bb0a-b7a9-4967-a768-27489e65b3b9",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "3",
+      "actionType": "phishing_link_clicked",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:10:58.131Z"
+    },
+    {
+      "id": "5bc328ea-a3af-4859-a55a-d0e1cfe1ccc8",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "email_replied_professionally",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T20:35:33.754Z"
+    },
+    {
+      "id": "5c43d13a-8b20-45ff-8c35-e6590ad3d693",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "5",
+      "actionType": "professional_reply_sent",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:12:32.412Z"
+    },
+    {
+      "id": "5cbc62ad-bfb2-4706-bf10-6bb73e6fdad0",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_s2_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:20:47.995Z"
+    },
+    {
+      "id": "5cd3f618-3b98-4b76-a5f0-db36ee03480d",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "3",
+      "actionType": "search_query_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:31:52.409Z"
+    },
+    {
+      "id": "5d5c5344-be01-45f5-96a1-c477caa9826b",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "3",
+      "actionType": "search_query_partial",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:11:07.857Z"
+    },
+    {
+      "id": "5d6940dc-3cdc-43d3-985f-9d1b2df04ae5",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "7",
+      "actionType": "header_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:35:30.342Z"
+    },
+    {
+      "id": "5ea95de0-e263-4376-b3a8-7e8f5641c057",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_w8_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:29:06.082Z"
+    },
+    {
+      "id": "5ed3dcf2-627f-4ba7-8ebf-cb01ab274a79",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "10",
+      "actionType": "module10_quiz_passed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:20:53.367Z"
+    },
+    {
+      "id": "5ee3acbd-7240-4337-8d7c-0fdc4816c212",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "outlook_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:17:54.655Z"
+    },
+    {
+      "id": "5f386920-e113-4221-8d3c-c7ddba269459",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "7",
+      "actionType": "advanced_word_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:18:09.642Z"
+    },
+    {
+      "id": "5f6facad-3837-4cfd-96b6-0fdd1d2ace02",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "11",
+      "actionType": "opened_start_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:39:20.024Z"
+    },
+    {
+      "id": "60ba3a87-de89-4a3b-ad7d-ccff0faf5e45",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "2",
+      "actionType": "DELETED_FILE",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:11:09.963Z"
+    },
+    {
+      "id": "6102adf4-c6f2-4563-ae00-eb2b853552f6",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "audio_wifi_fixed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:31:20.637Z"
+    },
+    {
+      "id": "61660e43-83bf-4152-8ae9-eaefa6e20b29",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_w3_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:32:40.753Z"
+    },
+    {
+      "id": "6167e77b-2193-47da-bd71-65332bd79593",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "professional_email_with_attachment_sent",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T19:26:34.176Z"
+    },
+    {
+      "id": "61818e8a-8e4d-4ae7-9d62-c1ba72504e12",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "1",
+      "actionType": "OPENED_SETTINGS",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:30:10.495Z"
+    },
+    {
+      "id": "6199dbe3-d538-421a-9ae7-7f6421bdcc64",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "4",
+      "actionType": "stranger_denied_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:14:04.269Z"
+    },
+    {
+      "id": "61b9ab74-cd91-4926-a634-41aea28d430a",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "OPENED_EXPLORER",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:18:01.041Z"
+    },
+    {
+      "id": "61d36293-a41b-4f51-af2d-0ef0abd034b6",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "added_content_slide",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:46:19.285Z"
+    },
+    {
+      "id": "6216f57b-a3d5-46d9-9fa6-3332460422f4",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "10",
+      "actionType": "explorer_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:27:23.949Z"
+    },
+    {
+      "id": "6298f9e4-0821-4c5c-a519-da1bda2eb09c",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "11",
+      "actionType": "opened_wifi_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:27:30.111Z"
+    },
+    {
+      "id": "63d81800-8e7a-4e33-8638-3cd0a57f90ef",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "9",
+      "actionType": "counta_formula_entered",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:26:57.242Z"
+    },
+    {
+      "id": "63ea8c1e-7433-48c2-9284-ace2b9214cfc",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "teacher_email_read",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:19:38.714Z"
+    },
+    {
+      "id": "64c2a834-b204-4f4f-8831-9282a1253854",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "social_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:56:03.464Z"
+    },
+    {
+      "id": "662b128e-10a6-4698-80d8-92075ca4d584",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "professional_reply_drafted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:19:46.008Z"
+    },
+    {
+      "id": "6667f979-a7c4-436b-b0e9-b566d131f85d",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "ORGANIZED_CHAOS",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:13:16.858Z"
+    },
+    {
+      "id": "668695ef-5939-4dd5-9dc1-abeeae18687c",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "stranger_danger_denied",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:52:35.303Z"
+    },
+    {
+      "id": "67067573-62d7-416f-9740-0fd7a2672b40",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "7",
+      "actionType": "word_printed_follow_me",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T10:33:15.361Z"
+    },
+    {
+      "id": "677b132e-2993-4733-83d1-4d626471848f",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "1",
+      "actionType": "MINIMIZED_WINDOW",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:30:12.482Z"
+    },
+    {
+      "id": "67dc129e-adad-4077-a395-278b1ac4dcee",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "OPENED_EXPLORER",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:34:44.612Z"
+    },
+    {
+      "id": "67f13c79-51d0-4d67-a293-cb1540986341",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "3",
+      "actionType": "search_query_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:52:31.037Z"
+    },
+    {
+      "id": "68fafc55-6952-448e-aa6a-88f44241bc13",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "11",
+      "actionType": "opened_start_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:19:20.539Z"
+    },
+    {
+      "id": "695aba3d-c447-4cab-8316-29e3c236b15d",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "started_presentation",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T08:36:23.676Z"
+    },
+    {
+      "id": "69c239a0-d1c3-4995-83b9-67fbfa1b2d30",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "10",
+      "actionType": "navigated_to_local",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:18:26.616Z"
+    },
+    {
+      "id": "6aeb3549-fa3e-4662-9ecf-3c6112a50b1e",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "8",
+      "actionType": "presentation_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:14:28.565Z"
+    },
+    {
+      "id": "6b581cbd-9cbd-48f6-bf10-91db0b63ca77",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "file_attached_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:19:51.374Z"
+    },
+    {
+      "id": "6bd595ce-b11d-4297-acf8-d5cee5e36b46",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "opened_start_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:55:25.096Z"
+    },
+    {
+      "id": "6bd5e56d-e5dc-4c79-8282-dbbfc3e239cc",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "9",
+      "actionType": "counta_formula_entered",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:38:22.662Z"
+    },
+    {
+      "id": "6c2b28f4-67aa-4f23-ac73-c4b9652e416e",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "7",
+      "actionType": "header_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:23:58.991Z"
+    },
+    {
+      "id": "6c507625-b859-4532-a49f-1193a9a1d650",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "3",
+      "actionType": "url_navigation_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:10:19.451Z"
+    },
+    {
+      "id": "6c7ad0f3-596c-423c-880d-5f0f63e63f0e",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_w6_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:32:42.016Z"
+    },
+    {
+      "id": "6d39c2af-f92a-4242-b2fd-e54595bee8c6",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "4",
+      "actionType": "account_set_private",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:14:01.982Z"
+    },
+    {
+      "id": "6da36915-eb09-4bf5-ae90-7631147f317c",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "1",
+      "actionType": "COPIED_SHORTCUT",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:08:53.421Z"
+    },
+    {
+      "id": "6dfcf1c1-dfd4-4c5b-9846-e6f34b35cd15",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_w3_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:29:03.064Z"
+    },
+    {
+      "id": "6e7ac022-460a-4b5b-845b-4e3e5023d13a",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "7",
+      "actionType": "advanced_word_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:38:39.421Z"
+    },
+    {
+      "id": "6f07cfbd-19d3-453a-b52f-673b52d10d08",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "4",
+      "actionType": "account_set_private",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:11:44.390Z"
+    },
+    {
+      "id": "6f0c755f-fc59-40e5-8011-6419cffbb62e",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "email_read",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T19:18:36.209Z"
+    },
+    {
+      "id": "6f1217e8-337a-4d08-b613-ae349a3f3a01",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "7",
+      "actionType": "word_printed_follow_me",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T10:45:56.019Z"
+    },
+    {
+      "id": "6fd3b3d2-7f23-4f1d-8e1b-6141706c85d0",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "1",
+      "actionType": "MINIMIZED_SETTINGS",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:28:29.239Z"
+    },
+    {
+      "id": "70207c6d-d67e-4599-87f5-49ac2f715665",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "7",
+      "actionType": "advanced_word_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:16:48.055Z"
+    },
+    {
+      "id": "70b16bf9-f818-4db6-99e4-258fac35d08a",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "m12_state_save",
+      "metadataJson": {
+        "m12_1": "approved",
+        "m12_2": "approved",
+        "m12_3": "in_progress",
+        "m12_4": "locked",
+        "m12_5": "locked",
+        "m12_6": "locked"
+      },
+      "timestamp": "2026-06-10T12:06:26.252Z"
+    },
+    {
+      "id": "70fbfe08-7e5c-4321-a479-5f6ec5c4354f",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "7",
+      "actionType": "word_table_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T10:43:16.296Z"
+    },
+    {
+      "id": "71d933e5-f37a-4d64-8d00-61fb725d5e71",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "strong_password_created",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:03:08.617Z"
+    },
+    {
+      "id": "72cab4a4-209d-438f-b2d0-0601ef5d498e",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "4",
+      "actionType": "social_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:13:20.383Z"
+    },
+    {
+      "id": "730e8f87-6c43-4677-adad-44a3ebc8eb20",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_w1_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:20:57.086Z"
+    },
+    {
+      "id": "73ccd1dc-3cf2-42d9-8911-ee63c5b373e8",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_p4_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:28:44.562Z"
+    },
+    {
+      "id": "7415fa1d-3e18-435c-9bd6-690f3c3e8f09",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "m12_state_save",
+      "metadataJson": {
+        "m12_1": "ready_for_review",
+        "m12_2": "locked",
+        "m12_3": "locked",
+        "m12_4": "locked",
+        "m12_5": "locked",
+        "m12_6": "locked"
+      },
+      "timestamp": "2026-06-08T19:20:16.322Z"
+    },
+    {
+      "id": "7491fff4-6a66-4721-8c7f-8822dd09528f",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "email_read",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T19:35:57.637Z"
+    },
+    {
+      "id": "75f96c9d-0f8e-4809-b014-d121aa76c875",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "cancelled_print_job",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T12:08:52.388Z"
+    },
+    {
+      "id": "761e8904-d680-4df9-8667-a7eec934d724",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "student_submitted_m12_3",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T12:06:30.994Z"
+    },
+    {
+      "id": "7696a3f2-0553-4be9-a6c2-960f5818b272",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "m12_state_save",
+      "metadataJson": {
+        "m12_1": "approved",
+        "m12_2": "in_progress",
+        "m12_3": "locked",
+        "m12_4": "locked",
+        "m12_5": "locked",
+        "m12_6": "locked"
+      },
+      "timestamp": "2026-06-08T19:55:13.290Z"
+    },
+    {
+      "id": "76a13f72-9402-41fd-8e95-adbbb1670fa9",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_w6_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:29:04.601Z"
+    },
+    {
+      "id": "76b5a4e8-2c6d-4b5f-9987-82506d6c8d77",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "printed_to_follow_me",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:36:44.546Z"
+    },
+    {
+      "id": "76e1b859-4f63-4b69-a3ae-3f58770aa56a",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "quiz_completed",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T12:23:12.751Z"
+    },
+    {
+      "id": "76e9fcbb-1992-4b8b-a854-09bf74947b98",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "6",
+      "actionType": "word_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T19:57:28.342Z"
+    },
+    {
+      "id": "77023858-a740-4cc8-8edc-179158977267",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "11",
+      "actionType": "initiated_restart",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:28:13.121Z"
+    },
+    {
+      "id": "7766d4c9-c97e-4a7c-a2dd-be3d4a26d766",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "4",
+      "actionType": "stranger_denied_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:13:32.928Z"
+    },
+    {
+      "id": "778edb8a-0355-4316-b201-195a0db10032",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "12",
+      "actionType": "final_project_completed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:32:50.909Z"
+    },
+    {
+      "id": "7813e513-7449-46df-9052-309adf56eda1",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "1",
+      "actionType": "volume_adjusted",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T17:57:43.885Z"
+    },
+    {
+      "id": "78392563-dc98-4e79-8363-4cf8e010dd36",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "11",
+      "actionType": "locked_device",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:30:43.806Z"
+    },
+    {
+      "id": "784293d6-f170-4228-ab91-eace6f888172",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "inserted_image",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:49:06.383Z"
+    },
+    {
+      "id": "7866fbc6-2daa-4de2-995f-518e16114ecb",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "opened_wifi_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:17:20.618Z"
+    },
+    {
+      "id": "78807bab-edee-42f6-b5ca-da3520ab71b5",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "8",
+      "actionType": "started_presentation",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:15:10.015Z"
+    },
+    {
+      "id": "78a867ff-d781-4f30-9b93-c5bededd9e4f",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "5",
+      "actionType": "phishing_email_deleted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:34:17.019Z"
+    },
+    {
+      "id": "7903a45c-d23e-4e4c-b7fb-53a7eb1f70ff",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "3",
+      "actionType": "browser_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:24:51.036Z"
+    },
+    {
+      "id": "793f984b-c335-4bc7-8f16-b14d2ed2ef0e",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "cyberbullying_reported",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T20:00:00.940Z"
+    },
+    {
+      "id": "79c2ca73-79f0-4654-9c64-c6bee08514ff",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "RENAMED_FILE",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:12:52.777Z"
+    },
+    {
+      "id": "7a26f93d-3f4a-4b55-ad84-9b46e58a4790",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "teacher_login_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:20:23.129Z"
+    },
+    {
+      "id": "7a6717cf-a2ea-4c44-b56d-6dea80a0c2d3",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_p4_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:32:49.311Z"
+    },
+    {
+      "id": "7a86e1db-0e09-4af9-959d-15d21dfe6913",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "7",
+      "actionType": "advanced_word_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:13:50.573Z"
+    },
+    {
+      "id": "7b3138d2-7e14-4a43-9848-95db274859ec",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "6",
+      "actionType": "word_file_saved",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T20:10:46.709Z"
+    },
+    {
+      "id": "7b70ebf1-9acd-4418-bb58-e6a8bdd28b6f",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "9",
+      "actionType": "data_entry_completed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:37:45.725Z"
+    },
+    {
+      "id": "7c1623fd-bf9b-437b-b34a-6240b79301c9",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "3",
+      "actionType": "url_navigation_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:33:37.237Z"
+    },
+    {
+      "id": "7c3e18db-ae9c-4575-a2a8-d9e462bdf26f",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "9",
+      "actionType": "sum_formula_entered",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:38:08.768Z"
+    },
+    {
+      "id": "7c860411-ea1b-42f8-ad12-7393c258753e",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "opened_start_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:55:33.802Z"
+    },
+    {
+      "id": "7ced9e75-9d47-4ca9-a9bd-983296f90359",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "teacher_approved_m12_3",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T12:06:49.593Z"
+    },
+    {
+      "id": "7d456957-b10c-48d4-8f34-2b84f2c99ee8",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "printed_to_follow_me",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:17:56.908Z"
+    },
+    {
+      "id": "7d49a719-79e9-4322-951f-33e07d65230d",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "3",
+      "actionType": "browser_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T20:38:43.076Z"
+    },
+    {
+      "id": "7e5e6c8b-d2e2-4f8c-b6ee-4d446144b56f",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "outlook_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T20:25:02.165Z"
+    },
+    {
+      "id": "7e9f0e80-b47f-4ca5-9ba6-a8f78c0085f6",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "11",
+      "actionType": "initiated_restart",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:31:12.363Z"
+    },
+    {
+      "id": "7f972948-5b2c-40df-8521-73bb092d0ea1",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "phishing_email_deleted",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T08:33:36.645Z"
+    },
+    {
+      "id": "80169814-fa83-4eae-ad35-82e918d2fff9",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "quiz_completed",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T11:09:30.895Z"
+    },
+    {
+      "id": "8035f179-643b-4f35-a64b-971d37f66d68",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "6",
+      "actionType": "word_processor_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:20:59.157Z"
+    },
+    {
+      "id": "80e9ed62-7a79-4d8b-918c-4e88d8fd4369",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "opened_wifi_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:55:21.214Z"
+    },
+    {
+      "id": "81032457-4dbe-4f5c-a202-5072b356e76f",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "audio_wifi_fixed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:55:22.304Z"
+    },
+    {
+      "id": "8147d26d-65c6-4c56-8cf7-677211c37d08",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_c2_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:32:38.390Z"
+    },
+    {
+      "id": "81a97a41-8801-4a43-af38-3300f1109f4d",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "transition_applied_successfully",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:49:20.884Z"
+    },
+    {
+      "id": "81c1dc21-363e-45d1-aabf-4fa24ae79c72",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "11",
+      "actionType": "opened_volume_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:39:09.591Z"
+    },
+    {
+      "id": "82265b32-32ed-4083-9244-defaafe9a583",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "6",
+      "actionType": "word_formatting_applied",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T20:07:36.076Z"
+    },
+    {
+      "id": "82606023-acc6-43d7-bea4-7c2fee00cdbe",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "3",
+      "actionType": "search_query_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:12:30.835Z"
+    },
+    {
+      "id": "8266f135-8ff9-4790-a796-6b961fe85e25",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "3",
+      "actionType": "search_query_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:52:31.524Z"
+    },
+    {
+      "id": "83dbf8ee-cd7f-401e-ba3f-76740e0a0277",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "10",
+      "actionType": "sync_completed_green_check",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:18:38.687Z"
+    },
+    {
+      "id": "844cbf39-2ad3-4712-9942-d0b3abb95ac7",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "m12_state_save",
+      "metadataJson": {
+        "m12_1": "approved",
+        "m12_2": "approved",
+        "m12_3": "approved",
+        "m12_4": "in_progress",
+        "m12_5": "locked",
+        "m12_6": "locked"
+      },
+      "timestamp": "2026-06-10T12:06:49.624Z"
+    },
+    {
+      "id": "8457fcc0-0cdc-4f06-acea-cde49fa8c0b7",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "inserted_image",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T08:36:06.700Z"
+    },
+    {
+      "id": "84f234d8-1a09-4017-bbf7-ab6105f5c0f6",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "9",
+      "actionType": "data_entry_completed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:00:51.533Z"
+    },
+    {
+      "id": "85812fc1-1234-4967-b044-d0a66e67e859",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "opened_volume_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:34:34.623Z"
+    },
+    {
+      "id": "85830d15-ce3b-4d09-878f-1c0ee632d2b3",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "closed_browser_restored_file",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T12:21:56.524Z"
+    },
+    {
+      "id": "859cfa51-571a-47a4-b7e7-473c4f082709",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "6",
+      "actionType": "word_bullets_added",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T20:12:57.761Z"
+    },
+    {
+      "id": "85cb1b1f-a215-4d6c-a4b3-bee94082cbe9",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "m12_state_save",
+      "metadataJson": {
+        "m12_1": "approved",
+        "m12_2": "approved",
+        "m12_3": "ready_for_review",
+        "m12_4": "locked",
+        "m12_5": "locked",
+        "m12_6": "locked"
+      },
+      "timestamp": "2026-06-10T12:06:30.754Z"
+    },
+    {
+      "id": "85f00465-705e-4963-876b-ca3f6ecc6c8e",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "social_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:34:33.956Z"
+    },
+    {
+      "id": "8684342f-c891-4cdb-bfd8-1a4371166fb3",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "professional_reply_drafted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:18:05.826Z"
+    },
+    {
+      "id": "86a7b6ba-c15e-44f9-94a2-9a05d0a5f7aa",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "6",
+      "actionType": "save_as_clicked",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:16:25.798Z"
+    },
+    {
+      "id": "86d65afa-00ad-43d6-9d9f-12d53dc740f2",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "stranger_denied_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:34:42.560Z"
+    },
+    {
+      "id": "86e05cce-fbc4-4be9-b980-b377fbff514f",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "5",
+      "actionType": "phishing_email_deleted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:12:39.465Z"
+    },
+    {
+      "id": "86e247c9-5203-4e23-a9d4-66ee9826bf65",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "3",
+      "actionType": "browser_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:11:18.547Z"
+    },
+    {
+      "id": "8749dee7-1150-4bcc-a132-1d441d8601eb",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "1",
+      "actionType": "COPIED_SHORTCUT",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:09:29.131Z"
+    },
+    {
+      "id": "87df7700-7a03-44cc-811c-fb2d19e04eb8",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "selected_unprofessional_image",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:46:25.861Z"
+    },
+    {
+      "id": "887b2cfe-3f72-4026-a756-ac46596f8d5d",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "3",
+      "actionType": "QUIZ_PASSED",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:52:51.860Z"
+    },
+    {
+      "id": "8931ecb8-8f95-49a8-895b-02a4b2459369",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_w5_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:29:04.148Z"
+    },
+    {
+      "id": "899beab5-8894-45ba-8c6e-4a253406f3e4",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "3",
+      "actionType": "phishing_link_clicked",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:25:52.349Z"
+    },
+    {
+      "id": "8a0ab239-258d-4cdf-859e-64e9fc962069",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "2",
+      "actionType": "CREATED_FOLDER",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:10:56.967Z"
+    },
+    {
+      "id": "8a0da491-3dea-4bee-80cc-3c3e2ee58a2d",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "fixed_audio_network",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T11:59:44.939Z"
+    },
+    {
+      "id": "8a110292-2bf8-410f-ae5f-34497856560f",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "6",
+      "actionType": "word_bullets_added",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T20:08:01.278Z"
+    },
+    {
+      "id": "8a3058f3-344b-4f52-985e-3b48d8f817f3",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "11",
+      "actionType": "initiated_restart",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:30:36.036Z"
+    },
+    {
+      "id": "8a964128-5f2a-440e-a75c-8719f718eb76",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "7",
+      "actionType": "comment_resolved",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:35:40.483Z"
+    },
+    {
+      "id": "8b9d2f22-4633-4539-a49b-48d9251e73ca",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "cancelled_print_job",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T12:22:26.187Z"
+    },
+    {
+      "id": "8bb20b25-0910-4bdc-a06e-1a5b28651d02",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "7",
+      "actionType": "advanced_word_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:36:19.329Z"
+    },
+    {
+      "id": "8c71a83f-9959-4bbb-b442-ff85269360cb",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "10",
+      "actionType": "sync_completed_green_check",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:38:53.764Z"
+    },
+    {
+      "id": "8d500cf3-8788-43f4-bef8-e2025a8c8f2a",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "6",
+      "actionType": "save_as_clicked",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:13:26.663Z"
+    },
+    {
+      "id": "8d7690a9-d1ca-48ee-b0f8-f249e3491492",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "6",
+      "actionType": "text_formatted_bold_correctly",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:30:40.358Z"
+    },
+    {
+      "id": "8ea6c354-375e-4e54-bd1d-54b63d800bcb",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "10",
+      "actionType": "explorer_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:19:53.064Z"
+    },
+    {
+      "id": "8eed1df6-78ea-469b-88c1-38db2f1dbe16",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "teacher_approved_m12_1",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:20:25.431Z"
+    },
+    {
+      "id": "8f6bbb16-9bb0-4d26-b9cb-88bada3ddba8",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "1",
+      "actionType": "MINIMIZED_WINDOW",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:09:23.142Z"
+    },
+    {
+      "id": "8fd27367-1aed-4f7e-b21a-eec9f4d55643",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "professional_email_sent",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T19:19:45.935Z"
+    },
+    {
+      "id": "90b85b56-77e0-46dd-bec8-335313e6b4ad",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "1",
+      "actionType": "OPENED_SETTINGS",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:05:34.435Z"
+    },
+    {
+      "id": "910f44f9-bd74-46f8-9af4-7e78cc36e785",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "social_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:47:45.249Z"
+    },
+    {
+      "id": "91fe6373-0c29-40b3-b7e6-752c5a249494",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "7",
+      "actionType": "header_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:36:32.855Z"
+    },
+    {
+      "id": "9285d5db-90a6-4d7d-855f-0d056fa1e6ff",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "DELETED_FILE",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:33:18.022Z"
+    },
+    {
+      "id": "92ad83ca-5245-454a-8aaf-c0a69b45be44",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "6",
+      "actionType": "file_saved_successfully",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:13:41.202Z"
+    },
+    {
+      "id": "92dab1df-538b-4277-910d-baaff525bbaf",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "inserted_image",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:52:01.384Z"
+    },
+    {
+      "id": "92e3df5f-11c0-49c3-b998-04494a653633",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "10",
+      "actionType": "moved_file_to_cloud",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:27:06.980Z"
+    },
+    {
+      "id": "93636137-34fb-41ea-a715-afb2ad5c8426",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "restored_file",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:17:49.914Z"
+    },
+    {
+      "id": "9378e41b-fac5-4613-86d3-91d634936102",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "10",
+      "actionType": "navigated_to_local",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:20:14.906Z"
+    },
+    {
+      "id": "93a2e68f-151b-42ca-8d36-2dff64d19f37",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_c1_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:20:58.383Z"
+    },
+    {
+      "id": "93e05b23-705f-469e-8f7c-30dd84202eb9",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "CREATED_FOLDER",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T20:26:30.384Z"
+    },
+    {
+      "id": "94173b38-eb25-47a0-9461-2f5f4babc3af",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "9",
+      "actionType": "sum_formula_entered",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:12:56.348Z"
+    },
+    {
+      "id": "9441cd42-27a6-4246-93a0-69010b92ffaa",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "teacher_email_read",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T20:25:07.277Z"
+    },
+    {
+      "id": "9452ac18-ff51-4917-a71a-ee9b98df149b",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "initiated_restart",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:31:32.872Z"
+    },
+    {
+      "id": "94641c7b-946e-4cd0-ab6c-ee883cb88189",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "1",
+      "actionType": "LOGGED_IN",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:28:13.934Z"
+    },
+    {
+      "id": "94bf6698-b8bd-4861-abb2-14fee8ed57e0",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "locked_device",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:17:34.179Z"
+    },
+    {
+      "id": "96069709-ceca-4d41-b8e6-35fac25b4164",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "7",
+      "actionType": "word_header_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T10:45:40.110Z"
+    },
+    {
+      "id": "96904f0e-79d6-4d55-8173-2518d8ce652c",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "opened_volume_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:31:12.697Z"
+    },
+    {
+      "id": "96c12496-c38b-4789-85cf-3f3ca6f544c3",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_w2_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:20:56.257Z"
+    },
+    {
+      "id": "97fd26aa-1998-48d2-9f8f-a5f944a8f1ab",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "3",
+      "actionType": "safe_link_clicked",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:52:41.083Z"
+    },
+    {
+      "id": "98deb51b-9ab3-4e7e-8758-12d193733155",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "4",
+      "actionType": "social_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:11:19.754Z"
+    },
+    {
+      "id": "99556aa7-4824-4bea-8bc3-9b00913e2f2d",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "11",
+      "actionType": "opened_start_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:39:16.162Z"
+    },
+    {
+      "id": "9a1aef92-4e85-4b2a-8715-8c66966abc36",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "restored_file",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:36:18.900Z"
+    },
+    {
+      "id": "9a439af3-0dda-4175-9316-ecc92ed7acdb",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "7",
+      "actionType": "word_spelling_fixed",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T10:32:58.396Z"
+    },
+    {
+      "id": "9a5aab27-2fd0-491e-8e96-bb900bc446a1",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "added_content_slide",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T08:35:54.284Z"
+    },
+    {
+      "id": "9abbb920-126a-4d5f-9a52-8461db40e59c",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "opened_start_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:34:40.918Z"
+    },
+    {
+      "id": "9aca9286-81a4-438a-bc29-984a526b67c6",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_p1_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:32:45.996Z"
+    },
+    {
+      "id": "9ad5a4e3-4f26-4782-b35f-7f8566e98a59",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "11",
+      "actionType": "initiated_restart",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:39:22.058Z"
+    },
+    {
+      "id": "9bb8b747-0aef-44a8-8a29-60db1cebc945",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "5",
+      "actionType": "teacher_email_read",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:12:14.030Z"
+    },
+    {
+      "id": "9bca259b-5c27-45cf-8e8f-76d39591ff1b",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "strong_password_created",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:26:11.108Z"
+    },
+    {
+      "id": "9bcfec1b-3610-400f-964f-bc82ee6f32e9",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "9",
+      "actionType": "spreadsheet_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:12:24.973Z"
+    },
+    {
+      "id": "9ca009fb-9724-496a-a82e-88b9bca5a49e",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "8",
+      "actionType": "started_presentation",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:25:04.095Z"
+    },
+    {
+      "id": "9d3ee792-d51b-4e0d-9031-9493cd08d4b7",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "11",
+      "actionType": "opened_volume_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:31:10.511Z"
+    },
+    {
+      "id": "9e2595d9-c5c3-4b5f-9d20-043ee3df03e8",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "phishing_reported",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:03:22.592Z"
+    },
+    {
+      "id": "9e438fd1-0540-4136-9e63-22775f94f268",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "2",
+      "actionType": "DELETED_FILE",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:09:46.943Z"
+    },
+    {
+      "id": "9e8bf508-cf28-4729-b9c2-9d187ffd71cf",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "started_presentation",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:49:25.832Z"
+    },
+    {
+      "id": "9f17492d-314e-45f8-a6b7-e1856a828e05",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "6",
+      "actionType": "word_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T20:18:48.749Z"
+    },
+    {
+      "id": "9f5807dc-8252-4327-a30f-6d58f0880f3e",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "1",
+      "actionType": "keyboard_shortcuts_mastered",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T17:58:28.267Z"
+    },
+    {
+      "id": "9f7438d0-32b2-4a39-a35c-8b5eb053f166",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "6",
+      "actionType": "quiz_completed",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T20:13:42.868Z"
+    },
+    {
+      "id": "a02c2c9d-1470-4847-8e8e-ffc126521eac",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "7",
+      "actionType": "comment_resolved",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:20:14.770Z"
+    },
+    {
+      "id": "a04f6a8b-4681-4f31-9e5c-9b906c634342",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "cyberbullying_reported",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:03:26.285Z"
+    },
+    {
+      "id": "a0eb5827-74c8-4305-a215-4d6a045738ab",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "inserted_image",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:46:32.248Z"
+    },
+    {
+      "id": "a13e962c-bb8b-4507-9541-98f7de8fa03b",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "7",
+      "actionType": "header_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:38:44.636Z"
+    },
+    {
+      "id": "a1830d4b-0dfe-4586-96fa-2bc132276ad6",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "8",
+      "actionType": "presentation_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:21:36.790Z"
+    },
+    {
+      "id": "a1bdcd92-cab7-4c1c-9a95-58079e246041",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "7",
+      "actionType": "header_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:22:26.896Z"
+    },
+    {
+      "id": "a229de66-8dd3-46dc-8d31-e3b714347a27",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "student_submitted_m12_1",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:55:30.459Z"
+    },
+    {
+      "id": "a2495c40-9f04-420b-9948-53bc2cf0eae1",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "7",
+      "actionType": "table_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:20:26.297Z"
+    },
+    {
+      "id": "a288c755-1e87-4b81-8252-db9bc66c812f",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "6",
+      "actionType": "text_formatted_bold_correctly",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:13:22.604Z"
+    },
+    {
+      "id": "a35d4918-38f9-458c-8012-790b16755a99",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "stranger_danger_denied",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:56:25.234Z"
+    },
+    {
+      "id": "a400a732-c9c0-46f0-8bdf-a0a507f00ad4",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "9",
+      "actionType": "data_entry_completed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:17:05.419Z"
+    },
+    {
+      "id": "a4657ec8-a6f4-4f06-87a2-e9355e3449b2",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "10",
+      "actionType": "explorer_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:30:59.159Z"
+    },
+    {
+      "id": "a4aefebd-dc35-40e8-9746-48f8d5881343",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "social_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:53:11.972Z"
+    },
+    {
+      "id": "a50d5e71-79d8-444a-abff-0b155362cfc9",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "email_read",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T19:11:06.339Z"
+    },
+    {
+      "id": "a5279a5e-97fb-433f-908a-083e5193a109",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "phishing_email_deleted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T20:35:44.577Z"
+    },
+    {
+      "id": "a6386c6d-9117-4057-a739-b8a2e0ae778d",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "11",
+      "actionType": "initiated_restart",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:30:09.206Z"
+    },
+    {
+      "id": "a63f3a4d-8649-4923-97b8-eb99de26dd04",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "1",
+      "actionType": "MINIMIZED_WINDOW",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:08:17.062Z"
+    },
+    {
+      "id": "a669f314-63bf-4b68-b24f-70760041cc2d",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "email_replied_professionally",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T08:33:29.669Z"
+    },
+    {
+      "id": "a682ec6c-bacd-4191-9c18-821381e7a178",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "opened_wifi_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:34:35.820Z"
+    },
+    {
+      "id": "a6ec3841-460c-4d39-81a7-ff9120a7b7c8",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "4",
+      "actionType": "social_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:15:42.845Z"
+    },
+    {
+      "id": "a7261769-3947-432a-b9fb-60b9ebef2ff0",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "calendar_rsvp",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T19:36:32.219Z"
+    },
+    {
+      "id": "a7bee46e-e060-4173-b16d-89b96b99745d",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "calendar_invite_accepted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:16:42.414Z"
+    },
+    {
+      "id": "a7cefa37-f4f1-4a34-8008-7f2997e67656",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "7",
+      "actionType": "advanced_word_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:35:17.489Z"
+    },
+    {
+      "id": "a7f13a7e-a6e2-4a62-967f-2c6fffa729e4",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "audio_wifi_fixed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:17:21.490Z"
+    },
+    {
+      "id": "a8d3867a-79f8-4585-b601-0ce89579a903",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "6",
+      "actionType": "word_image_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T20:08:13.298Z"
+    },
+    {
+      "id": "a8d89c41-8019-4f25-b87f-3d75be08e640",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "11",
+      "actionType": "opened_start_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:30:20.491Z"
+    },
+    {
+      "id": "aa08aa26-afe7-43fe-8872-20d6d1692cfc",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "presentation_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:46:09.014Z"
+    },
+    {
+      "id": "aa8134eb-1b92-46f0-a8be-37f7fe76e3b8",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "4",
+      "actionType": "account_set_private",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:14:17.081Z"
+    },
+    {
+      "id": "aacb77c5-cf0f-43c1-9ba8-61ba0263d7e8",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "4",
+      "actionType": "cyberbullying_reported",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:18:00.003Z"
+    },
+    {
+      "id": "aad59cf8-2327-4f2e-9f09-77e31a4743f9",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_s1_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:28:57.105Z"
+    },
+    {
+      "id": "ab10f02e-8741-4112-a819-ebfa218de802",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "8",
+      "actionType": "inserted_image",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:14:46.462Z"
+    },
+    {
+      "id": "abb4b532-9967-4080-9c07-f3c05e275f1a",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "restored_file",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T12:12:37.160Z"
+    },
+    {
+      "id": "abbba753-638d-4f76-af4e-e6e637368008",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "outlook_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:14:00.701Z"
+    },
+    {
+      "id": "ac061c42-8f32-4bf2-8784-6d2ca35b4cce",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "12",
+      "actionType": "final_project_completed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:29:08.355Z"
+    },
+    {
+      "id": "ad16dec9-ee05-46d5-8d6c-3639adbb5edc",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_f2_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:28:29.833Z"
+    },
+    {
+      "id": "aeca19f7-3908-44f4-b702-cb8e93300e98",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "RENAMED_FILE",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:36:42.335Z"
+    },
+    {
+      "id": "aee7f14d-843c-422c-bbf8-c3ec9abca4d8",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "9",
+      "actionType": "max_formula_entered",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:02:22.272Z"
+    },
+    {
+      "id": "af1d0b07-7141-41c0-977b-2bb0ea8776f2",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_p2_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:28:49.772Z"
+    },
+    {
+      "id": "af3a2676-1b10-49d0-a13c-38aeaed19a67",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "opened_wifi_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:31:15.524Z"
+    },
+    {
+      "id": "af3dba8c-4b7f-46d8-a2fa-6b2f2142d844",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "3",
+      "actionType": "safe_link_clicked",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:12:36.432Z"
+    },
+    {
+      "id": "af5964a8-971f-43cc-acf9-422d02c04b4a",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "7",
+      "actionType": "comment_resolved",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:14:15.268Z"
+    },
+    {
+      "id": "af79cdda-5bf2-4715-9ad4-981e2932b483",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "teacher_email_read",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T08:33:24.102Z"
+    },
+    {
+      "id": "af9c0e81-36c4-4873-999c-453226f05908",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "10",
+      "actionType": "sync_completed_green_check",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:20:32.971Z"
+    },
+    {
+      "id": "affa297e-5467-43c2-aa04-e7767689aa8f",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "11",
+      "actionType": "opened_start_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:19:35.120Z"
+    },
+    {
+      "id": "b037c11e-4d56-4f76-929d-3a80332c5bb4",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_s2_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:32:45.020Z"
+    },
+    {
+      "id": "b12ced1c-bd95-42c4-a528-207bbe151285",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "presentation_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T08:35:49.315Z"
+    },
+    {
+      "id": "b13cacf5-6d25-42cd-913d-d391022b593b",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "opened_start_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:17:23.211Z"
+    },
+    {
+      "id": "b371fbeb-be32-4199-b0d9-2e8e482b5596",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_s3_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:28:58.094Z"
+    },
+    {
+      "id": "b3798c3f-696f-445b-b547-e5f8f2613905",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "social_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:25:57.002Z"
+    },
+    {
+      "id": "b3a61c56-49cc-4753-9a11-30f2707cbaaf",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "ppt_slide_show_ran",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T11:04:16.384Z"
+    },
+    {
+      "id": "b3d456ef-d665-44be-aa29-a29720868acd",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "9",
+      "actionType": "sum_formula_entered",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:17:13.641Z"
+    },
+    {
+      "id": "b3d5678f-c227-4792-bf2e-f334657a120a",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "presentation_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:51:52.233Z"
+    },
+    {
+      "id": "b47d6431-5c89-40fc-8a71-388835614477",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "11",
+      "actionType": "opened_volume_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:30:32.931Z"
+    },
+    {
+      "id": "b4862a45-9818-4cbb-9d63-897a25c29d52",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "quiz_completed",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T11:04:26.937Z"
+    },
+    {
+      "id": "b4931c62-3ede-4d16-a83f-12aae9d290b8",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "11",
+      "actionType": "opened_start_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:30:35.446Z"
+    },
+    {
+      "id": "b4be6e16-a2ce-497f-addd-7cd181380f41",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "student_submitted_m12_1",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:20:16.530Z"
+    },
+    {
+      "id": "b4d5a97a-091c-40c7-a3bf-470cd3a783e4",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "restored_file",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T12:16:25.111Z"
+    },
+    {
+      "id": "b58c073a-9e66-487b-a1a2-bfa5192ee202",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_w4_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:29:03.616Z"
+    },
+    {
+      "id": "b5f3c41d-4970-4137-9872-7c78127f34e1",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "8",
+      "actionType": "inserted_image",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:36:54.778Z"
+    },
+    {
+      "id": "b62987e4-5d68-425b-a20b-6c78d3538ec9",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "professional_reply_sent",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:35:22.258Z"
+    },
+    {
+      "id": "b6b872ee-b36b-4b55-96a0-6acbcff014fc",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "8",
+      "actionType": "transition_applied_successfully",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:24:57.119Z"
+    },
+    {
+      "id": "b6fa1c57-f6e2-45ed-8a55-fc1ca3421421",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "fixed_audio_network",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T12:22:10.034Z"
+    },
+    {
+      "id": "b733c97a-49dc-4db6-b84a-1d1834921d17",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_p2_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:32:46.351Z"
+    },
+    {
+      "id": "b9030ba7-c859-461c-ae10-8f5596a39185",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "OPENED_EXPLORER",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:38:07.135Z"
+    },
+    {
+      "id": "b92a33e8-dfcc-4386-a76a-2f23e7c469fb",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "5",
+      "actionType": "phishing_link_clicked_failed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:34:11.140Z"
+    },
+    {
+      "id": "baacfcea-90a2-491c-87e0-6fef56ff3c70",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "locked_device",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:31:42.933Z"
+    },
+    {
+      "id": "bab3919e-f5f7-48a6-94da-668c919191fa",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "locked_screen",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T12:22:57.051Z"
+    },
+    {
+      "id": "bb76ccae-db98-4637-9b45-76334dc035e0",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "teacher_approved_m12_1",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:20:25.432Z"
+    },
+    {
+      "id": "bbbd58f9-b908-4c01-a12d-2c37dfd3736f",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "10",
+      "actionType": "moved_file_to_cloud",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:18:33.781Z"
+    },
+    {
+      "id": "bbc7e60e-e09f-473a-8ef8-b5fc616f87d1",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "11",
+      "actionType": "locked_device",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:30:21.327Z"
+    },
+    {
+      "id": "bc10ebe9-38d9-478f-9c81-9eb1a210e31e",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_f1_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:29:08.488Z"
+    },
+    {
+      "id": "bc33da77-a1b2-41b5-8930-f577c104cbbe",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "9",
+      "actionType": "data_entry_completed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:26:16.465Z"
+    },
+    {
+      "id": "bcba9777-01ad-47b5-b407-a4f68da88032",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_s2_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:28:58.341Z"
+    },
+    {
+      "id": "bd178d28-97f3-42ce-b2ca-a6b7849a30e0",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "COPIED_TO_USB",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:19:11.428Z"
+    },
+    {
+      "id": "bdd13d26-5797-48ea-95fa-682fee1b6f77",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_w4_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:32:41.151Z"
+    },
+    {
+      "id": "be6f746a-a667-421a-832b-8ec3f712013d",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "1",
+      "actionType": "COPIED_SHORTCUT",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:08:36.758Z"
+    },
+    {
+      "id": "be7d7068-6dd5-4fb7-8745-b809fee595f4",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "9",
+      "actionType": "spreadsheet_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:25:15.211Z"
+    },
+    {
+      "id": "bea8afa6-bdac-46d5-b80b-ceaf73ccab7d",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "10",
+      "actionType": "shared_file_link",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:20:41.526Z"
+    },
+    {
+      "id": "bf2ee437-9770-428a-a035-24190dc54846",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "3",
+      "actionType": "search_query_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:13:33.975Z"
+    },
+    {
+      "id": "bf385014-f372-4f26-8143-7e26e34f2bff",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "teacher_login_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:12:58.559Z"
+    },
+    {
+      "id": "bfd4a3c9-98ab-4d39-aa10-4dd3ad2ca26d",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "ppt_transition_and_bullets_added",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T11:09:11.652Z"
+    },
+    {
+      "id": "c052faf0-6c7b-4cbf-9ff7-a75571fd9131",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "4",
+      "actionType": "account_set_private",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:32:54.727Z"
+    },
+    {
+      "id": "c08077ad-3334-4b31-ae28-68f0bbff8d07",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "phishing_email_deleted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:35:42.564Z"
+    },
+    {
+      "id": "c12479b3-2bf9-48c2-b37e-775ce96ce575",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_w1_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:32:40.148Z"
+    },
+    {
+      "id": "c1d7d712-2e9e-4876-b876-97bee0312bd7",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "3",
+      "actionType": "safe_link_clicked",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:13:50.246Z"
+    },
+    {
+      "id": "c22c5381-66c1-4d48-a16c-f95cce3c249f",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "11",
+      "actionType": "locked_device",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:19:37.981Z"
+    },
+    {
+      "id": "c26ff09b-7030-46b3-b400-0b1d309b6fcc",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_f1_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:28:31.039Z"
+    },
+    {
+      "id": "c27c4d8f-eba1-4063-adb8-70759a536c62",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "6",
+      "actionType": "word_file_saved",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T20:13:24.210Z"
+    },
+    {
+      "id": "c32a0c8c-0faa-4eb2-bc60-f3dffed56376",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "m12_state_save",
+      "metadataJson": {
+        "m12_1": "approved",
+        "m12_2": "approved",
+        "m12_3": "in_progress",
+        "m12_4": "locked",
+        "m12_5": "locked",
+        "m12_6": "locked"
+      },
+      "timestamp": "2026-06-09T08:35:27.400Z"
+    },
+    {
+      "id": "c337343f-fb41-42ed-a7ea-6c67a329caf9",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "7",
+      "actionType": "comment_resolved",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:38:51.734Z"
+    },
+    {
+      "id": "c474892a-b7ea-4502-952b-5f61c93061c2",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "6",
+      "actionType": "save_as_clicked",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:35:16.039Z"
+    },
+    {
+      "id": "c5746263-1a37-42c8-9bff-1a86cb74ae93",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "3",
+      "actionType": "safe_link_clicked",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:11:01.348Z"
+    },
+    {
+      "id": "c576b947-6a68-4fb5-9fba-6125ad4dcac6",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "9",
+      "actionType": "counta_formula_entered",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:26:46.521Z"
+    },
+    {
+      "id": "c59c5275-9d2b-455d-b775-4205f85fa3bf",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "teacher_email_read",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:14:09.299Z"
+    },
+    {
+      "id": "c5c22a0b-c98d-4317-b76b-5b19ece94c56",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "cyberbullying_reported",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:26:27.315Z"
+    },
+    {
+      "id": "c5d2e9ae-eaca-4ce7-b5cc-3fe90a7d8ba7",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "phishing_email_deleted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T20:25:29.518Z"
+    },
+    {
+      "id": "c5fbbdb0-026f-416f-964a-23880d845725",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "outlook_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T19:18:34.151Z"
+    },
+    {
+      "id": "c60dba84-dd68-4191-8287-ed0d84ca6f41",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_p3_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:32:48.933Z"
+    },
+    {
+      "id": "c6d8d1e1-4e68-4d43-ba66-8d506178c589",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "8",
+      "actionType": "inserted_image",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:21:51.889Z"
+    },
+    {
+      "id": "c75bbebf-764d-454c-b499-786393bc7e3a",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "student_submitted_m12_1",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:12:52.962Z"
+    },
+    {
+      "id": "c7a5398d-518f-45c3-8bb5-1b9aaac76c89",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "6",
+      "actionType": "word_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T19:45:27.301Z"
+    },
+    {
+      "id": "c7db67b1-e080-4da1-91e8-56f25fed82ed",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "10",
+      "actionType": "navigated_to_local",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:27:30.656Z"
+    },
+    {
+      "id": "c7e32a07-cdc3-4f87-a575-60a5f493d1ac",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "COPIED_TO_USB",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:13:30.427Z"
+    },
+    {
+      "id": "c7ff0121-6950-4e11-bb9f-cb92924df477",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "8",
+      "actionType": "added_content_slide",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:21:48.380Z"
+    },
+    {
+      "id": "c8411de4-340a-4504-8eba-8fd360fac6a9",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "7",
+      "actionType": "advanced_word_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:36:09.254Z"
+    },
+    {
+      "id": "c8430bc1-b63d-4d9b-82bf-12fc861d09c7",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "10",
+      "actionType": "explorer_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:20:08.342Z"
+    },
+    {
+      "id": "c8519af9-940f-41ee-871c-ccf5f9e1ad3f",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "module4_quiz_completed",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:57:10.981Z"
+    },
+    {
+      "id": "c872a66b-38fd-4ea4-a991-10a96fcfd48a",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "student_submitted_m12_1",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:03:28.260Z"
+    },
+    {
+      "id": "c8966f55-7625-498f-8225-9cd50f3a74b7",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "digital_footprint_cleaned",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:04:59.113Z"
+    },
+    {
+      "id": "c8eafc76-b876-4ea5-a061-d4906a605ca4",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "7",
+      "actionType": "comment_resolved",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:24:00.120Z"
+    },
+    {
+      "id": "c941f33c-6476-42db-89e4-a191502e5913",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "opened_volume_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:17:19.453Z"
+    },
+    {
+      "id": "c956577a-dbe3-493c-90c4-89baff890f89",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "RENAMED_FILE",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:18:51.246Z"
+    },
+    {
+      "id": "c9bf1d05-6858-4b30-8f34-54c35df5e0c7",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "presentation_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:48:54.912Z"
+    },
+    {
+      "id": "ca75b6fc-5080-4c14-b4b4-1aa5d8f85885",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "added_content_slide",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:51:55.581Z"
+    },
+    {
+      "id": "ca775224-5b94-4d93-a30c-27253f95f2ef",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "10",
+      "actionType": "sync_completed_green_check",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:27:12.014Z"
+    },
+    {
+      "id": "ca94e241-d3cb-4ec9-b81b-a792f58b053a",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "ppt_new_slide_added",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T10:56:59.428Z"
+    },
+    {
+      "id": "cadc9042-0dcc-4690-9042-d5184fba67e0",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "cancelled_print_job",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T12:00:05.532Z"
+    },
+    {
+      "id": "cc8521d0-fc64-449d-89bc-864a2bb672b0",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "4",
+      "actionType": "cyberbullying_reported",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:11:40.461Z"
+    },
+    {
+      "id": "cc8856ba-5e5b-483e-be73-fa6dc03dc1e3",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "phishing_reported",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:26:25.174Z"
+    },
+    {
+      "id": "cc98d460-7a46-4b4b-b79e-085e46e9ee5e",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "5",
+      "actionType": "professional_reply_sent",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:15:04.215Z"
+    },
+    {
+      "id": "cc9ffeda-f3f5-4889-80a7-77365a1dcd51",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "9",
+      "actionType": "sum_formula_entered",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:26:34.963Z"
+    },
+    {
+      "id": "ccbd5c6f-cf82-45d9-b862-785e48a046f8",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "6",
+      "actionType": "save_as_clicked",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:38:19.040Z"
+    },
+    {
+      "id": "cd9e92e9-fe57-4c26-ad8a-61a5e6882e04",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "11",
+      "actionType": "opened_volume_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:27:22.572Z"
+    },
+    {
+      "id": "cdea08b4-fede-4439-8111-6d2f9dacfe94",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "1",
+      "actionType": "MINIMIZED_WINDOW",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:08:49.641Z"
+    },
+    {
+      "id": "ce465444-d536-43c4-918c-86ba66cbfa12",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "MOVED_FILE",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:40:50.944Z"
+    },
+    {
+      "id": "ce9420cb-9875-44bd-b755-a8dc98707a36",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "4",
+      "actionType": "cyberbullying_reported",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:13:56.404Z"
+    },
+    {
+      "id": "d0321130-b664-4e1b-aeca-15c8602dc211",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "professional_reply_drafted",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:14:58.185Z"
+    },
+    {
+      "id": "d033dff6-ea67-404c-be5a-95dbad22947e",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "locked_device",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:34:56.943Z"
+    },
+    {
+      "id": "d0365592-bf82-4605-80e2-463ddbaf962e",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "11",
+      "actionType": "opened_start_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:27:38.742Z"
+    },
+    {
+      "id": "d11ae436-a77b-4aad-84eb-e861da86f5c1",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "10",
+      "actionType": "sync_completed_green_check",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:27:40.999Z"
+    },
+    {
+      "id": "d170828b-664a-4e98-bec3-3b7150d8be8b",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "7",
+      "actionType": "quiz_completed",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T10:33:37.599Z"
+    },
+    {
+      "id": "d19e2ba6-06d2-4c42-9eaa-22fabca911a4",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "10",
+      "actionType": "explorer_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:38:31.104Z"
+    },
+    {
+      "id": "d2459a3f-4d66-46b9-82a8-1cc30bb9be39",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "calendar_rsvp",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T19:26:51.339Z"
+    },
+    {
+      "id": "d2a6d51d-3855-4395-9281-2cf376bd76d2",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "6",
+      "actionType": "word_image_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T20:13:08.383Z"
+    },
+    {
+      "id": "d3a30507-0d27-4cba-957b-df30a397fa2f",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "9",
+      "actionType": "data_entry_completed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:26:05.337Z"
+    },
+    {
+      "id": "d43c1f02-4f20-4be3-a880-83f8e80649e1",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "1",
+      "actionType": "COPIED_SHORTCUT",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:30:19.684Z"
+    },
+    {
+      "id": "d579711a-562e-40b9-b928-0ba820f712a9",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "6",
+      "actionType": "file_saved_successfully",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:38:28.121Z"
+    },
+    {
+      "id": "d5c405b5-1fcc-4890-be5e-241d28af25bc",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "m12_state_save",
+      "metadataJson": {
+        "m12_1": "approved",
+        "m12_2": "ready_for_review",
+        "m12_3": "locked",
+        "m12_4": "locked",
+        "m12_5": "locked",
+        "m12_6": "locked"
+      },
+      "timestamp": "2026-06-09T08:35:13.702Z"
+    },
+    {
+      "id": "d662cbee-8171-4cfa-8886-a35973a2b120",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "5",
+      "actionType": "outlook_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:33:11.019Z"
+    },
+    {
+      "id": "d6b311f2-cbb1-4866-9bc7-4bc1adeb22a6",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "4",
+      "actionType": "social_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:14:25.334Z"
+    },
+    {
+      "id": "d775b6e7-46e6-498a-9bde-455ceb7e4e23",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "9",
+      "actionType": "counta_formula_entered",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:01:38.983Z"
+    },
+    {
+      "id": "d7b76b13-5770-4251-8749-f390ce47e052",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "3",
+      "actionType": "url_navigation_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:11:33.334Z"
+    },
+    {
+      "id": "d857b65d-cd5e-4b43-be75-acc377247ad4",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "transition_applied_successfully",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:52:06.899Z"
+    },
+    {
+      "id": "d941678f-abd4-4ec1-9579-2733f5b1fa04",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "6",
+      "actionType": "text_formatted_bold_correctly",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:21:30.319Z"
+    },
+    {
+      "id": "d943d094-f3b4-4d9c-a921-96fab161a4c0",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "11",
+      "actionType": "opened_start_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:30:42.418Z"
+    },
+    {
+      "id": "da4901b0-984a-4667-814b-a0d52c97af8e",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "restored_file",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T12:21:48.973Z"
+    },
+    {
+      "id": "dacc1c78-e423-4aea-a589-d576c6ec4dba",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "stranger_denied_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:53:15.107Z"
+    },
+    {
+      "id": "dadc8dd8-44da-4659-bdf3-68767d15c58f",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "2",
+      "actionType": "OPENED_EXPLORER",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:09:37.205Z"
+    },
+    {
+      "id": "db22d9bc-3c8d-46ce-b50f-e5e5b349ab05",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "selected_unprofessional_image",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T08:35:59.815Z"
+    },
+    {
+      "id": "db8fe80a-41ff-4349-9f64-a2f1cb509ce9",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "10",
+      "actionType": "moved_file_to_cloud",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:38:48.997Z"
+    },
+    {
+      "id": "db90d370-fe01-4d32-b000-a6481d884a25",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_w7_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:20:51.248Z"
+    },
+    {
+      "id": "dc7f4b3f-d7a6-4f39-9e50-022082fc992b",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "3",
+      "actionType": "page_bookmarked",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:26:07.594Z"
+    },
+    {
+      "id": "dcf3a62e-9234-47af-af95-c5e3d6513693",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_p3_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:20:43.941Z"
+    },
+    {
+      "id": "dd331273-8379-4039-abf1-129097b7b259",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "7",
+      "actionType": "word_table_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T10:32:13.564Z"
+    },
+    {
+      "id": "dd7c9040-bab9-49d2-b7f5-85c0d20d7a8b",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "6",
+      "actionType": "word_processor_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:37:58.762Z"
+    },
+    {
+      "id": "de08bcbd-6ab6-49e9-95d4-cbb569071357",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_w2_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:29:02.760Z"
+    },
+    {
+      "id": "de33eecf-e3c1-400e-9a99-d0c93241db3b",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "social_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T20:34:33.572Z"
+    },
+    {
+      "id": "de48233b-455c-4c3d-ab32-94690823c192",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "3",
+      "actionType": "url_navigation_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:52:22.870Z"
+    },
+    {
+      "id": "de98a4ae-4353-483e-bf59-c2f32a5949f0",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "9",
+      "actionType": "sum_formula_entered",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:26:32.684Z"
+    },
+    {
+      "id": "df5e39ee-cbc3-4bb5-829e-7f55c89e2b08",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "6",
+      "actionType": "word_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T20:05:03.914Z"
+    },
+    {
+      "id": "dfc453f3-0726-46dd-8051-5f5aad3deb0a",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "7",
+      "actionType": "module7_quiz_passed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:35:49.222Z"
+    },
+    {
+      "id": "dfeb4bc3-5e6b-4738-96f7-58187476ebc7",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "outlook_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T20:35:23.227Z"
+    },
+    {
+      "id": "e14f1627-f4d8-4675-9af0-a5a5a8a24a44",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "quiz_completed",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T19:36:58.039Z"
+    },
+    {
+      "id": "e2d535b9-0160-41d5-b71f-9afd5cff0d78",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "CREATED_FOLDER",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:11:32.770Z"
+    },
+    {
+      "id": "e38147b1-bd5a-45be-a869-0c3e03076b48",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "locked_screen",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T12:03:21.811Z"
+    },
+    {
+      "id": "e40d2b9d-b6e7-408d-8822-fba0a6804a65",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "ppt_new_slide_added",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T11:03:39.288Z"
+    },
+    {
+      "id": "e4292a4e-a1bf-44a7-8239-e15697ca8feb",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "4",
+      "actionType": "cyberbullying_reported",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:14:14.315Z"
+    },
+    {
+      "id": "e4eb32c4-5cff-4c75-bf7b-69a83b41fbd4",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "opened_start_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:31:31.432Z"
+    },
+    {
+      "id": "e55cf504-39f3-43da-80ab-3feba25d6205",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "cyberbullying_reported",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:56:35.332Z"
+    },
+    {
+      "id": "e566c76f-bb2c-4647-a61a-c264913625e2",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "1",
+      "actionType": "OPENED_SETTINGS",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:08:47.651Z"
+    },
+    {
+      "id": "e5dd3f0d-7533-40cb-9286-31810e445ece",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "5",
+      "actionType": "teacher_email_read",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:14:33.445Z"
+    },
+    {
+      "id": "e6e33bad-f582-414c-803e-2aeabf9f294f",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "5",
+      "actionType": "outlook_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:19:06.904Z"
+    },
+    {
+      "id": "e6fe2c6d-88bd-459c-b88d-ae9ee730c635",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "opened_volume_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:55:19.750Z"
+    },
+    {
+      "id": "e792c7a9-6c13-449a-835a-ba9ec76995ca",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "8",
+      "actionType": "presentation_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:36:42.274Z"
+    },
+    {
+      "id": "e7e31b20-de53-41f1-9993-422457ba8f24",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "3",
+      "actionType": "url_navigation_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:10:48.548Z"
+    },
+    {
+      "id": "e84ce5d4-148b-420b-b963-488b4fdb67ab",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "5",
+      "actionType": "teacher_email_read",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:33:12.165Z"
+    },
+    {
+      "id": "e8559a91-66fd-45b3-b3ac-e93934d3e3de",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "7",
+      "actionType": "word_header_inserted",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T10:32:32.162Z"
+    },
+    {
+      "id": "e8a1a307-1a03-42b2-9e2b-1ad98bb07a93",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "6",
+      "actionType": "word_processor_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:34:49.052Z"
+    },
+    {
+      "id": "e8c17f54-577c-4673-8006-b4861d7556eb",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "started_presentation",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:46:55.659Z"
+    },
+    {
+      "id": "e8f17f24-7544-47e8-b4d7-c49537d1e8b5",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "email_sent_with_cc",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:16:26.335Z"
+    },
+    {
+      "id": "e93c2a64-fcd8-467b-874b-f62c1885e157",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "1",
+      "actionType": "OPENED_SETTINGS",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:09:03.370Z"
+    },
+    {
+      "id": "e9511fd4-166a-43ea-994a-28ecf425492e",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_w2_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:32:39.749Z"
+    },
+    {
+      "id": "e9d73104-c624-48df-90dc-557db898445d",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "1",
+      "actionType": "MINIMIZED_WINDOW",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:09:57.504Z"
+    },
+    {
+      "id": "eab23207-c5f7-4661-9f93-62d27fe56e9f",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "11",
+      "actionType": "opened_wifi_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:30:34.017Z"
+    },
+    {
+      "id": "eaddc0c9-932a-436b-8539-778c78e9ed0e",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "OPENED_EXPLORER",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:11:18.061Z"
+    },
+    {
+      "id": "eb28b309-9cbe-4966-a75e-d22737690179",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "6",
+      "actionType": "word_processor_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:15:25.797Z"
+    },
+    {
+      "id": "ebe6eac5-6657-4622-863b-9f9b9d7b6c1e",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "1",
+      "actionType": "COPIED_SHORTCUT",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:05:42.573Z"
+    },
+    {
+      "id": "ebfa21e2-5d11-414d-98af-b0a8e6f915e5",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "10",
+      "actionType": "navigated_to_local",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:27:00.333Z"
+    },
+    {
+      "id": "ec1c5722-8518-4560-a514-1a2c800e609c",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "8",
+      "actionType": "added_content_slide",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:36:51.519Z"
+    },
+    {
+      "id": "ec6bdb72-7917-48bc-b368-80f0608b4d9b",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "1",
+      "actionType": "OPENED_SETTINGS",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:30:33.457Z"
+    },
+    {
+      "id": "ecc0a4df-5376-43cf-ae60-4f5164dea8e4",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "module11_quiz_passed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:18:00.782Z"
+    },
+    {
+      "id": "ecc31e42-6b77-4610-bee6-2de9de899b91",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "7",
+      "actionType": "quiz_completed",
+      "metadataJson": {},
+      "timestamp": "2026-06-10T10:46:07.590Z"
+    },
+    {
+      "id": "ed596711-e5ab-470e-bab2-99b5e77880fc",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "8",
+      "actionType": "transition_applied_successfully",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:15:06.423Z"
+    },
+    {
+      "id": "ed65afbd-d23d-4b6f-b2f7-827048b1b035",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "11",
+      "actionType": "opened_wifi_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:19:08.296Z"
+    },
+    {
+      "id": "edaebbab-e4b5-4a6f-bea3-92a77423b43f",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "2",
+      "actionType": "DELETED_FILE",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:31:14.599Z"
+    },
+    {
+      "id": "edb95fd7-28a1-422e-b7e8-309a22b2f9e2",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "opened_start_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:34:56.339Z"
+    },
+    {
+      "id": "eeb080eb-126f-4d5e-98a0-de9fb7a70651",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "5",
+      "actionType": "professional_reply_sent",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:20:32.931Z"
+    },
+    {
+      "id": "eed648a8-b273-4b36-9f00-6aa12dfb5919",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "calendar_tab_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:20:09.266Z"
+    },
+    {
+      "id": "ef5fc017-358a-4daa-bb45-d1188cd612e1",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_p2_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:20:44.697Z"
+    },
+    {
+      "id": "ef6d577b-8420-45eb-b3c7-3e735f6c7879",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "4",
+      "actionType": "social_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:17:55.404Z"
+    },
+    {
+      "id": "f0ffa55d-a670-47b5-acd8-6d5359122569",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_c2_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:21:00.064Z"
+    },
+    {
+      "id": "f10c7e7f-d57c-4d10-b8e5-47e28d72610e",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "2",
+      "actionType": "OPENED_EXPLORER",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:30:53.530Z"
+    },
+    {
+      "id": "f11b4997-019e-4961-949e-070ab1b8b46b",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "7",
+      "actionType": "advanced_word_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:31:19.018Z"
+    },
+    {
+      "id": "f12af9b1-7aef-4579-ba9e-1fc7351df78a",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "4",
+      "actionType": "privacy_enabled",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:56:40.440Z"
+    },
+    {
+      "id": "f1500a73-69ab-457d-9747-71f806ce83d9",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "7",
+      "actionType": "comment_resolved",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:36:34.643Z"
+    },
+    {
+      "id": "f16f5d2b-d92a-445a-aeb4-31b410b4ae76",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "initiated_restart",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:34:42.672Z"
+    },
+    {
+      "id": "f18527e3-6375-4a6d-805f-525b933983d8",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "1",
+      "actionType": "COPIED_SHORTCUT",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:30:42.750Z"
+    },
+    {
+      "id": "f1c2c276-7de2-47c4-8bea-f73152f02a62",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "3",
+      "actionType": "phishing_link_clicked",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:52:35.813Z"
+    },
+    {
+      "id": "f1c565eb-67b3-4148-b339-46ae37e31c6f",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "11",
+      "actionType": "initiated_restart",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:19:23.186Z"
+    },
+    {
+      "id": "f1e8689d-0f61-49e7-a436-e4bfb154e46c",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "professional_email_sent",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T19:12:51.020Z"
+    },
+    {
+      "id": "f225b41d-5e09-453a-80f7-6a9785395b23",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_w1_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:29:02.073Z"
+    },
+    {
+      "id": "f249550b-0438-4fdc-a60b-8ac8115842bc",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "3",
+      "actionType": "browser_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:10:24.964Z"
+    },
+    {
+      "id": "f2e548ac-4158-4a5a-b771-a07a4b0045cf",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_w8_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:32:42.963Z"
+    },
+    {
+      "id": "f32e2f28-fef9-46a1-9ccb-c0e48d0801fc",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "11",
+      "actionType": "initiated_restart",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T19:55:25.992Z"
+    },
+    {
+      "id": "f334d253-d95c-458f-b986-f016499b617b",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "7",
+      "actionType": "advanced_word_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:36:27.622Z"
+    },
+    {
+      "id": "f36bea0b-1a75-4f3a-93e5-bebab2704d91",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "11",
+      "actionType": "initiated_restart",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:27:39.694Z"
+    },
+    {
+      "id": "f407e1ce-d7a3-433f-9cbb-e6c7eee426fb",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "8",
+      "actionType": "transition_applied_successfully",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:46:53.161Z"
+    },
+    {
+      "id": "f4f4c532-16ef-4afa-985c-0ca3a462d4d7",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "6",
+      "actionType": "word_formatting_applied",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T20:05:37.208Z"
+    },
+    {
+      "id": "f5257f9b-7cca-4e02-bd25-70f87dc9e5f1",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "11",
+      "actionType": "locked_device",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:39:45.426Z"
+    },
+    {
+      "id": "f57696a7-29f9-48f2-90d4-760066cae6ef",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "2",
+      "actionType": "CREATED_FOLDER",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:09:50.455Z"
+    },
+    {
+      "id": "f61fba95-e008-47d9-86a4-6fc7e53e716a",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "m12_state_save",
+      "metadataJson": {
+        "m12_1": "approved",
+        "m12_2": "in_progress",
+        "m12_3": "locked",
+        "m12_4": "locked",
+        "m12_5": "locked",
+        "m12_6": "locked"
+      },
+      "timestamp": "2026-06-08T19:20:25.457Z"
+    },
+    {
+      "id": "f6323fa2-29c8-42ee-ab7e-cbb025511df5",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "4",
+      "actionType": "stranger_denied_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:11:22.533Z"
+    },
+    {
+      "id": "f6344098-0296-49b8-a736-ca650d6e8571",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "11",
+      "actionType": "opened_wifi_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:39:07.244Z"
+    },
+    {
+      "id": "f6803dbc-351c-4bc4-ac29-60b4cdc3b0bc",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "3",
+      "actionType": "search_query_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:25:19.655Z"
+    },
+    {
+      "id": "f6d8c612-8696-4e69-9f6f-9e34bf626db0",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "1",
+      "actionType": "shortcut_created",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T17:57:52.755Z"
+    },
+    {
+      "id": "f6f3a110-7c40-435d-bbdc-44328de8306b",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "teacher_login_success",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T08:35:23.609Z"
+    },
+    {
+      "id": "f7447139-942d-4f5e-963a-df4c9fca4004",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_f2_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:20:41.243Z"
+    },
+    {
+      "id": "f7963629-8200-47e2-9724-bde82963b586",
+      "userId": "e02062f4-1dbe-4f27-8ed4-eb2f628ad6a6",
+      "moduleId": "8",
+      "actionType": "started_presentation",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T13:37:00.864Z"
+    },
+    {
+      "id": "f7d1d6f2-186f-4065-bb2f-cc97d7f2b775",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "5",
+      "actionType": "outlook_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:12:12.484Z"
+    },
+    {
+      "id": "f7de25d5-0523-4aad-9535-c314614104f5",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "9",
+      "actionType": "spreadsheet_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:00:20.344Z"
+    },
+    {
+      "id": "f827c87b-d93b-4fa9-a734-c33a4a6713fb",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "CREATED_FOLDER",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:33:14.172Z"
+    },
+    {
+      "id": "f8400943-ed34-4c2b-845f-be8ef6adacbe",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "11",
+      "actionType": "opened_volume_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:18:56.645Z"
+    },
+    {
+      "id": "f889d2a8-da72-4c6d-b7d2-657b66d5cb02",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "email_read",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T19:25:41.791Z"
+    },
+    {
+      "id": "f898b9a0-45c4-405a-b092-2f95b429ee88",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "10",
+      "actionType": "moved_file_to_cloud",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:20:28.006Z"
+    },
+    {
+      "id": "f918c8e0-24d7-4f80-afc5-5d0d272cb2be",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "6",
+      "actionType": "text_formatted_bold_correctly",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:16:22.374Z"
+    },
+    {
+      "id": "f9561c46-c061-4252-8145-9b6951458394",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "4",
+      "actionType": "social_app_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:13:58.724Z"
+    },
+    {
+      "id": "fa8e00f8-369b-4902-b591-26d3f2adaab0",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "email_sent_with_cc",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:20:05.139Z"
+    },
+    {
+      "id": "fa9ac204-db2a-4f5a-b05a-22c5ef4d8aa1",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "9",
+      "actionType": "module9_quiz_passed",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:02:43.956Z"
+    },
+    {
+      "id": "fb45e27c-594c-499b-a830-cf1f74938902",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "12",
+      "actionType": "m12_state_save",
+      "metadataJson": {
+        "m12_1": "approved",
+        "m12_2": "in_progress",
+        "m12_3": "locked",
+        "m12_4": "locked",
+        "m12_5": "locked",
+        "m12_6": "locked"
+      },
+      "timestamp": "2026-06-08T19:55:12.952Z"
+    },
+    {
+      "id": "fb812c54-d961-42aa-ade4-8b9bb4d51056",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "1",
+      "actionType": "MINIMIZED_WINDOW",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:05:35.705Z"
+    },
+    {
+      "id": "fcafd177-e1ed-4cc9-b945-ce457921ad4d",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "5",
+      "actionType": "teacher_email_read",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T17:17:55.926Z"
+    },
+    {
+      "id": "fcf4dd03-7a64-4918-9695-f4d8a483e001",
+      "userId": "ee8494f9-0ff2-4cf7-b37b-14ea1e140b69",
+      "moduleId": "12",
+      "actionType": "toggled_checklist_p1_true",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T12:20:45.450Z"
+    },
+    {
+      "id": "fd521993-878f-4a15-a6b6-2a58fd6907dc",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "5",
+      "actionType": "outlook_opened",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:14:32.420Z"
+    },
+    {
+      "id": "fd561c37-92ac-4f1b-9486-b5f46d22950c",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "2",
+      "actionType": "DELETED_FILE",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T16:36:58.539Z"
+    },
+    {
+      "id": "fd5a64d8-0f02-4e58-b5e1-8ac341bb709d",
+      "userId": "d8a50f55-33f7-4fb6-8f7b-36e9ada07d61",
+      "moduleId": "11",
+      "actionType": "opened_wifi_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:27:26.330Z"
+    },
+    {
+      "id": "fd7bd96d-8118-4b85-b603-5e3b4920016c",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "9",
+      "actionType": "counta_formula_entered",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T18:13:33.004Z"
+    },
+    {
+      "id": "fd95c35a-2d65-4d2c-a3e7-dd2d935b05c1",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "5",
+      "actionType": "teacher_email_read",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:19:07.976Z"
+    },
+    {
+      "id": "feefadc2-002b-4158-a849-475c27b87546",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "3",
+      "actionType": "safe_link_clicked",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T18:25:54.971Z"
+    },
+    {
+      "id": "ff6486a9-30ef-49f3-ba37-c5359998d067",
+      "userId": "469b13e3-f2a2-4c7d-9557-5543744452ed",
+      "moduleId": "11",
+      "actionType": "opened_start_menu",
+      "metadataJson": {},
+      "timestamp": "2026-06-08T11:28:11.932Z"
+    },
+    {
+      "id": "ff890e79-17f0-4567-99f5-7868608adebf",
+      "userId": "359d6156-2cdf-427d-8e49-9135dcc6d34c",
+      "moduleId": "1",
+      "actionType": "scavenger_hunt_completed",
+      "metadataJson": {},
+      "timestamp": "2026-06-09T17:57:32.467Z"
+    }
+  ],
+  "accessCodes": [
+    {
+      "id": "3dede2c7-7389-4b24-8b1d-5f7e87a4c986",
+      "code": "DAVE-26",
+      "isActive": false,
+      "createdAt": "2026-06-09T08:37:37.036Z"
+    },
+    {
+      "id": "58b8f36f-52ac-4075-aa24-1cf3be9f2af5",
+      "code": "SDUTC-26",
+      "isActive": true,
+      "createdAt": "2026-06-08T11:06:01.738Z"
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import styles from "./page.module.css";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from "recharts";
 
 type User = any;
 type AccessCode = any;
@@ -217,15 +217,17 @@ export default function AdminDashboardClient({
                         cx="50%"
                         cy="50%"
                         innerRadius={60}
-                        outerRadius={100}
+                        outerRadius={90}
                         paddingAngle={5}
                         dataKey="value"
+                        label
                       >
                         {actionData.map((entry, index) => (
                           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                         ))}
                       </Pie>
                       <Tooltip />
+                      <Legend verticalAlign="bottom" height={36}/>
                     </PieChart>
                   </ResponsiveContainer>
                 </div>
@@ -265,7 +267,27 @@ export default function AdminDashboardClient({
                   </div>
                   <div className={styles.statCard}>
                     <div>Last Active</div>
-                    <h2>{displayLogs[0] ? new Date(displayLogs[0].timestamp).toLocaleDateString() : 'Never'}</h2>
+                    <h2>{selectedUser.lastActive ? new Date(selectedUser.lastActive).toLocaleDateString() : 'Never'}</h2>
+                  </div>
+                </div>
+              </div>
+
+              <div style={{ marginTop: '2rem' }}>
+                <h3>Deep Analytics</h3>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                  <div className={styles.statCard}>
+                    <div>First-Time Pass Rate</div>
+                    <h2>
+                      {selectedUser.progress?.length > 0 
+                        ? Math.round((selectedUser.progress.filter((p:any) => p.passedFirstTime).length / selectedUser.progress.length) * 100) 
+                        : 0}%
+                    </h2>
+                  </div>
+                  <div className={styles.statCard}>
+                    <div>Total Incorrect Clicks</div>
+                    <h2>
+                      {selectedUser.progress?.reduce((sum: number, p: any) => sum + (p.incorrectClicks || 0), 0) || 0}
+                    </h2>
                   </div>
                 </div>
               </div>

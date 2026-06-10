@@ -18,6 +18,7 @@ model User {
   role         Role       @default(STUDENT)
   classCode    String?
   createdAt    DateTime   @default(now())
+  lastActive   DateTime?
   progress     Progress[]
   events       EventLog[]
 }
@@ -37,14 +38,17 @@ model Module {
 }
 
 model Progress {
-  id       String         @id @default(uuid())
-  userId   String
-  moduleId String
-  status    ProgressStatus @default(LOCKED)
-  score     Int            @default(0)
-  stateJson Json?
-  user      User           @relation(fields: [userId], references: [id], onDelete: Cascade)
-  module    Module         @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  id               String         @id @default(uuid())
+  userId           String
+  moduleId         String
+  status           ProgressStatus @default(LOCKED)
+  score            Int            @default(0)
+  quizAttempts     Int            @default(0)
+  passedFirstTime  Boolean        @default(false)
+  incorrectClicks  Int            @default(0)
+  stateJson        Json?
+  user             User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  module           Module         @relation(fields: [moduleId], references: [id], onDelete: Cascade)
 
   @@unique([userId, moduleId])
 }
