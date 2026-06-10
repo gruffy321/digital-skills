@@ -21,6 +21,8 @@ export default function Module11() {
   // Screen States
   const [isLocked, setIsLocked] = useState(false);
   const [isFrozen, setIsFrozen] = useState(taskIndex === 3);
+  const [isRestarting, setIsRestarting] = useState(false);
+  const [hasRestoredFile, setHasRestoredFile] = useState(false);
 
   // Data States
   const [filesInBin, setFilesInBin] = useState(["Lost_Homework.docx", "old_photo.jpg"]);
@@ -60,10 +62,18 @@ export default function Module11() {
       setFilesInBin(filesInBin.filter(f => f !== 'Lost_Homework.docx'));
       if (taskIndex === 0) {
         logEvent("restored_file");
-        nextTask();
+        setHasRestoredFile(true);
       }
     }
     setContextMenu(null);
+  };
+
+  const handleCloseBrowser = () => {
+    setIsRecycleBinOpen(false);
+    if (taskIndex === 0 && hasRestoredFile) {
+      logEvent("closed_browser_restored_file");
+      nextTask();
+    }
   };
 
   const handleWifiToggle = (e: React.MouseEvent) => {
@@ -110,7 +120,11 @@ export default function Module11() {
       logEvent("soft_restart");
       setIsStartMenuOpen(false);
       setIsFrozen(false);
-      setTimeout(nextTask, 1000);
+      setIsRestarting(true);
+      setTimeout(() => {
+        setIsRestarting(false);
+        setIsLocked(true);
+      }, 3000);
     }
   };
 
@@ -155,6 +169,14 @@ export default function Module11() {
   return (
     <div className={styles.desktopArea}>
       
+      {/* Restarting Screen Overlay */}
+      {isRestarting && (
+        <div className={styles.restartingScreen}>
+          <div className={styles.spinner}></div>
+          <div>Restarting...</div>
+        </div>
+      )}
+
       {/* Locked Screen Overlay */}
       {isLocked && (
         <div className={styles.lockScreen}>
@@ -163,6 +185,9 @@ export default function Module11() {
           <div className={styles.lockProfile}>
             <div className={styles.lockAvatar}>👤</div>
             <div className={styles.lockName}>Student Account</div>
+            {taskIndex === 3 && (
+              <button className={styles.unlockBtn} onClick={() => { setIsLocked(false); nextTask(); }}>Sign In</button>
+            )}
             {taskIndex === 5 && (
               <button className={styles.unlockBtn} onClick={() => setIsLocked(false)}>Unlock to take Quiz</button>
             )}
@@ -245,28 +270,37 @@ export default function Module11() {
 
       {/* System Tray Popup */}
       {isTrayOpen && (
-        <div className={styles.trayPopup}>
-          <div className={styles.traySection}>
-            <div style={{fontWeight: 'bold'}}>School_WiFi</div>
-            <div className={styles.trayToggle} onClick={handleWifiToggle}>
-              <div className={`${styles.toggleBtn} ${wifiOn ? styles.on : ''}`}>
-                <div className={styles.toggleSlider}></div>
-              </div>
+        <div className={styles.trayPopup} onClick={(e) => e.stopPropagation()}>
+          <div className={styles.qsGrid}>
+            <div className={`${styles.qsBtn} ${wifiOn ? styles.on : ''}`} onClick={handleWifiToggle}>
+              <span className={styles.qsIcon}>{wifiOn ? '📶' : '📵'}</span>
+              <span className={styles.qsLabel}>School_WiFi</span>
+            </div>
+            <div className={`${styles.qsBtn} ${audioOn ? styles.on : ''}`} onClick={handleAudioToggle}>
+              <span className={styles.qsIcon}>{audioOn ? '🔊' : '🔇'}</span>
+              <span className={styles.qsLabel}>Speakers</span>
+            </div>
+            <div className={styles.qsBtn}>
+              <span className={styles.qsIcon}>✈️</span>
+              <span className={styles.qsLabel}>Flight mode</span>
             </div>
           </div>
-          <div className={styles.traySection}>
-            <div style={{fontWeight: 'bold'}}>Speakers</div>
-            <div className={styles.trayToggle} onClick={handleAudioToggle}>
-              <div className={`${styles.toggleBtn} ${audioOn ? styles.on : ''}`}>
-                <div className={styles.toggleSlider}></div>
-              </div>
+          
+          <div className={styles.qsSliders}>
+            <div className={styles.qsSliderRow}>
+              <div className={styles.qsSliderIcon}>☀️</div>
+              <input type="range" className={styles.qsSlider} defaultValue={80} />
+            </div>
+            <div className={styles.qsSliderRow}>
+              <div className={styles.qsSliderIcon}>🔊</div>
+              <input type="range" className={styles.qsSlider} defaultValue={audioOn ? 50 : 0} />
             </div>
           </div>
-          <hr style={{border: 'none', borderTop: '1px solid #ccc', margin: '0.5rem 0'}} />
-          <div className={styles.traySection} style={{cursor: 'pointer'}} onClick={() => { setIsPrintQueueOpen(true); setIsTrayOpen(false); }}>
-            <div style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
-              <span>🖨️</span>
-              <span>Open Print Queue ({printJobs.length} documents)</span>
+
+          <div className={styles.qsFooter}>
+            <div className={styles.qsFooterItem}>🔋 80%</div>
+            <div className={styles.qsFooterItem} onClick={() => { setIsPrintQueueOpen(true); setIsTrayOpen(false); }}>
+              🖨️ Open Print Queue ({printJobs.length})
             </div>
           </div>
         </div>
@@ -285,7 +319,7 @@ export default function Module11() {
             <div className={styles.windowControls} style={{height: '100%', alignItems: 'center'}}>
               <button>—</button>
               <button>□</button>
-              <button className={styles.closeBtn} onClick={() => setIsRecycleBinOpen(false)}>✕</button>
+              <button className={styles.closeBtn} onClick={handleCloseBrowser}>✕</button>
             </div>
           </div>
           
@@ -374,7 +408,7 @@ export default function Module11() {
                   onContextMenu={(e) => handleRightClickPrintJob(e, job)}
                 >
                   <td>{job}</td>
-                  <td style={{color: index === 0 ? 'red' : 'inherit'}}>{index === 0 ? 'Error - Out of Paper' : 'Waiting...'}</td>
+                  <td style={{color: job === 'Essay.pdf' ? 'red' : 'inherit'}}>{job === 'Essay.pdf' ? 'Error - Jammed' : 'Waiting...'}</td>
                   <td>Student</td>
                 </tr>
               ))}

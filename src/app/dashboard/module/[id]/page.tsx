@@ -683,7 +683,7 @@ const moduleConfig: Record<string, { title: string, tasks: Task[], component: Re
     tasks: [
       {
         title: "Task 1: Missing Files",
-        instruction: "Double-click 'Microsoft Edge' on the desktop and go to your OneDrive. Click 'Recycle bin' in the left menu, then right-click 'Lost_Homework.docx' and select 'Restore' to get it back.",
+        instruction: "Double-click 'Microsoft Edge' on the desktop and go to your OneDrive. Click 'Recycle bin' in the left menu, then right-click 'Lost_Homework.docx' and select 'Restore' to get it back. Finally, close the browser window.",
         content: (
           <>
             <p><strong>Don't Panic!</strong></p>
