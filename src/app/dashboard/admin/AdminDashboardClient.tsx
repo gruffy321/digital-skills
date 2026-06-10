@@ -96,7 +96,7 @@ export default function AdminDashboardClient({
   return (
     <div className={`${styles.grid} ${selectedStudentId && activeTab === 'profile' ? styles.isProfileView : ''}`}>
       {/* Access Codes Section */}
-      <section className={`glass-panel ${styles.panel}`}>
+      <section className={`glass-panel ${styles.panel} ${styles.accessCodePanel}`}>
         <h3>Access Code Management</h3>
         <form action={createAccessCodeAction} className={styles.createCodeForm}>
           <input type="text" name="code" placeholder="e.g. CLASS-2026" required className={styles.input} />

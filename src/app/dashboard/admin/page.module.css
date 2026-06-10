@@ -137,7 +137,7 @@
 .tableWrapper {
   overflow-x: auto;
   overflow-y: auto;
-  max-height: 400px;
+  max-height: 250px;
   border-radius: 8px;
   background: rgba(0, 0, 0, 0.2);
 }
@@ -380,21 +380,19 @@
     color: black !important;
   }
 
-  /* Handle Print Modes */
-  body.printMatrixMode .bottomPanel,
-  body.printMatrixMode .createCodeForm,
-  body.printMatrixMode .codeList {
+  /* Handle Print Modes using global selectors */
+  :global(body.printMatrixMode) .bottomPanel,
+  :global(body.printMatrixMode) .accessCodePanel {
     display: none !important;
   }
 
-  body.printMatrixMode .tableWrapper {
+  :global(body.printMatrixMode) .tableWrapper {
     max-height: none !important;
     overflow: visible !important;
   }
 
-  body.printReportMode .matrixPanel,
-  body.printReportMode .createCodeForm,
-  body.printReportMode .codeList {
+  :global(body.printReportMode) .matrixPanel,
+  :global(body.printReportMode) .accessCodePanel {
     display: none !important;
   }
 }
