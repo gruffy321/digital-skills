@@ -368,8 +368,8 @@
     color: black !important;
   }
 
-  /* Hide matrix panel if we are currently viewing a profile so ONLY the profile prints */
-  .isProfileView .matrixPanel {
+  /* Hide matrix panel and access codes entirely when printing, so we ONLY print the active tab content */
+  .matrixPanel {
     display: none !important;
   }
 }
