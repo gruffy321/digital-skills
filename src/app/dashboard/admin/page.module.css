@@ -136,12 +136,24 @@
 /* Matrix Table */
 .tableWrapper {
   overflow-x: auto;
+  overflow-y: auto;
+  max-height: 400px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .matrixTable {
   width: 100%;
   border-collapse: collapse;
-  text-align: left;
+  text-align: center;
+}
+
+.matrixTable th {
+  position: sticky;
+  top: 0;
+  background: rgba(30, 30, 40, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 10;
 }
 
 .matrixTable th, .matrixTable td {
@@ -368,8 +380,21 @@
     color: black !important;
   }
 
-  /* Hide matrix panel and access codes entirely when printing, so we ONLY print the active tab content */
-  .matrixPanel {
+  /* Handle Print Modes */
+  body.printMatrixMode .bottomPanel,
+  body.printMatrixMode .createCodeForm,
+  body.printMatrixMode .codeList {
+    display: none !important;
+  }
+
+  body.printMatrixMode .tableWrapper {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  body.printReportMode .matrixPanel,
+  body.printReportMode .createCodeForm,
+  body.printReportMode .codeList {
     display: none !important;
   }
 }

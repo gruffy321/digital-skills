@@ -3,6 +3,7 @@
 import { useState } from "react";
 import styles from "./page.module.css";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from "recharts";
+import { useEffect } from "react";
 
 type User = any;
 type AccessCode = any;
@@ -26,6 +27,24 @@ export default function AdminDashboardClient({
   const [search, setSearch] = useState("");
   const [selectedStudentId, setSelectedStudentId] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'analytics' | 'activity' | 'profile'>('analytics');
+
+  useEffect(() => {
+    const handleAfterPrint = () => {
+      document.body.classList.remove('printMatrixMode', 'printReportMode');
+    };
+    window.addEventListener('afterprint', handleAfterPrint);
+    return () => window.removeEventListener('afterprint', handleAfterPrint);
+  }, []);
+
+  const handlePrintMatrix = () => {
+    document.body.classList.add('printMatrixMode');
+    window.print();
+  };
+
+  const handlePrintReport = () => {
+    document.body.classList.add('printReportMode');
+    window.print();
+  };
 
   const filteredUsers = initialUsers.filter(u => 
     !search || 
@@ -110,7 +129,16 @@ export default function AdminDashboardClient({
       {/* Student Matrix Section */}
       <section className={`glass-panel ${styles.panel} ${styles.matrixPanel}`}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-          <h3 style={{ margin: 0 }}>Student Progress Matrix</h3>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <h3 style={{ margin: 0 }}>Student Progress Matrix</h3>
+            <button 
+              onClick={handlePrintMatrix}
+              className={`${styles.tabBtn} ${styles.printBtn}`}
+              style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.25rem 0.75rem', fontSize: '0.9rem' }}
+            >
+              🖨️ Print Matrix
+            </button>
+          </div>
           <div style={{ display: 'flex', gap: '0.5rem' }}>
             <input 
               type="text" 
@@ -184,7 +212,7 @@ export default function AdminDashboardClient({
           
           <div style={{ flex: 1 }}></div>
           <button 
-            onClick={() => window.print()}
+            onClick={handlePrintReport}
             className={`${styles.tabBtn} ${styles.printBtn}`}
             style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', border: '1px solid rgba(255,255,255,0.2)' }}
           >
