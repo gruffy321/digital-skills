@@ -1,192 +1,425 @@
-.desktop {
-  width: 100%;
-  height: 100%;
-  background-image: url('https://images.unsplash.com/photo-1477346611663-b26e0fc81cb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+.desktopArea {
+  position: absolute;
+  inset: 0;
+  background-color: #000;
+  background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=2564');
   background-size: cover;
   background-position: center;
-  position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   overflow: hidden;
+  user-select: none;
 }
 
-.wordWindow {
+/* Taskbar */
+.taskbar {
   position: absolute;
-  top: 50px;
-  left: 100px;
-  right: 100px;
-  bottom: 50px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: rgba(243, 243, 243, 0.85);
+  backdrop-filter: blur(20px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 500;
+  box-shadow: 0 -1px 5px rgba(0,0,0,0.1);
+}
+
+.taskbarIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.taskbarIcon:hover {
+  background: rgba(255,255,255,0.5);
+}
+
+.taskbarIcon.active::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 3px;
+  background: #2B579A;
+  border-radius: 2px;
+}
+
+.startButton {
+  font-size: 1.2rem;
+  color: #0078D4;
+}
+
+.desktopIcons {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.desktopIcon {
+  width: 74px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.desktopIcon:hover {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.iconSquare {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.desktopIcon span {
+  color: white;
+  font-size: 0.75rem;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+}
+
+/* Application Window */
+.appWindow {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 85%;
   background: #f3f2f1;
   border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.2);
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  z-index: 100;
+  animation: windowPopIn 0.2s ease-out;
 }
 
-.windowHeader {
-  background: #2b579a;
-  color: white;
-  padding: 0.5rem 1rem;
+@keyframes windowPopIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.appHeader {
+  height: 32px;
+  background: #f3f3f3;
+  color: #111;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
+  padding-left: 1rem;
+  font-weight: 600;
   font-size: 0.9rem;
+  border-bottom: 1px solid #e5e5e5;
 }
 
-.windowControls span {
-  margin-left: 1rem;
+.windowControls {
+  display: flex;
+  height: 100%;
+}
+
+.windowControls button {
+  width: 46px;
+  height: 100%;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  color: #111;
   cursor: pointer;
 }
 
-.toolbar {
-  background: #f3f2f1;
-  border-bottom: 1px solid #ccc;
+.windowControls button:hover {
+  background: rgba(0,0,0,0.1);
 }
 
-.menuBar {
-  display: flex;
-  padding: 0.2rem 1rem;
-  font-size: 0.9rem;
-  color: #333;
+.windowControls .closeBtn:hover {
+  background: #E81123;
+  color: white;
 }
 
-.menuBar span {
-  padding: 0.3rem 0.8rem;
-  cursor: pointer;
-}
-
-.menuBar span:hover {
-  background: #e1e1e1;
-}
-
-.highlightMenu {
-  background: #ffeeba;
-  font-weight: bold;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% { background: #ffeeba; }
-  50% { background: #ffdf7e; }
-  100% { background: #ffeeba; }
-}
-
-.formatBar {
-  display: flex;
-  padding: 0.5rem 1rem;
-  gap: 0.5rem;
-  align-items: center;
-}
-
-.formatBtn {
-  background: white;
-  border: 1px solid #ccc;
-  padding: 0.3rem 0.6rem;
-  cursor: pointer;
-  border-radius: 4px;
-  font-size: 0.9rem;
+/* Word Specific */
+.wordBlueHeader {
+  background-color: #2B579A;
+  color: white;
+  height: 48px;
   display: flex;
   align-items: center;
-  gap: 0.3rem;
+  padding: 0 1rem;
+  gap: 1.5rem;
 }
 
-.formatBtn:hover:not(:disabled) {
-  background: #e1e1e1;
-}
-
-.formatBtn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.pageArea {
-  flex: 1;
-  background: #e1e1e1;
+.wordMenu {
   display: flex;
-  justify-content: center;
-  padding: 2rem;
-  overflow-y: auto;
-}
-
-.page {
-  background: white;
-  width: 600px;
-  min-height: 800px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  padding: 3rem;
-  font-family: 'Calibri', 'Arial', sans-serif;
-}
-
-.spellError {
-  text-decoration: underline red wavy;
-  cursor: context-menu;
-}
-
-.contextMenu {
-  position: absolute;
-  background: white;
-  border: 1px solid #ccc;
-  box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-  border-radius: 4px;
-  min-width: 150px;
-  padding: 0.5rem 0;
-  z-index: 1000;
+  gap: 1rem;
   font-size: 0.9rem;
-  color: #333;
-}
-
-.suggestionTitle {
-  padding: 0.2rem 1rem;
-  font-size: 0.8rem;
-  color: #666;
-  font-weight: bold;
 }
 
 .menuItem {
-  padding: 0.4rem 1rem;
   cursor: pointer;
+  padding: 0.5rem;
 }
 
-.menuItem:hover {
-  background: #0078d4;
-  color: white;
+.menuItem.active {
+  background: #fff;
+  color: #2B579A;
+  font-weight: bold;
 }
 
-.menuDivider {
-  height: 1px;
-  background: #ccc;
-  margin: 0.2rem 0;
+.wordRibbon {
+  background: white;
+  border-bottom: 1px solid #e1dfdd;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.ribbonGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-right: 1.5rem;
+  border-right: 1px solid #e1dfdd;
+}
+
+.ribbonBtn {
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #323130;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ribbonBtn:hover {
+  background: #f3f2f1;
+}
+
+/* Document Area */
+.documentArea {
+  flex: 1;
+  background: #e1dfdd;
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 2rem;
+  position: relative;
+}
+
+.documentPage {
+  background: white;
+  width: 600px;
+  min-height: 800px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  color: #000;
+  position: relative;
+}
+
+/* Document Elements */
+.headerRegion {
+  border-bottom: 1px dashed #c8c6c4;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  color: #8a8886;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.docBody {
+  flex: 1;
 }
 
 .docTable {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .docTable th, .docTable td {
-  border: 1px solid #ccc;
-  padding: 0.8rem;
-  text-align: left;
+  border: 1px solid #8a8886;
+  padding: 0.5rem;
+  min-width: 50px;
+  min-height: 24px;
 }
 
 .docTable th {
-  background: #f0f0f0;
+  background: #f3f2f1;
 }
 
-.imageWrapper {
-  margin-top: 2rem;
+/* Spell Check Error */
+.spellError {
+  text-decoration: underline wavy red;
+  cursor: pointer;
+}
+
+/* Sidebars */
+.spellCheckSidebar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 300px;
+  background: white;
+  border-left: 1px solid #e1dfdd;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.05);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  z-index: 10;
+  color: #000;
 }
 
-.placeholderImage {
-  width: 200px;
-  height: 150px;
-  background: #e1e1e1;
-  border: 2px dashed #999;
+.sidebarHeader {
+  padding: 1rem;
+  border-bottom: 1px solid #e1dfdd;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebarContent {
+  padding: 1rem;
+}
+
+.suggestionBox {
+  border: 1px solid #c8c6c4;
+  border-radius: 4px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.changeBtn {
+  background: #2B579A;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 2px;
+  margin-top: 1rem;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* File Menu & Print Dialog */
+.fileMenuDropdown {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  background: #2B579A;
+  color: white;
+  width: 250px;
+  height: calc(100% - 80px);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+}
+
+.fileMenuItem {
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.fileMenuItem:hover {
+  background: #1e3f6b;
+}
+
+/* Print Overlay */
+.printOverlay {
+  position: absolute;
+  inset: 0;
+  background: white;
+  z-index: 300;
+  display: flex;
+}
+
+.printSidebar {
+  width: 300px;
+  background: #f3f2f1;
+  padding: 2rem;
+  border-right: 1px solid #e1dfdd;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.printPreviewArea {
+  flex: 1;
+  background: #525659;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
-  color: #666;
+}
+
+.printPreviewDoc {
+  background: white;
+  width: 400px;
+  height: 550px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  padding: 2rem;
+  font-size: 0.7rem;
+}
+
+.printBtn {
+  background: #2B579A;
+  color: white;
+  border: none;
+  padding: 1rem;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.printBtn:hover {
+  background: #1e3f6b;
+}
+
+.printerSelect {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #8a8886;
+  border-radius: 4px;
 }

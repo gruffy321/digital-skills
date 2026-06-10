@@ -428,7 +428,7 @@ const moduleConfig: Record<string, { title: string, tasks: Task[], component: Re
     tasks: [
       {
         title: "Task 1: Inserting Tables",
-        instruction: "Open the document. Click 'Insert' in the top menu and select 'Table (3x3)' to add it to your report.",
+        instruction: "Open the Word application on your desktop. Click the 'Insert' tab and click 'Table (3x3)' to add it to your document.",
         content: (
           <>
             <p><strong>Organizing Data with Tables</strong></p>
@@ -439,7 +439,7 @@ const moduleConfig: Record<string, { title: string, tasks: Task[], component: Re
       },
       {
         title: "Task 2: Headers & Page Numbers",
-        instruction: "Click 'Insert' again and select 'Header & Page Number' to add a professional header to the document.",
+        instruction: "Click the 'Insert' tab and select 'Header & Page No.' to add a professional header to the document.",
         content: (
           <>
             <p><strong>Headers and Footers</strong></p>
@@ -449,13 +449,33 @@ const moduleConfig: Record<string, { title: string, tasks: Task[], component: Re
         )
       },
       {
-        title: "Task 3: Collaboration & Peer Review",
-        instruction: "Look at the Comments panel on the right. Jane left a suggestion. Click 'Accept & Resolve' to automatically update your document with her suggestion.",
+        title: "Task 3: Running Spell Check",
+        instruction: "Click the 'Review' tab at the top, then click 'Spell Check'. When it highlights the misspelled word, click 'Change' to fix it.",
         content: (
           <>
-            <p><strong>Collaborating with Peers</strong></p>
-            <p>Modern word processors allow multiple people to work on the same document. Your teachers or classmates can leave <strong>Comments</strong> on your work to suggest improvements without deleting your text.</p>
-            <p>Reviewing and accepting feedback is a critical skill for both school and professional environments!</p>
+            <p><strong>Checking Your Work</strong></p>
+            <p>Nobody is perfect, and typos happen! Word processors have built-in dictionaries to help you catch spelling and grammar mistakes.</p>
+            <p>You should <strong>always</strong> run a spell check before handing in an assignment or sending a professional document.</p>
+          </>
+        )
+      },
+      {
+        title: "Task 4: Printing to FOLLOW_ME",
+        instruction: "Click 'File' > 'Print'. Change the selected printer to 'FOLLOW_ME', then click the big Print button.",
+        content: (
+          <>
+            <p><strong>Printing at School</strong></p>
+            <p>When printing at school or in a large office, you usually don't print to one specific machine. Instead, you print to a central queue (like <strong>FOLLOW_ME</strong>).</p>
+            <p>After sending the document to the FOLLOW_ME queue, you can walk up to <em>any</em> printer in the building, log in using your unique print code (found on your desktop) or your full school login, and your document will print right there!</p>
+          </>
+        )
+      },
+      {
+        title: "Task 5: Knowledge Check",
+        instruction: "Complete the quiz to finish this module.",
+        content: (
+          <>
+            <p>Let's review what you've learned about Intermediate Word Processing!</p>
           </>
         )
       }
