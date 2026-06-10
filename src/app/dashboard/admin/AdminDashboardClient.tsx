@@ -36,10 +36,10 @@ export default function AdminDashboardClient({
 
   const selectedUser = initialUsers.find(u => u.id === selectedStudentId);
 
-  // Filter logs for selected user
+  // Filter logs for selected user OR filtered users (class/group)
   const displayLogs = selectedStudentId 
     ? eventLogs.filter(log => log.userId === selectedStudentId)
-    : eventLogs;
+    : eventLogs.filter(log => filteredUsers.some(u => u.id === log.userId));
 
   // Chart Data: Module Completion
   const moduleCompletionData = [1,2,3,4,5,6,7,8,9,10,11,12].map(modId => {
@@ -86,7 +86,14 @@ export default function AdminDashboardClient({
         <div className={styles.codeList}>
           {accessCodes.map(code => (
             <div key={code.id} className={styles.codeItem}>
-              <span className={styles.codeText}>{code.code}</span>
+              <span 
+                className={styles.codeText} 
+                style={{ cursor: 'pointer', textDecoration: 'underline' }}
+                onClick={() => { setSearch(code.code); setSelectedStudentId(null); }}
+                title="Click to filter analytics by this class code"
+              >
+                {code.code}
+              </span>
               <span className={code.isActive ? styles.activeBadge : styles.inactiveBadge}>
                 {code.isActive ? "Active" : "Revoked"}
               </span>
