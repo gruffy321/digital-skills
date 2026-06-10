@@ -368,31 +368,4 @@
   .matrixTable th, .matrixTable td {
     border-bottom: 1px solid #ddd !important;
     color: black !important;
-  }
-
-  .statCard {
-    background: none !important;
-    border: 1px solid #ccc !important;
-    page-break-inside: avoid;
-  }
-
-  .statCard h2 {
-    color: black !important;
-  }
-
-  /* Handle Print Modes using global selectors */
-  :global(body.printMatrixMode) .bottomPanel,
-  :global(body.printMatrixMode) .accessCodePanel {
-    display: none !important;
-  }
-
-  :global(body.printMatrixMode) .tableWrapper {
-    max-height: none !important;
-    overflow: visible !important;
-  }
-
-  :global(body.printReportMode) .matrixPanel,
-  :global(body.printReportMode) .accessCodePanel {
-    display: none !important;
-  }
 }
