@@ -624,34 +624,54 @@ const moduleConfig: Record<string, { title: string, tasks: Task[], component: Re
     title: "Cloud Storage & Collaboration",
     tasks: [
       {
-        title: "Task 1: Local vs Network Storage",
-        instruction: "Double click 'File Explorer'. Your 'History_Essay.docx' is currently trapped on this specific computer. Click on 'My Documents' in the sidebar to find it.",
+        title: "Task 1: Sharing Permissions",
+        instruction: "Open the 'OneDrive' folder. Right-click on 'Group_Project.docx', click 'Share', and give 'Editor' access to your classmate.",
         content: (
           <>
-            <p><strong>Thin Clients and Your Work</strong></p>
-            <p>In school, you don't always use the exact same computer every day. If you save a file to <code>My Documents</code>, it gets stuck on that physical machine. If you log into a computer in the Library tomorrow, your file won't be there!</p>
+            <p><strong>Sharing Your Work</strong></p>
+            <p>Cloud storage like OneDrive or Google Drive allows you to share files with others without emailing copies back and forth.</p>
+            <p>You can choose to give someone <strong>View</strong> access (they can only read it) or <strong>Editor</strong> access (they can make changes to the original file).</p>
           </>
         )
       },
       {
-        title: "Task 2: Saving to OneDrive",
-        instruction: "Click on your 'History_Essay.docx' to select it. Then, look at the top menu ribbon and click 'Move to OneDrive' to send it to the school network.",
+        title: "Task 2: Editing Simultaneously",
+        instruction: "Double-click 'Group_Project.docx' to open it in the browser. Type a new sentence at the bottom while your classmate types at the top.",
         content: (
           <>
-            <p><strong>The Magic of Cloud Sync</strong></p>
-            <p>By moving your file into your <code>OneDrive - Student</code> folder, you are uploading it to the school's servers in the cloud.</p>
-            <p>This means your file is safely backed up, and you can access it from <em>any</em> computer in the entire school just by logging in!</p>
+            <p><strong>Real-Time Collaboration</strong></p>
+            <p>When you share a cloud document, multiple people can edit the exact same file at the exact same time. You will see their cursor moving around the screen!</p>
           </>
         )
       },
       {
-        title: "Task 3: Reading Sync Icons",
-        instruction: "Open your OneDrive folder from the sidebar. Notice the blue spinning arrows on your file? This means it is currently uploading! Click 'Refresh Sync' in the top menu to wait for it to finish.",
+        title: "Task 3: Leaving Comments",
+        instruction: "Highlight a sentence and click 'New Comment' in the top right to leave feedback for your group.",
         content: (
           <>
-            <p><strong>Don't Log Off Too Early!</strong></p>
-            <p>A blue spinning arrow means the computer is still talking to the server. If you turn off the computer now, your file will be corrupted or lost forever.</p>
-            <p>You must <strong>ALWAYS</strong> wait until you see the solid Green Checkmark. The Green Checkmark guarantees your work is safely backed up and you are allowed to log off.</p>
+            <p><strong>Constructive Feedback</strong></p>
+            <p>If you disagree with something in a group project, it's often better to leave a <strong>Comment</strong> instead of just deleting their work.</p>
+            <p>Comments sit on the side of the document, allowing your team to discuss the change before making it.</p>
+          </>
+        )
+      },
+      {
+        title: "Task 4: Version History",
+        instruction: "Someone accidentally deleted a paragraph! Click 'File' > 'Version History' and restore the older version from 10 minutes ago.",
+        content: (
+          <>
+            <p><strong>The Ultimate Undo Button</strong></p>
+            <p>Because the cloud saves automatically, it keeps a historical record of every change made to a document.</p>
+            <p>If a group member completely messes up the file, you don't need to panic! You can simply roll back time and <strong>Restore</strong> an older version.</p>
+          </>
+        )
+      },
+      {
+        title: "Task 5: Knowledge Check",
+        instruction: "Complete the quiz to finish this module.",
+        content: (
+          <>
+            <p>Let's review what you've learned about Cloud Collaboration!</p>
           </>
         )
       }
