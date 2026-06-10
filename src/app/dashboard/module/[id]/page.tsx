@@ -683,12 +683,12 @@ const moduleConfig: Record<string, { title: string, tasks: Task[], component: Re
     tasks: [
       {
         title: "Task 1: Missing Files",
-        instruction: "Double-click the 'Recycle Bin' on the desktop. Right-click 'Lost_Homework.docx' and select 'Restore' to get it back.",
+        instruction: "Double-click 'Microsoft Edge' on the desktop and go to your OneDrive. Click 'Recycle bin' in the left menu, then right-click 'Lost_Homework.docx' and select 'Restore' to get it back.",
         content: (
           <>
             <p><strong>Don't Panic!</strong></p>
-            <p>If you accidentally delete a file, it isn't gone forever right away. It goes to the Recycle Bin.</p>
-            <p>You can always open the Recycle Bin to rescue files you didn't mean to throw away.</p>
+            <p>If you accidentally delete a file, it isn't gone forever right away. Because your files are saved in the cloud, they go to your online OneDrive Recycle bin.</p>
+            <p>You can always open the Recycle bin on the web to rescue files you didn't mean to throw away.</p>
           </>
         )
       },

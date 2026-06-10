@@ -173,8 +173,8 @@ export default function Module11() {
       {/* Desktop Icons */}
       <div className={styles.desktopIcons}>
         <div className={styles.desktopIcon} onDoubleClick={() => setIsRecycleBinOpen(true)}>
-          <div className={styles.iconSquare} style={{ background: 'transparent' }}>🗑️</div>
-          <span>Recycle Bin</span>
+          <div className={styles.iconSquare} style={{ background: '#0078D4', color: 'white' }}>e</div>
+          <span>Microsoft Edge</span>
         </div>
       </div>
 
@@ -272,44 +272,78 @@ export default function Module11() {
         </div>
       )}
 
-      {/* Recycle Bin Window */}
+      {/* Edge Browser Window */}
       {isRecycleBinOpen && (
-        <div className={styles.appWindow}>
-          <div className={styles.appHeader}>
-            <span>Recycle Bin</span>
-            <div className={styles.windowControls}>
+        <div className={styles.edgeWindow}>
+          <div className={styles.edgeHeader}>
+            <div className={styles.edgeTabs}>
+              <div className={styles.edgeTab}>
+                <span style={{color: '#0078d4'}}>☁️</span>
+                <span>My files - OneDrive</span>
+              </div>
+            </div>
+            <div className={styles.windowControls} style={{height: '100%', alignItems: 'center'}}>
               <button>—</button>
               <button>□</button>
               <button className={styles.closeBtn} onClick={() => setIsRecycleBinOpen(false)}>✕</button>
             </div>
           </div>
-          <table className={styles.listView}>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Original Location</th>
-                <th>Date Deleted</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filesInBin.map(file => (
-                <tr 
-                  key={file} 
-                  className={styles.listRow}
-                  onContextMenu={(e) => handleRightClickBinItem(e, file)}
-                >
-                  <td>{file}</td>
-                  <td>C:\Users\Student\Documents</td>
-                  <td>Today</td>
-                </tr>
-              ))}
-              {filesInBin.length === 0 && (
-                <tr>
-                  <td colSpan={3} style={{textAlign: 'center', padding: '2rem', color: '#666'}}>Recycle Bin is empty</td>
-                </tr>
-              )}
-            </tbody>
-          </table>
+          
+          <div className={styles.edgeToolbar}>
+            <span>←</span>
+            <span>→</span>
+            <span>↻</span>
+            <div className={styles.edgeAddressBar}>https://onedrive.live.com/</div>
+          </div>
+
+          <div className={styles.odWebLayout}>
+            {/* OneDrive Sidebar */}
+            <div className={styles.odSidebar}>
+              <div className={styles.odSidebarItem}>🏠 Home</div>
+              <div className={styles.odSidebarItem}>📁 My files</div>
+              <div className={styles.odSidebarItem}>🖼️ Photos</div>
+              <div className={styles.odSidebarItem}>👥 Shared</div>
+              <div className={`${styles.odSidebarItem} ${styles.active}`}>🗑️ Recycle bin</div>
+            </div>
+
+            {/* OneDrive Main Area */}
+            <div className={styles.odMain}>
+              <div className={styles.odTopRibbon}>
+                <h2>Recycle bin</h2>
+                <div style={{flex: 1}}></div>
+                <button className={styles.odToolbarAction}>Empty recycle bin</button>
+                <button className={styles.odToolbarAction}>Restore all items</button>
+              </div>
+
+              <table className={styles.listView}>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Original Location</th>
+                    <th>Date Deleted</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filesInBin.map(file => (
+                    <tr 
+                      key={file} 
+                      className={styles.listRow}
+                      onContextMenu={(e) => handleRightClickBinItem(e, file)}
+                    >
+                      <td>📄 {file}</td>
+                      <td>My files</td>
+                      <td>Today</td>
+                    </tr>
+                  ))}
+                  {filesInBin.length === 0 && (
+                    <tr>
+                      <td colSpan={3} style={{textAlign: 'center', padding: '2rem', color: '#666'}}>Recycle Bin is empty</td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       )}
 
