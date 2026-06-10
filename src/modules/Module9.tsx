@@ -36,12 +36,12 @@ export default function Module9() {
 
     // Task 1: Data Entry Check
     if (taskIndex === 0 && !tasksCompleted.current[0]) {
-      const a1 = newCells["A1"]?.toLowerCase() === "transport";
-      const a2 = newCells["A2"]?.toLowerCase() === "food";
-      const a3 = newCells["A3"]?.toLowerCase() === "tickets";
-      const b1 = newCells["B1"]?.trim() === "150";
-      const b2 = newCells["B2"]?.trim() === "50";
-      const b3 = newCells["B3"]?.trim() === "30";
+      const a1 = newCells["A1"]?.trim().length > 0;
+      const a2 = newCells["A2"]?.trim().length > 0;
+      const a3 = newCells["A3"]?.trim().length > 0;
+      const b1 = newCells["B1"]?.trim().length > 0 && !isNaN(parseFloat(newCells["B1"]));
+      const b2 = newCells["B2"]?.trim().length > 0 && !isNaN(parseFloat(newCells["B2"]));
+      const b3 = newCells["B3"]?.trim().length > 0 && !isNaN(parseFloat(newCells["B3"]));
 
       if (a1 && a2 && a3 && b1 && b2 && b3) {
         tasksCompleted.current[0] = true;
@@ -97,17 +97,34 @@ export default function Module9() {
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, col: string, row: number) => {
+    const colIndex = COLUMNS.indexOf(col);
+    
     if (e.key === "Enter") {
       e.preventDefault();
-      // Move down a row
-      if (row < ROWS.length) {
-        setActiveCell(`${col}${row + 1}`);
-      }
+      if (row < ROWS.length) setActiveCell(`${col}${row + 1}`);
     } else if (e.key === "Tab") {
       e.preventDefault();
-      // Move right a column
-      const colIndex = COLUMNS.indexOf(col);
-      if (colIndex < COLUMNS.length - 1) {
+      if (e.shiftKey) {
+        if (colIndex > 0) setActiveCell(`${COLUMNS[colIndex - 1]}${row}`);
+      } else {
+        if (colIndex < COLUMNS.length - 1) setActiveCell(`${COLUMNS[colIndex + 1]}${row}`);
+      }
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      if (row > 1) setActiveCell(`${col}${row - 1}`);
+    } else if (e.key === "ArrowDown") {
+      e.preventDefault();
+      if (row < ROWS.length) setActiveCell(`${col}${row + 1}`);
+    } else if (e.key === "ArrowLeft") {
+      // Only navigate if cursor is at the beginning of the input
+      if (e.currentTarget.selectionStart === 0 && colIndex > 0) {
+        e.preventDefault();
+        setActiveCell(`${COLUMNS[colIndex - 1]}${row}`);
+      }
+    } else if (e.key === "ArrowRight") {
+      // Only navigate if cursor is at the end of the input
+      if (e.currentTarget.selectionStart === e.currentTarget.value.length && colIndex < COLUMNS.length - 1) {
+        e.preventDefault();
         setActiveCell(`${COLUMNS[colIndex + 1]}${row}`);
       }
     }
