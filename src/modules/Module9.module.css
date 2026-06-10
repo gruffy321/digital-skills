@@ -1,71 +1,146 @@
-.iconGrid {
+.desktopArea {
+  position: absolute;
+  inset: 0;
+  background-color: #000;
+  background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=2564');
+  background-size: cover;
+  background-position: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Taskbar */
+.taskbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: rgba(243, 243, 243, 0.85);
+  backdrop-filter: blur(20px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 500;
+  box-shadow: 0 -1px 5px rgba(0,0,0,0.1);
+}
+
+.taskbarIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.taskbarIcon:hover {
+  background: rgba(255,255,255,0.5);
+}
+
+.taskbarIcon.active::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 3px;
+  background: #107C41; /* Excel Accent */
+  border-radius: 2px;
+}
+
+.startButton {
+  font-size: 1.2rem;
+  color: #0078D4;
+}
+
+.desktopIcons {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  width: max-content;
+  gap: 1rem;
 }
 
 .desktopIcon {
+  width: 74px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
   padding: 0.5rem;
   border-radius: 4px;
   cursor: pointer;
-  user-select: none;
-  transition: background 0.2s;
+  border: 1px solid transparent;
 }
 
 .desktopIcon:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
 }
 
-.iconImage {
-  font-size: 3rem;
-  text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+.iconSquare {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
 .desktopIcon span {
-  font-size: 0.85rem;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
   color: white;
+  font-size: 0.75rem;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8);
 }
 
-/* App Window */
-.osWindow {
+/* Application Window */
+.appWindow {
   position: absolute;
   top: 5%;
   left: 5%;
-  width: 900px;
-  height: 650px;
+  width: 90%;
+  height: 85%;
+  background: #f3f2f1;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.2);
   display: flex;
   flex-direction: column;
-  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-  background: #f3f2f1;
-  border: 1px solid rgba(0,0,0,0.1);
-  color: #242424;
+  z-index: 100;
+  animation: windowPopIn 0.2s ease-out;
 }
 
-.windowHeader {
+@keyframes windowPopIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.appHeader {
+  height: 32px;
+  background: #f3f3f3;
+  color: #111;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
   padding-left: 1rem;
-  background: #107c41; /* Excel Green */
-  height: 48px;
-  color: white;
-}
-
-.windowHeaderTitle {
-  font-size: 1rem;
   font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .windowControls {
@@ -76,64 +151,108 @@
 .windowControls button {
   width: 46px;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  color: white;
-  background: transparent;
   border: none;
-  border-radius: 0;
-  transition: background 0.1s;
+  background: transparent;
+  font-size: 1rem;
+  color: #111;
   cursor: pointer;
 }
 
 .windowControls button:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(0,0,0,0.1);
 }
 
-.closeBtn:hover {
-  background: #E81123 !important;
+.windowControls .closeBtn:hover {
+  background: #E81123;
+  color: white;
 }
 
-/* App Ribbon & Formula Bar */
-.appRibbon {
-  background: #f3f2f1;
-  border-bottom: 1px solid #c8c6c4;
+/* Excel Specific */
+.excelGreenHeader {
+  background-color: #107C41; /* Excel Green */
+  color: white;
+  height: 48px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  padding: 0 1rem;
+  gap: 1.5rem;
 }
 
-.menuBar {
+.excelMenu {
   display: flex;
-  padding: 0 0.5rem;
+  gap: 1rem;
+  font-size: 0.9rem;
 }
 
 .menuItem {
-  padding: 0.5rem 1rem;
   cursor: pointer;
-  font-size: 0.9rem;
-  position: relative;
+  padding: 0.5rem;
 }
 
-.menuItem:hover, .menuItem.active {
-  background: #ffffff;
-  color: #107c41;
+.menuItem.active {
+  background: #fff;
+  color: #107C41;
+  font-weight: bold;
 }
 
-.formulaBar {
+.excelRibbon {
+  background: white;
+  border-bottom: 1px solid #e1dfdd;
+  padding: 0.5rem 1rem;
   display: flex;
   align-items: center;
-  padding: 0.25rem 0.5rem;
-  background: white;
-  border-top: 1px solid #e1dfdd;
+  gap: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.ribbonGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-right: 1.5rem;
+  border-right: 1px solid #e1dfdd;
+}
+
+.ribbonBtn {
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #323130;
+  display: flex;
+  align-items: center;
   gap: 0.5rem;
 }
 
-.formulaLabel {
-  font-family: monospace;
-  font-style: italic;
+.ribbonBtn:hover {
+  background: #f3f2f1;
+}
+
+/* Formula Bar */
+.formulaBarContainer {
+  display: flex;
+  background: #fff;
+  border-bottom: 1px solid #e1dfdd;
+  padding: 0.25rem 0.5rem;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cellNameBox {
+  background: #fff;
+  border: 1px solid #c8c6c4;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.9rem;
+  width: 60px;
+  text-align: center;
+  color: #000;
+}
+
+.fxIcon {
   font-weight: bold;
+  font-style: italic;
   color: #605e5c;
   padding: 0 0.5rem;
 }
@@ -141,160 +260,109 @@
 .formulaInput {
   flex: 1;
   border: 1px solid #c8c6c4;
-  padding: 0.25rem 0.5rem;
-  font-family: sans-serif;
+  padding: 0.2rem 0.5rem;
   font-size: 0.9rem;
-  border-radius: 2px;
+  outline: none;
+  color: #000;
 }
 
 .formulaInput:focus {
-  outline: 1px solid #107c41;
+  border-color: #107C41;
 }
 
 /* Spreadsheet Grid */
-.appBody {
+.spreadsheetContainer {
   flex: 1;
-  background: white;
-  display: flex;
+  background: #fff;
   overflow: auto;
+  position: relative;
+  display: flex;
   flex-direction: column;
 }
 
-.spreadsheetGrid {
-  display: grid;
-  grid-template-columns: 40px repeat(4, 150px);
-  grid-auto-rows: 25px;
+.gridHeaderRow {
+  display: flex;
+  background: #f3f2f1;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid #c8c6c4;
+}
+
+.gridCorner {
+  width: 40px;
+  min-width: 40px;
+  background: #f3f2f1;
+  border-right: 1px solid #c8c6c4;
+  border-bottom: 1px solid #c8c6c4;
+  position: sticky;
+  left: 0;
+  z-index: 30;
+}
+
+.columnHeader {
+  width: 120px;
+  min-width: 120px;
+  padding: 0.25rem;
+  text-align: center;
+  border-right: 1px solid #c8c6c4;
+  font-size: 0.85rem;
+  color: #605e5c;
   user-select: none;
 }
 
-.headerCell {
-  background: #f3f2f1;
-  border-right: 1px solid #c8c6c4;
-  border-bottom: 1px solid #c8c6c4;
+.gridBody {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  color: #605e5c;
+  flex-direction: column;
+}
+
+.gridRow {
+  display: flex;
 }
 
 .rowHeader {
+  width: 40px;
+  min-width: 40px;
   background: #f3f2f1;
   border-right: 1px solid #c8c6c4;
   border-bottom: 1px solid #c8c6c4;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: #605e5c;
+  position: sticky;
+  left: 0;
+  z-index: 10;
+  user-select: none;
 }
 
-.dataCell {
+.gridCell {
+  width: 120px;
+  min-width: 120px;
+  height: 28px;
   border-right: 1px solid #e1dfdd;
   border-bottom: 1px solid #e1dfdd;
   position: relative;
+  background: #fff;
 }
 
-.dataCell.active {
-  border: 2px solid #107c41;
-  z-index: 10;
-}
-
-.dataCell.selectedCell {
-  background: rgba(16, 124, 65, 0.15); /* Excel Green Translucent */
-}
-
-.cellInput {
+.gridCellInput {
   width: 100%;
   height: 100%;
   border: none;
-  padding: 0 0.25rem;
-  font-size: 0.9rem;
-  background: transparent;
-}
-
-.cellInput:focus {
   outline: none;
-}
-
-@keyframes popIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-/* Quiz Modal */
-.modalOverlay {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
-}
-
-.quizModal {
-  width: 500px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  animation: popIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.quizHeader {
-  padding: 1rem 1.5rem;
-  background: #107c41; /* Excel green */
-  color: white;
-  font-weight: 600;
-  font-size: 1.1rem;
-}
-
-.quizBody {
-  padding: 1.5rem;
-}
-
-.quizQuestion {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: #242424;
-}
-
-.quizOptions {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.quizOption {
-  padding: 0.75rem 1rem;
-  border: 1px solid #c8c6c4;
-  border-radius: 4px;
-  background: white;
-  cursor: pointer;
-  text-align: left;
+  padding: 0 0.4rem;
   font-size: 0.95rem;
-  transition: all 0.2s;
-  color: #242424;
+  background: transparent;
+  color: #000;
 }
 
-.quizOption:hover {
-  background: #f3f2f1;
-  border-color: #8a8886;
+.gridCell.active {
+  border: 2px solid #107C41;
+  z-index: 5;
 }
 
-.quizOption.correct {
-  background: #e8f5e9;
-  border-color: #4caf50;
-  color: #2e7d32;
-  font-weight: 600;
-}
-
-.quizOption.incorrect {
-  background: #fde7e9;
-  border-color: #d13438;
-  color: #a4262c;
+.gridCellInput:focus {
+  background: #fff;
 }

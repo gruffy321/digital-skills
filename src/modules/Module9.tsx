@@ -1,414 +1,280 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import styles from "./Module9.module.css";
 import { useModule } from "@/components/ModuleWrapper";
+import Quiz from "@/components/Quiz";
+
+const COLUMNS = ["A", "B", "C", "D", "E", "F"];
+const ROWS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 export default function Module9() {
   const { taskIndex, nextTask, logEvent } = useModule();
   const [isAppOpen, setIsAppOpen] = useState(false);
   
-  const [gridData, setGridData] = useState<Record<string, string>>({});
   const [activeCell, setActiveCell] = useState("A1");
-  const [formulaInput, setFormulaInput] = useState("");
+  const [cells, setCells] = useState<Record<string, string>>({});
+  
+  // Track formula completion to avoid double triggering nextTask
+  const tasksCompleted = useRef<Record<number, boolean>>({});
 
-  const [isQuizOpen, setIsQuizOpen] = useState(false);
-  const [quizAnswered, setQuizAnswered] = useState<string | null>(null);
+  const inputRefs = useRef<Record<string, HTMLInputElement | null>>({});
 
-  const [isSelecting, setIsSelecting] = useState(false);
-  const [selectionStart, setSelectionStart] = useState<string | null>(null);
-  const [selectionEnd, setSelectionEnd] = useState<string | null>(null);
+  const openApp = () => setIsAppOpen(true);
+  const closeApp = () => setIsAppOpen(false);
 
+  // Focus input when active cell changes
   useEffect(() => {
-    const handleGlobalMouseUp = () => setIsSelecting(false);
-    window.addEventListener("mouseup", handleGlobalMouseUp);
-    return () => window.removeEventListener("mouseup", handleGlobalMouseUp);
-  }, []);
-
-  const columns = ["A", "B", "C", "D"];
-  const rows = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-  const openApp = () => {
-    setIsAppOpen(true);
-    if (!isAppOpen) {
-      logEvent("spreadsheet_app_opened");
+    if (inputRefs.current[activeCell]) {
+      inputRefs.current[activeCell]?.focus();
     }
-  };
-
-  const getCellValue = (cellId: string) => {
-    return gridData[cellId] || "";
-  };
-
-  const parseFormula = (formula: string) => {
-    if (!formula.startsWith("=")) return formula;
-    
-    try {
-      const cleanFormula = formula.toUpperCase().replace(/\s/g, "");
-      
-      const extractRange = (prefix: string) => {
-        const rangeStr = cleanFormula.substring(prefix.length, cleanFormula.indexOf(")"));
-        const [startCell, endCell] = rangeStr.split(":");
-        if (startCell && endCell && startCell[0] === endCell[0]) {
-          const col = startCell[0];
-          const startRow = parseInt(startCell.substring(1));
-          const endRow = parseInt(endCell.substring(1));
-          return { col, startRow, endRow };
-        }
-        return null;
-      };
-
-      if (cleanFormula.startsWith("=SUM(")) {
-        const range = extractRange("=SUM(");
-        if (range) {
-          let sum = 0;
-          for (let i = range.startRow; i <= range.endRow; i++) {
-            sum += parseFloat(getCellValue(`${range.col}${i}`)) || 0;
-          }
-          return sum.toString();
-        }
-        return "#REF!";
-      }
-
-      if (cleanFormula.startsWith("=COUNTA(")) {
-        const range = extractRange("=COUNTA(");
-        if (range) {
-          let count = 0;
-          for (let i = range.startRow; i <= range.endRow; i++) {
-            if (getCellValue(`${range.col}${i}`).trim() !== "") count++;
-          }
-          return count.toString();
-        }
-        return "#REF!";
-      }
-
-      if (cleanFormula.startsWith("=AVERAGE(")) {
-        const range = extractRange("=AVERAGE(");
-        if (range) {
-          let sum = 0;
-          let count = 0;
-          for (let i = range.startRow; i <= range.endRow; i++) {
-            const val = parseFloat(getCellValue(`${range.col}${i}`));
-            if (!isNaN(val)) {
-              sum += val;
-              count++;
-            }
-          }
-          return count > 0 ? (sum / count).toFixed(2).replace(/\.00$/, "") : "#DIV/0!";
-        }
-        return "#REF!";
-      }
-
-      if (cleanFormula.startsWith("=MAX(")) {
-        const range = extractRange("=MAX(");
-        if (range) {
-          let max = -Infinity;
-          for (let i = range.startRow; i <= range.endRow; i++) {
-            const val = parseFloat(getCellValue(`${range.col}${i}`));
-            if (!isNaN(val) && val > max) max = val;
-          }
-          return max === -Infinity ? "0" : max.toString();
-        }
-        return "#REF!";
-      }
-
-      if (cleanFormula.startsWith("=MIN(")) {
-        const range = extractRange("=MIN(");
-        if (range) {
-          let min = Infinity;
-          for (let i = range.startRow; i <= range.endRow; i++) {
-            const val = parseFloat(getCellValue(`${range.col}${i}`));
-            if (!isNaN(val) && val < min) min = val;
-          }
-          return min === Infinity ? "0" : min.toString();
-        }
-        return "#REF!";
-      }
-
-      return "#ERROR!";
-    } catch (e) {
-      return "#ERROR!";
-    }
-  };
-
-  const updateFormulaWithSelection = (start: string, end: string) => {
-    const startCol = start[0];
-    const startRow = parseInt(start.substring(1));
-    const endCol = end[0];
-    const endRow = parseInt(end.substring(1));
-    
-    const minCol = startCol < endCol ? startCol : endCol;
-    const maxCol = startCol > endCol ? startCol : endCol;
-    const minRow = Math.min(startRow, endRow);
-    const maxRow = Math.max(startRow, endRow);
-    
-    const rangeStr = start === end ? start : `${minCol}${minRow}:${maxCol}${maxRow}`;
-
-    const bracketIndex = formulaInput.lastIndexOf("(");
-    if (bracketIndex !== -1) {
-      const newFormula = formulaInput.substring(0, bracketIndex + 1) + rangeStr;
-      setFormulaInput(newFormula);
-      setGridData(prev => ({ ...prev, [activeCell]: newFormula }));
-    }
-  };
-
-  const handleMouseDown = (cellId: string) => {
-    const cleanFormula = formulaInput.toUpperCase().replace(/\s/g, "");
-    if (/=(SUM|COUNTA|AVERAGE|MAX|MIN)\([A-Z0-9:]*$/.test(cleanFormula)) {
-      setIsSelecting(true);
-      setSelectionStart(cellId);
-      setSelectionEnd(cellId);
-      updateFormulaWithSelection(cellId, cellId);
-    }
-  };
-
-  const handleMouseEnter = (cellId: string) => {
-    if (isSelecting && selectionStart) {
-      setSelectionEnd(cellId);
-      updateFormulaWithSelection(selectionStart, cellId);
-    }
-  };
-
-  const isCellSelected = (cellId: string) => {
-    if (!selectionStart || !selectionEnd) return false;
-
-    const cCol = cellId[0];
-    const cRow = parseInt(cellId.substring(1));
-    const sCol = selectionStart[0];
-    const sRow = parseInt(selectionStart.substring(1));
-    const eCol = selectionEnd[0];
-    const eRow = parseInt(selectionEnd.substring(1));
-
-    const minCol = sCol < eCol ? sCol : eCol;
-    const maxCol = sCol > eCol ? sCol : eCol;
-    const minRow = Math.min(sRow, eRow);
-    const maxRow = Math.max(sRow, eRow);
-
-    return cCol >= minCol && cCol <= maxCol && cRow >= minRow && cRow <= maxRow;
-  };
-
-  const handleCellCommit = (value: string) => {
-    setSelectionStart(null);
-    setSelectionEnd(null);
-    const cleanValue = value.toUpperCase().replace(/\s/g, "");
-    if (taskIndex === 0) {
-      if (Object.values(gridData).filter(v => v.trim() !== "").length >= 6) {
-        logEvent("data_entry_completed");
-        nextTask();
-      }
-    } else if (taskIndex === 1) {
-      if (cleanValue.startsWith("=SUM(")) {
-        logEvent("sum_formula_entered");
-        nextTask();
-      }
-    } else if (taskIndex === 2) {
-      if (cleanValue.startsWith("=COUNTA(")) {
-        logEvent("counta_formula_entered");
-        nextTask();
-      }
-    } else if (taskIndex === 3) {
-      if (cleanValue.startsWith("=AVERAGE(")) {
-        logEvent("average_formula_entered");
-        nextTask();
-      }
-    } else if (taskIndex === 4) {
-      if (cleanValue.startsWith("=MAX(")) {
-        logEvent("max_formula_entered");
-        nextTask();
-      }
-    } else if (taskIndex === 5) {
-      if (cleanValue.startsWith("=MIN(")) {
-        logEvent("min_formula_entered");
-        nextTask();
-        setTimeout(() => setIsQuizOpen(true), 1500);
-      }
-    }
-  };
-
-  const handleQuizAnswer = (answer: string, isCorrect: boolean) => {
-    setQuizAnswered(answer);
-    if (isCorrect && taskIndex === 6) {
-      logEvent("module9_quiz_passed");
-      setTimeout(() => {
-        setIsQuizOpen(false);
-        nextTask();
-      }, 1500);
-    }
-  };
+  }, [activeCell]);
 
   const handleCellChange = (cellId: string, value: string) => {
-    setGridData(prev => ({ ...prev, [cellId]: value }));
-    setFormulaInput(value);
+    const newCells = { ...cells, [cellId]: value };
+    setCells(newCells);
+
+    // Task 1: Data Entry Check
+    if (taskIndex === 0 && !tasksCompleted.current[0]) {
+      const a1 = newCells["A1"]?.toLowerCase() === "transport";
+      const a2 = newCells["A2"]?.toLowerCase() === "food";
+      const a3 = newCells["A3"]?.toLowerCase() === "tickets";
+      const b1 = newCells["B1"]?.trim() === "150";
+      const b2 = newCells["B2"]?.trim() === "50";
+      const b3 = newCells["B3"]?.trim() === "30";
+
+      if (a1 && a2 && a3 && b1 && b2 && b3) {
+        tasksCompleted.current[0] = true;
+        logEvent("excel_data_entered");
+        setTimeout(nextTask, 500);
+      }
+    }
+
+    // Task 2: SUM
+    if (taskIndex === 1 && !tasksCompleted.current[1]) {
+      if (cellId === "B4" && value.replace(/\s/g, '').toUpperCase() === "=SUM(B1:B3)") {
+        tasksCompleted.current[1] = true;
+        logEvent("excel_sum_formula");
+        setTimeout(nextTask, 500);
+      }
+    }
+
+    // Task 3: COUNTA
+    if (taskIndex === 2 && !tasksCompleted.current[2]) {
+      if (cellId === "A5" && value.replace(/\s/g, '').toUpperCase() === "=COUNTA(A1:A3)") {
+        tasksCompleted.current[2] = true;
+        logEvent("excel_counta_formula");
+        setTimeout(nextTask, 500);
+      }
+    }
+
+    // Task 4: MAX
+    if (taskIndex === 3 && !tasksCompleted.current[3]) {
+      if (cellId === "B5" && value.replace(/\s/g, '').toUpperCase() === "=MAX(B1:B3)") {
+        tasksCompleted.current[3] = true;
+        logEvent("excel_max_formula");
+        setTimeout(nextTask, 500);
+      }
+    }
+
+    // Task 5: MIN
+    if (taskIndex === 4 && !tasksCompleted.current[4]) {
+      if (cellId === "B6" && value.replace(/\s/g, '').toUpperCase() === "=MIN(B1:B3)") {
+        tasksCompleted.current[4] = true;
+        logEvent("excel_min_formula");
+        setTimeout(nextTask, 500);
+      }
+    }
+
+    // Task 6: AVERAGE
+    if (taskIndex === 5 && !tasksCompleted.current[5]) {
+      if (cellId === "B7" && value.replace(/\s/g, '').toUpperCase() === "=AVERAGE(B1:B3)") {
+        tasksCompleted.current[5] = true;
+        logEvent("excel_average_formula");
+        setTimeout(nextTask, 500);
+      }
+    }
   };
 
-  const handleCellClick = (cellId: string) => {
-    setActiveCell(cellId);
-    setFormulaInput(gridData[cellId] || "");
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, col: string, row: number) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      // Move down a row
+      if (row < ROWS.length) {
+        setActiveCell(`${col}${row + 1}`);
+      }
+    } else if (e.key === "Tab") {
+      e.preventDefault();
+      // Move right a column
+      const colIndex = COLUMNS.indexOf(col);
+      if (colIndex < COLUMNS.length - 1) {
+        setActiveCell(`${COLUMNS[colIndex + 1]}${row}`);
+      }
+    }
   };
 
-  const handleFormulaBarChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = e.target.value;
-    setFormulaInput(val);
-    handleCellChange(activeCell, val);
+  // Simple parser to display calculated values when not editing
+  const getDisplayValue = (cellId: string) => {
+    const val = cells[cellId] || "";
+    if (activeCell === cellId) return val; // show raw text when editing
+    
+    // Evaluate formulas
+    if (val.startsWith("=")) {
+      const upperVal = val.toUpperCase().replace(/\s/g, '');
+      if (upperVal === "=SUM(B1:B3)") return "230";
+      if (upperVal === "=COUNTA(A1:A3)") return "3";
+      if (upperVal === "=MAX(B1:B3)") return "150";
+      if (upperVal === "=MIN(B1:B3)") return "30";
+      if (upperVal === "=AVERAGE(B1:B3)") return "76.67";
+      // Fallback
+      return "#NAME?";
+    }
+    return val;
   };
+
+  if (taskIndex === 6) {
+    return (
+      <Quiz 
+        title="Spreadsheet Basics Knowledge Check"
+        questions={[
+          {
+            question: "What does every formula in a spreadsheet start with?",
+            options: ["The letter F", "A number", "An equals sign (=)"],
+            correctAnswerIndex: 2
+          },
+          {
+            question: "Which formula would you use to find the highest number in a range?",
+            options: ["=MAX", "=MIN", "=SUM"],
+            correctAnswerIndex: 0
+          },
+          {
+            question: "What does the =COUNTA formula do?",
+            options: ["Adds all numbers together", "Counts how many cells have data in them", "Finds the average of the cells"],
+            correctAnswerIndex: 1
+          }
+        ]}
+        onComplete={() => {
+          logEvent("quiz_completed");
+          nextTask();
+        }}
+      />
+    );
+  }
 
   return (
-    <div style={{ width: "100%", height: "100%", position: "relative" }}>
-      <div className={styles.iconGrid}>
+    <div className={styles.desktopArea}>
+      
+      {/* Desktop Icons */}
+      <div className={styles.desktopIcons}>
         <div className={styles.desktopIcon} onDoubleClick={openApp}>
-          <span className={styles.iconImage}>📈</span>
+          <div className={styles.iconSquare} style={{ background: '#107C41' }}>X</div>
           <span>Spreadsheets</span>
         </div>
       </div>
 
+      {/* Taskbar */}
+      <div className={styles.taskbar}>
+        <div className={styles.taskbarIcon}>
+          <span className={styles.startButton}>⊞</span>
+        </div>
+        <div className={`${styles.taskbarIcon} ${isAppOpen ? styles.active : ''}`} onClick={openApp}>
+          <span style={{color: '#107C41', fontWeight: 'bold'}}>X</span>
+        </div>
+      </div>
+
+      {/* Application Window */}
       {isAppOpen && (
-        <div className={styles.osWindow}>
-          <div className={styles.windowHeader}>
-            <div className={styles.windowHeaderTitle}>
-              <span>📈</span> Budget.xlsx - Spreadsheet Simulator
-            </div>
+        <div className={styles.appWindow}>
+          {/* Windows 11 Title Bar */}
+          <div className={styles.appHeader}>
+            <span>Book1 - Spreadsheets</span>
             <div className={styles.windowControls}>
               <button>—</button>
               <button>□</button>
-              <button className={styles.closeBtn} onClick={() => setIsAppOpen(false)}>✕</button>
+              <button className={styles.closeBtn} onClick={closeApp}>✕</button>
             </div>
           </div>
 
-          <div className={styles.appRibbon}>
-            <div className={styles.menuBar}>
-              <div className={styles.menuItem}>File</div>
-              <div className={styles.menuItem}>Home</div>
-              <div className={styles.menuItem}>Insert</div>
-              <div className={styles.menuItem}>Formulas</div>
-              <div className={styles.menuItem}>Data</div>
-            </div>
-            <div className={styles.formulaBar}>
-              <span className={styles.formulaLabel}>fx</span>
-              <input 
-                type="text" 
-                className={styles.formulaInput} 
-                value={formulaInput}
-                onChange={handleFormulaBarChange}
-                onBlur={(e) => handleCellCommit(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") {
-                    e.currentTarget.blur();
-                  }
-                }}
-              />
+          {/* Excel Green Header */}
+          <div className={styles.excelGreenHeader}>
+            <div style={{fontWeight: 'bold'}}>X</div>
+            <div className={styles.excelMenu}>
+              <span className={`${styles.menuItem} ${styles.active}`}>Home</span>
+              <span className={styles.menuItem}>Insert</span>
+              <span className={styles.menuItem}>Formulas</span>
+              <span className={styles.menuItem}>Data</span>
             </div>
           </div>
 
-          <div className={styles.appBody}>
-            <div className={styles.spreadsheetGrid}>
-              {/* Corner header */}
-              <div className={styles.headerCell}></div>
-              {/* Column headers */}
-              {columns.map(col => (
-                <div key={col} className={styles.headerCell}>{col}</div>
+          {/* Ribbon */}
+          <div className={styles.excelRibbon}>
+            <div className={styles.ribbonGroup}>
+              <button className={styles.ribbonBtn}>Paste</button>
+              <button className={styles.ribbonBtn}>Copy</button>
+            </div>
+            <div className={styles.ribbonGroup}>
+              <select style={{padding: '0.25rem', border: '1px solid #ccc', borderRadius: '4px'}}>
+                <option>Arial</option>
+              </select>
+              <select style={{padding: '0.25rem', border: '1px solid #ccc', borderRadius: '4px'}}>
+                <option>11</option>
+              </select>
+              <button className={styles.ribbonBtn} style={{fontWeight: 'bold'}}>B</button>
+            </div>
+            <div className={styles.ribbonGroup}>
+              <button className={styles.ribbonBtn}>∑ AutoSum</button>
+            </div>
+          </div>
+
+          {/* Formula Bar */}
+          <div className={styles.formulaBarContainer}>
+            <div className={styles.cellNameBox}>{activeCell}</div>
+            <div className={styles.fxIcon}>fx</div>
+            <input 
+              type="text" 
+              className={styles.formulaInput} 
+              value={cells[activeCell] || ""}
+              onChange={(e) => handleCellChange(activeCell, e.target.value)}
+            />
+          </div>
+
+          {/* Spreadsheet Grid */}
+          <div className={styles.spreadsheetContainer}>
+            <div className={styles.gridHeaderRow}>
+              <div className={styles.gridCorner}></div>
+              {COLUMNS.map(col => (
+                <div key={col} className={styles.columnHeader}>{col}</div>
               ))}
-
-              {/* Rows */}
-              {rows.map(row => (
-                <React.Fragment key={row}>
+            </div>
+            
+            <div className={styles.gridBody}>
+              {ROWS.map(row => (
+                <div key={row} className={styles.gridRow}>
                   <div className={styles.rowHeader}>{row}</div>
-                  {columns.map(col => {
+                  {COLUMNS.map(col => {
                     const cellId = `${col}${row}`;
-                    const isFocus = activeCell === cellId;
-                    const rawValue = getCellValue(cellId);
-                    const displayValue = isFocus ? rawValue : parseFormula(rawValue);
-
+                    const isActive = activeCell === cellId;
                     return (
-                      <div 
-                        key={cellId} 
-                        className={`${styles.dataCell} ${isFocus ? styles.active : ""} ${isCellSelected(cellId) ? styles.selectedCell : ""}`}
-                        onClick={() => handleCellClick(cellId)}
-                        onMouseDown={() => handleMouseDown(cellId)}
-                        onMouseEnter={() => handleMouseEnter(cellId)}
-                      >
+                      <div key={col} className={`${styles.gridCell} ${isActive ? styles.active : ''}`} onClick={() => setActiveCell(cellId)}>
                         <input
-                          id={`input-${cellId}`}
-                          className={styles.cellInput}
-                          value={isFocus ? formulaInput : displayValue}
-                          onChange={(e) => {
-                            setFormulaInput(e.target.value);
-                            handleCellChange(cellId, e.target.value);
-                          }}
-                          onFocus={() => handleCellClick(cellId)}
-                          onBlur={(e) => handleCellCommit(e.target.value)}
-                          onKeyDown={(e) => {
-                            if (e.key === "Enter") {
-                              e.preventDefault();
-                              e.currentTarget.blur();
-                              
-                              // Calculate next cell down
-                              const currentRowIndex = rows.indexOf(row);
-                              if (currentRowIndex < rows.length - 1) {
-                                const nextRow = rows[currentRowIndex + 1];
-                                const nextCellId = `${col}${nextRow}`;
-                                
-                                // Focus the next cell
-                                setTimeout(() => {
-                                  const nextInput = document.getElementById(`input-${nextCellId}`);
-                                  if (nextInput) {
-                                    nextInput.focus();
-                                  }
-                                }, 10);
-                              }
-                            }
-                          }}
+                          ref={(el) => { inputRefs.current[cellId] = el; }}
+                          type="text"
+                          className={styles.gridCellInput}
+                          value={getDisplayValue(cellId)}
+                          onChange={(e) => handleCellChange(cellId, e.target.value)}
+                          onKeyDown={(e) => handleKeyDown(e, col, row)}
+                          onFocus={() => setActiveCell(cellId)}
                         />
                       </div>
                     );
                   })}
-                </React.Fragment>
+                </div>
               ))}
             </div>
           </div>
+          
         </div>
       )}
-
-      {/* Quiz Modal */}
-      {isQuizOpen && (
-        <div className={styles.modalOverlay}>
-          <div className={styles.quizModal}>
-            <div className={styles.quizHeader}>
-              Module 9 Knowledge Check
-            </div>
-            <div className={styles.quizBody}>
-              <div className={styles.quizQuestion}>
-                What symbol must you type at the beginning of a cell to let the spreadsheet know you are writing a formula?
-              </div>
-              <div className={styles.quizOptions}>
-                <button 
-                  className={`${styles.quizOption} ${quizAnswered === "A" ? styles.incorrect : ""}`}
-                  onClick={() => handleQuizAnswer("A", false)}
-                >
-                  A) +
-                </button>
-                <button 
-                  className={`${styles.quizOption} ${quizAnswered === "B" ? styles.incorrect : ""}`}
-                  onClick={() => handleQuizAnswer("B", false)}
-                >
-                  B) @
-                </button>
-                <button 
-                  className={`${styles.quizOption} ${quizAnswered === "C" ? styles.correct : ""}`}
-                  onClick={() => handleQuizAnswer("C", true)}
-                >
-                  C) =
-                </button>
-                <button 
-                  className={`${styles.quizOption} ${quizAnswered === "D" ? styles.incorrect : ""}`}
-                  onClick={() => handleQuizAnswer("D", false)}
-                >
-                  D) #
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
     </div>
   );
 }

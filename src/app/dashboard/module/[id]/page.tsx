@@ -547,7 +547,7 @@ const moduleConfig: Record<string, { title: string, tasks: Task[], component: Re
     tasks: [
       {
         title: "Task 1: Data Entry",
-        instruction: "Double click the 'Spreadsheets' icon. Let's make a School Trip Budget! Type 'Transport', 'Food', and 'Tickets' into cells A2, A3, and A4. Then type their costs (e.g. 150, 50, 30) into B2, B3, and B4.",
+        instruction: "Open the Spreadsheets app. Type 'Transport', 'Food', and 'Tickets' into cells A1, A2, and A3. Type their costs (150, 50, 30) into B1, B2, and B3. (Tip: Use Enter to move down, Tab to move right).",
         content: (
           <>
             <p><strong>What is a Spreadsheet?</strong></p>
@@ -558,7 +558,7 @@ const moduleConfig: Record<string, { title: string, tasks: Task[], component: Re
       },
       {
         title: "Task 2: The SUM Formula",
-        instruction: "Let's calculate the total cost! Click on cell B5. Type EXACTLY this formula into the cell or the formula bar at the top: `=SUM(B2:B4)`",
+        instruction: "Click on cell B4. Type EXACTLY this formula to calculate the total budget: `=SUM(B1:B3)`",
         content: (
           <>
             <p><strong>Calculating with Formulas</strong></p>
@@ -569,12 +569,51 @@ const moduleConfig: Record<string, { title: string, tasks: Task[], component: Re
       },
       {
         title: "Task 3: The COUNTA Formula",
-        instruction: "How many items are in our budget? Click on cell B6. Type EXACTLY this formula: `=COUNTA(A2:A4)`",
+        instruction: "Click on cell A5. Type EXACTLY this formula to count how many items we are bringing: `=COUNTA(A1:A3)`",
         content: (
           <>
             <p><strong>Counting Items</strong></p>
             <p>While <code>SUM</code> adds numbers together, <code>COUNTA</code> counts how many cells actually have words or numbers inside them.</p>
-            <p>This is incredibly useful if you have a list of 5,000 students and need to know exactly how many names are on the list without counting them one by one!</p>
+            <p>This is incredibly useful if you have a huge list and need to know exactly how many items there are.</p>
+          </>
+        )
+      },
+      {
+        title: "Task 4: The MAX Formula",
+        instruction: "Click on cell B5. Type EXACTLY this formula to find the highest cost: `=MAX(B1:B3)`",
+        content: (
+          <>
+            <p><strong>Finding the Highest Value</strong></p>
+            <p>The <code>MAX</code> formula looks at a range of cells and returns the largest number it finds.</p>
+          </>
+        )
+      },
+      {
+        title: "Task 5: The MIN Formula",
+        instruction: "Click on cell B6. Type EXACTLY this formula to find the lowest cost: `=MIN(B1:B3)`",
+        content: (
+          <>
+            <p><strong>Finding the Lowest Value</strong></p>
+            <p>The <code>MIN</code> formula looks at a range of cells and returns the smallest number it finds.</p>
+          </>
+        )
+      },
+      {
+        title: "Task 6: The AVERAGE Formula",
+        instruction: "Click on cell B7. Type EXACTLY this formula to find the average cost: `=AVERAGE(B1:B3)`",
+        content: (
+          <>
+            <p><strong>Finding the Average Value</strong></p>
+            <p>The <code>AVERAGE</code> formula calculates the mathematical mean of the numbers in a range.</p>
+          </>
+        )
+      },
+      {
+        title: "Task 7: Knowledge Check",
+        instruction: "Complete the quiz to finish this module.",
+        content: (
+          <>
+            <p>Let's review what you've learned about Spreadsheets!</p>
           </>
         )
       }
