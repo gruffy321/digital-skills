@@ -375,17 +375,11 @@ export default function AdminDashboardClient({
         </div>
 
         <div className={styles.tabContent}>
-          {activeTab === 'analytics' && (
-            {renderAnalyticsCharts(false)}
-          )}
+          {activeTab === 'analytics' && renderAnalyticsCharts(false)}
 
-          {activeTab === 'activity' && (
-            {renderActivityFeed(false)}
-          )}
+          {activeTab === 'activity' && renderActivityFeed(false)}
 
-          {activeTab === 'profile' && selectedUser && (
-            {renderProfileStats(false)}
-          )}
+          {activeTab === 'profile' && renderProfileStats(false)}
         </div>
       </section>
     </div>
