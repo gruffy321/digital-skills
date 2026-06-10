@@ -31,6 +31,14 @@ export default function Module9() {
   }, [activeCell]);
 
   const handleCellChange = (cellId: string, value: string) => {
+    const profanity = ["fuck", "shit", "bitch", "cunt", "asshole", "stupid", "idiot", "damn", "crap", "bastard"];
+    const hasProfanity = profanity.some(word => value.toLowerCase().includes(word));
+    
+    if (hasProfanity) {
+      alert("Please keep your spreadsheet inputs professional and appropriate for a school environment.");
+      return;
+    }
+
     const newCells = { ...cells, [cellId]: value };
     setCells(newCells);
 
