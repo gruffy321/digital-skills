@@ -1,11 +1,12 @@
-.desktop {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #0078D7 0%, #004275 100%);
-  overflow: hidden;
+.desktopArea {
+  position: absolute;
+  inset: 0;
+  background-color: #000;
+  background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=2564');
+  background-size: cover;
+  background-position: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #fff;
+  overflow: hidden;
   user-select: none;
 }
 
@@ -14,257 +15,192 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
+  right: 0;
   height: 48px;
-  background: rgba(36, 36, 36, 0.95);
+  background: rgba(243, 243, 243, 0.85);
+  backdrop-filter: blur(20px);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 0.5rem;
-  z-index: 100;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 0 1rem;
+  z-index: 500;
+  box-shadow: 0 -1px 5px rgba(0,0,0,0.1);
 }
 
-.startBtn {
+.taskbarCenter {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.taskbarIcon {
   width: 40px;
   height: 40px;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
   cursor: pointer;
-  border-radius: 4px;
-  transition: background 0.1s;
+  transition: all 0.2s;
+  position: relative;
 }
 
-.startBtn:hover {
-  background: rgba(255, 255, 255, 0.1);
+.taskbarIcon:hover, .taskbarIcon.active {
+  background: rgba(255,255,255,0.5);
+}
+
+.startButton {
+  font-size: 1.2rem;
+  color: #0078D4;
 }
 
 .systemTray {
   display: flex;
   align-items: center;
-  gap: 0.2rem;
-  height: 100%;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  position: relative;
+}
+
+.systemTray:hover {
+  background: rgba(255,255,255,0.5);
 }
 
 .trayIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 0.5rem;
-  height: 100%;
-  cursor: pointer;
-  font-size: 1.2rem;
-  transition: background 0.1s;
-  border-radius: 4px;
+  font-size: 1.1rem;
 }
 
-.trayIcon:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.clock {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: center;
-  font-size: 0.75rem;
-  padding: 0 0.5rem;
-  height: 100%;
-}
-
-/* Popout Menus */
-.menuPopup {
+/* System Tray Popup */
+.trayPopup {
   position: absolute;
   bottom: 56px;
-  background: rgba(36, 36, 36, 0.95);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 6px;
-  padding: 1rem;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-  z-index: 90;
-  animation: slideUp 0.1s ease-out;
-}
-
-.volumeMenu {
   right: 1rem;
-  width: 250px;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.volumeToggle {
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-.volumeSlider {
-  flex: 1;
-}
-
-.wifiMenu {
-  right: 1rem;
-  width: 300px;
-}
-
-.wifiHeader {
-  font-weight: bold;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.networkItem {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.5rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.1s;
-}
-
-.networkItem:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* Start Menu */
-.startMenu {
-  left: 0.5rem;
-  bottom: 56px;
   width: 320px;
-  height: 400px;
-  display: flex;
-  padding: 0;
-  overflow: hidden;
-}
-
-.startSidebar {
-  width: 48px;
-  background: rgba(0,0,0,0.2);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding-bottom: 0.5rem;
-}
-
-.startAction {
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  cursor: pointer;
-}
-
-.startAction:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.startMain {
-  flex: 1;
+  background: rgba(243, 243, 243, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
   padding: 1rem;
+  z-index: 600;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  animation: popUp 0.15s ease-out;
 }
 
-/* Frozen App Window */
-.frozenWindow {
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 600px;
-  height: 400px;
-  background: #ffffff;
-  border: 1px solid #999;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-  display: flex;
-  flex-direction: column;
-  color: #000;
-  opacity: 0.8; /* Looks slightly faded when frozen */
-}
-
-.frozenHeader {
-  background: #fff;
-  display: flex;
-  justify-content: space-between;
-  padding: 0.5rem;
-  border-bottom: 1px solid #ccc;
-  font-size: 0.85rem;
-  color: #666;
-}
-
-.frozenBody {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #999;
-  font-size: 2rem;
-}
-
-/* Overlays */
-.restartingOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #0078D7;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 200;
-  font-size: 1.5rem;
-  animation: fadeIn 0.5s;
-}
-
-.lockedOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?auto=format&fit=crop&q=80&w=2000') center/cover;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 200;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-}
-
-.lockedTime {
-  font-size: 6rem;
-  font-weight: 200;
-  margin-bottom: 1rem;
-}
-
-.spinner {
-  margin-bottom: 1rem;
-  font-size: 3rem;
-  animation: spin 1.5s linear infinite;
-}
-
-@keyframes slideUp {
+@keyframes popUp {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.traySection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.trayToggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.toggleBtn {
+  width: 44px;
+  height: 24px;
+  border-radius: 12px;
+  background: #ccc;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.toggleBtn.on {
+  background: #0078D4;
+}
+
+.toggleSlider {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  transition: all 0.2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.toggleBtn.on .toggleSlider {
+  left: 22px;
+}
+
+/* Desktop Icons */
+.desktopIcons {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.desktopIcon {
+  width: 74px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.desktopIcon:hover {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.iconSquare {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.desktopIcon span {
+  color: white;
+  font-size: 0.75rem;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+}
+
+/* App Window (Recycle Bin / Print Queue) */
+.appWindow {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 60%;
+  height: 60%;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 100;
+  animation: popIn 0.2s ease-out;
 }
 
 @keyframes popIn {
@@ -272,156 +208,17 @@
   to { opacity: 1; transform: scale(1); }
 }
 
-/* Desktop Icons */
-.iconGrid {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding: 1rem;
-  width: max-content;
-}
-
-.desktopIcon {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.desktopIcon:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.iconImage {
-  font-size: 3rem;
-  text-shadow: 0 4px 8px rgba(0,0,0,0.5);
-}
-
-.desktopIcon span {
-  font-size: 0.85rem;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
-}
-
-/* Modals */
-.modalOverlay {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 300;
-}
-
-/* Print Dialog */
-.printDialog {
-  width: 700px;
-  background: #f0f0f0;
-  border: 1px solid #999;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-  color: #000;
-  animation: popIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.printHeader {
-  background: #0078D7;
-  color: white;
-  padding: 0.5rem 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.9rem;
-}
-
-.printBody {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  height: 400px;
-}
-
-.printSection {
-  background: white;
-  border: 1px solid #ccc;
-  padding: 1rem;
-}
-
-.printerSelect {
-  width: 100%;
-  padding: 0.2rem;
-  margin-top: 0.5rem;
-  border: 1px solid #999;
-}
-
-.printFooter {
-  padding: 1rem;
-  display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
-  border-top: 1px solid #ccc;
-}
-
-.printPrimaryBtn {
-  background: #0078D7;
-  color: white;
-  border: none;
-  padding: 0.5rem 2rem;
-  cursor: pointer;
-}
-
-.printPrimaryBtn:hover {
-  background: #005a9e;
-}
-
-.printSecondaryBtn {
-  background: #e1e1e1;
-  border: 1px solid #ccc;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-}
-
-.printSecondaryBtn:hover {
-  background: #d4d4d4;
-}
-
-/* Recycle Bin Window */
-.recycleBinWindow {
-  position: absolute;
-  top: 10%;
-  left: 10%;
-  width: 700px;
-  height: 450px;
-  background: #ffffff;
-  border: 1px solid #999;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-  color: #000;
-  animation: popIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.windowHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 1rem;
-  background: #ffffff;
+.appHeader {
   height: 32px;
-  border-bottom: 1px solid #e1dfdd;
-}
-
-.windowHeaderTitle {
-  font-size: 0.85rem;
+  background: #f3f3f3;
+  color: #111;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: space-between;
+  padding-left: 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .windowControls {
@@ -429,146 +226,246 @@
   height: 100%;
 }
 
-.closeBtn {
+.windowControls button {
   width: 46px;
   height: 100%;
-  background: transparent;
   border: none;
+  background: transparent;
+  font-size: 1rem;
+  color: #111;
   cursor: pointer;
-  color: #000;
 }
 
-.closeBtn:hover {
+.windowControls button:hover {
+  background: rgba(0,0,0,0.1);
+}
+
+.windowControls .closeBtn:hover {
   background: #E81123;
   color: white;
 }
 
-.appBody {
-  flex: 1;
-  padding: 1rem;
+/* Recycle Bin List */
+.listView {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
 }
 
-.fileGrid {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+.listView th {
+  text-align: left;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #ccc;
+  background: #f3f2f1;
 }
 
-.fileItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.25rem;
-  padding: 0.5rem;
-  width: 100px;
+.listView td {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.listRow:hover {
+  background: #f3f2f1;
   cursor: pointer;
-  border: 1px solid transparent;
-  text-align: center;
 }
 
-.fileItem:hover {
-  background: #e5f3ff;
-  border-color: #d8edf9;
-}
-
-.fileIcon {
-  font-size: 3rem;
-}
-
-.fileName {
-  font-size: 0.85rem;
-  word-break: break-word;
+.listRow.selected {
+  background: #cce8ff;
 }
 
 /* Context Menu */
 .contextMenu {
-  position: fixed;
+  position: absolute;
   background: white;
-  border: 1px solid #c8c6c4;
-  border-radius: 4px;
+  border: 1px solid #ccc;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border-radius: 4px;
   padding: 0.25rem 0;
-  z-index: 200;
+  z-index: 1000;
   min-width: 150px;
-  color: #000;
 }
 
-.contextMenuItem {
+.menuItem {
   padding: 0.5rem 1rem;
-  font-size: 0.85rem;
   cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.menuItem:hover {
+  background: #f3f2f1;
+}
+
+/* Start Menu */
+.startMenu {
+  position: absolute;
+  bottom: 56px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 500px;
+  background: rgba(243, 243, 243, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  animation: popUp 0.15s ease-out;
+}
+
+.startMenuContent {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.startMenuFooter {
+  height: 60px;
+  background: rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(0,0,0,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+
+.profileBtn, .powerBtn {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-}
-
-.contextMenuItem:hover {
-  background: #f3f2f1;
-}
-
-/* Quiz Modal */
-.quizModal {
-  width: 500px;
-  background: white;
+  padding: 0.5rem;
   border-radius: 4px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  color: #000;
-  animation: popIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.quizHeader {
-  padding: 1rem 1.5rem;
-  background: #0078d4;
-  color: white;
-  font-weight: 600;
-  font-size: 1.1rem;
-}
-
-.quizBody {
-  padding: 1.5rem;
-}
-
-.quizQuestion {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-.quizOptions {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.quizOption {
-  padding: 0.75rem 1rem;
-  border: 1px solid #c8c6c4;
-  border-radius: 4px;
-  background: white;
   cursor: pointer;
-  text-align: left;
-  font-size: 0.95rem;
-  transition: all 0.2s;
-  color: #000;
-}
-
-.quizOption:hover {
-  background: #f3f2f1;
-  border-color: #8a8886;
-}
-
-.quizOption.correct {
-  background: #e8f5e9;
-  border-color: #4caf50;
-  color: #2e7d32;
   font-weight: 600;
 }
 
-.quizOption.incorrect {
-  background: #fde7e9;
-  border-color: #d13438;
-  color: #a4262c;
+.profileBtn:hover, .powerBtn:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+.powerMenu {
+  position: absolute;
+  bottom: 50px;
+  right: 1.5rem;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 0.25rem 0;
+  min-width: 120px;
+}
+
+.profileMenu {
+  position: absolute;
+  bottom: 50px;
+  left: 1.5rem;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 0.25rem 0;
+  min-width: 120px;
+}
+
+/* Lock Screen overlay */
+.lockScreen {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=2564');
+  background-size: cover;
+  background-position: center;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
+}
+
+.lockTime {
+  font-size: 5rem;
+  font-weight: 200;
+  margin-bottom: 0;
+}
+
+.lockDate {
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.lockProfile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.lockAvatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.lockName {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.unlockBtn {
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.5);
+  color: white;
+  padding: 0.5rem 2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.unlockBtn:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+/* Frozen App */
+.frozenApp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 300px;
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 1.2rem;
+  cursor: wait;
+}
+
+.frozenAppHeader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: #f3f3f3;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  border-bottom: 1px solid #ccc;
 }

@@ -682,8 +682,19 @@ const moduleConfig: Record<string, { title: string, tasks: Task[], component: Re
     title: "Problem Solving & Troubleshooting",
     tasks: [
       {
-        title: "Task 1: Basic Troubleshooting (Audio & Network)",
-        instruction: "Your video has no sound and a webpage won't load! Click the Volume and Wi-Fi icons in the bottom right corner (System Tray) to unmute your speakers and connect to 'School_WiFi'.",
+        title: "Task 1: Missing Files",
+        instruction: "Double-click the 'Recycle Bin' on the desktop. Right-click 'Lost_Homework.docx' and select 'Restore' to get it back.",
+        content: (
+          <>
+            <p><strong>Don't Panic!</strong></p>
+            <p>If you accidentally delete a file, it isn't gone forever right away. It goes to the Recycle Bin.</p>
+            <p>You can always open the Recycle Bin to rescue files you didn't mean to throw away.</p>
+          </>
+        )
+      },
+      {
+        title: "Task 2: Audio & Network Issues",
+        instruction: "Click the System Tray (bottom right). Click the Wi-Fi icon to connect to 'School_WiFi', and click the Speaker icon to unmute the audio.",
         content: (
           <>
             <p><strong>Check the Basics First</strong></p>
@@ -693,8 +704,19 @@ const moduleConfig: Record<string, { title: string, tasks: Task[], component: Re
         )
       },
       {
-        title: "Task 2: Frozen Software",
-        instruction: "Oh no, the Word Processor has frozen! Because you are on a restricted school account, you cannot open Task Manager. Click the Start Menu (bottom left) -> Power Icon -> Restart.",
+        title: "Task 3: Printer Issues",
+        instruction: "The printer is jammed! Click the Printer icon in the System Tray to open the print queue. Right-click the stuck document and click 'Cancel'.",
+        content: (
+          <>
+            <p><strong>Clearing the Queue</strong></p>
+            <p>If a printer stops working, clicking 'Print' 50 more times will only make the problem worse!</p>
+            <p>Always open the Print Queue to see if there is an error, and cancel any stuck jobs before trying again.</p>
+          </>
+        )
+      },
+      {
+        title: "Task 4: Frozen Software",
+        instruction: "Oh no, the software has frozen! Click the Start Menu (bottom left) -> Power Icon -> Restart.",
         content: (
           <>
             <p><strong>Soft Restart vs Hard Reboot</strong></p>
@@ -704,13 +726,22 @@ const moduleConfig: Record<string, { title: string, tasks: Task[], component: Re
         )
       },
       {
-        title: "Task 3: Account Accountability",
+        title: "Task 5: Account Accountability",
         instruction: "The bell just rang for break! Do not walk away from your computer. Click the Start Menu -> Profile Icon (👤) -> Lock to secure your account.",
         content: (
           <>
             <p><strong>Protect Your Digital Identity</strong></p>
             <p>If you leave your computer unlocked, anyone can sit down and delete your coursework or send rude emails pretending to be you. You are responsible for everything that happens on your account.</p>
-            <p>Always Lock your screen (or use the shortcut <code>Windows Key + L</code>) before stepping away!</p>
+            <p>Always Lock your screen before stepping away!</p>
+          </>
+        )
+      },
+      {
+        title: "Task 6: Knowledge Check",
+        instruction: "Complete the quiz to finish this module.",
+        content: (
+          <>
+            <p>Let's review what you've learned about troubleshooting!</p>
           </>
         )
       }

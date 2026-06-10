@@ -3,380 +3,376 @@
 import { useState, useEffect } from "react";
 import styles from "./Module11.module.css";
 import { useModule } from "@/components/ModuleWrapper";
+import Quiz from "@/components/Quiz";
 
 export default function Module11() {
   const { taskIndex, nextTask, logEvent } = useModule();
   
-  const [isMuted, setIsMuted] = useState(true);
-  const [isConnected, setIsConnected] = useState(false);
-  
-  const [openMenu, setOpenMenu] = useState<"start" | "wifi" | "volume" | null>(null);
-  const [systemState, setSystemState] = useState<"normal" | "restarting" | "locked">("normal");
-
+  // App States
   const [isRecycleBinOpen, setIsRecycleBinOpen] = useState(false);
-  const [recycleBinFiles, setRecycleBinFiles] = useState(["History_Essay.docx"]);
-  const [contextMenu, setContextMenu] = useState<{ x: number; y: number; file: string } | null>(null);
-
-  const [isPrintDialogOpen, setIsPrintDialogOpen] = useState(false);
-  const [selectedPrinter, setSelectedPrinter] = useState("HP Universal Printing PCL 6");
+  const [isPrintQueueOpen, setIsPrintQueueOpen] = useState(false);
+  const [isTrayOpen, setIsTrayOpen] = useState(false);
+  const [isStartMenuOpen, setIsStartMenuOpen] = useState(false);
   
-  const [isQuizOpen, setIsQuizOpen] = useState(false);
-  const [quizAnswered, setQuizAnswered] = useState<string | null>(null);
+  // Power / Profile Menus
+  const [isPowerMenuOpen, setIsPowerMenuOpen] = useState(false);
+  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+  
+  // Screen States
+  const [isLocked, setIsLocked] = useState(false);
+  const [isFrozen, setIsFrozen] = useState(taskIndex === 3);
 
-  // Evaluate Task 1: Fix Audio and Wi-Fi
-  useEffect(() => {
-    if (taskIndex === 0) {
-      if (!isMuted && isConnected) {
-        logEvent("audio_wifi_fixed");
-        nextTask();
-        setOpenMenu(null);
-      }
-    }
-  }, [isMuted, isConnected, taskIndex, nextTask, logEvent]);
+  // Data States
+  const [filesInBin, setFilesInBin] = useState(["Lost_Homework.docx", "old_photo.jpg"]);
+  const [printJobs, setPrintJobs] = useState(["Essay.pdf", "Tickets.pdf"]);
+  const [wifiOn, setWifiOn] = useState(false);
+  const [audioOn, setAudioOn] = useState(false);
+  
+  // Context Menu
+  const [contextMenu, setContextMenu] = useState<{x: number, y: number, type: string, target: string} | null>(null);
 
+  // Close menus on click away
   useEffect(() => {
-    const handleClickOutside = () => setContextMenu(null);
-    window.addEventListener("click", handleClickOutside);
-    return () => window.removeEventListener("click", handleClickOutside);
+    const handleClick = () => {
+      setContextMenu(null);
+      setIsPowerMenuOpen(false);
+      setIsProfileMenuOpen(false);
+    };
+    window.addEventListener('click', handleClick);
+    return () => window.removeEventListener('click', handleClick);
   }, []);
 
-  const handleMenuToggle = (menu: "start" | "wifi" | "volume") => {
-    if (openMenu === menu) {
-      setOpenMenu(null);
-    } else {
-      setOpenMenu(menu);
-      logEvent(`opened_${menu}_menu`);
-    }
+  // Update frozen state based on task
+  useEffect(() => {
+    if (taskIndex === 3) setIsFrozen(true);
+    else setIsFrozen(false);
+  }, [taskIndex]);
+
+  // Handlers
+  const handleRightClickBinItem = (e: React.MouseEvent, file: string) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setContextMenu({ x: e.clientX, y: e.clientY, type: 'bin', target: file });
   };
 
-  const handleConnectWifi = () => {
-    setIsConnected(true);
-    setOpenMenu(null);
-  };
-
-  const handleToggleMute = () => {
-    setIsMuted(!isMuted);
-  };
-
-  const handleRestart = () => {
-    if (taskIndex === 1) {
-      setOpenMenu(null);
-      setSystemState("restarting");
-      logEvent("initiated_restart");
-      
-      setTimeout(() => {
-        setSystemState("normal");
-        nextTask();
-      }, 3000); // 3 seconds restart simulation
-    }
-  };
-
-  const handleLock = () => {
-    if (taskIndex === 2) {
-      setOpenMenu(null);
-      setSystemState("locked");
-      logEvent("locked_device");
-    }
-  };
-
-  const handleUnlock = () => {
-    if (systemState === "locked") {
-      setSystemState("normal");
-      if (taskIndex === 2) {
-        nextTask();
-      }
-    }
-  };
-
-  const handleRestore = () => {
-    if (contextMenu) {
-      setRecycleBinFiles(recycleBinFiles.filter(f => f !== contextMenu.file));
-      setContextMenu(null);
-      if (taskIndex === 3) {
+  const handleRestoreFile = () => {
+    if (contextMenu?.type === 'bin' && contextMenu.target === 'Lost_Homework.docx') {
+      setFilesInBin(filesInBin.filter(f => f !== 'Lost_Homework.docx'));
+      if (taskIndex === 0) {
         logEvent("restored_file");
         nextTask();
       }
     }
+    setContextMenu(null);
   };
 
-  const handleContextMenu = (e: React.MouseEvent, file: string) => {
+  const handleWifiToggle = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const newState = !wifiOn;
+    setWifiOn(newState);
+    if (taskIndex === 1 && newState && audioOn) {
+      logEvent("fixed_audio_network");
+      setIsTrayOpen(false);
+      setTimeout(nextTask, 500);
+    }
+  };
+
+  const handleAudioToggle = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const newState = !audioOn;
+    setAudioOn(newState);
+    if (taskIndex === 1 && wifiOn && newState) {
+      logEvent("fixed_audio_network");
+      setIsTrayOpen(false);
+      setTimeout(nextTask, 500);
+    }
+  };
+
+  const handleRightClickPrintJob = (e: React.MouseEvent, job: string) => {
     e.preventDefault();
-    setContextMenu({ x: e.clientX, y: e.clientY, file });
+    e.stopPropagation();
+    setContextMenu({ x: e.clientX, y: e.clientY, type: 'print', target: job });
   };
 
-  const handlePrint = () => {
-    if (taskIndex === 4 && selectedPrinter === "FOLLOW_ME") {
-      setIsPrintDialogOpen(false);
-      logEvent("printed_to_follow_me");
-      nextTask();
-      setTimeout(() => setIsQuizOpen(true), 1500);
+  const handleCancelPrint = () => {
+    if (contextMenu?.type === 'print') {
+      setPrintJobs(printJobs.filter(j => j !== contextMenu.target));
+      if (taskIndex === 2) {
+        logEvent("cancelled_print_job");
+        setTimeout(nextTask, 500);
+      }
+    }
+    setContextMenu(null);
+  };
+
+  const handleRestart = () => {
+    if (taskIndex === 3) {
+      logEvent("soft_restart");
+      setIsStartMenuOpen(false);
+      setIsFrozen(false);
+      setTimeout(nextTask, 1000);
     }
   };
 
-  const handleQuizAnswer = (answer: string, isCorrect: boolean) => {
-    setQuizAnswered(answer);
-    if (isCorrect && taskIndex === 5) {
-      logEvent("module11_quiz_passed");
-      setTimeout(() => {
-        setIsQuizOpen(false);
-        nextTask();
-      }, 1500);
+  const handleLock = () => {
+    if (taskIndex === 4) {
+      logEvent("locked_screen");
+      setIsLocked(true);
+      setIsStartMenuOpen(false);
+      setTimeout(nextTask, 1000);
     }
   };
 
-  const isFrozen = taskIndex === 1 && systemState === "normal";
-
-  if (systemState === "restarting") {
+  if (taskIndex === 5 && !isLocked) {
     return (
-      <div className={styles.desktop}>
-        <div className={styles.restartingOverlay}>
-          <div className={styles.spinner}>⚙️</div>
-          <div>Restarting...</div>
-        </div>
-      </div>
-    );
-  }
-
-  if (systemState === "locked") {
-    return (
-      <div className={styles.desktop}>
-        <div className={styles.lockedOverlay} onClick={handleUnlock} style={{ cursor: "pointer" }}>
-          <div className={styles.lockedTime}>12:34</div>
-          <div style={{ fontSize: "1.5rem" }}>School User</div>
-          <div style={{ marginTop: "1rem" }}>🔒 Locked</div>
-          <div style={{ marginTop: "2rem", fontSize: "0.9rem", opacity: 0.8 }}>Click anywhere to sign back in</div>
-        </div>
-      </div>
+      <Quiz 
+        title="Troubleshooting Knowledge Check"
+        questions={[
+          {
+            question: "If your computer software completely freezes, what should you do first?",
+            options: ["Hold the power button down to turn it off", "Click Start Menu -> Power -> Restart for a Soft Restart", "Unplug it from the wall"],
+            correctAnswerIndex: 1
+          },
+          {
+            question: "Where is the quickest place to fix Wi-Fi connection and Audio volume issues?",
+            options: ["The System Tray in the bottom right corner", "The Recycle Bin", "Task Manager"],
+            correctAnswerIndex: 0
+          },
+          {
+            question: "What does locking your computer (Start -> Profile -> Lock) do?",
+            options: ["Deletes all your files securely", "Shuts the computer down instantly", "Secures your account so nobody else can use it while you're away"],
+            correctAnswerIndex: 2
+          }
+        ]}
+        onComplete={() => {
+          logEvent("quiz_completed");
+          nextTask();
+        }}
+      />
     );
   }
 
   return (
-    <div className={styles.desktop} onClick={() => setOpenMenu(null)}>
+    <div className={styles.desktopArea}>
       
-      {/* Desktop Icons */}
-      <div className={styles.iconGrid}>
-        <div className={styles.desktopIcon} onDoubleClick={() => setIsRecycleBinOpen(true)}>
-          <span className={styles.iconImage}>🗑️</span>
-          <span>Recycle Bin</span>
+      {/* Locked Screen Overlay */}
+      {isLocked && (
+        <div className={styles.lockScreen}>
+          <h1 className={styles.lockTime}>12:00</h1>
+          <div className={styles.lockDate}>Wednesday, October 14</div>
+          <div className={styles.lockProfile}>
+            <div className={styles.lockAvatar}>👤</div>
+            <div className={styles.lockName}>Student Account</div>
+            {taskIndex === 5 && (
+              <button className={styles.unlockBtn} onClick={() => setIsLocked(false)}>Unlock to take Quiz</button>
+            )}
+          </div>
         </div>
-        <div className={styles.desktopIcon} onDoubleClick={() => setIsPrintDialogOpen(true)}>
-          <span className={styles.iconImage}>📝</span>
-          <span>Word Processor</span>
+      )}
+
+      {/* Desktop Icons */}
+      <div className={styles.desktopIcons}>
+        <div className={styles.desktopIcon} onDoubleClick={() => setIsRecycleBinOpen(true)}>
+          <div className={styles.iconSquare} style={{ background: 'transparent' }}>🗑️</div>
+          <span>Recycle Bin</span>
         </div>
       </div>
 
-      {/* Frozen Window (Task 2) */}
+      {/* Frozen App Simulator for Task 3 */}
       {isFrozen && (
-        <div className={styles.frozenWindow}>
-          <div className={styles.frozenHeader}>
-            <span>Word Processor (Not Responding)</span>
-            <span style={{ cursor: "not-allowed" }}>✕</span>
-          </div>
-          <div className={styles.frozenBody}>
-            ⏳ System Unresponsive
-          </div>
+        <div className={styles.frozenApp}>
+          <div className={styles.frozenAppHeader}>Word Processor (Not Responding)</div>
+          <div>Program is frozen...</div>
         </div>
       )}
 
       {/* Taskbar */}
-      <div className={styles.taskbar} onClick={(e) => e.stopPropagation()}>
-        <div className={styles.startBtn} onClick={() => handleMenuToggle("start")}>
-          ⊞
+      <div className={styles.taskbar}>
+        <div className={styles.taskbarCenter}>
+          <div 
+            className={`${styles.taskbarIcon} ${isStartMenuOpen ? styles.active : ''}`} 
+            onClick={() => setIsStartMenuOpen(!isStartMenuOpen)}
+          >
+            <span className={styles.startButton}>⊞</span>
+          </div>
         </div>
         
-        <div className={styles.systemTray}>
-          <div className={styles.trayIcon} onClick={() => handleMenuToggle("wifi")}>
-            {isConnected ? "📶" : "🌐"}
-          </div>
-          <div className={styles.trayIcon} onClick={() => handleMenuToggle("volume")}>
-            {isMuted ? "🔇" : "🔊"}
-          </div>
-          <div className={styles.clock}>
-            <span>12:34 PM</span>
-            <span>22/02/2026</span>
-          </div>
+        <div className={styles.systemTray} onClick={() => setIsTrayOpen(!isTrayOpen)}>
+          <span className={styles.trayIcon}>🖨️</span>
+          <span className={styles.trayIcon}>{wifiOn ? '📶' : '📵'}</span>
+          <span className={styles.trayIcon}>{audioOn ? '🔊' : '🔇'}</span>
         </div>
       </div>
 
-      {/* Popouts */}
-      {openMenu === "volume" && (
-        <div className={`${styles.menuPopup} ${styles.volumeMenu}`} onClick={(e) => e.stopPropagation()}>
-          <div className={styles.volumeToggle} onClick={handleToggleMute}>
-            {isMuted ? "🔇" : "🔊"}
-          </div>
-          <input 
-            type="range" 
-            min="0" 
-            max="100" 
-            value={isMuted ? 0 : 50} 
-            className={styles.volumeSlider}
-            onChange={() => setIsMuted(false)}
-          />
-        </div>
-      )}
-
-      {openMenu === "wifi" && (
-        <div className={`${styles.menuPopup} ${styles.wifiMenu}`} onClick={(e) => e.stopPropagation()}>
-          <div className={styles.wifiHeader}>Wi-Fi Networks</div>
-          <div className={styles.networkItem} onClick={handleConnectWifi}>
-            <span style={{ fontSize: "1.2rem" }}>📶</span>
-            <div style={{ flex: 1 }}>School_WiFi {isConnected && <div style={{ fontSize: "0.8rem", color: "green" }}>Connected</div>}</div>
-            {!isConnected && <button style={{ padding: "0.2rem 0.5rem" }}>Connect</button>}
-          </div>
-          <div className={styles.networkItem}>
-            <span style={{ fontSize: "1.2rem" }}>🔒</span>
-            <div style={{ flex: 1 }}>Staff_Network</div>
-          </div>
-        </div>
-      )}
-
-      {openMenu === "start" && (
-        <div className={`${styles.menuPopup} ${styles.startMenu}`} onClick={(e) => e.stopPropagation()}>
-          <div className={styles.startSidebar}>
-            <div className={styles.startAction} title="Lock (Accountability)" onClick={handleLock}>👤</div>
-            <div className={styles.startAction} title="Restart" onClick={handleRestart}>⏻</div>
-          </div>
-          <div className={styles.startMain}>
-            <h3 style={{ margin: 0 }}>Start Menu</h3>
-            <p style={{ fontSize: "0.85rem", color: "#aaa" }}>Pinned applications would be here...</p>
-          </div>
-        </div>
-      )}
-
-      {/* Recycle Bin Window */}
-      {isRecycleBinOpen && (
-        <div className={styles.recycleBinWindow} onClick={(e) => e.stopPropagation()}>
-          <div className={styles.windowHeader}>
-            <div className={styles.windowHeaderTitle}>
-              <span>🗑️</span> Recycle Bin
-            </div>
-            <div className={styles.windowControls}>
-              <button className={styles.closeBtn} onClick={() => setIsRecycleBinOpen(false)}>✕</button>
+      {/* Start Menu */}
+      {isStartMenuOpen && (
+        <div className={styles.startMenu}>
+          <div className={styles.startMenuContent}>
+            <h3>Pinned</h3>
+            <div style={{display: 'flex', gap: '1rem', marginTop: '1rem'}}>
+              <div style={{padding: '1rem', background: 'white', borderRadius: '4px', textAlign: 'center'}}>Word</div>
+              <div style={{padding: '1rem', background: 'white', borderRadius: '4px', textAlign: 'center'}}>Excel</div>
             </div>
           </div>
-          <div className={styles.appBody}>
-            <div className={styles.fileGrid}>
-              {recycleBinFiles.map(file => (
-                <div 
-                  key={file} 
-                  className={styles.fileItem}
-                  onContextMenu={(e) => handleContextMenu(e, file)}
-                >
-                  <div className={styles.fileIcon}>📄</div>
-                  <div className={styles.fileName}>{file}</div>
+          <div className={styles.startMenuFooter}>
+            <div style={{position: 'relative'}}>
+              <div className={styles.profileBtn} onClick={(e) => { e.stopPropagation(); setIsProfileMenuOpen(!isProfileMenuOpen); }}>
+                👤 Student
+              </div>
+              {isProfileMenuOpen && (
+                <div className={styles.profileMenu}>
+                  <div className={styles.menuItem} onClick={handleLock}>Lock</div>
+                  <div className={styles.menuItem}>Sign out</div>
                 </div>
-              ))}
-              {recycleBinFiles.length === 0 && (
-                <div style={{ padding: "1rem", color: "#666" }}>Recycle Bin is empty.</div>
+              )}
+            </div>
+            
+            <div style={{position: 'relative'}}>
+              <div className={styles.powerBtn} onClick={(e) => { e.stopPropagation(); setIsPowerMenuOpen(!isPowerMenuOpen); }}>
+                ⏻
+              </div>
+              {isPowerMenuOpen && (
+                <div className={styles.powerMenu}>
+                  <div className={styles.menuItem}>Sleep</div>
+                  <div className={styles.menuItem} onClick={handleRestart}>Restart</div>
+                  <div className={styles.menuItem}>Shut down</div>
+                </div>
               )}
             </div>
           </div>
         </div>
       )}
 
-      {/* Context Menu */}
+      {/* System Tray Popup */}
+      {isTrayOpen && (
+        <div className={styles.trayPopup}>
+          <div className={styles.traySection}>
+            <div style={{fontWeight: 'bold'}}>School_WiFi</div>
+            <div className={styles.trayToggle} onClick={handleWifiToggle}>
+              <div className={`${styles.toggleBtn} ${wifiOn ? styles.on : ''}`}>
+                <div className={styles.toggleSlider}></div>
+              </div>
+            </div>
+          </div>
+          <div className={styles.traySection}>
+            <div style={{fontWeight: 'bold'}}>Speakers</div>
+            <div className={styles.trayToggle} onClick={handleAudioToggle}>
+              <div className={`${styles.toggleBtn} ${audioOn ? styles.on : ''}`}>
+                <div className={styles.toggleSlider}></div>
+              </div>
+            </div>
+          </div>
+          <hr style={{border: 'none', borderTop: '1px solid #ccc', margin: '0.5rem 0'}} />
+          <div className={styles.traySection} style={{cursor: 'pointer'}} onClick={() => { setIsPrintQueueOpen(true); setIsTrayOpen(false); }}>
+            <div style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+              <span>🖨️</span>
+              <span>Open Print Queue ({printJobs.length} documents)</span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Recycle Bin Window */}
+      {isRecycleBinOpen && (
+        <div className={styles.appWindow}>
+          <div className={styles.appHeader}>
+            <span>Recycle Bin</span>
+            <div className={styles.windowControls}>
+              <button>—</button>
+              <button>□</button>
+              <button className={styles.closeBtn} onClick={() => setIsRecycleBinOpen(false)}>✕</button>
+            </div>
+          </div>
+          <table className={styles.listView}>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Original Location</th>
+                <th>Date Deleted</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filesInBin.map(file => (
+                <tr 
+                  key={file} 
+                  className={styles.listRow}
+                  onContextMenu={(e) => handleRightClickBinItem(e, file)}
+                >
+                  <td>{file}</td>
+                  <td>C:\Users\Student\Documents</td>
+                  <td>Today</td>
+                </tr>
+              ))}
+              {filesInBin.length === 0 && (
+                <tr>
+                  <td colSpan={3} style={{textAlign: 'center', padding: '2rem', color: '#666'}}>Recycle Bin is empty</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {/* Print Queue Window */}
+      {isPrintQueueOpen && (
+        <div className={styles.appWindow} style={{width: '50%', height: '50%', top: '20%', left: '25%'}}>
+          <div className={styles.appHeader}>
+            <span>Library Printer - 1 Error</span>
+            <div className={styles.windowControls}>
+              <button>—</button>
+              <button>□</button>
+              <button className={styles.closeBtn} onClick={() => setIsPrintQueueOpen(false)}>✕</button>
+            </div>
+          </div>
+          <table className={styles.listView}>
+            <thead>
+              <tr>
+                <th>Document Name</th>
+                <th>Status</th>
+                <th>Owner</th>
+              </tr>
+            </thead>
+            <tbody>
+              {printJobs.map((job, index) => (
+                <tr 
+                  key={job} 
+                  className={styles.listRow}
+                  onContextMenu={(e) => handleRightClickPrintJob(e, job)}
+                >
+                  <td>{job}</td>
+                  <td style={{color: index === 0 ? 'red' : 'inherit'}}>{index === 0 ? 'Error - Out of Paper' : 'Waiting...'}</td>
+                  <td>Student</td>
+                </tr>
+              ))}
+              {printJobs.length === 0 && (
+                <tr>
+                  <td colSpan={3} style={{textAlign: 'center', padding: '2rem', color: '#666'}}>No documents in queue</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {/* Shared Context Menu */}
       {contextMenu && (
         <div 
           className={styles.contextMenu}
           style={{ top: contextMenu.y, left: contextMenu.x }}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className={styles.contextMenuItem} onClick={handleRestore}>
-            ↩️ Restore
-          </div>
-        </div>
-      )}
-
-      {/* Print Dialog Modal */}
-      {isPrintDialogOpen && (
-        <div className={styles.modalOverlay}>
-          <div className={styles.printDialog}>
-            <div className={styles.printHeader}>
-              Print
-              <button className={styles.closeBtn} style={{ background: "transparent", border: "none", color: "white", cursor: "pointer", fontSize: "1.2rem" }} onClick={() => setIsPrintDialogOpen(false)}>✕</button>
-            </div>
-            <div className={styles.printBody}>
-              <div className={styles.printSection}>
-                <label style={{ fontWeight: "bold" }}>Printer:</label>
-                <select 
-                  className={styles.printerSelect} 
-                  value={selectedPrinter} 
-                  onChange={(e) => setSelectedPrinter(e.target.value)}
-                >
-                  <option value="HP Universal Printing PCL 6">HP Universal Printing PCL 6</option>
-                  <option value="Microsoft Print to PDF">Microsoft Print to PDF</option>
-                  <option value="FOLLOW_ME">FOLLOW_ME</option>
-                  <option value="Library_Printer_1">Library_Printer_1</option>
-                </select>
-                <div style={{ display: "flex", gap: "0.5rem", marginTop: "0.5rem" }}>
-                  <button className={styles.printSecondaryBtn}>Properties</button>
-                  <button className={styles.printSecondaryBtn}>Advanced</button>
-                </div>
-              </div>
-              <div className={styles.printSection} style={{ flex: 1, display: "flex", gap: "1rem" }}>
-                <div style={{ flex: 1, border: "1px solid #ccc", padding: "1rem" }}>
-                  <p style={{ margin: "0 0 1rem 0", fontWeight: "bold" }}>Pages to Print</p>
-                  <div><input type="radio" checked readOnly /> All</div>
-                  <div><input type="radio" readOnly /> Current</div>
-                  <div><input type="radio" readOnly /> Pages <input type="text" style={{ width: "50px" }} /></div>
-                </div>
-                <div style={{ flex: 1, border: "1px solid #ccc", display: "flex", alignItems: "center", justifyContent: "center", background: "#f0f0f0" }}>
-                  <div style={{ background: "white", width: "150px", height: "200px", padding: "1rem", fontSize: "0.5rem", boxShadow: "0 2px 4px rgba(0,0,0,0.1)" }}>
-                    <h1 style={{ fontSize: "0.8rem" }}>History Essay</h1>
-                    <p>By Student</p>
-                    <hr />
-                    <p>This is a preview of the document...</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className={styles.printFooter}>
-              <button className={styles.printPrimaryBtn} onClick={handlePrint}>Print</button>
-              <button className={styles.printSecondaryBtn} onClick={() => setIsPrintDialogOpen(false)}>Cancel</button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Quiz Modal */}
-      {isQuizOpen && (
-        <div className={styles.modalOverlay}>
-          <div className={styles.quizModal}>
-            <div className={styles.quizHeader}>
-              Module 11 Knowledge Check
-            </div>
-            <div className={styles.quizBody}>
-              <div className={styles.quizQuestion}>
-                If a program freezes and stops responding, what is the safest way to fix it?
-              </div>
-              <div className={styles.quizOptions}>
-                <button 
-                  className={`${styles.quizOption} ${quizAnswered === "A" ? styles.incorrect : ""}`}
-                  onClick={() => handleQuizAnswer("A", false)}
-                >
-                  A) Hold down the physical power button on the computer until it turns off.
-                </button>
-                <button 
-                  className={`${styles.quizOption} ${quizAnswered === "B" ? styles.incorrect : ""}`}
-                  onClick={() => handleQuizAnswer("B", false)}
-                >
-                  B) Unplug the computer from the wall.
-                </button>
-                <button 
-                  className={`${styles.quizOption} ${quizAnswered === "C" ? styles.correct : ""}`}
-                  onClick={() => handleQuizAnswer("C", true)}
-                >
-                  C) Use the Start Menu to perform a Soft Restart.
-                </button>
-                <button 
-                  className={`${styles.quizOption} ${quizAnswered === "D" ? styles.incorrect : ""}`}
-                  onClick={() => handleQuizAnswer("D", false)}
-                >
-                  D) Hit the keyboard really hard.
-                </button>
-              </div>
-            </div>
-          </div>
+          {contextMenu.type === 'bin' && (
+            <>
+              <div className={styles.menuItem} onClick={handleRestoreFile}>Restore</div>
+              <div className={styles.menuItem}>Delete Permanently</div>
+            </>
+          )}
+          {contextMenu.type === 'print' && (
+            <>
+              <div className={styles.menuItem}>Restart</div>
+              <div className={styles.menuItem} onClick={handleCancelPrint}>Cancel</div>
+            </>
+          )}
         </div>
       )}
 
