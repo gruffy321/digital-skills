@@ -138,24 +138,24 @@ export default function AdminDashboardClient({
   );
 
   const renderAnalyticsCharts = (isPrint: boolean) => (
-    <div className={isPrint ? '' : styles.analyticsGrid} style={isPrint ? { display: 'flex', flexDirection: 'column', gap: '2rem' } : undefined}>
-      <div className={styles.chartBox} style={isPrint ? { border: '1px solid #ccc', background: 'none', color: 'black' } : undefined}>
+    <div className={isPrint ? '' : styles.analyticsGrid} style={isPrint ? { display: 'flex', flexDirection: 'column', gap: '2rem', width: '100%' } : undefined}>
+      <div className={styles.chartBox} style={isPrint ? { border: '1px solid #ccc', background: 'none', color: 'black', width: '100%', pageBreakInside: 'avoid' } : undefined}>
         <h4>{selectedUser ? 'User Progress' : 'Module Completion Rate'}</h4>
         <div style={{ width: '100%', height: 300 }}>
-          <ResponsiveContainer>
+          <ResponsiveContainer width="100%" height="100%">
             <BarChart data={moduleCompletionData}>
               <XAxis dataKey="name" stroke={isPrint ? "black" : "#fff"} />
               <YAxis stroke={isPrint ? "black" : "#fff"} />
               <Tooltip />
-              <Bar dataKey="completed" fill="#4ade80" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="completed" fill="#4ade80" radius={[4, 4, 0, 0]} isAnimationActive={!isPrint} />
             </BarChart>
           </ResponsiveContainer>
         </div>
       </div>
-      <div className={styles.chartBox} style={isPrint ? { border: '1px solid #ccc', background: 'none', color: 'black' } : undefined}>
+      <div className={styles.chartBox} style={isPrint ? { border: '1px solid #ccc', background: 'none', color: 'black', width: '100%', pageBreakInside: 'avoid' } : undefined}>
         <h4>{selectedUser ? 'User Action Breakdown' : 'Global Action Distribution'}</h4>
         <div style={{ width: '100%', height: 300 }}>
-          <ResponsiveContainer>
+          <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
                 data={actionData}
@@ -166,6 +166,7 @@ export default function AdminDashboardClient({
                 paddingAngle={5}
                 dataKey="value"
                 label
+                isAnimationActive={!isPrint}
               >
                 {actionData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
