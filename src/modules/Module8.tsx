@@ -1,454 +1,344 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useRef } from "react";
 import styles from "./Module8.module.css";
 import { useModule } from "@/components/ModuleWrapper";
-
-type Slide = {
-  id: number;
-  layout: "title" | "title-content";
-  imageUrl: string | null;
-  textContent: string;
-  headerContent: string;
-  transition: string;
-};
+import Quiz from "@/components/Quiz";
 
 export default function Module8() {
   const { taskIndex, nextTask, logEvent } = useModule();
   const [isAppOpen, setIsAppOpen] = useState(false);
   
-  const [activeMenu, setActiveMenu] = useState<string | null>(null);
-  const [slides, setSlides] = useState<Slide[]>([
-    { id: 1, layout: "title", imageUrl: null, textContent: "", headerContent: "", transition: "none" }
-  ]);
-  const [activeSlideId, setActiveSlideId] = useState(1);
-  const [isPresenting, setIsPresenting] = useState(false);
-  const [presentationSlideIndex, setPresentationSlideIndex] = useState(0);
+  // App State
+  const [activeTab, setActiveTab] = useState<"Home" | "Insert" | "Transitions" | "Slide Show">("Home");
+  const [isFilePickerOpen, setIsFilePickerOpen] = useState(false);
+  const [isPresentationMode, setIsPresentationMode] = useState(false);
+  const [presentationSlideIndex, setPresentationSlideIndex] = useState(1);
 
-  // Modals
-  const [alertMessage, setAlertMessage] = useState<{ title: string; body: string } | null>(null);
-  const [isImagePickerOpen, setIsImagePickerOpen] = useState(false);
-  const [selectedFile, setSelectedFile] = useState<string | null>(null);
+  // Document State
+  const [hasContentSlide, setHasContentSlide] = useState(false);
+  const [activeSlide, setActiveSlide] = useState<1 | 2>(1);
+  const [hasImage, setHasImage] = useState(false);
+  const [transitionType, setTransitionType] = useState<"None" | "Fade">("None");
+  const [bulletsText, setBulletsText] = useState("");
+  
+  const bulletTaskCompleted = useRef(false);
 
-  // Quiz
-  const [isQuizOpen, setIsQuizOpen] = useState(false);
-  const [quizAnswered, setQuizAnswered] = useState<string | null>(null);
-
-  const activeSlide = slides.find(s => s.id === activeSlideId);
-  const presentationSlide = slides[presentationSlideIndex];
-
+  // Handlers
   const openApp = () => {
     setIsAppOpen(true);
-    if (!isAppOpen) {
-      logEvent("presentation_app_opened");
-    }
   };
 
-  const handleMenuClick = (menu: string) => {
-    setActiveMenu(activeMenu === menu ? null : menu);
-  };
+  const closeApp = () => setIsAppOpen(false);
 
-  const handleNewSlide = (layout: "title" | "title-content") => {
-    setActiveMenu(null);
-    const newSlide: Slide = {
-      id: slides.length + 1,
-      layout,
-      imageUrl: null,
-      textContent: "",
-      headerContent: "",
-      transition: "none"
-    };
-    setSlides([...slides, newSlide]);
-    setActiveSlideId(newSlide.id);
-
-    if (taskIndex === 0 && layout === "title-content") {
-      logEvent("added_content_slide");
-      nextTask();
+  const handleNewSlide = () => {
+    setHasContentSlide(true);
+    setActiveSlide(2);
+    if (taskIndex === 0) {
+      logEvent("ppt_new_slide_added");
+      setTimeout(nextTask, 400);
     }
   };
 
   const handleInsertImage = () => {
-    setActiveMenu(null);
-    if (activeSlide && activeSlide.layout === "title-content" && !activeSlide.imageUrl) {
-      setIsImagePickerOpen(true);
-      setSelectedFile(null);
-    } else {
-      setAlertMessage({ title: "Wrong Slide Layout", body: "Please select a 'Title and Content' slide to insert an image." });
+    setIsFilePickerOpen(false);
+    setHasImage(true);
+    if (taskIndex === 1) {
+      logEvent("ppt_image_inserted");
+      setTimeout(nextTask, 400);
     }
   };
 
-  const handleImagePickerSubmit = () => {
-    if (!selectedFile) {
-      setAlertMessage({ title: "No Selection", body: "Please select an image to insert." });
-      return;
-    }
-
-    if (selectedFile === "cat_meme.png") {
-      logEvent("selected_unprofessional_image");
-      setAlertMessage({ 
-        title: "Unprofessional Choice!", 
-        body: "While that cat is hilarious, it's not appropriate for a professional Science Project presentation. Please select a relevant image." 
-      });
-      return;
-    }
-
-    if (selectedFile === "science_graph.png") {
-      setIsImagePickerOpen(false);
-      setSlides(slides.map(s => s.id === activeSlideId ? { ...s, imageUrl: "/science_graph.png" } : s));
-      if (taskIndex === 1) {
-        logEvent("inserted_image");
-        nextTask();
+  const handleTransitionSelect = (type: "Fade") => {
+    setTransitionType(type);
+    if (taskIndex === 2 && bulletsText.length > 5) {
+      if (!bulletTaskCompleted.current) {
+        bulletTaskCompleted.current = true;
+        logEvent("ppt_transition_and_bullets_added");
+        setTimeout(nextTask, 400);
       }
     }
   };
 
-  const handleTextInput = (e: React.FormEvent<HTMLDivElement>) => {
+  const handleBulletInput = (e: React.FormEvent<HTMLUListElement>) => {
     const text = e.currentTarget.textContent || "";
-    setSlides(slides.map(s => s.id === activeSlideId ? { ...s, textContent: text } : s));
-  };
-
-  const handleHeaderInput = (e: React.FormEvent<HTMLDivElement>) => {
-    const text = e.currentTarget.textContent || "";
-    setSlides(slides.map(s => s.id === activeSlideId ? { ...s, headerContent: text } : s));
-  };
-
-  const handleApplyTransition = (transition: string) => {
-    setActiveMenu(null);
-
-    // Wall of Text Adjudicator
-    if (activeSlide && activeSlide.textContent.length > 200) {
-      logEvent("wall_of_text_blocked");
-      setAlertMessage({
-        title: "Too much text!",
-        body: "Your audience will spend their time reading the slide instead of listening to you. Try breaking this into shorter bullet points (under 200 characters total) before applying a transition."
-      });
-      return;
-    }
-
-    setSlides(slides.map(s => s.id === activeSlideId ? { ...s, transition } : s));
-    
-    if (taskIndex === 2 && transition === "fade") {
-      logEvent("transition_applied_successfully");
-      nextTask();
-    }
-  };
-
-  const startPresentation = () => {
-    setActiveMenu(null);
-    setPresentationSlideIndex(0);
-    setIsPresenting(true);
-    if (taskIndex === 3) {
-      logEvent("started_presentation");
-      nextTask();
-      // Wait a moment then open the quiz
-      setTimeout(() => setIsQuizOpen(true), 2000);
-    }
-  };
-
-  const handleQuizAnswer = (answer: string, isCorrect: boolean) => {
-    setQuizAnswered(answer);
-    if (isCorrect && taskIndex === 4) {
-      logEvent("module8_quiz_passed");
-      setTimeout(() => {
-        setIsQuizOpen(false);
-        nextTask();
-      }, 1500);
-    }
-  };
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (isPresenting) {
-        if (e.key === "Escape") {
-          setIsPresenting(false);
-        } else if (e.key === "ArrowRight" || e.key === " ") {
-          if (presentationSlideIndex < slides.length - 1) {
-            setPresentationSlideIndex(prev => prev + 1);
-          }
-        } else if (e.key === "ArrowLeft") {
-          if (presentationSlideIndex > 0) {
-            setPresentationSlideIndex(prev => prev - 1);
-          }
+    if (text.length > 60) {
+      // Prevent "Wall of Text" by resetting content directly via DOM and alerting
+      alert("Whoa! That is way too much text. Remember the 6x6 rule. Keep it short!");
+      e.currentTarget.textContent = text.substring(0, 60);
+      setBulletsText(text.substring(0, 60));
+    } else {
+      setBulletsText(text);
+      if (taskIndex === 2 && text.length > 5 && transitionType === "Fade") {
+        if (!bulletTaskCompleted.current) {
+          bulletTaskCompleted.current = true;
+          logEvent("ppt_transition_and_bullets_added");
+          setTimeout(nextTask, 400);
         }
       }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isPresenting, presentationSlideIndex, slides.length]);
+    }
+  };
+
+  const handleRunSlideShow = () => {
+    setIsPresentationMode(true);
+    setPresentationSlideIndex(1); // Always start from beginning
+    if (taskIndex === 3) {
+      logEvent("ppt_slide_show_ran");
+    }
+  };
+
+  const handlePresentationClick = () => {
+    if (presentationSlideIndex === 1) {
+      // Go to next slide
+      setPresentationSlideIndex(2);
+    } else {
+      // Exit slide show
+      setIsPresentationMode(false);
+      if (taskIndex === 3) {
+        setTimeout(nextTask, 400);
+      }
+    }
+  };
+
+  const handleExitSlideShow = () => {
+    setIsPresentationMode(false);
+    if (taskIndex === 3) {
+      setTimeout(nextTask, 400);
+    }
+  };
+
+  if (taskIndex === 4) {
+    return (
+      <Quiz 
+        title="Presentation Skills Knowledge Check"
+        questions={[
+          {
+            question: "What is the '6x6 Rule' for presentations?",
+            options: ["Your slides should be exactly 6 by 6 inches", "You should have no more than 6 bullet points, and 6 words per bullet", "You must use 6 pictures and 6 videos"],
+            correctAnswerIndex: 1
+          },
+          {
+            question: "Why should you avoid putting a 'Wall of Text' on your slides?",
+            options: ["The computer might crash", "It uses too much digital ink", "The audience will read the slide instead of listening to you"],
+            correctAnswerIndex: 2
+          }
+        ]}
+        onComplete={() => {
+          logEvent("quiz_completed");
+          nextTask();
+        }}
+      />
+    );
+  }
+
+  // Common slide contents for rendering in different views
+  const renderSlide1 = () => (
+    <div className={`${styles.slideCanvas} ${styles.titleSlideCanvas}`}>
+      <div className={styles.titleBox}>Company Review 2026</div>
+      <div className={styles.subtitleBox}>Q1 Sales Performance</div>
+    </div>
+  );
+
+  const renderSlide2 = () => (
+    <div className={`${styles.slideCanvas} ${styles.contentSlideCanvas}`}>
+      <div className={styles.contentTitle}>Q1 Highlights</div>
+      <div className={styles.contentBody}>
+        <div className={styles.textColumn}>
+          <ul 
+            className={styles.bulletList}
+            contentEditable
+            suppressContentEditableWarning
+            onInput={handleBulletInput}
+          >
+            {bulletsText === "" ? <li></li> : null}
+          </ul>
+        </div>
+        <div className={styles.imageColumn}>
+          {hasImage && <img src="/science_graph.png" alt="Sales Graph" className={styles.slideImage} />}
+        </div>
+      </div>
+    </div>
+  );
 
   return (
-    <div style={{ width: "100%", height: "100%", position: "relative" }}>
-      <div className={styles.iconGrid}>
+    <div className={styles.desktopArea}>
+      
+      {/* Desktop Icons */}
+      <div className={styles.desktopIcons}>
         <div className={styles.desktopIcon} onDoubleClick={openApp}>
-          <span className={styles.iconImage}>📊</span>
+          <div className={styles.iconSquare} style={{ background: '#C43E1C' }}>P</div>
           <span>Slides</span>
         </div>
       </div>
 
-      {isAppOpen && (
-        <div className={styles.osWindow}>
-          <div className={styles.windowHeader}>
-            <div className={styles.windowHeaderTitle}>
-              <span>📊</span> My_Presentation.pptx - Slide Simulator
-            </div>
+      {/* Taskbar */}
+      <div className={styles.taskbar}>
+        <div className={styles.taskbarIcon}>
+          <span className={styles.startButton}>⊞</span>
+        </div>
+        <div className={`${styles.taskbarIcon} ${isAppOpen ? styles.active : ''}`} onClick={openApp}>
+          <span style={{color: '#C43E1C', fontWeight: 'bold'}}>P</span>
+        </div>
+      </div>
+
+      {/* Application Window */}
+      {isAppOpen && !isPresentationMode && (
+        <div className={styles.appWindow}>
+          {/* Windows 11 Title Bar */}
+          <div className={styles.appHeader}>
+            <span>Presentation1 - Slides</span>
             <div className={styles.windowControls}>
-              <button onClick={startPresentation} style={{ width: '80px', fontWeight: 'bold' }}>Present</button>
               <button>—</button>
               <button>□</button>
-              <button className={styles.closeBtn} onClick={() => setIsAppOpen(false)}>✕</button>
+              <button className={styles.closeBtn} onClick={closeApp}>✕</button>
             </div>
           </div>
 
-          <div className={styles.appRibbon}>
-            <div className={styles.menuBar}>
-              <div className={styles.menuItem} onClick={() => handleMenuClick("File")}>File</div>
-              <div className={`${styles.menuItem} ${activeMenu === "Home" ? styles.active : ""}`} onClick={() => handleMenuClick("Home")}>
-                Home
-                {activeMenu === "Home" && (
-                  <div className={styles.dropdown}>
-                    <div className={styles.dropdownItem} onClick={() => handleNewSlide("title")}>
-                      <span>📄</span> New Title Slide
-                    </div>
-                    <div className={styles.dropdownItem} onClick={() => handleNewSlide("title-content")}>
-                      <span>📑</span> New Title & Content Slide
-                    </div>
-                  </div>
-                )}
-              </div>
-              <div className={`${styles.menuItem} ${activeMenu === "Insert" ? styles.active : ""}`} onClick={() => handleMenuClick("Insert")}>
-                Insert
-                {activeMenu === "Insert" && (
-                  <div className={styles.dropdown}>
-                    <div className={styles.dropdownItem} onClick={handleInsertImage}>
-                      <span>🖼️</span> Image
-                    </div>
-                  </div>
-                )}
-              </div>
-              <div className={`${styles.menuItem} ${activeMenu === "Transitions" ? styles.active : ""}`} onClick={() => handleMenuClick("Transitions")}>
-                Transitions
-                {activeMenu === "Transitions" && (
-                  <div className={styles.dropdown}>
-                    <div className={styles.dropdownItem} onClick={() => handleApplyTransition("none")}>None</div>
-                    <div className={styles.dropdownItem} onClick={() => handleApplyTransition("fade")}>Fade</div>
-                  </div>
-                )}
-              </div>
-              <div className={styles.menuItem} onClick={startPresentation} style={{ marginLeft: "auto", color: "#c43e1c", fontWeight: "bold" }}>
-                Slide Show
-              </div>
+          {/* PowerPoint Orange Header */}
+          <div className={styles.pptOrangeHeader}>
+            <div style={{fontWeight: 'bold'}}>P</div>
+            <div className={styles.pptMenu}>
+              <span 
+                className={`${styles.menuItem} ${activeTab === "Home" ? styles.active : ''}`}
+                onClick={() => setActiveTab("Home")}
+              >Home</span>
+              <span 
+                className={`${styles.menuItem} ${activeTab === "Insert" ? styles.active : ''}`}
+                onClick={() => setActiveTab("Insert")}
+              >Insert</span>
+              <span 
+                className={`${styles.menuItem} ${activeTab === "Transitions" ? styles.active : ''}`}
+                onClick={() => setActiveTab("Transitions")}
+              >Transitions</span>
+              <span 
+                className={`${styles.menuItem} ${activeTab === "Slide Show" ? styles.active : ''}`}
+                onClick={() => setActiveTab("Slide Show")}
+              >Slide Show</span>
             </div>
           </div>
 
-          <div className={styles.appBody}>
-            {/* Thumbnails Sidebar */}
-            <div className={styles.thumbnailsPanel}>
-              {slides.map((slide, i) => (
-                <div 
-                  key={slide.id} 
-                  className={`${styles.thumbnailContainer} ${activeSlideId === slide.id ? styles.active : ""}`}
-                  onClick={() => setActiveSlideId(slide.id)}
-                >
-                  <div className={styles.thumbnailNumber}>{i + 1}</div>
-                  <div className={`${styles.thumbnailSlide} ${activeSlideId === slide.id ? styles.activeSlide : ""}`}>
-                    <div style={{ transform: "scale(0.2)", width: "500%", height: "500%", transformOrigin: "top left", padding: "10px", pointerEvents: "none" }}>
-                      {slide.layout === "title" ? (
-                        <div style={{ textAlign: "center", paddingTop: "20%" }}>
-                          <h2>{slide.headerContent || "Title Slide"}</h2>
-                        </div>
-                      ) : (
-                        <div>
-                          <h3>{slide.headerContent || "Content Slide"}</h3>
-                          {slide.imageUrl && <div style={{width: '50px', height: '50px', background: '#ccc'}}></div>}
-                        </div>
-                      )}
-                    </div>
-                  </div>
+          {/* Ribbon */}
+          <div className={styles.pptRibbon}>
+            {activeTab === "Home" && (
+              <div className={styles.ribbonGroup}>
+                <button className={styles.ribbonBtn} onClick={handleNewSlide}>📄 New Title & Content Slide</button>
+                <button className={styles.ribbonBtn}>Layout ▼</button>
+              </div>
+            )}
+            {activeTab === "Insert" && (
+              <div className={styles.ribbonGroup}>
+                <button className={styles.ribbonBtn} onClick={() => setIsFilePickerOpen(true)}>🖼️ Pictures</button>
+                <button className={styles.ribbonBtn}>⬠ Shapes</button>
+              </div>
+            )}
+            {activeTab === "Transitions" && (
+              <div className={styles.ribbonGroup}>
+                <button className={`${styles.ribbonBtn} ${transitionType === "None" ? styles.active : ''}`} onClick={() => setTransitionType("None")}>None</button>
+                <button className={`${styles.ribbonBtn} ${transitionType === "Fade" ? styles.active : ''}`} onClick={() => handleTransitionSelect("Fade")}>✨ Fade</button>
+                <button className={styles.ribbonBtn}>Push</button>
+              </div>
+            )}
+            {activeTab === "Slide Show" && (
+              <div className={styles.ribbonGroup}>
+                <button className={styles.ribbonBtn} onClick={handleRunSlideShow}>▶️ From Beginning</button>
+                <button className={styles.ribbonBtn}>▶️ From Current Slide</button>
+              </div>
+            )}
+          </div>
+
+          {/* Workspace Area */}
+          <div className={styles.workspaceArea}>
+            
+            {/* Sidebar Thumbnails */}
+            <div className={styles.thumbnailsSidebar}>
+              <div className={`${styles.thumbnailItem} ${activeSlide === 1 ? styles.active : ''}`} onClick={() => setActiveSlide(1)}>
+                <span className={styles.thumbnailNumber}>1</span>
+                <div className={styles.thumbnailSlide}>
+                  <div style={{fontSize: '0.8rem', fontWeight: 'bold'}}>Company Review 2026</div>
+                  <div style={{fontSize: '0.5rem'}}>Q1 Sales Performance</div>
                 </div>
-              ))}
-            </div>
+              </div>
 
-            {/* Main Slide Editor */}
-            <div className={styles.mainEditor}>
-              {activeSlide && (
-                <div 
-                  className={`${styles.slideCanvas}`}
-                  key={`${activeSlide.id}`}
-                >
-                  {activeSlide.layout === "title" ? (
-                    <div className={styles.layoutTitle}>
-                      <div className={styles.titleBox} contentEditable suppressContentEditableWarning onInput={handleHeaderInput} data-placeholder="Click to add title"></div>
-                      <div className={styles.subtitleBox} contentEditable suppressContentEditableWarning onInput={handleTextInput} data-placeholder="Click to add subtitle"></div>
-                    </div>
-                  ) : (
-                    <div className={styles.layoutContent}>
-                      <div className={styles.headerBox} contentEditable suppressContentEditableWarning onInput={handleHeaderInput} data-placeholder="Click to add title"></div>
-                      <div className={styles.contentBody}>
-                        <div 
-                          className={styles.textBox} 
-                          contentEditable 
-                          suppressContentEditableWarning 
-                          onInput={handleTextInput}
-                          data-placeholder="Click to add text..."
-                        ></div>
-                        {activeSlide.imageUrl ? (
-                          <div className={styles.imageBox} style={{ border: 'none', background: 'transparent' }}>
-                            <img src={activeSlide.imageUrl} alt="Inserted" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
-                          </div>
-                        ) : (
-                          <div className={styles.imageBox} style={{ borderStyle: "dashed", opacity: 0.5 }}>
-                            Image Placeholder
-                          </div>
-                        )}
+              {hasContentSlide && (
+                <div className={`${styles.thumbnailItem} ${activeSlide === 2 ? styles.active : ''}`} onClick={() => setActiveSlide(2)}>
+                  <span className={styles.thumbnailNumber}>2</span>
+                  <div className={styles.thumbnailSlide} style={{padding: '0.2rem', alignItems: 'flex-start', justifyContent: 'flex-start'}}>
+                    <div style={{fontSize: '0.6rem', fontWeight: 'bold', borderBottom: '1px solid #ccc', width: '100%', marginBottom: '0.2rem'}}>Q1 Highlights</div>
+                    <div style={{display: 'flex', width: '100%', height: '100%'}}>
+                      <div style={{flex: 1, fontSize: '0.3rem', paddingTop: '0.2rem'}}>• {bulletsText.substring(0, 10)}...</div>
+                      <div style={{flex: 1, border: hasImage ? 'none' : '1px dashed #ccc', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                        {hasImage && <div style={{width: '80%', height: '80%', background: '#a0a0a0'}}></div>}
                       </div>
                     </div>
-                  )}
+                  </div>
                 </div>
               )}
+            </div>
+
+            {/* Main Canvas */}
+            <div className={styles.mainCanvasArea}>
+              {activeSlide === 1 ? renderSlide1() : renderSlide2()}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* File Picker Modal */}
+      {isFilePickerOpen && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.filePickerModal}>
+            <div className={styles.modalHeader}>
+              <span>Open File</span>
+              <button className={styles.modalCloseBtn} onClick={() => setIsFilePickerOpen(false)}>✕</button>
+            </div>
+            <div className={styles.modalBody}>
+              <div className={styles.modalSidebar}>
+                <div className={`${styles.modalSidebarItem} ${styles.active}`}>Pictures</div>
+                <div className={styles.modalSidebarItem}>Documents</div>
+                <div className={styles.modalSidebarItem}>Downloads</div>
+              </div>
+              <div className={styles.modalContent}>
+                <div className={styles.fileItem} onClick={handleInsertImage}>
+                  <img src="/science_graph.png" alt="Graph" />
+                  <span>science_graph.png</span>
+                </div>
+                <div className={styles.fileItem}>
+                  <img src="/cat_meme.png" alt="Cat" />
+                  <span>cat_meme.png</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       )}
 
       {/* Full Screen Presentation Mode */}
-      {isPresenting && presentationSlide && (
-        <div className={styles.fullScreenMode} onClick={() => {
-          if (presentationSlideIndex < slides.length - 1) {
-            setPresentationSlideIndex(prev => prev + 1);
-          }
-        }}>
-          <div 
-            className={`${styles.fullScreenSlide} ${presentationSlide.transition === "fade" ? styles.fadeTransition : ""}`}
-            key={`${presentationSlide.id}-${presentationSlideIndex}`}
-          >
-            {presentationSlide.layout === "title" ? (
-              <div className={styles.layoutTitle}>
-                <div className={styles.titleBox} style={{ border: 'none' }}>{presentationSlide.headerContent || "Untitled Presentation"}</div>
-                <div className={styles.subtitleBox} style={{ border: 'none' }}>{presentationSlide.textContent || ""}</div>
+      {isPresentationMode && (
+        <div className={styles.fullScreenPresentation} onClick={handlePresentationClick}>
+          <div key={`slide-${presentationSlideIndex}`} className={`${styles.presentedSlide} ${presentationSlideIndex === 2 && transitionType === "Fade" ? styles.transitionFade : ''}`}>
+            {presentationSlideIndex === 1 ? (
+              <div className={`${styles.slideCanvas} ${styles.titleSlideCanvas}`} style={{width: '100%', height: '100%'}}>
+                <div className={styles.titleBox}>Company Review 2026</div>
+                <div className={styles.subtitleBox}>Q1 Sales Performance</div>
               </div>
             ) : (
-              <div className={styles.layoutContent}>
-                <div className={styles.headerBox} style={{ border: 'none' }}>{presentationSlide.headerContent || ""}</div>
+              <div className={`${styles.slideCanvas} ${styles.contentSlideCanvas}`} style={{width: '100%', height: '100%'}}>
+                <div className={styles.contentTitle}>Q1 Highlights</div>
                 <div className={styles.contentBody}>
-                  <div className={styles.textBox} style={{ border: 'none' }}>{presentationSlide.textContent || ""}</div>
-                  {presentationSlide.imageUrl && (
-                    <div className={styles.imageBox} style={{ border: 'none', background: 'transparent' }}>
-                      <img src={presentationSlide.imageUrl} alt="Inserted" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
-                    </div>
-                  )}
+                  <div className={styles.textColumn}>
+                    <ul className={styles.bulletList}>
+                      <li>{bulletsText}</li>
+                    </ul>
+                  </div>
+                  <div className={styles.imageColumn}>
+                    {hasImage && <img src="/science_graph.png" alt="Sales Graph" className={styles.slideImage} />}
+                  </div>
                 </div>
               </div>
             )}
           </div>
-          <button className={styles.exitPresentationBtn} onClick={(e) => { e.stopPropagation(); setIsPresenting(false); }}>
-            Exit Slide Show (Esc)
-          </button>
-        </div>
-      )}
-
-      {/* Image Picker Modal */}
-      {isImagePickerOpen && (
-        <div className={styles.modalOverlay}>
-          <div className={styles.saveModal}>
-            <div className={styles.modalHeader}>
-              <span>Insert Image</span>
-              <button className={styles.closeBtn} onClick={() => setIsImagePickerOpen(false)} style={{background: 'transparent', border: 'none', cursor: 'pointer'}}>✕</button>
-            </div>
-            
-            <div className={styles.modalBody}>
-              <div className={styles.filePickerSidebar}>
-                <div className={styles.filePickerSidebarItem}>Desktop</div>
-                <div className={styles.filePickerSidebarItem}>Documents</div>
-                <div className={styles.filePickerSidebarItem}>Downloads</div>
-                <div className={`${styles.filePickerSidebarItem} ${styles.active}`}>Pictures</div>
-              </div>
-              <div className={styles.filePickerContent}>
-                <div className={styles.fileListHeader}>Name</div>
-                
-                <div 
-                  className={`${styles.contentRow} ${selectedFile === "cat_meme.png" ? styles.active : ""}`}
-                  onClick={() => setSelectedFile("cat_meme.png")}
-                  onDoubleClick={() => { setSelectedFile("cat_meme.png"); handleImagePickerSubmit(); }}
-                >
-                  <img src="/cat_meme.png" alt="Cat Meme" style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '4px' }} />
-                  <span style={{ fontSize: '0.9rem' }}>cat_meme.png</span>
-                </div>
-
-                <div 
-                  className={`${styles.contentRow} ${selectedFile === "science_graph.png" ? styles.active : ""}`}
-                  onClick={() => setSelectedFile("science_graph.png")}
-                  onDoubleClick={() => { setSelectedFile("science_graph.png"); handleImagePickerSubmit(); }}
-                >
-                  <img src="/science_graph.png" alt="Science Graph" style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '4px' }} />
-                  <span style={{ fontSize: '0.9rem' }}>science_graph.png</span>
-                </div>
-                
-              </div>
-            </div>
-
-            <div className={styles.modalFooter}>
-              <button className={styles.modalBtn} onClick={() => setIsImagePickerOpen(false)}>Cancel</button>
-              <button className={`${styles.modalBtn} ${styles.primary}`} onClick={handleImagePickerSubmit}>Insert</button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Custom Alert Modal */}
-      {alertMessage && (
-        <div className={styles.modalOverlay}>
-          <div className={styles.alertModal}>
-            <div className={styles.alertHeader}>
-              <span>⚠️</span> {alertMessage.title}
-            </div>
-            <div className={styles.alertBody}>
-              {alertMessage.body}
-            </div>
-            <div className={styles.alertFooter}>
-              <button className={`${styles.modalBtn} ${styles.primary}`} onClick={() => setAlertMessage(null)}>OK</button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Quiz Modal */}
-      {isQuizOpen && (
-        <div className={styles.modalOverlay}>
-          <div className={styles.quizModal}>
-            <div className={styles.quizHeader}>
-              Module 8 Knowledge Check
-            </div>
-            <div className={styles.quizBody}>
-              <div className={styles.quizQuestion}>
-                According to the "Wall of Text" rule, what is the problem with putting 5 paragraphs of text on a presentation slide?
-              </div>
-              <div className={styles.quizOptions}>
-                <button 
-                  className={`${styles.quizOption} ${quizAnswered === "A" ? styles.incorrect : ""}`}
-                  onClick={() => handleQuizAnswer("A", false)}
-                >
-                  A) The computer will run out of memory.
-                </button>
-                <button 
-                  className={`${styles.quizOption} ${quizAnswered === "B" ? styles.incorrect : ""}`}
-                  onClick={() => handleQuizAnswer("B", false)}
-                >
-                  B) The text will automatically shrink until it is invisible.
-                </button>
-                <button 
-                  className={`${styles.quizOption} ${quizAnswered === "C" ? styles.correct : ""}`}
-                  onClick={() => handleQuizAnswer("C", true)}
-                >
-                  C) Your audience will read the screen instead of listening to you speak.
-                </button>
-                <button 
-                  className={`${styles.quizOption} ${quizAnswered === "D" ? styles.incorrect : ""}`}
-                  onClick={() => handleQuizAnswer("D", false)}
-                >
-                  D) It prevents you from adding animations.
-                </button>
-              </div>
-            </div>
+          <div className={styles.presentationTooltip}>
+            {presentationSlideIndex === 1 ? "Click anywhere to go to the next slide" : "Click anywhere to exit Slide Show"}
           </div>
         </div>
       )}

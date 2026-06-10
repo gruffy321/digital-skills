@@ -487,7 +487,7 @@ const moduleConfig: Record<string, { title: string, tasks: Task[], component: Re
     tasks: [
       {
         title: "Task 1: Slide Layouts",
-        instruction: "Double click the 'Slides' icon. Click 'Home' in the top menu and select 'New Title & Content Slide'.",
+        instruction: "Open the Slides application on your desktop. Click 'Home' in the top menu and select 'New Title & Content Slide'.",
         content: (
           <>
             <p><strong>Building a Presentation</strong></p>
@@ -498,7 +498,7 @@ const moduleConfig: Record<string, { title: string, tasks: Task[], component: Re
       },
       {
         title: "Task 2: Visual Communication",
-        instruction: "Click 'Insert' in the top menu and select 'Image' to add a graphic to your new slide.",
+        instruction: "Click 'Insert' in the top menu, click 'Pictures', and use the file picker to add the 'science_graph.png' image to your new slide.",
         content: (
           <>
             <p><strong>A Picture is Worth a Thousand Words</strong></p>
@@ -509,7 +509,7 @@ const moduleConfig: Record<string, { title: string, tasks: Task[], component: Re
       },
       {
         title: "Task 3: The Wall of Text",
-        instruction: "Type a short bullet point into the text box. Then, click 'Transitions' and select 'Fade'. Do NOT type a massive paragraph of text, or the system will block you!",
+        instruction: "Type a short bullet point into the text box (like 'Q1 Sales were up'). Then, click 'Transitions' and select 'Fade'. Note: You cannot type a massive paragraph of text!",
         content: (
           <>
             <p><strong>The Golden Rule of Presentations</strong></p>
@@ -521,12 +521,21 @@ const moduleConfig: Record<string, { title: string, tasks: Task[], component: Re
       },
       {
         title: "Task 4: Run the Presentation",
-        instruction: "Click 'Slide Show' in the top menu to view your presentation in full screen and see your transition in action!",
+        instruction: "Click the 'Slide Show' tab in the top menu and click 'From Beginning' to view your presentation in full screen and see your transition in action!",
         content: (
           <>
             <p><strong>Presenting Your Work</strong></p>
             <p>When you are ready to present to your class, you don't want them to see all your editing tools and sidebars. You want them to focus entirely on your slides.</p>
             <p>Running a <strong>Slide Show</strong> puts your presentation into full-screen mode, hiding all distractions and activating any animations or transitions you added.</p>
+          </>
+        )
+      },
+      {
+        title: "Task 5: Knowledge Check",
+        instruction: "Complete the quiz to finish this module.",
+        content: (
+          <>
+            <p>Let's review what you've learned about Presentation Skills!</p>
           </>
         )
       }
