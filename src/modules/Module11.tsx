@@ -337,7 +337,7 @@ export default function Module11() {
                   ))}
                   {filesInBin.length === 0 && (
                     <tr>
-                      <td colSpan={3} style={{textAlign: 'center', padding: '2rem', color: '#666'}}>Recycle Bin is empty</td>
+                      <td colSpan={3} style={{textAlign: 'center', padding: '2rem', color: '#000'}}>Recycle Bin is empty</td>
                     </tr>
                   )}
                 </tbody>
