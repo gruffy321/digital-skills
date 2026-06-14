@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getSession } from "@/lib/auth";
 import { PrismaClient } from "@prisma/client";
 import { redirect } from "next/navigation";
-import { createAccessCode, revokeAccessCode } from "@/actions/admin";
+import { createAccessCode, revokeAccessCode, gradeModule12Task } from "@/actions/admin";
 import BrandLogo from "@/components/BrandLogo";
 import ThemeToggle from "@/components/ThemeToggle";
 
@@ -65,6 +65,10 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
         revokeAccessCodeAction={async (id: string) => {
           "use server";
           await revokeAccessCode(id);
+        }}
+        gradeModule12TaskAction={async (studentId: string, taskId: string, action: 'approve' | 'deny') => {
+          "use server";
+          await gradeModule12Task(studentId, taskId, action);
         }}
       />
     </main>

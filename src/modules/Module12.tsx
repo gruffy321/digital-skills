@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./Module12.module.css";
 import { useModule } from "@/components/ModuleWrapper";
 import { saveModuleState, getModuleState } from "@/actions/progress";
+import { getCurrentUserProfile } from "@/actions/user";
 
 const CHECKLIST_ITEMS = [
   { id: "m12_1", section: "File Management & Cloud", text: "Create a 'Digital Skills Final Project' folder in OneDrive." },
@@ -17,7 +18,7 @@ const CHECKLIST_ITEMS = [
 export default function Module12() {
   const { nextTask, logEvent } = useModule();
   
-  const [activeRole, setActiveRole] = useState<"student" | "teacher">("student");
+  const [userProfile, setUserProfile] = useState<any>(null);
   
   const [itemStatuses, setItemStatuses] = useState<Record<string, string>>({
     "m12_1": "in_progress",
@@ -36,6 +37,20 @@ export default function Module12() {
       }
       setLoaded(true);
     });
+
+    getCurrentUserProfile().then(profile => {
+      if (profile) setUserProfile(profile);
+    });
+
+    const pollInterval = setInterval(() => {
+      getModuleState("12").then((state) => {
+        if (state && typeof state === 'object') {
+          setItemStatuses(state as Record<string, string>);
+        }
+      });
+    }, 5000);
+
+    return () => clearInterval(pollInterval);
   }, []);
 
   useEffect(() => {
@@ -45,9 +60,6 @@ export default function Module12() {
   }, [itemStatuses, loaded]);
   
   const [isComplete, setIsComplete] = useState(false);
-  const [showPinModal, setShowPinModal] = useState(false);
-  const [pinInput, setPinInput] = useState("");
-  const [pinError, setPinError] = useState(false);
 
   const handleStudentSubmit = (id: string) => {
     setItemStatuses(prev => {
@@ -55,46 +67,6 @@ export default function Module12() {
       logEvent(`student_submitted_${id}`);
       return newState;
     });
-  };
-
-  const handleTeacherApprove = (id: string) => {
-    setItemStatuses(prev => {
-      const newState = { ...prev, [id]: "approved" };
-      
-      // Unlock the next item
-      const currentIndex = CHECKLIST_ITEMS.findIndex(item => item.id === id);
-      if (currentIndex + 1 < CHECKLIST_ITEMS.length) {
-        const nextId = CHECKLIST_ITEMS[currentIndex + 1].id;
-        newState[nextId] = "in_progress";
-      }
-      
-      logEvent(`teacher_approved_${id}`);
-      return newState;
-    });
-    setActiveRole("student");
-  };
-
-  const handleTeacherDeny = (id: string) => {
-    setItemStatuses(prev => {
-      const newState = { ...prev, [id]: "needs_revision" };
-      logEvent(`teacher_denied_${id}`);
-      return newState;
-    });
-    setActiveRole("student");
-  };
-
-  const handlePinSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (pinInput === "ADMIN-0000") {
-      setActiveRole("teacher");
-      setShowPinModal(false);
-      setPinInput("");
-      setPinError(false);
-      logEvent("teacher_login_success");
-    } else {
-      setPinError(true);
-      logEvent("teacher_login_failed");
-    }
   };
 
   useEffect(() => {
@@ -114,7 +86,7 @@ export default function Module12() {
             <div className={styles.certHeader}>Certificate of Competence</div>
             <div className={styles.certBody}>
               <p>This certifies that</p>
-              <h2>School User</h2>
+              <h2>{userProfile ? (userProfile.name || userProfile.email) : "School User"}</h2>
               <p>has successfully completed the Digital Skills Curriculum and mastered the Student Survival Pack!</p>
               <div className={styles.badgeContainer}>
                 {CHECKLIST_ITEMS.map((item, idx) => (
@@ -125,7 +97,7 @@ export default function Module12() {
               </div>
             </div>
             <div className={styles.certFooter}>
-              <span>Verified by Admin</span>
+              <span>Verified by: Instructor ({userProfile?.classCode || 'General'})</span>
               <span>Date: {new Date().toLocaleDateString()}</span>
             </div>
           </div>
@@ -139,24 +111,8 @@ export default function Module12() {
       <div className={styles.header}>
         <div className={styles.headerTop}>
           <h2>Final Digital Skills Project</h2>
-          <button 
-            className={`${styles.roleToggle} ${activeRole === 'teacher' ? styles.teacherActive : ''}`}
-            onClick={() => {
-              if (activeRole === 'student') {
-                setShowPinModal(true);
-              } else {
-                setActiveRole('student');
-              }
-            }}
-          >
-            {activeRole === 'student' ? "Teacher Login" : "Exit Teacher Portal"}
-          </button>
         </div>
-        {activeRole === 'student' ? (
-          <p>Use the real software on your computer to complete each task. When finished, submit it for review!</p>
-        ) : (
-          <p className={styles.teacherNotice}><strong>Teacher Admin Portal:</strong> Review and approve student submissions below.</p>
-        )}
+        <p>Use the real software on your computer to complete each task. When finished, submit it for review and await teacher approval!</p>
       </div>
 
       <div className={styles.taskList}>
@@ -186,53 +142,16 @@ export default function Module12() {
               </div>
               
               <div className={styles.taskAction}>
-                {activeRole === 'student' && (isInProgress || needsRevision) && (
+                {(isInProgress || needsRevision) && (
                   <button className={styles.btnSubmit} onClick={() => handleStudentSubmit(item.id)}>
                     {needsRevision ? "Resubmit for Review" : "Mark Ready for Review"}
                   </button>
-                )}
-                {activeRole === 'teacher' && isReady && (
-                  <div className={styles.teacherActions}>
-                    <button className={styles.btnDeny} onClick={() => handleTeacherDeny(item.id)}>
-                      Deny ❌
-                    </button>
-                    <button className={styles.btnApprove} onClick={() => handleTeacherApprove(item.id)}>
-                      Approve & Award Badge 🏅
-                    </button>
-                  </div>
                 )}
               </div>
             </div>
           );
         })}
       </div>
-
-      {showPinModal && (
-        <div className={styles.modalOverlay}>
-          <div className={styles.pinModal}>
-            <div className={styles.pinHeader}>Teacher Authentication</div>
-            <form onSubmit={handlePinSubmit} className={styles.pinBody}>
-              <p>Please enter the Teacher Admin PIN to access student records.</p>
-              <input 
-                type="password" 
-                value={pinInput}
-                onChange={(e) => {
-                  setPinInput(e.target.value);
-                  setPinError(false);
-                }}
-                placeholder="Enter PIN"
-                className={styles.pinInput}
-                autoFocus
-              />
-              {pinError && <div className={styles.pinError}>Incorrect PIN. Access Denied.</div>}
-              <div className={styles.pinActions}>
-                <button type="button" className={styles.btnCancel} onClick={() => { setShowPinModal(false); setPinInput(""); setPinError(false); }}>Cancel</button>
-                <button type="submit" className={styles.btnAuth}>Authenticate</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

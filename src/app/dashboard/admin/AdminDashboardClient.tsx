@@ -16,19 +16,21 @@ export default function AdminDashboardClient({
   accessCodes, 
   eventLogs,
   createAccessCodeAction,
-  revokeAccessCodeAction
+  revokeAccessCodeAction,
+  gradeModule12TaskAction
 }: { 
   initialUsers: User[];
   accessCodes: AccessCode[];
   eventLogs: EventLog[];
   createAccessCodeAction: (formData: FormData) => void;
   revokeAccessCodeAction: (id: string) => void;
+  gradeModule12TaskAction: (studentId: string, taskId: string, action: 'approve' | 'deny') => void;
 }) {
   const [search, setSearch] = useState("");
   const [selectedStudentId, setSelectedStudentId] = useState<string | null>(null);
   const [isPrintingMatrix, setIsPrintingMatrix] = useState(false);
   const [isPrintingReport, setIsPrintingReport] = useState(false);
-  const [activeTab, setActiveTab] = useState<'analytics' | 'activity' | 'profile'>('analytics');
+  const [activeTab, setActiveTab] = useState<'analytics' | 'activity' | 'profile' | 'grading'>('analytics');
 
   useEffect(() => {
     const handleAfterPrint = () => {
@@ -242,6 +244,67 @@ export default function AdminDashboardClient({
     ) : null
   );
 
+  const renderGradingQueue = () => {
+    // Find all students with tasks 'ready_for_review'
+    const pendingTasks: { student: User, taskId: string, state: any }[] = [];
+    
+    filteredUsers.forEach(user => {
+      // Find the latest m12_state_save log
+      const latestLog = eventLogs.find(log => log.userId === user.id && log.actionType === 'm12_state_save');
+      if (latestLog && latestLog.metadataJson) {
+        const state = latestLog.metadataJson;
+        for (const [taskId, status] of Object.entries(state)) {
+          if (status === 'ready_for_review') {
+            pendingTasks.push({ student: user, taskId, state });
+          }
+        }
+      }
+    });
+
+    if (pendingTasks.length === 0) {
+      return <div style={{ padding: '2rem', textAlign: 'center', color: '#666' }}>No tasks currently pending review.</div>;
+    }
+
+    const taskNames: Record<string, string> = {
+      "m12_1": "Create 'Digital Skills Final Project' folder in OneDrive",
+      "m12_2": "Create 'Survival_Guide.docx' with formatting",
+      "m12_3": "Create 'Weekly_Budget.xlsx' with =SUM()",
+      "m12_4": "Create 3-slide 'My_Hobbies.pptx'",
+      "m12_5": "Lock PC screen",
+      "m12_6": "Send professional email with OneDrive link"
+    };
+
+    return (
+      <div className={styles.gradingList}>
+        <h3 style={{ marginBottom: '1rem' }}>Module 12 Grading Queue</h3>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          {pendingTasks.map((pt, i) => (
+            <div key={`${pt.student.id}-${pt.taskId}-${i}`} style={{ background: 'rgba(255,255,255,0.05)', padding: '1rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div>
+                <h4 style={{ margin: '0 0 0.5rem 0' }}>{pt.student.name || pt.student.email} <span style={{ fontSize: '0.8rem', opacity: 0.7 }}>({pt.student.classCode})</span></h4>
+                <p style={{ margin: 0, fontSize: '0.9rem' }}>Task: <strong>{taskNames[pt.taskId] || pt.taskId}</strong></p>
+              </div>
+              <div style={{ display: 'flex', gap: '0.5rem' }}>
+                <button 
+                  onClick={() => gradeModule12TaskAction(pt.student.id, pt.taskId, 'deny')}
+                  style={{ padding: '0.5rem 1rem', background: '#dc2626', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
+                >
+                  Deny
+                </button>
+                <button 
+                  onClick={() => gradeModule12TaskAction(pt.student.id, pt.taskId, 'approve')}
+                  style={{ padding: '0.5rem 1rem', background: '#16a34a', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
+                >
+                  Approve
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
   if (isPrintingMatrix) {
     return (
       <div style={{ background: 'white', color: 'black', padding: '2rem', minHeight: '100vh', width: '100%' }}>
@@ -358,6 +421,12 @@ export default function AdminDashboardClient({
               👤 Student Profile
             </button>
           )}
+          <button 
+            className={`${styles.tabBtn} ${activeTab === 'grading' ? styles.activeTab : ''}`}
+            onClick={() => setActiveTab('grading')}
+          >
+            ✅ M12 Grading
+          </button>
           
           <div style={{ flex: 1 }}></div>
           <button 
@@ -381,6 +450,8 @@ export default function AdminDashboardClient({
           {activeTab === 'activity' && renderActivityFeed(false)}
 
           {activeTab === 'profile' && renderProfileStats(false)}
+
+          {activeTab === 'grading' && renderGradingQueue()}
         </div>
       </section>
     </div>
