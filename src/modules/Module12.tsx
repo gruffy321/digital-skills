@@ -5,6 +5,7 @@ import styles from "./Module12.module.css";
 import { useModule } from "@/components/ModuleWrapper";
 import { saveModuleState, getModuleState } from "@/actions/progress";
 import { getCurrentUserProfile } from "@/actions/user";
+import Image from "next/image";
 
 const CHECKLIST_ITEMS = [
   { id: "m12_1", section: "File Management & Cloud", text: "Create a 'Digital Skills Final Project' folder in OneDrive." },
@@ -83,7 +84,10 @@ export default function Module12() {
       <div className={styles.container}>
         <div className={styles.celebration}>
           <div className={styles.certificate}>
-            <div className={styles.certHeader}>Certificate of Competence</div>
+            <div className={styles.certHeader}>
+              <Image src="/logo.png" alt="ESW Logo" width={80} height={80} className={styles.certLogo} />
+              Certificate of Competence
+            </div>
             <div className={styles.certBody}>
               <p>This certifies that</p>
               <h2>{userProfile ? (userProfile.name || userProfile.email) : "School User"}</h2>
@@ -100,6 +104,7 @@ export default function Module12() {
               <span>Verified by: Instructor ({userProfile?.classCode || 'General'})</span>
               <span>Date: {new Date().toLocaleDateString()}</span>
             </div>
+            <button className={styles.printBtn} onClick={() => window.print()}>🖨️ Print Certificate</button>
           </div>
         </div>
       </div>
