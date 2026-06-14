@@ -444,6 +444,7 @@
 .calendarTab {
   padding: 2rem;
   flex: 1;
+  color: #323130;
 }
 
 .calendarEvent {
@@ -461,6 +462,7 @@
 
 .eventDetails h3 {
   margin: 0 0 0.5rem 0;
+  color: #323130;
 }
 
 .rsvpBtn {
