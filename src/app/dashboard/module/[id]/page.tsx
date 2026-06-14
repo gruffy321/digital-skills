@@ -321,7 +321,7 @@ const moduleConfig: Record<string, { title: string, tasks: Task[], component: Re
       },
       {
         title: "Task 3: Reply & Attach",
-        instruction: "Click 'Reply'. Type a professional reply to Mr. Johnson. Then click the Paperclip to attach 'Homework.docx' from your Documents folder, and finally click Send.",
+        instruction: "Click 'Reply'. Type a professional reply to Mr. Johnson. Ensure you start with a professional greeting (e.g., 'Dear Mr. Johnson,') and end with a professional sign-off (e.g., 'Best regards,'). Then click the Paperclip to attach 'Homework.docx' from your Documents folder, and finally click Send.",
         content: (
           <>
             <p><strong>Email Etiquette & Attachments</strong></p>

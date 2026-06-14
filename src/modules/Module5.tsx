@@ -55,13 +55,16 @@ export default function Module5() {
       }
 
       // Basic check for etiquette
-      if (lowerReply.includes("dear") || lowerReply.includes("hello") || lowerReply.includes("regards")) {
+      const hasGreeting = lowerReply.includes("dear") || lowerReply.includes("hello") || lowerReply.includes("hi") || lowerReply.includes("good morning") || lowerReply.includes("good afternoon");
+      const hasSignOff = lowerReply.includes("regards") || lowerReply.includes("sincerely") || lowerReply.includes("best") || lowerReply.includes("thanks") || lowerReply.includes("thank you");
+
+      if (hasGreeting && hasSignOff) {
         logEvent("professional_email_with_attachment_sent");
         setIsReplying(false);
         setReplyText("");
         setTimeout(nextTask, 500);
       } else {
-        alert("Remember to use a professional greeting and sign-off!");
+        alert("Remember to use both a professional greeting (e.g., 'Dear') and a professional sign-off (e.g., 'Best regards')!");
       }
     }
   };
