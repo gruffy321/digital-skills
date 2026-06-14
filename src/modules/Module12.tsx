@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./Module12.module.css";
 import { useModule } from "@/components/ModuleWrapper";
 import { saveModuleState, getModuleState } from "@/actions/progress";
-import { getCurrentUserProfile } from "@/actions/user";
+import { getCertificateDetails } from "@/actions/user";
 import Image from "next/image";
 
 const CHECKLIST_ITEMS = [
@@ -19,7 +19,7 @@ const CHECKLIST_ITEMS = [
 export default function Module12() {
   const { nextTask, logEvent } = useModule();
   
-  const [userProfile, setUserProfile] = useState<any>(null);
+  const [certDetails, setCertDetails] = useState<any>(null);
   
   const [itemStatuses, setItemStatuses] = useState<Record<string, string>>({
     "m12_1": "in_progress",
@@ -39,8 +39,8 @@ export default function Module12() {
       setLoaded(true);
     });
 
-    getCurrentUserProfile().then(profile => {
-      if (profile) setUserProfile(profile);
+    getCertificateDetails().then(details => {
+      if (details) setCertDetails(details);
     });
 
     const pollInterval = setInterval(() => {
@@ -90,7 +90,7 @@ export default function Module12() {
             </div>
             <div className={styles.certBody}>
               <p>This certifies that</p>
-              <h2>{userProfile ? (userProfile.name || userProfile.email) : "School User"}</h2>
+              <h2>{certDetails ? certDetails.studentName : "School User"}</h2>
               <p>has successfully completed the Digital Skills Curriculum and mastered the Student Survival Pack!</p>
               <div className={styles.badgeContainer}>
                 {CHECKLIST_ITEMS.map((item, idx) => (
@@ -101,7 +101,7 @@ export default function Module12() {
               </div>
             </div>
             <div className={styles.certFooter}>
-              <span>Verified by: Instructor ({userProfile?.classCode || 'General'})</span>
+              <span>Verified by: {certDetails ? certDetails.approverName : "Admin"}</span>
               <span>Date: {new Date().toLocaleDateString()}</span>
             </div>
             <button className={styles.printBtn} onClick={() => window.print()}>🖨️ Print Certificate</button>
