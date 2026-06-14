@@ -249,9 +249,9 @@ export default function Module1() {
           <div className={styles.windowBody}>
             <div className={styles.screenshotApp}>
               <h3>1. Take a Screenshot</h3>
-              <p>Click the Print Screen button below to simulate capturing your screen.</p>
+              <p>Click the Snipping Tool button below to simulate capturing your screen (Shortcut: <strong>Windows + Shift + S</strong>).</p>
               <button className={styles.prtScnBtn} onClick={takeScreenshot}>
-                {screenshotTaken ? "✓ Screenshot Captured" : "PrtScn (Print Screen)"}
+                {screenshotTaken ? "✓ Screenshot Captured" : "Simulate Windows + Shift + S"}
               </button>
 
               <h3 style={{marginTop: '1.5rem'}}>2. Copy & Paste</h3>
@@ -324,7 +324,7 @@ export default function Module1() {
             questions={[
               { question: "What is an example of 'Hardware'?", options: ["The Windows Operating System", "A Web Browser App", "The computer mouse and keyboard", "A Word Document"], correctAnswerIndex: 2 },
               { question: "Which of these is the 'Operating System'?", options: ["Microsoft Windows", "Google Chrome", "The monitor screen", "A USB Drive"], correctAnswerIndex: 0 },
-              { question: "What does the 'PrtScn' button do?", options: ["Prints the document to paper", "Takes a picture of your screen", "Closes the application", "Opens the settings"], correctAnswerIndex: 1 },
+              { question: "What is the keyboard shortcut to open the Snipping Tool?", options: ["Ctrl + C", "Windows + Shift + S", "Alt + F4", "Ctrl + P"], correctAnswerIndex: 1 },
               { question: "What is the keyboard shortcut to PASTE?", options: ["Ctrl + C", "Ctrl + P", "Ctrl + V", "Ctrl + X"], correctAnswerIndex: 2 }
             ]}
             onComplete={handleQuizComplete}

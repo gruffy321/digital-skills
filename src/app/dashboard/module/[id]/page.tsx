@@ -62,12 +62,12 @@ const moduleConfig: Record<string, { title: string, tasks: Task[], component: Re
       },
       { 
         title: "Task 5: Screenshots & Keyboard Shortcuts", 
-        instruction: "Open the Snipping Tool. Click 'PrtScn'. Then, highlight 'SECRET-CODE-99', press Ctrl+C to copy, and paste it below using Ctrl+V.",
+        instruction: "Open the Snipping Tool. Click 'Simulate Windows + Shift + S'. Then, highlight 'SECRET-CODE-99', press Ctrl+C to copy, and paste it below using Ctrl+V.",
         content: (
           <>
             <p>While the mouse is great, using your keyboard can be much faster! <strong>Keyboard Shortcuts</strong> are combinations of keys that perform specific commands.</p>
             <p>The most common shortcut in the world is <strong>Copy and Paste</strong> (Ctrl+C and Ctrl+V).</p>
-            <p>Another powerful tool is the <strong>Print Screen</strong> button (PrtScn). It takes a digital photograph of whatever is currently on your monitor, which is incredibly useful for capturing error messages to show IT support.</p>
+            <p>Another powerful tool is the <strong>Snipping Tool</strong> (Windows + Shift + S). It lets you select and capture a digital photograph of a portion of your screen, which is incredibly useful for capturing error messages to show IT support.</p>
           </>
         )
       },
