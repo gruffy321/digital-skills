@@ -6,7 +6,7 @@ import { useModule } from "@/components/ModuleWrapper";
 import Quiz from "@/components/Quiz";
 
 export default function Module8() {
-  const { taskIndex, nextTask, logEvent } = useModule();
+  const { taskIndex, nextTask, logEvent, showAlert } = useModule();
   const [isAppOpen, setIsAppOpen] = useState(false);
   
   // App State
@@ -63,8 +63,8 @@ export default function Module8() {
   const handleBulletInput = (e: React.FormEvent<HTMLUListElement>) => {
     const text = e.currentTarget.textContent || "";
     if (text.length > 60) {
-      // Prevent "Wall of Text" by resetting content directly via DOM and alerting
-      alert("Whoa! That is way too much text. Remember the 6x6 rule. Keep it short!");
+      // Prevent "Wall of Text" by resetting content directly via DOM and showAlerting
+      showAlert("Whoa! That is way too much text. Remember the 6x6 rule. Keep it short!");
       e.currentTarget.textContent = text.substring(0, 60);
       setBulletsText(text.substring(0, 60));
     } else {
@@ -302,7 +302,7 @@ export default function Module8() {
                   <img src="/science_graph.png" alt="Graph" />
                   <span>science_graph.png</span>
                 </div>
-                <div className={styles.fileItem} onClick={() => alert("While cat memes are funny, they aren't appropriate for a formal school presentation. Let's pick an image that supports our Science Project!")}>
+                <div className={styles.fileItem} onClick={() => showAlert("While cat memes are funny, they aren't appropriate for a formal school presentation. Let's pick an image that supports our Science Project!")}>
                   <img src="/cat_meme.png" alt="Cat" />
                   <span>cat_meme.png</span>
                 </div>

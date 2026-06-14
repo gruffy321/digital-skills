@@ -9,7 +9,7 @@ const COLUMNS = ["A", "B", "C", "D", "E", "F"];
 const ROWS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 export default function Module9() {
-  const { taskIndex, nextTask, logEvent } = useModule();
+  const { taskIndex, nextTask, logEvent, showAlert } = useModule();
   const [isAppOpen, setIsAppOpen] = useState(false);
   
   const [activeCell, setActiveCell] = useState("A1");
@@ -35,7 +35,7 @@ export default function Module9() {
     const hasProfanity = profanity.some(word => value.toLowerCase().includes(word));
     
     if (hasProfanity) {
-      alert("Please keep your spreadsheet inputs professional and appropriate for a school environment.");
+      showAlert("Please keep your spreadsheet inputs professional and appropriate for a school environment.");
       return;
     }
 

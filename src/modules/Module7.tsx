@@ -6,7 +6,7 @@ import { useModule } from "@/components/ModuleWrapper";
 import Quiz from "@/components/Quiz";
 
 export default function Module7() {
-  const { taskIndex, nextTask, logEvent } = useModule();
+  const { taskIndex, nextTask, logEvent, showAlert } = useModule();
   const [isAppOpen, setIsAppOpen] = useState(false);
   
   // Word State
@@ -66,11 +66,11 @@ export default function Module7() {
       setActiveTab("Home");
       if (taskIndex === 3) {
         logEvent("word_printed_follow_me");
-        alert("Sent to FOLLOW_ME queue successfully!");
+        showAlert("Sent to FOLLOW_ME queue successfully!");
         setTimeout(nextTask, 400);
       }
     } else {
-      alert("Please select the 'FOLLOW_ME' printer to complete the task.");
+      showAlert("Please select the 'FOLLOW_ME' printer to complete the task.");
     }
   };
 

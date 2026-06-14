@@ -6,7 +6,7 @@ import { useModule } from "@/components/ModuleWrapper";
 import Quiz from "@/components/Quiz";
 
 export default function Module4() {
-  const { taskIndex, nextTask, logEvent } = useModule();
+  const { taskIndex, nextTask, logEvent, showAlert } = useModule();
   const [isAppOpen, setIsAppOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<"login" | "feed" | "requests" | "settings">("login");
   
@@ -170,7 +170,7 @@ export default function Module4() {
                           <p>0 mutual friends</p>
                         </div>
                         <div className={styles.requestActions}>
-                          <button className={styles.acceptBtn} onClick={() => alert("Are you sure? You don't know this person!")}>Accept</button>
+                          <button className={styles.acceptBtn} onClick={() => showAlert("Are you sure? You don't know this person!")}>Accept</button>
                           <button className={styles.denyBtn} onClick={handleDenyRequest}>Deny</button>
                         </div>
                       </div>

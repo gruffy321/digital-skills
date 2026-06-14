@@ -6,7 +6,7 @@ import { useModule } from "@/components/ModuleWrapper";
 import Quiz from "@/components/Quiz";
 
 export default function Module3() {
-  const { taskIndex, nextTask, logEvent } = useModule();
+  const { taskIndex, nextTask, logEvent, showAlert } = useModule();
   
   // UI State
   const [isBrowserOpen, setIsBrowserOpen] = useState(false);
@@ -88,9 +88,9 @@ export default function Module3() {
   const clickPhishingLink = () => {
     if (taskIndex === 3) {
       logEvent("phishing_link_clicked");
-      alert("WARNING! You clicked a suspicious link. Did you notice the URL was '.biz'? Always check the URL before clicking!");
+      showAlert("WARNING! You clicked a suspicious link. Did you notice the URL was '.biz'? Always check the URL before clicking!");
     } else {
-      alert("WARNING! You clicked a suspicious link. Did you notice the URL was '.biz'? Always check the URL before clicking!");
+      showAlert("WARNING! You clicked a suspicious link. Did you notice the URL was '.biz'? Always check the URL before clicking!");
     }
   };
 

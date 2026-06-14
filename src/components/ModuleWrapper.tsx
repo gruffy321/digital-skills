@@ -15,6 +15,7 @@ interface ModuleContextType {
   taskIndex: number;
   nextTask: () => void;
   logEvent: (action: string) => void;
+  showAlert: (msg: string) => void;
 }
 
 export const ModuleContext = createContext<ModuleContextType | null>(null);
@@ -38,6 +39,9 @@ export default function ModuleWrapper({
 }) {
   const [taskIndex, setTaskIndex] = useState(0);
   const [isGuideOpen, setIsGuideOpen] = useState(true);
+  const [alertMessage, setAlertMessage] = useState<string | null>(null);
+
+  const showAlert = (msg: string) => setAlertMessage(msg);
 
   // Auto-open guide when task changes
   useEffect(() => {
@@ -69,7 +73,7 @@ export default function ModuleWrapper({
   const currentTask = taskIndex < tasks.length ? tasks[taskIndex] : null;
 
   return (
-    <ModuleContext.Provider value={{ taskIndex, nextTask, logEvent }}>
+    <ModuleContext.Provider value={{ taskIndex, nextTask, logEvent, showAlert }}>
       <div className={styles.container} onKeyDown={onKeyDown} tabIndex={0}>
         
         {/* Minimal Top Bar for Back Navigation */}
@@ -132,6 +136,17 @@ export default function ModuleWrapper({
             )}
           </div>
         </aside>
+
+        {/* Custom Alert Modal */}
+        {alertMessage && (
+          <div className={styles.alertOverlay}>
+            <div className={styles.alertModal}>
+              <div className={styles.alertIcon}>⚠️</div>
+              <div className={styles.alertMessage}>{alertMessage}</div>
+              <button className={styles.alertOkBtn} onClick={() => setAlertMessage(null)}>OK</button>
+            </div>
+          </div>
+        )}
 
       </div>
     </ModuleContext.Provider>

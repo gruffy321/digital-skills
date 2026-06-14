@@ -6,7 +6,7 @@ import { useModule } from "@/components/ModuleWrapper";
 import Quiz from "@/components/Quiz";
 
 export default function Module6() {
-  const { taskIndex, nextTask, logEvent } = useModule();
+  const { taskIndex, nextTask, logEvent, showAlert } = useModule();
   const [isAppOpen, setIsAppOpen] = useState(false);
   
   // Word State
@@ -72,9 +72,9 @@ export default function Module6() {
         logEvent("word_file_saved");
         setTimeout(nextTask, 1000);
       }
-      alert(`Successfully saved to Documents as ${saveFileName}`);
+      showAlert(`Successfully saved to Documents as ${saveFileName}`);
     } else {
-      alert("Please save it as 'Disco_Flyer.docx'!");
+      showAlert("Please save it as 'Disco_Flyer.docx'!");
     }
   };
 

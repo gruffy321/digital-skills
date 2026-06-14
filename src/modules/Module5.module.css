@@ -315,6 +315,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 }
 
 .emptyReadingPane {
@@ -365,6 +366,7 @@
   padding: 1rem;
   border-top: 1px solid #e1dfdd;
   background: #f3f2f1;
+  flex-shrink: 0;
 }
 
 .replyInput {

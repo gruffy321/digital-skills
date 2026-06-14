@@ -6,7 +6,7 @@ import { useModule } from "@/components/ModuleWrapper";
 import Quiz from "@/components/Quiz";
 
 export default function Module10() {
-  const { taskIndex, nextTask, logEvent } = useModule();
+  const { taskIndex, nextTask, logEvent, showAlert } = useModule();
   const [isExplorerOpen, setIsExplorerOpen] = useState(false);
   const [isWordOpen, setIsWordOpen] = useState(false);
   const [selectedFile, setSelectedFile] = useState<string | null>(null);
@@ -76,7 +76,7 @@ export default function Module10() {
       setIsShareModalOpen(false);
       nextTask();
     } else if (taskIndex === 0) {
-      alert("Make sure you give them 'Editor' access so they can help write it!");
+      showAlert("Make sure you give them 'Editor' access so they can help write it!");
     } else {
       setIsShareModalOpen(false);
     }
@@ -192,7 +192,7 @@ export default function Module10() {
           <div className={styles.explorerToolbar}>
             <button className={styles.toolbarBtn}>＋ New</button>
             <button className={styles.toolbarBtn}>↑ Upload</button>
-            <button className={styles.toolbarBtn} onClick={() => alert("Refresh clicked")}>↻ Refresh Sync</button>
+            <button className={styles.toolbarBtn} onClick={() => showAlert("Refresh clicked")}>↻ Refresh Sync</button>
           </div>
 
           <div className={styles.explorerContent}>

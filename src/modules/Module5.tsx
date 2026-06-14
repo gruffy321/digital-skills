@@ -6,7 +6,7 @@ import { useModule } from "@/components/ModuleWrapper";
 import Quiz from "@/components/Quiz";
 
 export default function Module5() {
-  const { taskIndex, nextTask, logEvent } = useModule();
+  const { taskIndex, nextTask, logEvent, showAlert } = useModule();
   const [isAppOpen, setIsAppOpen] = useState(false);
   
   // Outlook State
@@ -45,12 +45,12 @@ export default function Module5() {
       const hasProfanity = profanity.some(word => lowerReply.includes(word));
 
       if (hasProfanity) {
-        alert("Your message contains inappropriate language. Please use professional communication.");
+        showAlert("Your message contains inappropriate language. Please use professional communication.");
         return;
       }
 
-      if (!attachedFile) {
-        alert("Don't forget to attach 'Homework.docx' before sending!");
+      if (attachedFile !== "Homework.docx") {
+        showAlert("You attached the wrong file! Please attach 'Homework.docx' before sending.");
         return;
       }
 
@@ -64,7 +64,7 @@ export default function Module5() {
         setReplyText("");
         setTimeout(nextTask, 500);
       } else {
-        alert("Remember to use both a professional greeting (e.g., 'Dear') and a professional sign-off (e.g., 'Best regards')!");
+        showAlert("Remember to use both a professional greeting (e.g., 'Dear') and a professional sign-off (e.g., 'Best regards')!");
       }
     }
   };
@@ -83,7 +83,7 @@ export default function Module5() {
   const handleRSVP = () => {
     if (taskIndex === 3) {
       logEvent("calendar_rsvp");
-      alert("RSVP Accepted! Event added to your calendar.");
+      showAlert("RSVP Accepted! Event added to your calendar.");
       setTimeout(nextTask, 500);
     }
   };
