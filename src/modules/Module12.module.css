@@ -311,8 +311,8 @@
 
 .certLogo {
   position: absolute;
-  top: 2rem;
-  left: 2rem;
+  top: 3rem;
+  left: 3rem;
   object-fit: contain;
 }
 
@@ -412,12 +412,14 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: 100vw;
-    height: 100vh;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
     max-width: none;
     border: 15px solid #1a73e8;
     box-shadow: none;
-    margin: 0;
+    margin: 1cm;
     padding: 3rem;
     box-sizing: border-box;
     display: flex;

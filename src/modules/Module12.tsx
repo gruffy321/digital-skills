@@ -85,7 +85,7 @@ export default function Module12() {
         <div className={styles.celebration}>
           <div className={styles.certificate}>
             <div className={styles.certHeader}>
-              <Image src="/logo.png" alt="ESW Logo" width={80} height={80} className={styles.certLogo} />
+              <Image src="/logo.png" alt="ESW Logo" width={200} height={150} className={styles.certLogo} />
               Certificate of Competence
             </div>
             <div className={styles.certBody}>
