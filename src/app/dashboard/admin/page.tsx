@@ -23,7 +23,6 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
 
   const users = await prisma.user.findMany({
     where: { 
-      role: "STUDENT",
       OR: search ? [
         { name: { contains: search } },
         { email: { contains: search } },
