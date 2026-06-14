@@ -276,7 +276,17 @@ export default function AdminDashboardClient({
 
     return (
       <div className={styles.gradingList}>
-        <h3 style={{ marginBottom: '1rem' }}>Module 12 Grading Queue</h3>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+          <h3 style={{ margin: 0 }}>Module 12 Grading Queue</h3>
+          <input 
+            type="text" 
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Filter by name, email, class code..." 
+            className={styles.input}
+            style={{ width: '250px', padding: '0.5rem', borderRadius: '4px', border: '1px solid #ccc', background: 'rgba(255,255,255,0.9)', color: '#333' }}
+          />
+        </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           {pendingTasks.map((pt, i) => (
             <div key={`${pt.student.id}-${pt.taskId}-${i}`} style={{ background: 'rgba(255,255,255,0.05)', padding: '1rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
